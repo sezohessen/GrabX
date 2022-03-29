@@ -241,7 +241,7 @@
               <a class="dropdown-item" href="./index.html">
                 <div class="d-flex align-items-center">
                   <div class="flex-shrink-0">
-                    <img class="avatar avatar-xs avatar-circle" src="./assets/img/160x160/img10.jpg" alt="Image Description">
+                    <img class="avatar avatar-xs avatar-circle" src="{{ asset('images/dashboard/160x160/img10.jpg') }}" alt="Image Description">
                   </div>
                   <div class="flex-grow-1 text-truncate ms-2">
                     <span>Amanda Harvey <i class="tio-verified text-primary" data-toggle="tooltip" data-placement="top" title="Top endorsed"></i></span>
@@ -252,7 +252,7 @@
               <a class="dropdown-item" href="./index.html">
                 <div class="d-flex align-items-center">
                   <div class="flex-shrink-0">
-                    <img class="avatar avatar-xs avatar-circle" src="./assets/img/160x160/img3.jpg" alt="Image Description">
+                    <img class="avatar avatar-xs avatar-circle" src="{{ asset('images/dashboard/160x160/img3.jpg') }}" alt="Image Description">
                   </div>
                   <div class="flex-grow-1 text-truncate ms-2">
                     <span>David Harrison</span>
@@ -363,7 +363,7 @@
                                   <label class="form-check-label" for="notificationCheck1"></label>
                                   <span class="form-check-stretched-bg"></span>
                                 </div>
-                                <img class="avatar avatar-sm avatar-circle" src="./assets/img/160x160/img3.jpg" alt="Image Description">
+                                <img class="avatar avatar-sm avatar-circle" src="{{ asset('imgaes/dashboard/160x160/img3.jpg') }}" alt="Image Description">
                               </div>
                             </div>
                             <!-- End Col -->
@@ -429,7 +429,7 @@
                                   <span class="form-check-stretched-bg"></span>
                                 </div>
                                 <div class="avatar avatar-sm avatar-circle">
-                                  <img class="avatar-img" src="./assets/img/160x160/img10.jpg" alt="Image Description">
+                                  <img class="avatar-img" src="{{ asset('imgaes/dashboard/160x160/img10.jpg') }}" alt="Image Description">
                                 </div>
                               </div>
                             </div>
@@ -461,7 +461,7 @@
                                   <span class="form-check-stretched-bg"></span>
                                 </div>
                                 <div class="avatar avatar-sm avatar-circle">
-                                  <img class="avatar-img" src="./assets/svg/brands/google-icon.svg" alt="Image Description">
+                                  <img class="avatar-img" src="{{ asset('images/dashboard/svg/brands/google-icon.svg') }}" alt="Image Description">
                                 </div>
                               </div>
                             </div>
@@ -493,7 +493,7 @@
                                   <span class="form-check-stretched-bg"></span>
                                 </div>
                                 <div class="avatar avatar-sm avatar-circle">
-                                  <img class="avatar-img" src="./assets/img/160x160/img7.jpg" alt="Image Description">
+                                  <img class="avatar-img" src="{{ asset('images/dashboard/160x160/img7.jpg') }}" alt="Image Description">
                                 </div>
                               </div>
                             </div>
@@ -563,7 +563,7 @@
                                   <span class="form-check-stretched-bg"></span>
                                 </div>
                                 <div class="avatar avatar-sm avatar-circle">
-                                  <img class="avatar-img" src="./assets/img/160x160/img5.jpg" alt="Image Description">
+                                  <img class="avatar-img" src="{{ asset('images/dashboard/160x160/img5.jpg') }}" alt="Image Description">
                                 </div>
                               </div>
                             </div>
@@ -627,7 +627,7 @@
                                   <span class="form-check-stretched-bg"></span>
                                 </div>
                                 <div class="avatar avatar-sm avatar-circle">
-                                  <img class="avatar-img" src="./assets/img/160x160/img8.jpg" alt="Image Description">
+                                  <img class="avatar-img" src="{{ asset('images/dashboard/160x160/img8.jpg') }}" alt="Image Description">
                                 </div>
                               </div>
                             </div>
@@ -716,7 +716,7 @@
                   <a class="dropdown-item" href="#">
                     <div class="d-flex align-items-center">
                       <div class="flex-shrink-0">
-                        <img class="avatar avatar-xs avatar-4x3" src="./assets/svg/brands/atlassian-icon.svg" alt="Image Description">
+                        <img class="avatar avatar-xs avatar-4x3" src="{{ asset('images/dashboard/svg/brands/atlassian-icon.svg') }}" alt="Image Description">
                       </div>
                       <div class="flex-grow-1 text-truncate ms-3">
                         <h5 class="mb-0">Atlassian</h5>
@@ -728,7 +728,7 @@
                   <a class="dropdown-item" href="#">
                     <div class="d-flex align-items-center">
                       <div class="flex-shrink-0">
-                        <img class="avatar avatar-xs avatar-4x3" src="./assets/svg/brands/slack-icon.svg" alt="Image Description">
+                        <img class="avatar avatar-xs avatar-4x3" src="{{ asset('images/dashboard/svg/brands/slack-icon.svg') }}" alt="Image Description">
                       </div>
                       <div class="flex-grow-1 text-truncate ms-3">
                         <h5 class="mb-0">Slack <span class="badge bg-primary rounded-pill text-uppercase ms-1">Try</span></h5>
@@ -812,7 +812,7 @@
             <div class="dropdown">
               <a class="navbar-dropdown-account-wrapper" href="javascript:;" id="accountNavbarDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" data-bs-dropdown-animation>
                 <div class="avatar avatar-sm avatar-circle">
-                  <img class="avatar-img" src="./assets/img/160x160/img6.jpg" alt="Image Description">
+                  <img class="avatar-img" src="{{ asset('images/dashboard/160x160/img6.jpg') }}" alt="Image Description">
                   <span class="avatar-status avatar-sm-status avatar-status-success"></span>
                 </div>
               </a>
@@ -3806,26 +3806,28 @@
   <!-- ========== END SECONDARY CONTENTS ========== -->
 
   <!-- JS Global Compulsory  -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   {{-- <script src="{{ asset('js/dashboard/vendor/jquery/dist/jquery.min.js') }}}}"></script> --}}
   <script src="{{ asset('js/dashboard/vendor/jquery-migrate/dist/jquery-migrate.min.js') }}"></script>
   <script src="{{ asset('js/dashboard/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
 
   <!-- JS Implementing Plugins -->
+  <script src="{{ asset('js/dashboard/vendor/hs-form-search/dist/hs-form-search.min.js') }}"></script>
   <script src="{{ asset('js/dashboard/vendor/hs-navbar-vertical-aside/dist/hs-navbar-vertical-aside.min.js') }}"></script>
-  <script src="{{ asset('js/dashboard/vendor/hs-form-search/dist/hs-form-search.min.js') }}}"></script>
 
   <script src="{{ asset('js/dashboard/vendor/chart.js/dist/Chart.min.js') }}"></script>
   <script src="{{ asset('js/dashboard/vendor/chartjs-chart-matrix/dist/chartjs-chart-matrix.min.js') }}"></script>
-  <script src="{{ asset('js/dasboard/vendor/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js') }}"></script>
+  <script src="{{ asset('js/dashboard/vendor/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js') }}"></script>
   <script src="{{ asset('js/dashboard/vendor/daterangepicker/moment.min.js') }}"></script>
   <script src="{{ asset('js/dashboard/vendor/daterangepicker/daterangepicker.js') }}"></script>
   <script src="{{ asset('js/dashboard/vendor/tom-select/dist/js/tom-select.complete.min.js') }}"></script>
   <script src="{{ asset('js/dashboard/vendor/clipboard/dist/clipboard.min.js')  }}"></script>
-  <script src="{{ asset('js/dashboard/vendor/datatables/media/js/jquery.dataTables.min.js') }}}"></script>
+  <script src="{{ asset('js/dashboard/vendor/datatables/media/js/jquery.dataTables.min.js') }}"></script>
   <script src="{{ asset('js/dashboard/vendor/datatables.net.extensions/select/select.min.js') }}"></script>
 
   <!-- JS Front -->
-  <script src="{{ asset('js/dasbhoard/theme.min.js') }}"></script>
+  <script src="{{ asset('js/dashboard/theme.min.js') }}"></script>
   <script src="{{ asset('js/dashboard/hs.theme-appearance-charts.js') }}"></script>
 
   <!-- JS Plugins Init. -->
@@ -3882,8 +3884,8 @@
       },
       language: {
         zeroRecords: `<div class="text-center p-4">
-              <img class="mb-3" src="./assets/svg/illustrations/oc-error.svg" alt="Image Description" style="width: 10rem;" data-hs-theme-appearance="default">
-              <img class="mb-3" src="./assets/svg/illustrations-light/oc-error.svg" alt="Image Description" style="width: 10rem;" data-hs-theme-appearance="dark">
+              <img class="mb-3" src="{{ asset('images/dashboard/svg/illustrations/oc-error.svg') }}" alt="Image Description" style="width: 10rem;" data-hs-theme-appearance="default">
+              <img class="mb-3" src="{{ asset('imgaes/dashboard/svg/illustrations-light/oc-error.svg') }}" alt="Image Description" style="width: 10rem;" data-hs-theme-appearance="dark">
             <p class="mb-0">No data to show</p>
             </div>`
       }
