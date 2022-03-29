@@ -9,6 +9,5 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
-.env
 vendor
 node_modules
