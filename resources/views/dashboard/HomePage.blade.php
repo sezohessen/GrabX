@@ -51,27 +51,21 @@
             <div id="navbarVerticalMenuPagesMenu">
               <!-- Collapse -->
               <div class="nav-item">
-                <a class="nav-link dropdown-toggle " href="#navbarVerticalMenuPagesEcommerceMenu" role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesEcommerceMenu" aria-expanded="false" aria-controls="navbarVerticalMenuPagesEcommerceMenu">
+                <a class="nav-link " href="#" role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesEcommerceMenu" aria-expanded="false" aria-controls="navbarVerticalMenuPagesEcommerceMenu">
                   <i class="bi-basket nav-icon"></i>
-                  <span class="nav-link-title">E-commerce</span>
+                  <span class="nav-link-title">Overview</span>
                 </a>
-
-                <div id="navbarVerticalMenuPagesEcommerceMenu" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuPagesMenu">
-                  <a class="nav-link " href="./ecommerce.html">Overview</a>
-
-                  <div id="navbarVerticalMenuPagesMenuEcommerce">
-                    <!-- Collapse -->
-                    <div class="nav-item">
-                      <a class="nav-link dropdown-toggle" href="#navbarVerticalMenuPagesEcommerceProductsMenu" role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesEcommerceProductsMenu" aria-expanded="false" aria-controls="navbarVerticalMenuPagesEcommerceProductsMenu">
-                        Products
-                      </a>
-
-                      <div id="navbarVerticalMenuPagesEcommerceProductsMenu" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuPagesMenuEcommerce">
-                        <a class="nav-link " href="./ecommerce-products.html">Products</a>
-                        <a class="nav-link " href="./ecommerce-product-details.html">Product Details</a>
-                        <a class="nav-link " href="./ecommerce-add-product.html">Add Product</a>
-                      </div>
-                    </div>
+                {{-- start dropdown --}}
+                <a class="nav-link dropdown-toggle " href="#navbarVerticalMenuPagesEcommerceProductsMenu" role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesEcommerceProductsMenu" aria-expanded="false" aria-controls="navbarVerticalMenuPagesEcommerceMenu">
+                    <i class="bi-basket nav-icon"></i>
+                    <span class="nav-link-title">Products</span>
+                </a>
+                <div id="navbarVerticalMenuPagesEcommerceProductsMenu" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuPagesEcommerceProductsMenu">
+                    <a class="nav-link " href="./ecommerce-products.html">Products</a>
+                    <a class="nav-link " href="./ecommerce-product-details.html">Product Details</a>
+                    <a class="nav-link " href="./ecommerce-add-product.html">Add Product</a>
+                </div>
+              </div>
                     <!-- End Collapse -->
 
                     <!-- Collapse -->
