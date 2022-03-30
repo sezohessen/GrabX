@@ -1,3 +1,7 @@
 {
-    "Products": "المنتجات"
+    "Products": "المنتجات",
+    "Name":"الاسم",
+    "Arabic name":"الاسم العربي",
+    "Description":"الوصف",
+    "Arabic description":"الوصف العربي"
 }
