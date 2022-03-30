@@ -58,7 +58,7 @@
                 {{-- start dropdown --}}
                 <a class="nav-link dropdown-toggle " href="#navbarVerticalMenuPagesEcommerceProductsMenu" role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesEcommerceProductsMenu" aria-expanded="false" aria-controls="navbarVerticalMenuPagesEcommerceMenu">
                     <i class="bi-basket nav-icon"></i>
-                    <span class="nav-link-title">Products</span>
+                    <span class="nav-link-title">@lang('Products')</span>
                 </a>
                 <div id="navbarVerticalMenuPagesEcommerceProductsMenu" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuPagesEcommerceProductsMenu">
                     <a class="nav-link " href="./ecommerce-products.html">Products</a>
@@ -187,31 +187,28 @@
                 </button>
 
                 <div class="dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="selectLanguageDropdown">
-                  <span class="dropdown-header">Select language</span>
-                  <a class="dropdown-item" href="#">
-                    <img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/us.svg" alt="Flag">
-                    <span class="text-truncate" title="English">English (US)</span>
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/gb.svg" alt="Flag">
-                    <span class="text-truncate" title="English">English (UK)</span>
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/de.svg" alt="Flag">
-                    <span class="text-truncate" title="Deutsch">Deutsch</span>
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/dk.svg" alt="Flag">
-                    <span class="text-truncate" title="Dansk">Dansk</span>
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/it.svg" alt="Flag">
-                    <span class="text-truncate" title="Italiano">Italiano</span>
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/cn.svg" alt="Flag">
-                    <span class="text-truncate" title="中文 (繁體)">中文 (繁體)</span>
-                  </a>
+                    <span class="dropdown-header">Select language</span>
+                    <ul class="py-4 navi navi-hover">
+                            {{-- Item --}}
+                            <li class="navi-item">
+                                <a href="{{url('/lang/en')}}" class="navi-link @if (App::isLocale('en'))  active  @endif">
+                                    <span class="mr-3 symbol symbol-20">
+                                        <img src="{{ asset('media/svg/flags/226-united-states.svg') }}" alt=""/>
+                                    </span>
+                                    <span class="navi-text">English</span>
+                                </a>
+                            </li>
+
+                            {{-- Item --}}
+                            <li class="navi-item">
+                                <a href="{{url('/lang/ar')}}" class="navi-link @if (App::isLocale('ar'))  active  @endif" href="{{url('/ar')}}">
+                                    <span class="mr-3 symbol symbol-20">
+                                        <img src="{{ asset('media/svg/flags/158-egypt.svg') }}" alt=""/>
+                                    </span>
+                                    <span class="navi-text">Arabic</span>
+                                </a>
+                            </li>
+                        </ul>
                 </div>
               </div>
 

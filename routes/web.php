@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\dashboard\dashboardController;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,14 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/lang/{locale}', function ($locale) {
+    if (in_array($locale, ['ar', 'en']) ) {
+        session()->put('app_locale', $locale);
+
+        return back();
+    }
+
+});
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [dashboardController::class,'index']);
 });
