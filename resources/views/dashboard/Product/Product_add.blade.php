@@ -43,19 +43,29 @@
 
               <!-- Body -->
               <div class="card-body">
-                <!-- Form -->
-                <div class="mb-4">
-                  <label for="productNameLabel" class="form-label">Name <i class="bi-question-circle text-body ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Products are the goods or services you sell."></i></label>
-
-                  <input type="text" class="form-control" name="productName" id="productNameLabel" placeholder="Shirt, t-shirts, etc." aria-label="Shirt, t-shirts, etc." value="Tiro track jacket">
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- Form -->
+                        <div class="mb-4">
+                            <label for="productNameLabel" class="form-label">{{ __('Name')  }} <i class="bi-question-circle text-body ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Products are the goods or services you sell."></i></label>
+                            <input type="text" class="form-control" name="productName" id="productNameLabel" placeholder="Shirt, t-shirts, etc." aria-label="Shirt, t-shirts, etc." value="Tiro track jacket">
+                        </div>
+                        <!-- End Form -->
+                    </div>
+                    <div class="col-md-6">
+                        <!-- Form -->
+                        <div class="mb-4">
+                            <label for="productNameLabel" class="form-label">{{ __('Arabic name') }}</label>
+                            <input type="text" class="form-control" name="productName" id="productNameLabel" placeholder="Shirt, t-shirts, etc." aria-label="Shirt, t-shirts, etc." value="Tiro track jacket">
+                        </div>
+                        <!-- End Form -->
+                    </div>
                 </div>
-                <!-- End Form -->
-
                 <div class="row">
                   <div class="col-sm-6">
                     <!-- Form -->
                     <div class="mb-4">
-                      <label for="SKULabel" class="form-label">SKU</label>
+                      <label for="SKULabel" class="form-label"> {{ __('Description') }} </label>
 
                       <input type="text" class="form-control" name="SKU" id="SKULabel" placeholder="eg. 348121032" aria-label="eg. 348121032">
                     </div>
@@ -66,7 +76,7 @@
                   <div class="col-sm-6">
                     <!-- Form -->
                     <div class="mb-4">
-                      <label for="weightLabel" class="form-label">Weight</label>
+                      <label for="weightLabel" class="form-label"> {{ __('Arabic description') }} </label>
 
                       <div class="input-group">
                         <input type="text" class="form-control" name="weightName" id="weightLabel" placeholder="0.0" aria-label="0.0">
