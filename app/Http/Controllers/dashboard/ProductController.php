@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreProductRequest;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -25,7 +27,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('dashboard.Product.Product_add');
+        $categories = Category::orderBy('id', 'DESC')->get();
+        return view('dashboard.Product.Product_add',compact('categories'));
     }
 
     /**
@@ -34,9 +37,13 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProductRequest $request)
     {
-        //
+        if($request->active != null) {$active = 1; } else {$active = 0;}   // Get active status
+        $imageID        = add_Image($request->image,NULL,Product::base);   // Store image
+        $credentials    = Product::credentials($request,$imageID,$active); // Store product
+        $product        = Product::create($credentials);
+        return view('dashboard.Product.Products');
     }
 
     /**

@@ -25,7 +25,8 @@
   <!-- CSS Front Template -->
   <link rel="preload" href="{{ asset('css/dashboard/theme.min.css') }}" data-hs-appearance="default" as="style">
   <link rel="preload" href="{{ asset('css/dashboard/theme-dark.min.css') }}" data-hs-appearance="dark" as="style">
-
+{{--select box  --}}
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
 
   {{-- If user is logged in show header --}}
     @auth
@@ -1152,6 +1153,9 @@
   <script src="{{ asset('js/dashboard/vendor/jquery-migrate/dist/jquery-migrate.min.js') }}"></script>
   <script src="{{ asset('js/dashboard/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
 
+  {{-- select box --}}
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+
   <!-- JS Implementing Plugins -->
   <script src="{{ asset('js/dashboard/vendor/hs-form-search/dist/hs-form-search.min.js') }}"></script>
   <script src="{{ asset('js/dashboard/vendor/hs-navbar-vertical-aside/dist/hs-navbar-vertical-aside.min.js') }}"></script>
@@ -1165,6 +1169,7 @@
   <script src="{{ asset('js/dashboard/vendor/clipboard/dist/clipboard.min.js')  }}"></script>
   <script src="{{ asset('js/dashboard/vendor/datatables/media/js/jquery.dataTables.min.js') }}"></script>
   <script src="{{ asset('js/dashboard/vendor/datatables.net.extensions/select/select.min.js') }}"></script>
+
 
   <!-- JS Front -->
   <script src="{{ asset('js/dashboard/theme.min.js') }}"></script>

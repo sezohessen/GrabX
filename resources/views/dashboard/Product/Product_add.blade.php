@@ -32,6 +32,9 @@
                 <h4 class="card-header-title"> {{ __('Product information') }} </h4>
               </div>
               <!-- End Header -->
+              {{-- Form --}}
+              <form  action="{{route("Product.store")}}" method="POST" enctype="multipart/form-data">
+                @csrf
               <!-- Body -->
               <div class="card-body">
                 <div class="row">
@@ -39,7 +42,10 @@
                         <!-- Form -->
                         <div class="mb-4">
                             <label for="productNameLabel" class="form-label">{{ __('Name')  }} <i class="bi-question-circle text-body ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Products are the goods or services you sell."></i></label>
-                            <input type="text" class="form-control" name="productName" id="productNameLabel" placeholder="{{ __('Product name') }}" aria-label="{{ __('Product name') }}" value="">
+                            <input type="text" class="form-control" name="name" id="productNameLabel" placeholder="{{ __('Product name') }}" aria-label="{{ __('Product name') }}" value="">
+                            @error('name')
+                                <div class="alert alert-danger mt-2">{{ $message }}</div>
+                            @enderror
                         </div>
                         <!-- End Form -->
                     </div>
@@ -47,7 +53,10 @@
                         <!-- Form -->
                         <div class="mb-4">
                             <label for="productNameLabel" class="form-label">{{ __('Arabic name') }}</label>
-                            <input type="text" class="form-control" name="productName" id="productNameLabel" placeholder="{{ __('Product name in arabic') }}" aria-label=" {{  __('Product name in arabic') }}" value="">
+                            <input type="text" class="form-control" name="name_ar" id="productNameLabel" placeholder="{{ __('Product name in arabic') }}" aria-label=" {{  __('Product name in arabic') }}" value="">
+                            @error('name_ar')
+                                <div class="alert alert-danger mt-2">{{ $message }}</div>
+                            @enderror
                         </div>
                         <!-- End Form -->
                     </div>
@@ -58,8 +67,11 @@
                     <div class="mb-4">
                       <label for="description" class="form-label"> {{ __('Description') }} </label>
                       <div class="form-floating">
-                        <textarea name="description" class="form-control" placeholder="{{ __('Description') }}" id="floatingTextarea2" style="height: 100px"></textarea>
-                        <label for="floatingTextarea2"> {{ __('Description') }} </label>
+                        <textarea name="desc" class="form-control" placeholder="{{ __('Description') }}" id="floatingTextarea2" style="height: 100px"></textarea>
+                        <label for="desc"> {{ __('Description') }} </label>
+                        @error('desc')
+                         <div class="alert alert-danger mt-2">{{ $message }}</div>
+                        @enderror
                       </div>
                     </div>
                     <!-- End Form -->
@@ -71,8 +83,11 @@
                     <div class="mb-4">
                        <label for="weightLabel" class="form-label"> {{ __('Arabic description') }} </label>
                         <div class="form-floating">
-                            <textarea name="arabic_description" class="form-control" placeholder="{{ __('Arabic description') }}" id="floatingTextarea2" style="height: 100px"></textarea>
-                            <label for="floatingTextarea2"> {{ __('Arabic description') }} </label>
+                            <textarea name="desc_ar" class="form-control" placeholder="{{ __('Arabic description') }}" id="floatingTextarea2" style="height: 100px"></textarea>
+                            <label for="desc_ar"> {{ __('Arabic description') }} </label>
+                            @error('desc_ar')
+                                <div class="alert alert-danger mt-2">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
                     <!-- End Form -->
@@ -109,12 +124,15 @@
                     <p class="mb-2"> {{ __('or') }} </p>
                     <div class="mb-3">
                         <label for="formFile" class="form-label"></label>
-                        <input class="form-control" type="file" id="formFile">
+                        <input name="image" class="form-control" type="file" id="formFile">
                     </div>
                   </div>
                 </div>
                 <!-- End Dropzone -->
               </div>
+              @error('image')
+                <div class="alert alert-danger mt-2">{{ $message }}</div>
+              @enderror
               <!-- Body -->
             </div>
             <!-- End Card -->
@@ -135,11 +153,12 @@
                 <!-- Form -->
                 <div class="mb-4">
                   <label for="priceNameLabel" class="form-label">{{ __('Price') }}</label>
-
                   <div class="input-group">
-                    <input type="text" class="form-control" name="priceName" id="priceNameLabel" placeholder="0.00" aria-label="0.00">
-
+                    <input type="text" class="form-control" name="price" id="priceNameLabel" placeholder="0.00" aria-label="0.00">
                   </div>
+                  @error('price')
+                   <div class="alert alert-danger mt-2">{{ $message }}</div>
+                  @enderror
                 </div>
                 <!-- End Form -->
 
@@ -153,7 +172,7 @@
                     <span class="text-dark">{{ __('Availability') }} <i class="bi-question-circle text-body ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Product availability switch toggler."></i></span>
                   </span>
                   <span class="col-4 col-sm-3 text-end">
-                    <input type="checkbox" class="form-check-input" id="availabilitySwitch1">
+                    <input name="active" type="checkbox" class="form-check-input" id="availabilitySwitch1">
                   </span>
                 </label>
                 <!-- End Form Switch -->
@@ -175,32 +194,35 @@
                 <!-- Form -->
                 <div class="mb-4">
                   <label for="ProductQty" class="form-label"> {{ __("Product quantity") }} </label>
-                  <input type="text" class="form-control" name="productQty" id="ProductQty" placeholder="{{ __("The amount of product you wanna add") }}" aria-label="eg.1 , 5">
+                  <input type="text" class="form-control" name="qty" id="ProductQty" placeholder="{{ __("The amount of product you wanna add") }}" aria-label="eg.1 , 5">
                 </div>
+                @error('qty')
+                     <div class="alert alert-danger mt-2">{{ $message }}</div>
+                @enderror
                 <!-- End Form -->
                 <!-- Form -->
                 <div class="mb-4">
                   <label for="ProductQty" class="form-label"> {{ __("Available quantity") }} </label>
-                  <input type="text" class="form-control" name="productQty" id="ProductQty" placeholder="{{ __("The amount of product you have") }}" aria-label="eg.1 , 5">
+                  <input type="text" class="form-control" name="availabe_qty" id="ProductQty" placeholder="{{ __("The amount of product you have") }}" aria-label="eg.1 , 5">
                 </div>
+                @error('availabe_qty')
+                    <div class="alert alert-danger mt-2">{{ $message }}</div>
+                @enderror
                 <!-- End Form -->
 
                 <!-- Form -->
                 <div class="mb-4">
                   <label for="categoryLabel" class="form-label"> {{ __('Category') }} </label>
                   <!-- Select -->
-                  <div class="tom-select-custom">
-                    <select class="js-select form-select" autocomplete="off" id="categoryLabel" data-hs-tom-select-options='{
-                              "searchInDropdown": true,
-                              "hideSearch": false,
-                              "placeholder": "Select category"
-                            }'>
-                      <option value="Clothing">Clothing</option>
-                      <option value="Shoes">Shoes</option>
-                      <option value="Electronics">Electronics</option>
-                      <option value="Others">Others</option>
+                    <select name="category_id" id="select-beast" placeholder="{{ __('Select category') }}" autocomplete="off">
+                        <option value=""> {{ __('Select category') }}</option>
+                        @foreach ($categories as $category )
+                            <option value="{{ $category->id }}"> {{ $category->name }} </option>
+                        @endforeach
                     </select>
-                  </div>
+                    @error('category_id')
+                        <div class="alert alert-danger mt-2">{{ $message }}</div>
+                    @enderror
                   <!-- End Select -->
                 </div>
               </div>
@@ -224,7 +246,7 @@
 
                 <div class="col-auto">
                   <div class="d-flex gap-3">
-                    <button type="button" class="btn btn-primary">{{ __('Save') }}</button>
+                    <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
                   </div>
                 </div>
                 <!-- End Col -->
@@ -232,6 +254,8 @@
               <!-- End Row -->
             </div>
           </div>
+          {{-- End form --}}
+        </form>
           <!-- End Card -->
         </div>
       </div>
