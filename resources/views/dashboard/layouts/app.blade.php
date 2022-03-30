@@ -23,9 +23,10 @@
   <link rel="stylesheet" href="{{ asset('css/dashboard/vendor/tom-select/dist/css/tom-select.bootstrap5.css') }}">
 
   <!-- CSS Front Template -->
-
   <link rel="preload" href="{{ asset('css/dashboard/theme.min.css') }}" data-hs-appearance="default" as="style">
   <link rel="preload" href="{{ asset('css/dashboard/theme-dark.min.css') }}" data-hs-appearance="dark" as="style">
+
+
   {{-- If user is logged in show header --}}
     @auth
     <!-- ========== HEADER ========== -->
@@ -1145,7 +1146,7 @@
   <!-- ========== END SECONDARY CONTENTS ========== -->
 
   <!-- JS Global Compulsory  -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   {{-- <script src="{{ asset('js/dashboard/vendor/jquery/dist/jquery.min.js') }}}}"></script> --}}
   <script src="{{ asset('js/dashboard/vendor/jquery-migrate/dist/jquery-migrate.min.js') }}"></script>
@@ -1168,7 +1169,7 @@
   <!-- JS Front -->
   <script src="{{ asset('js/dashboard/theme.min.js') }}"></script>
   <script src="{{ asset('js/dashboard/hs.theme-appearance-charts.js') }}"></script>
-
+  <script src="{{ asset('js/myjava.js') }}"></script>
   <!-- JS Plugins Init. -->
   <script>
     $(document).on('ready', function () {

@@ -5,7 +5,3 @@
  */
 
 require('./bootstrap');
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/dashboard

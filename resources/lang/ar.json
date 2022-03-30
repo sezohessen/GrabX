@@ -3,5 +3,25 @@
     "Name":"الاسم",
     "Arabic name":"الاسم العربي",
     "Description":"الوصف",
-    "Arabic description":"الوصف العربي"
+    "Arabic description":"الوصف العربي",
+    "Add product":"أضف منتج",
+    "Product information":"معلومات المنتج",
+    "Product name":"أسم المنتج",
+    "Product name in arabic":"اسم المنتج بالعربي",
+    "Extra information":"معلومات اضافية",
+    "Product quantity":"كمية المنتج",
+    "Category":"التصنيف",
+    "Available quantity":"الكمية المتوفرة",
+    "Pricing":"التسعير",
+    "Price":"السعر",
+    "Availability":"التوفر",
+    "KWD":"دينار كويتي",
+    "The amount of product you wanna add":"كمية المنتج  التي تريد إضافتها",
+    "The amount of product you have":"كمية المنتج التي لديك",
+    "Media":"الميديا",
+    "Drag and drop your file here":"قم بسحب وإسقاط ملفك هنا",
+    "or":"او",
+    "Discard":"تجاهل",
+    "Save":"حفظ"
+
 }
