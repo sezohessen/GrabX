@@ -13,9 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        App\Models\Tenant::all()->runForEach(function () {
-            App\Models\User::factory()->create();
-        });
+        $this->call(UserSeeder::class);
         $this->call(GovernorateSeeder::class);
         $this->call(ImageSeeder::class);
         $this->call(CategorySeeder::class);
