@@ -5611,17 +5611,17 @@
         },
         {
             "name": "stancl/jobpipeline",
-            "version": "v1.6.0",
-            "version_normalized": "1.6.0.0",
+            "version": "v1.6.1",
+            "version_normalized": "1.6.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/archtechx/jobpipeline.git",
-                "reference": "cd2c5c39ad32e2998240ff79675b6525374200d2"
+                "reference": "fe0fc363e672a8b101997af628ccf838710ed191"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/archtechx/jobpipeline/zipball/cd2c5c39ad32e2998240ff79675b6525374200d2",
-                "reference": "cd2c5c39ad32e2998240ff79675b6525374200d2",
+                "url": "https://api.github.com/repos/archtechx/jobpipeline/zipball/fe0fc363e672a8b101997af628ccf838710ed191",
+                "reference": "fe0fc363e672a8b101997af628ccf838710ed191",
                 "shasum": ""
             },
             "require": {
@@ -5632,7 +5632,7 @@
                 "orchestra/testbench": "^4.0|^6.0|^7.0",
                 "spatie/valuestore": "^1.2"
             },
-            "time": "2022-03-20T20:53:38+00:00",
+            "time": "2022-03-30T15:12:15+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -5653,7 +5653,7 @@
             "description": "Turn any series of jobs into Laravel listeners.",
             "support": {
                 "issues": "https://github.com/archtechx/jobpipeline/issues",
-                "source": "https://github.com/archtechx/jobpipeline/tree/v1.6.0"
+                "source": "https://github.com/archtechx/jobpipeline/tree/v1.6.1"
             },
             "install-path": "../stancl/jobpipeline"
         },

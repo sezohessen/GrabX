@@ -32,7 +32,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '779f384ec1750eb557b0b329e56e343dd24f5c0c',
+    'reference' => 'cd4eaee44c0f7e5217e3dbe4c39620ef7e177ac4',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -442,7 +442,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '779f384ec1750eb557b0b329e56e343dd24f5c0c',
+      'reference' => 'cd4eaee44c0f7e5217e3dbe4c39620ef7e177ac4',
     ),
     'laravel/sail' => 
     array (
@@ -1059,12 +1059,12 @@ private static $installed = array (
     ),
     'stancl/jobpipeline' => 
     array (
-      'pretty_version' => 'v1.6.0',
-      'version' => '1.6.0.0',
+      'pretty_version' => 'v1.6.1',
+      'version' => '1.6.1.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'cd2c5c39ad32e2998240ff79675b6525374200d2',
+      'reference' => 'fe0fc363e672a8b101997af628ccf838710ed191',
     ),
     'stancl/tenancy' => 
     array (
