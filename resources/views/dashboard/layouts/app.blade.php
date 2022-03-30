@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}"
+@if (App::isLocale('ar')) direction="rtl" dir="rtl" style="direction: rtl" @endif>
 <head>
   <!-- Required Meta Tags Always Come First -->
   <meta charset="utf-8">
@@ -15,16 +16,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- CSS Implementing Plugins -->
-  <link rel="stylesheet" href="{{ global_asset('/css/dashboard/vendor/bootstrap-icons/font/bootstrap-icons.css') }}">
+  <link rel="stylesheet" href="{{ asset('/css/dashboard/vendor/bootstrap-icons/font/bootstrap-icons.css') }}">
 
-  <link rel="stylesheet" href="{{ global_asset('css/dashboard/vendor/chart.js/dist/Chart.min.css') }}">
-  <link rel="stylesheet" href="{{ global_asset('css/dashboard/vendor/daterangepicker/daterangepicker.css') }}">
-  <link rel="stylesheet" href="{{ global_asset('css/dashboard/vendor/tom-select/dist/css/tom-select.bootstrap5.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/dashboard/vendor/chart.js/dist/Chart.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/dashboard/vendor/daterangepicker/daterangepicker.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/dashboard/vendor/tom-select/dist/css/tom-select.bootstrap5.css') }}">
 
   <!-- CSS Front Template -->
 
-  <link rel="preload" href="{{ global_asset('css/dashboard/theme.min.css') }}" data-hs-appearance="default" as="style">
-  <link rel="preload" href="{{ global_asset('css/dashboard/theme-dark.min.css') }}" data-hs-appearance="dark" as="style">
+  <link rel="preload" href="{{ asset('css/dashboard/theme.min.css') }}" data-hs-appearance="default" as="style">
+  <link rel="preload" href="{{ asset('css/dashboard/theme-dark.min.css') }}" data-hs-appearance="dark" as="style">
   {{-- If user is logged in show header --}}
     @auth
     <!-- ========== HEADER ========== -->
@@ -32,10 +33,10 @@
         <div class="navbar-nav-wrap">
           <!-- Logo -->
           <a class="navbar-brand" href="{{ url('/dashboard') }}" aria-label="Front">
-            <img class="navbar-brand-logo" src="{{ global_asset('images/dashboard/svg/logos/logo.svg') }}" alt="Logo" data-hs-theme-appearance="default">
-            <img class="navbar-brand-logo" src="{{ global_asset('images/dashboard/svg/logos-light/logo.svg') }}" alt="Logo" data-hs-theme-appearance="dark">
-            <img class="navbar-brand-logo-mini" src="{{ global_asset('images/dashboard/svg/logos/logo-short.svg') }}" alt="Logo" data-hs-theme-appearance="default">
-            <img class="navbar-brand-logo-mini" src="{{ global_asset('images/dashboard/svg/logos-light/logo-short.svg') }}" alt="Logo" data-hs-theme-appearance="dark">
+            <img class="navbar-brand-logo" src="{{ asset('images/dashboard/svg/logos/logo.svg') }}" alt="Logo" data-hs-theme-appearance="default">
+            <img class="navbar-brand-logo" src="{{ asset('images/dashboard/svg/logos-light/logo.svg') }}" alt="Logo" data-hs-theme-appearance="dark">
+            <img class="navbar-brand-logo-mini" src="{{ asset('images/dashboard/svg/logos/logo-short.svg') }}" alt="Logo" data-hs-theme-appearance="default">
+            <img class="navbar-brand-logo-mini" src="{{ asset('images/dashboard/svg/logos-light/logo-short.svg') }}" alt="Logo" data-hs-theme-appearance="dark">
           </a>
           <!-- End Logo -->
 
@@ -148,7 +149,7 @@
                   <a class="dropdown-item" href="./index.html">
                     <div class="d-flex align-items-center">
                       <div class="flex-shrink-0">
-                        <img class="avatar avatar-xs avatar-circle" src="{{ global_asset('images/dashboard/160x160/img10.jpg') }}" alt="Image Description">
+                        <img class="avatar avatar-xs avatar-circle" src="{{ asset('images/dashboard/160x160/img10.jpg') }}" alt="Image Description">
                       </div>
                       <div class="flex-grow-1 text-truncate ms-2">
                         <span>Amanda Harvey <i class="tio-verified text-primary" data-toggle="tooltip" data-placement="top" title="Top endorsed"></i></span>
@@ -159,7 +160,7 @@
                   <a class="dropdown-item" href="./index.html">
                     <div class="d-flex align-items-center">
                       <div class="flex-shrink-0">
-                        <img class="avatar avatar-xs avatar-circle" src="{{ global_asset('images/dashboard/160x160/img3.jpg') }}" alt="Image Description">
+                        <img class="avatar avatar-xs avatar-circle" src="{{ asset('images/dashboard/160x160/img3.jpg') }}" alt="Image Description">
                       </div>
                       <div class="flex-grow-1 text-truncate ms-2">
                         <span>David Harrison</span>
@@ -270,7 +271,7 @@
                                       <label class="form-check-label" for="notificationCheck1"></label>
                                       <span class="form-check-stretched-bg"></span>
                                     </div>
-                                    <img class="avatar avatar-sm avatar-circle" src="{{ global_asset('imgaes/dashboard/160x160/img3.jpg') }}" alt="Image Description">
+                                    <img class="avatar avatar-sm avatar-circle" src="{{ asset('imgaes/dashboard/160x160/img3.jpg') }}" alt="Image Description">
                                   </div>
                                 </div>
                                 <!-- End Col -->
@@ -336,7 +337,7 @@
                                       <span class="form-check-stretched-bg"></span>
                                     </div>
                                     <div class="avatar avatar-sm avatar-circle">
-                                      <img class="avatar-img" src="{{ global_asset('imgaes/dashboard/160x160/img10.jpg') }}" alt="Image Description">
+                                      <img class="avatar-img" src="{{ asset('imgaes/dashboard/160x160/img10.jpg') }}" alt="Image Description">
                                     </div>
                                   </div>
                                 </div>
@@ -368,7 +369,7 @@
                                       <span class="form-check-stretched-bg"></span>
                                     </div>
                                     <div class="avatar avatar-sm avatar-circle">
-                                      <img class="avatar-img" src="{{ global_asset('images/dashboard/svg/brands/google-icon.svg') }}" alt="Image Description">
+                                      <img class="avatar-img" src="{{ asset('images/dashboard/svg/brands/google-icon.svg') }}" alt="Image Description">
                                     </div>
                                   </div>
                                 </div>
@@ -400,7 +401,7 @@
                                       <span class="form-check-stretched-bg"></span>
                                     </div>
                                     <div class="avatar avatar-sm avatar-circle">
-                                      <img class="avatar-img" src="{{ global_asset('images/dashboard/160x160/img7.jpg') }}" alt="Image Description">
+                                      <img class="avatar-img" src="{{ asset('images/dashboard/160x160/img7.jpg') }}" alt="Image Description">
                                     </div>
                                   </div>
                                 </div>
@@ -470,7 +471,7 @@
                                       <span class="form-check-stretched-bg"></span>
                                     </div>
                                     <div class="avatar avatar-sm avatar-circle">
-                                      <img class="avatar-img" src="{{ global_asset('images/dashboard/160x160/img5.jpg') }}" alt="Image Description">
+                                      <img class="avatar-img" src="{{ asset('images/dashboard/160x160/img5.jpg') }}" alt="Image Description">
                                     </div>
                                   </div>
                                 </div>
@@ -534,7 +535,7 @@
                                       <span class="form-check-stretched-bg"></span>
                                     </div>
                                     <div class="avatar avatar-sm avatar-circle">
-                                      <img class="avatar-img" src="{{ global_asset('images/dashboard/160x160/img8.jpg') }}" alt="Image Description">
+                                      <img class="avatar-img" src="{{ asset('images/dashboard/160x160/img8.jpg') }}" alt="Image Description">
                                     </div>
                                   </div>
                                 </div>
@@ -623,7 +624,7 @@
                       <a class="dropdown-item" href="#">
                         <div class="d-flex align-items-center">
                           <div class="flex-shrink-0">
-                            <img class="avatar avatar-xs avatar-4x3" src="{{ global_asset('images/dashboard/svg/brands/atlassian-icon.svg') }}" alt="Image Description">
+                            <img class="avatar avatar-xs avatar-4x3" src="{{ asset('images/dashboard/svg/brands/atlassian-icon.svg') }}" alt="Image Description">
                           </div>
                           <div class="flex-grow-1 text-truncate ms-3">
                             <h5 class="mb-0">Atlassian</h5>
@@ -635,7 +636,7 @@
                       <a class="dropdown-item" href="#">
                         <div class="d-flex align-items-center">
                           <div class="flex-shrink-0">
-                            <img class="avatar avatar-xs avatar-4x3" src="{{ global_asset('images/dashboard/svg/brands/slack-icon.svg') }}" alt="Image Description">
+                            <img class="avatar avatar-xs avatar-4x3" src="{{ asset('images/dashboard/svg/brands/slack-icon.svg') }}" alt="Image Description">
                           </div>
                           <div class="flex-grow-1 text-truncate ms-3">
                             <h5 class="mb-0">Slack <span class="badge bg-primary rounded-pill text-uppercase ms-1">Try</span></h5>
@@ -719,7 +720,7 @@
                 <div class="dropdown">
                   <a class="navbar-dropdown-account-wrapper" href="javascript:;" id="accountNavbarDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" data-bs-dropdown-animation>
                     <div class="avatar avatar-sm avatar-circle">
-                      <img class="avatar-img" src="{{ global_asset('images/dashboard/160x160/img6.jpg') }}" alt="Image Description">
+                      <img class="avatar-img" src="{{ asset('images/dashboard/160x160/img6.jpg') }}" alt="Image Description">
                       <span class="avatar-status avatar-sm-status avatar-status-success"></span>
                     </div>
                   </a>
@@ -942,9 +943,9 @@
 
 <body class="has-navbar-vertical-aside navbar-vertical-aside-show-xl   footer-offset">
 
-  <script src="{{ global_asset('js/dashboard/hs.theme-appearance.js') }}"></script>
+  <script src="{{ asset('js/dashboard/hs.theme-appearance.js') }}"></script>
 
-  <script src="{{ global_asset('js/dashboard/vendor/hs-navbar-vertical-aside/dist/hs-navbar-vertical-aside-mini-cache.js') }}"></script>
+  <script src="{{ asset('js/dashboard/vendor/hs-navbar-vertical-aside/dist/hs-navbar-vertical-aside-mini-cache.js') }}"></script>
 
 
   <!-- ========== END SECONDARY CONTENTS ========== -->
@@ -952,27 +953,27 @@
   <!-- JS Global Compulsory  -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  {{-- <script src="{{ global_asset('js/dashboard/vendor/jquery/dist/jquery.min.js') }}}}"></script> --}}
-  <script src="{{ global_asset('js/dashboard/vendor/jquery-migrate/dist/jquery-migrate.min.js') }}"></script>
-  <script src="{{ global_asset('js/dashboard/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+  {{-- <script src="{{ asset('js/dashboard/vendor/jquery/dist/jquery.min.js') }}}}"></script> --}}
+  <script src="{{ asset('js/dashboard/vendor/jquery-migrate/dist/jquery-migrate.min.js') }}"></script>
+  <script src="{{ asset('js/dashboard/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
 
   <!-- JS Implementing Plugins -->
-  <script src="{{ global_asset('js/dashboard/vendor/hs-form-search/dist/hs-form-search.min.js') }}"></script>
-  <script src="{{ global_asset('js/dashboard/vendor/hs-navbar-vertical-aside/dist/hs-navbar-vertical-aside.min.js') }}"></script>
+  <script src="{{ asset('js/dashboard/vendor/hs-form-search/dist/hs-form-search.min.js') }}"></script>
+  <script src="{{ asset('js/dashboard/vendor/hs-navbar-vertical-aside/dist/hs-navbar-vertical-aside.min.js') }}"></script>
 
-  <script src="{{ global_asset('js/dashboard/vendor/chart.js/dist/Chart.min.js') }}"></script>
-  <script src="{{ global_asset('js/dashboard/vendor/chartjs-chart-matrix/dist/chartjs-chart-matrix.min.js') }}"></script>
-  <script src="{{ global_asset('js/dashboard/vendor/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js') }}"></script>
-  <script src="{{ global_asset('js/dashboard/vendor/daterangepicker/moment.min.js') }}"></script>
-  <script src="{{ global_asset('js/dashboard/vendor/daterangepicker/daterangepicker.js') }}"></script>
-  <script src="{{ global_asset('js/dashboard/vendor/tom-select/dist/js/tom-select.complete.min.js') }}"></script>
-  <script src="{{ global_asset('js/dashboard/vendor/clipboard/dist/clipboard.min.js')  }}"></script>
-  <script src="{{ global_asset('js/dashboard/vendor/datatables/media/js/jquery.dataTables.min.js') }}"></script>
-  <script src="{{ global_asset('js/dashboard/vendor/datatables.net.extensions/select/select.min.js') }}"></script>
+  <script src="{{ asset('js/dashboard/vendor/chart.js/dist/Chart.min.js') }}"></script>
+  <script src="{{ asset('js/dashboard/vendor/chartjs-chart-matrix/dist/chartjs-chart-matrix.min.js') }}"></script>
+  <script src="{{ asset('js/dashboard/vendor/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js') }}"></script>
+  <script src="{{ asset('js/dashboard/vendor/daterangepicker/moment.min.js') }}"></script>
+  <script src="{{ asset('js/dashboard/vendor/daterangepicker/daterangepicker.js') }}"></script>
+  <script src="{{ asset('js/dashboard/vendor/tom-select/dist/js/tom-select.complete.min.js') }}"></script>
+  <script src="{{ asset('js/dashboard/vendor/clipboard/dist/clipboard.min.js')  }}"></script>
+  <script src="{{ asset('js/dashboard/vendor/datatables/media/js/jquery.dataTables.min.js') }}"></script>
+  <script src="{{ asset('js/dashboard/vendor/datatables.net.extensions/select/select.min.js') }}"></script>
 
   <!-- JS Front -->
-  <script src="{{ global_asset('js/dashboard/theme.min.js') }}"></script>
-  <script src="{{ global_asset('js/dashboard/hs.theme-appearance-charts.js') }}"></script>
+  <script src="{{ asset('js/dashboard/theme.min.js') }}"></script>
+  <script src="{{ asset('js/dashboard/hs.theme-appearance-charts.js') }}"></script>
 
   <!-- JS Plugins Init. -->
   <script>
@@ -1028,8 +1029,8 @@
       },
       language: {
         zeroRecords: `<div class="text-center p-4">
-              <img class="mb-3" src="{{ global_asset('images/dashboard/svg/illustrations/oc-error.svg') }}" alt="Image Description" style="width: 10rem;" data-hs-theme-appearance="default">
-              <img class="mb-3" src="{{ global_asset('imgaes/dashboard/svg/illustrations-light/oc-error.svg') }}" alt="Image Description" style="width: 10rem;" data-hs-theme-appearance="dark">
+              <img class="mb-3" src="{{ asset('images/dashboard/svg/illustrations/oc-error.svg') }}" alt="Image Description" style="width: 10rem;" data-hs-theme-appearance="default">
+              <img class="mb-3" src="{{ asset('imgaes/dashboard/svg/illustrations-light/oc-error.svg') }}" alt="Image Description" style="width: 10rem;" data-hs-theme-appearance="dark">
             <p class="mb-0">No data to show</p>
             </div>`
       }

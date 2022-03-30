@@ -32,7 +32,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '779f384ec1750eb557b0b329e56e343dd24f5c0c',
+    'reference' => 'cd4eaee44c0f7e5217e3dbe4c39620ef7e177ac4',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -442,7 +442,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '779f384ec1750eb557b0b329e56e343dd24f5c0c',
+      'reference' => 'cd4eaee44c0f7e5217e3dbe4c39620ef7e177ac4',
     ),
     'laravel/sail' => 
     array (
@@ -1056,33 +1056,6 @@ private static $installed = array (
       array (
       ),
       'reference' => 'f3243fd99351e0a79df6886a5354d8dd88d6d0d2',
-    ),
-    'stancl/jobpipeline' => 
-    array (
-      'pretty_version' => 'v1.6.0',
-      'version' => '1.6.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'cd2c5c39ad32e2998240ff79675b6525374200d2',
-    ),
-    'stancl/tenancy' => 
-    array (
-      'pretty_version' => 'v3.5.3',
-      'version' => '3.5.3.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '49ebb75f007d649465fc3f847ddc76f6396b0337',
-    ),
-    'stancl/virtualcolumn' => 
-    array (
-      'pretty_version' => 'v1.2.1',
-      'version' => '1.2.1.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'dd3a77f17c9adc2078b0b7d36e5a798981049164',
     ),
     'symfony/console' => 
     array (
