@@ -1,0 +1,17 @@
+/* Dashboard */
+.navbar-vertical-footer-list-item .dropdown-menu .navi-hover .navi-item img{
+    width: 25px;
+    height: 25px;
+}
+.navbar-vertical-footer-list-item .dropdown-menu ul.navi-hover{
+    padding: 0;
+    list-style-type: none;
+}
+.navbar-vertical-footer-list-item .dropdown-menu ul.navi-hover li{
+    padding: 6px 15px;
+}
+.navbar-vertical-footer-list-item .btn-ghost-secondary img{
+    border-radius: 10px;
+    width: 42px;
+    height: 21px;
+}

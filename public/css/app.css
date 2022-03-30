@@ -1952,6 +1952,7 @@ progress {
     --bs-gutter-y: 3rem;
   }
 }
+
 .table {
   --bs-table-bg: transparent;
   --bs-table-accent-bg: transparent;

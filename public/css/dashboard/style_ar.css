@@ -1,0 +1,19 @@
+/* Dashboard */
+@media (min-width: 1200px){
+    .navbar-vertical-aside-show-xl .navbar-vertical-aside {
+        /* margin-left: 0; */
+        margin-right: 0;
+    }
+    .navbar-vertical-aside-show-xl .main{
+        padding-right: 16.25rem;
+        padding-left: 0!important;
+    }
+}
+.navbar-vertical-fixed{
+    right: 0;
+    left: auto;
+}
+
+.navbar-vertical-footer-list-item  .dropup .dropdown-menu[data-bs-popper]{
+    text-align: right;
+}

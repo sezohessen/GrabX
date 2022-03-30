@@ -12,12 +12,13 @@
       <div class="navbar-vertical-footer-offset">
         <!-- Logo -->
 
-        <a class="navbar-brand" href="./index.html" aria-label="Front">
+        {{-- <a class="navbar-brand" href="./index.html" aria-label="Front">
           <img class="navbar-brand-logo" src="./assets/svg/logos/logo.svg" alt="Logo" data-hs-theme-appearance="default">
           <img class="navbar-brand-logo" src="./assets/svg/logos-light/logo.svg" alt="Logo" data-hs-theme-appearance="dark">
           <img class="navbar-brand-logo-mini" src="./assets/svg/logos/logo-short.svg" alt="Logo" data-hs-theme-appearance="default">
           <img class="navbar-brand-logo-mini" src="./assets/svg/logos-light/logo-short.svg" alt="Logo" data-hs-theme-appearance="dark">
-        </a>
+        </a> --}}
+
 
         <!-- End Logo -->
 
@@ -143,59 +144,28 @@
               <!-- End Style Switcher -->
             </li>
 
-            <li class="navbar-vertical-footer-list-item">
-              <!-- Other Links -->
-              <div class="dropdown dropup">
-                <button type="button" class="btn btn-ghost-secondary btn-icon rounded-circle" id="otherLinksDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-dropdown-animation>
-                  <i class="bi-info-circle"></i>
-                </button>
-
-                <div class="dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="otherLinksDropdown">
-                  <span class="dropdown-header">Help</span>
-                  <a class="dropdown-item" href="#">
-                    <i class="bi-journals dropdown-item-icon"></i>
-                    <span class="text-truncate" title="Resources &amp; tutorials">Resources &amp; tutorials</span>
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <i class="bi-command dropdown-item-icon"></i>
-                    <span class="text-truncate" title="Keyboard shortcuts">Keyboard shortcuts</span>
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <i class="bi-alt dropdown-item-icon"></i>
-                    <span class="text-truncate" title="Connect other apps">Connect other apps</span>
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <i class="bi-gift dropdown-item-icon"></i>
-                    <span class="text-truncate" title="What's new?">What's new?</span>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <span class="dropdown-header">Contacts</span>
-                  <a class="dropdown-item" href="#">
-                    <i class="bi-chat-left-dots dropdown-item-icon"></i>
-                    <span class="text-truncate" title="Contact support">Contact support</span>
-                  </a>
-                </div>
-              </div>
-              <!-- End Other Links -->
-            </li>
 
             <li class="navbar-vertical-footer-list-item">
               <!-- Language -->
               <div class="dropdown dropup">
                 <button type="button" class="btn btn-ghost-secondary btn-icon rounded-circle" id="selectLanguageDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-dropdown-animation>
-                  <img class="avatar avatar-xss avatar-circle" src="./assets/vendor/flag-icon-css/flags/1x1/us.svg" alt="United States Flag">
+                    @if (App::isLocale('ar'))
+                        <img src="{{ asset('img/flag/KW.svg') }}" alt="Arabic"/>
+                    @else
+                        <img src="{{ asset('img/flag/UK.svg') }}" alt="English"/>
+                    @endif
                 </button>
 
                 <div class="dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="selectLanguageDropdown">
-                    <span class="dropdown-header">Select language</span>
-                    <ul class="py-4 navi navi-hover">
+                    <span class="dropdown-header">@lang('Select language')</span>
+                    <ul class="navi navi-hover">
                             {{-- Item --}}
                             <li class="navi-item">
                                 <a href="{{url('/lang/en')}}" class="navi-link @if (App::isLocale('en'))  active  @endif">
                                     <span class="mr-3 symbol symbol-20">
-                                        <img src="{{ asset('media/svg/flags/226-united-states.svg') }}" alt=""/>
+                                        <img src="{{ asset('img/flag/UK.svg') }}" alt="English"/>
                                     </span>
-                                    <span class="navi-text">English</span>
+                                    <span class="navi-text">@lang('English')</span>
                                 </a>
                             </li>
 
@@ -203,9 +173,9 @@
                             <li class="navi-item">
                                 <a href="{{url('/lang/ar')}}" class="navi-link @if (App::isLocale('ar'))  active  @endif" href="{{url('/ar')}}">
                                     <span class="mr-3 symbol symbol-20">
-                                        <img src="{{ asset('media/svg/flags/158-egypt.svg') }}" alt=""/>
+                                        <img src="{{ asset('img/flag/KW.svg') }}" alt="Arabic"/>
                                     </span>
-                                    <span class="navi-text">Arabic</span>
+                                    <span class="navi-text">@lang('Arabic')</span>
                                 </a>
                             </li>
                         </ul>
