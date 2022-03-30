@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}"
+@if (App::isLocale('ar')) direction="rtl" dir="rtl" style="direction: rtl" @endif>
 <head>
   <!-- Required Meta Tags Always Come First -->
   <meta charset="utf-8">
