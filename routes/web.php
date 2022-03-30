@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\dashboard\ProductController;
 use App\Http\Controllers\dashboard\dashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,9 +14,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// Route::middleware(['auth'])->group(function () {
+Auth::routes();
+Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [dashboardController::class,'index']);
-// });
+
+    // Products
+    Route::resource('Product', ProductController::class);
+});
 
 
 

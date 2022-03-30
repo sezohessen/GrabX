@@ -15,16 +15,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- CSS Implementing Plugins -->
-  <link rel="stylesheet" href="{{ global_asset('/css/dashboard/vendor/bootstrap-icons/font/bootstrap-icons.css') }}">
+  <link rel="stylesheet" href="{{ asset('/css/dashboard/vendor/bootstrap-icons/font/bootstrap-icons.css') }}">
 
-  <link rel="stylesheet" href="{{ global_asset('css/dashboard/vendor/chart.js/dist/Chart.min.css') }}">
-  <link rel="stylesheet" href="{{ global_asset('css/dashboard/vendor/daterangepicker/daterangepicker.css') }}">
-  <link rel="stylesheet" href="{{ global_asset('css/dashboard/vendor/tom-select/dist/css/tom-select.bootstrap5.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/dashboard/vendor/chart.js/dist/Chart.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/dashboard/vendor/daterangepicker/daterangepicker.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/dashboard/vendor/tom-select/dist/css/tom-select.bootstrap5.css') }}">
 
   <!-- CSS Front Template -->
 
-  <link rel="preload" href="{{ global_asset('css/dashboard/theme.min.css') }}" data-hs-appearance="default" as="style">
-  <link rel="preload" href="{{ global_asset('css/dashboard/theme-dark.min.css') }}" data-hs-appearance="dark" as="style">
+  <link rel="preload" href="{{ asset('css/dashboard/theme.min.css') }}" data-hs-appearance="default" as="style">
+  <link rel="preload" href="{{ asset('css/dashboard/theme-dark.min.css') }}" data-hs-appearance="dark" as="style">
   {{-- If user is logged in show header --}}
     @auth
     <!-- ========== HEADER ========== -->
@@ -32,10 +32,10 @@
         <div class="navbar-nav-wrap">
           <!-- Logo -->
           <a class="navbar-brand" href="{{ url('/dashboard') }}" aria-label="Front">
-            <img class="navbar-brand-logo" src="{{ global_asset('images/dashboard/svg/logos/logo.svg') }}" alt="Logo" data-hs-theme-appearance="default">
-            <img class="navbar-brand-logo" src="{{ global_asset('images/dashboard/svg/logos-light/logo.svg') }}" alt="Logo" data-hs-theme-appearance="dark">
-            <img class="navbar-brand-logo-mini" src="{{ global_asset('images/dashboard/svg/logos/logo-short.svg') }}" alt="Logo" data-hs-theme-appearance="default">
-            <img class="navbar-brand-logo-mini" src="{{ global_asset('images/dashboard/svg/logos-light/logo-short.svg') }}" alt="Logo" data-hs-theme-appearance="dark">
+            <img class="navbar-brand-logo" src="{{ asset('images/dashboard/svg/logos/logo.svg') }}" alt="Logo" data-hs-theme-appearance="default">
+            <img class="navbar-brand-logo" src="{{ asset('images/dashboard/svg/logos-light/logo.svg') }}" alt="Logo" data-hs-theme-appearance="dark">
+            <img class="navbar-brand-logo-mini" src="{{ asset('images/dashboard/svg/logos/logo-short.svg') }}" alt="Logo" data-hs-theme-appearance="default">
+            <img class="navbar-brand-logo-mini" src="{{ asset('images/dashboard/svg/logos-light/logo-short.svg') }}" alt="Logo" data-hs-theme-appearance="dark">
           </a>
           <!-- End Logo -->
 
@@ -148,7 +148,7 @@
                   <a class="dropdown-item" href="./index.html">
                     <div class="d-flex align-items-center">
                       <div class="flex-shrink-0">
-                        <img class="avatar avatar-xs avatar-circle" src="{{ global_asset('images/dashboard/160x160/img10.jpg') }}" alt="Image Description">
+                        <img class="avatar avatar-xs avatar-circle" src="{{ asset('images/dashboard/160x160/img10.jpg') }}" alt="Image Description">
                       </div>
                       <div class="flex-grow-1 text-truncate ms-2">
                         <span>Amanda Harvey <i class="tio-verified text-primary" data-toggle="tooltip" data-placement="top" title="Top endorsed"></i></span>
@@ -159,7 +159,7 @@
                   <a class="dropdown-item" href="./index.html">
                     <div class="d-flex align-items-center">
                       <div class="flex-shrink-0">
-                        <img class="avatar avatar-xs avatar-circle" src="{{ global_asset('images/dashboard/160x160/img3.jpg') }}" alt="Image Description">
+                        <img class="avatar avatar-xs avatar-circle" src="{{ asset('images/dashboard/160x160/img3.jpg') }}" alt="Image Description">
                       </div>
                       <div class="flex-grow-1 text-truncate ms-2">
                         <span>David Harrison</span>
@@ -270,7 +270,7 @@
                                       <label class="form-check-label" for="notificationCheck1"></label>
                                       <span class="form-check-stretched-bg"></span>
                                     </div>
-                                    <img class="avatar avatar-sm avatar-circle" src="{{ global_asset('imgaes/dashboard/160x160/img3.jpg') }}" alt="Image Description">
+                                    <img class="avatar avatar-sm avatar-circle" src="{{ asset('imgaes/dashboard/160x160/img3.jpg') }}" alt="Image Description">
                                   </div>
                                 </div>
                                 <!-- End Col -->
@@ -336,7 +336,7 @@
                                       <span class="form-check-stretched-bg"></span>
                                     </div>
                                     <div class="avatar avatar-sm avatar-circle">
-                                      <img class="avatar-img" src="{{ global_asset('imgaes/dashboard/160x160/img10.jpg') }}" alt="Image Description">
+                                      <img class="avatar-img" src="{{ asset('imgaes/dashboard/160x160/img10.jpg') }}" alt="Image Description">
                                     </div>
                                   </div>
                                 </div>
@@ -368,7 +368,7 @@
                                       <span class="form-check-stretched-bg"></span>
                                     </div>
                                     <div class="avatar avatar-sm avatar-circle">
-                                      <img class="avatar-img" src="{{ global_asset('images/dashboard/svg/brands/google-icon.svg') }}" alt="Image Description">
+                                      <img class="avatar-img" src="{{ asset('images/dashboard/svg/brands/google-icon.svg') }}" alt="Image Description">
                                     </div>
                                   </div>
                                 </div>
@@ -400,7 +400,7 @@
                                       <span class="form-check-stretched-bg"></span>
                                     </div>
                                     <div class="avatar avatar-sm avatar-circle">
-                                      <img class="avatar-img" src="{{ global_asset('images/dashboard/160x160/img7.jpg') }}" alt="Image Description">
+                                      <img class="avatar-img" src="{{ asset('images/dashboard/160x160/img7.jpg') }}" alt="Image Description">
                                     </div>
                                   </div>
                                 </div>
@@ -470,7 +470,7 @@
                                       <span class="form-check-stretched-bg"></span>
                                     </div>
                                     <div class="avatar avatar-sm avatar-circle">
-                                      <img class="avatar-img" src="{{ global_asset('images/dashboard/160x160/img5.jpg') }}" alt="Image Description">
+                                      <img class="avatar-img" src="{{ asset('images/dashboard/160x160/img5.jpg') }}" alt="Image Description">
                                     </div>
                                   </div>
                                 </div>
@@ -534,7 +534,7 @@
                                       <span class="form-check-stretched-bg"></span>
                                     </div>
                                     <div class="avatar avatar-sm avatar-circle">
-                                      <img class="avatar-img" src="{{ global_asset('images/dashboard/160x160/img8.jpg') }}" alt="Image Description">
+                                      <img class="avatar-img" src="{{ asset('images/dashboard/160x160/img8.jpg') }}" alt="Image Description">
                                     </div>
                                   </div>
                                 </div>
@@ -623,7 +623,7 @@
                       <a class="dropdown-item" href="#">
                         <div class="d-flex align-items-center">
                           <div class="flex-shrink-0">
-                            <img class="avatar avatar-xs avatar-4x3" src="{{ global_asset('images/dashboard/svg/brands/atlassian-icon.svg') }}" alt="Image Description">
+                            <img class="avatar avatar-xs avatar-4x3" src="{{ asset('images/dashboard/svg/brands/atlassian-icon.svg') }}" alt="Image Description">
                           </div>
                           <div class="flex-grow-1 text-truncate ms-3">
                             <h5 class="mb-0">Atlassian</h5>
@@ -635,7 +635,7 @@
                       <a class="dropdown-item" href="#">
                         <div class="d-flex align-items-center">
                           <div class="flex-shrink-0">
-                            <img class="avatar avatar-xs avatar-4x3" src="{{ global_asset('images/dashboard/svg/brands/slack-icon.svg') }}" alt="Image Description">
+                            <img class="avatar avatar-xs avatar-4x3" src="{{ asset('images/dashboard/svg/brands/slack-icon.svg') }}" alt="Image Description">
                           </div>
                           <div class="flex-grow-1 text-truncate ms-3">
                             <h5 class="mb-0">Slack <span class="badge bg-primary rounded-pill text-uppercase ms-1">Try</span></h5>
@@ -647,7 +647,7 @@
                       <a class="dropdown-item" href="#">
                         <div class="d-flex align-items-center">
                           <div class="flex-shrink-0">
-                            <img class="avatar avatar-xs avatar-4x3" src="./global_assets/svg/brands/google-webdev-icon.svg" alt="Image Description">
+                            <img class="avatar avatar-xs avatar-4x3" src="./assets/svg/brands/google-webdev-icon.svg" alt="Image Description">
                           </div>
                           <div class="flex-grow-1 text-truncate ms-3">
                             <h5 class="mb-0">Google webdev</h5>
@@ -659,7 +659,7 @@
                       <a class="dropdown-item" href="#">
                         <div class="d-flex align-items-center">
                           <div class="flex-shrink-0">
-                            <img class="avatar avatar-xs avatar-4x3" src="./global_assets/svg/brands/frontapp-icon.svg" alt="Image Description">
+                            <img class="avatar avatar-xs avatar-4x3" src="./assets/svg/brands/frontapp-icon.svg" alt="Image Description">
                           </div>
                           <div class="flex-grow-1 text-truncate ms-3">
                             <h5 class="mb-0">Frontapp</h5>
@@ -671,7 +671,7 @@
                       <a class="dropdown-item" href="#">
                         <div class="d-flex align-items-center">
                           <div class="flex-shrink-0">
-                            <img class="avatar avatar-xs avatar-4x3" src="./global_assets/svg/illustrations/review-rating-shield.svg" alt="Image Description">
+                            <img class="avatar avatar-xs avatar-4x3" src="./assets/svg/illustrations/review-rating-shield.svg" alt="Image Description">
                           </div>
                           <div class="flex-grow-1 text-truncate ms-3">
                             <h5 class="mb-0">HS Support</h5>
@@ -719,7 +719,7 @@
                 <div class="dropdown">
                   <a class="navbar-dropdown-account-wrapper" href="javascript:;" id="accountNavbarDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" data-bs-dropdown-animation>
                     <div class="avatar avatar-sm avatar-circle">
-                      <img class="avatar-img" src="{{ global_asset('images/dashboard/160x160/img6.jpg') }}" alt="Image Description">
+                      <img class="avatar-img" src="{{ asset('images/dashboard/160x160/img6.jpg') }}" alt="Image Description">
                       <span class="avatar-status avatar-sm-status avatar-status-success"></span>
                     </div>
                   </a>
@@ -728,7 +728,7 @@
                     <div class="dropdown-item-text">
                       <div class="d-flex align-items-center">
                         <div class="avatar avatar-sm avatar-circle">
-                          <img class="avatar-img" src="./global_assets/img/160x160/img6.jpg" alt="Image Description">
+                          <img class="avatar-img" src="./assets/img/160x160/img6.jpg" alt="Image Description">
                         </div>
                         <div class="flex-grow-1 ms-3">
                           <h5 class="mb-0">Mark Williams</h5>
@@ -825,38 +825,236 @@
           </div>
         </div>
       </header>
+      {{-- Aside --}}
+      <aside class="js-navbar-vertical-aside navbar navbar-vertical-aside navbar-vertical navbar-vertical-fixed navbar-expand-xl navbar-bordered bg-white  ">
+        <div class="navbar-vertical-container">
+          <div class="navbar-vertical-footer-offset">
+            <!-- Logo -->
+
+            <a class="navbar-brand" href="./index.html" aria-label="Front">
+              <img class="navbar-brand-logo" src="./assets/svg/logos/logo.svg" alt="Logo" data-hs-theme-appearance="default">
+              <img class="navbar-brand-logo" src="./assets/svg/logos-light/logo.svg" alt="Logo" data-hs-theme-appearance="dark">
+              <img class="navbar-brand-logo-mini" src="./assets/svg/logos/logo-short.svg" alt="Logo" data-hs-theme-appearance="default">
+              <img class="navbar-brand-logo-mini" src="./assets/svg/logos-light/logo-short.svg" alt="Logo" data-hs-theme-appearance="dark">
+            </a>
+
+            <!-- End Logo -->
+
+            <!-- Navbar Vertical Toggle -->
+            <button type="button" class="js-navbar-vertical-aside-toggle-invoker navbar-aside-toggler">
+              <i class="bi-arrow-bar-left navbar-toggler-short-align" data-bs-template='<div class="tooltip d-none d-md-block" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>' data-bs-toggle="tooltip" data-bs-placement="right" title="Collapse"></i>
+              <i class="bi-arrow-bar-right navbar-toggler-full-align" data-bs-template='<div class="tooltip d-none d-md-block" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>' data-bs-toggle="tooltip" data-bs-placement="right" title="Expand"></i>
+            </button>
+
+            <!-- End Navbar Vertical Toggle -->
+
+            <!-- Content -->
+            <div class="navbar-vertical-content">
+              <div id="navbarVerticalMenu" class="nav nav-pills nav-vertical card-navbar-nav">
+                <!-- Collapse -->
+                <div class="nav-item">
+                  <a class="nav-link" href="#navbarVerticalMenuDashboards" role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuDashboards" aria-expanded="true" aria-controls="navbarVerticalMenuDashboards">
+                    <i class="bi-house-door nav-icon"></i>
+                    <span class="nav-link-title">Dashboards</span>
+                  </a>
+                </div>
+                <!-- End Collapse -->
+
+                <span class="dropdown-header mt-4">Pages</span>
+                <small class="bi-three-dots nav-subtitle-replacer"></small>
+
+                <!-- Collapse -->
+                <div class="navbar-nav nav-compact">
+
+                </div>
+                <div id="navbarVerticalMenuPagesMenu">
+                  <!-- Collapse -->
+                  <div class="nav-item">
+                    <a class="nav-link " href="{{ url('dashboard') }}" role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesEcommerceMenu" aria-expanded="false" aria-controls="navbarVerticalMenuPagesEcommerceMenu">
+                        <i class="bi-house-door-fill nav-icon"></i>
+                      <span class="nav-link-title"> Overview</span>
+                    </a>
+                    {{-- start dropdown --}}
+                    <a class="nav-link dropdown-toggle " href="#navbarVerticalMenuPagesEcommerceProductsMenu" role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesEcommerceProductsMenu" aria-expanded="false" aria-controls="navbarVerticalMenuPagesEcommerceMenu">
+                        <i class="bi-basket nav-icon"></i>
+                        <span class="nav-link-title">Products</span>
+                    </a>
+                    <div id="navbarVerticalMenuPagesEcommerceProductsMenu" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuPagesEcommerceProductsMenu">
+                        <a class="nav-link " href="{{ route('Product.index') }}">Products</a>
+                        <a class="nav-link " href="{{ url('Product.show/{id}') }}">Product Details</a>
+                        <a class="nav-link " href="{{ route('Product.create') }}">Add Product</a>
+                    </div>
+                  </div>
+                        <!-- End Collapse -->
+
+                        <!-- Collapse -->
+                        <div class="nav-item">
+                          <a class="nav-link dropdown-toggle" href="#navbarVerticalMenuPagesEcommerceOrdersMenu" role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesEcommerceOrdersMenu" aria-expanded="false" aria-controls="navbarVerticalMenuPagesEcommerceOrdersMenu">
+                            <i class="bi-bag-heart nav-icon"></i>
+                            <span class="nav-link-title">Orders</span>
+                          </a>
+
+                          <div id="navbarVerticalMenuPagesEcommerceOrdersMenu" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuPagesMenuEcommerce">
+                            <a class="nav-link " href="./ecommerce-orders.html">Orders</a>
+                            <a class="nav-link " href="./ecommerce-order-details.html">Order Details</a>
+                          </div>
+                        </div>
+                        <!-- End Collapse -->
+
+                        <!-- Collapse -->
+                        <div class="nav-item">
+                          <a class="nav-link dropdown-toggle" href="#navbarVerticalMenuPagesEcommerceCustomersMenu" role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesEcommerceCustomersMenu" aria-expanded="false" aria-controls="navbarVerticalMenuPagesEcommerceCustomersMenu">
+                            <i class="bi-people-fill nav-icon"></i>
+                            <span class="nav-link-title">Customers</span>
+                          </a>
+
+                          <div id="navbarVerticalMenuPagesEcommerceCustomersMenu" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuPagesMenuEcommerce">
+                            <a class="nav-link " href="./ecommerce-customers.html">Customers</a>
+                            <a class="nav-link " href="./ecommerce-customer-details.html">Customer Details</a>
+                            <a class="nav-link " href="./ecommerce-add-customers.html">Add Customers</a>
+                          </div>
+                        </div>
+                        <!-- End Collapse -->
+                      </div>
+
+                      {{-- <a class="nav-link " href="./ecommerce-referrals.html">Referrals</a> --}}
+
+                    </div>
+                  </div>
+                  <!-- End Collapse -->
+
+
+                {{-- <span class="dropdown-header mt-4">Apps</span>
+                <small class="bi-three-dots nav-subtitle-replacer"></small>
+
+                <span class="dropdown-header mt-4">Layouts</span>
+                <small class="bi-three-dots nav-subtitle-replacer"></small> --}}
+              </div>
+
+            </div>
+            <!-- End Content -->
+
+            <!-- Footer -->
+            <div class="navbar-vertical-footer">
+              <ul class="navbar-vertical-footer-list">
+                <li class="navbar-vertical-footer-list-item">
+                  <!-- Style Switcher -->
+                  <div class="dropdown dropup">
+                    <button type="button" class="btn btn-ghost-secondary btn-icon rounded-circle" id="selectThemeDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-dropdown-animation>
+
+                    </button>
+
+                    <div class="dropdown-menu navbar-dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="selectThemeDropdown">
+                      <a class="dropdown-item" href="#" data-icon="bi-moon-stars" data-value="auto">
+                        <i class="bi-moon-stars me-2"></i>
+                        <span class="text-truncate" title="Auto (system default)">Auto (system default)</span>
+                      </a>
+                      <a class="dropdown-item" href="#" data-icon="bi-brightness-high" data-value="default">
+                        <i class="bi-brightness-high me-2"></i>
+                        <span class="text-truncate" title="Default (light mode)">Default (light mode)</span>
+                      </a>
+                      <a class="dropdown-item active" href="#" data-icon="bi-moon" data-value="dark">
+                        <i class="bi-moon me-2"></i>
+                        <span class="text-truncate" title="Dark">Dark</span>
+                      </a>
+                    </div>
+                  </div>
+
+                  <!-- End Style Switcher -->
+                </li>
+
+                <li class="navbar-vertical-footer-list-item">
+                  <!-- Other Links -->
+                  <div class="dropdown dropup">
+                    <button type="button" class="btn btn-ghost-secondary btn-icon rounded-circle" id="otherLinksDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-dropdown-animation>
+                      <i class="bi-info-circle"></i>
+                    </button>
+
+                    <div class="dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="otherLinksDropdown">
+                      <span class="dropdown-header">Help</span>
+                      <a class="dropdown-item" href="#">
+                        <i class="bi-journals dropdown-item-icon"></i>
+                        <span class="text-truncate" title="Resources &amp; tutorials">Resources &amp; tutorials</span>
+                      </a>
+                      <a class="dropdown-item" href="#">
+                        <i class="bi-command dropdown-item-icon"></i>
+                        <span class="text-truncate" title="Keyboard shortcuts">Keyboard shortcuts</span>
+                      </a>
+                      <a class="dropdown-item" href="#">
+                        <i class="bi-alt dropdown-item-icon"></i>
+                        <span class="text-truncate" title="Connect other apps">Connect other apps</span>
+                      </a>
+                      <a class="dropdown-item" href="#">
+                        <i class="bi-gift dropdown-item-icon"></i>
+                        <span class="text-truncate" title="What's new?">What's new?</span>
+                      </a>
+                      <div class="dropdown-divider"></div>
+                      <span class="dropdown-header">Contacts</span>
+                      <a class="dropdown-item" href="#">
+                        <i class="bi-chat-left-dots dropdown-item-icon"></i>
+                        <span class="text-truncate" title="Contact support">Contact support</span>
+                      </a>
+                    </div>
+                  </div>
+                  <!-- End Other Links -->
+                </li>
+
+                <li class="navbar-vertical-footer-list-item">
+                  <!-- Language -->
+                  <div class="dropdown dropup">
+                    <button type="button" class="btn btn-ghost-secondary btn-icon rounded-circle" id="selectLanguageDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-dropdown-animation>
+                      <img class="avatar avatar-xss avatar-circle" src="./assets/vendor/flag-icon-css/flags/1x1/us.svg" alt="United States Flag">
+                    </button>
+
+                    <div class="dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="selectLanguageDropdown">
+                      <span class="dropdown-header">Select language</span>
+                      <a class="dropdown-item" href="#">
+                        <img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/us.svg" alt="Flag">
+                        <span class="text-truncate" title="English">English (US)</span>
+                      </a>
+                      <a class="dropdown-item" href="#">
+                        <img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/gb.svg" alt="Flag">
+                        <span class="text-truncate" title="English">English (UK)</span>
+                      </a>
+                      <a class="dropdown-item" href="#">
+                        <img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/de.svg" alt="Flag">
+                        <span class="text-truncate" title="Deutsch">Deutsch</span>
+                      </a>
+                      <a class="dropdown-item" href="#">
+                        <img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/dk.svg" alt="Flag">
+                        <span class="text-truncate" title="Dansk">Dansk</span>
+                      </a>
+                      <a class="dropdown-item" href="#">
+                        <img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/it.svg" alt="Flag">
+                        <span class="text-truncate" title="Italiano">Italiano</span>
+                      </a>
+                      <a class="dropdown-item" href="#">
+                        <img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/cn.svg" alt="Flag">
+                        <span class="text-truncate" title="中文 (繁體)">中文 (繁體)</span>
+                      </a>
+                    </div>
+                  </div>
+
+                  <!-- End Language -->
+                </li>
+              </ul>
+            </div>
+            <!-- End Footer -->
+          </div>
+        </div>
+      </aside>
+      {{-- End Aside --}}
       @endauth
 
       {{-- Content --}}
-      <div>
+      <main id="content" role="main" class="main">
         @yield('content')
-      </div>
-
+      </main>
         <!-- Footer -->
-        <div class="modal-footer">
-        <div class="row align-items-center flex-grow-1 mx-n2">
-            <div class="col-sm-9 mb-2 mb-sm-0">
-            <input type="hidden" id="inviteUserPublicClipboard" value="https://themes.getbootstrap.com/product/front-multipurpose-responsive-template/">
 
-            <p class="modal-footer-text">The public share <a href="#">link settings</a>
-                <i class="bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="The public share link allows people to view the project without giving access to full collaboration features."></i>
-            </p>
-            </div>
-
-            <div class="col-sm-3 text-sm-end">
-            <a class="js-clipboard btn btn-white btn-sm text-nowrap" href="javascript:;" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy to clipboard!" data-hs-clipboard-options='{
-                "type": "tooltip",
-                "successText": "Copied!",
-                "contentTarget": "#inviteUserPublicClipboard",
-                "container": "#inviteUserModal"
-                }'>
-                <i class="bi-link-45deg me-1"></i> Copy link</a>
-            </div>
-        </div>
-        </div>
         <!-- End Footer -->
   <script>
-  window.hs_config = {"autopath":"@@autopath","deleteLine":"hs-builder:delete","deleteLine:build":"hs-builder:build-delete","deleteLine:dist":"hs-builder:dist-delete","previewMode":false,"startPath":"/index.html","vars":{"themeFont":"https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap","version":"?v=1.0"},"layoutBuilder":{"extend":{"switcherSupport":true},"header":{"layoutMode":"default","containerMode":"container-fluid"},"sidebarLayout":"default"},"themeAppearance":{"layoutSkin":"default","sidebarSkin":"default","styles":{"colors":{"primary":"#377dff","transparent":"transparent","white":"#fff","dark":"132144","gray":{"100":"#f9fafc","900":"#1e2022"}},"font":"Inter"}},"languageDirection":{"lang":"en"},"skipFilesFromBundle":{"dist":["global_assets/js/hs.theme-appearance.js","global_assets/js/hs.theme-appearance-charts.js","global_assets/js/demo.js"],"build":["global_assets/css/theme.css","global_assets/vendor/hs-navbar-vertical-aside/dist/hs-navbar-vertical-aside-mini-cache.js","global_assets/js/demo.js","global_assets/css/theme-dark.css","global_assets/css/docs.css","global_assets/vendor/icon-set/style.css","global_assets/js/hs.theme-appearance.js","global_assets/js/hs.theme-appearance-charts.js","node_modules/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js","global_assets/js/demo.js"]},"minifyCSSFiles":["global_assets/css/theme.css","global_assets/css/theme-dark.css"],"copyDependencies":{"dist":{"*global_assets/js/theme-custom.js":""},"build":{"*global_assets/js/theme-custom.js":"","node_modules/bootstrap-icons/font/*fonts/**":"global_assets/css"}},"buildFolder":"","replacePathsToCDN":{},"directoryNames":{"src":"./src","dist":"./dist","build":"./build"},"fileNames":{"dist":{"js":"theme.min.js","css":"theme.min.css"},"build":{"css":"theme.min.css","js":"theme.min.js","vendorCSS":"vendor.min.css","vendorJS":"vendor.min.js"}},"fileTypes":"jpg|png|svg|mp4|webm|ogv|json"}
+  window.hs_config = {"autopath":"@@autopath","deleteLine":"hs-builder:delete","deleteLine:build":"hs-builder:build-delete","deleteLine:dist":"hs-builder:dist-delete","previewMode":false,"startPath":"/index.html","vars":{"themeFont":"https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap","version":"?v=1.0"},"layoutBuilder":{"extend":{"switcherSupport":true},"header":{"layoutMode":"default","containerMode":"container-fluid"},"sidebarLayout":"default"},"themeAppearance":{"layoutSkin":"default","sidebarSkin":"default","styles":{"colors":{"primary":"#377dff","transparent":"transparent","white":"#fff","dark":"132144","gray":{"100":"#f9fafc","900":"#1e2022"}},"font":"Inter"}},"languageDirection":{"lang":"en"},"skipFilesFromBundle":{"dist":["assets/js/hs.theme-appearance.js","assets/js/hs.theme-appearance-charts.js","assets/js/demo.js"],"build":["assets/css/theme.css","assets/vendor/hs-navbar-vertical-aside/dist/hs-navbar-vertical-aside-mini-cache.js","assets/js/demo.js","assets/css/theme-dark.css","assets/css/docs.css","assets/vendor/icon-set/style.css","assets/js/hs.theme-appearance.js","assets/js/hs.theme-appearance-charts.js","node_modules/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js","assets/js/demo.js"]},"minifyCSSFiles":["assets/css/theme.css","assets/css/theme-dark.css"],"copyDependencies":{"dist":{"*assets/js/theme-custom.js":""},"build":{"*assets/js/theme-custom.js":"","node_modules/bootstrap-icons/font/*fonts/**":"assets/css"}},"buildFolder":"","replacePathsToCDN":{},"directoryNames":{"src":"./src","dist":"./dist","build":"./build"},"fileNames":{"dist":{"js":"theme.min.js","css":"theme.min.css"},"build":{"css":"theme.min.css","js":"theme.min.js","vendorCSS":"vendor.min.css","vendorJS":"vendor.min.js"}},"fileTypes":"jpg|png|svg|mp4|webm|ogv|json"}
   window.hs_config.gulpRGBA = (p1) => {
   const options = p1.split(',')
   const hex = options[0].toString()
@@ -942,9 +1140,9 @@
 
 <body class="has-navbar-vertical-aside navbar-vertical-aside-show-xl   footer-offset">
 
-  <script src="{{ global_asset('js/dashboard/hs.theme-appearance.js') }}"></script>
+  <script src="{{ asset('js/dashboard/hs.theme-appearance.js') }}"></script>
 
-  <script src="{{ global_asset('js/dashboard/vendor/hs-navbar-vertical-aside/dist/hs-navbar-vertical-aside-mini-cache.js') }}"></script>
+  <script src="{{ asset('js/dashboard/vendor/hs-navbar-vertical-aside/dist/hs-navbar-vertical-aside-mini-cache.js') }}"></script>
 
 
   <!-- ========== END SECONDARY CONTENTS ========== -->
@@ -952,27 +1150,27 @@
   <!-- JS Global Compulsory  -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  {{-- <script src="{{ global_asset('js/dashboard/vendor/jquery/dist/jquery.min.js') }}}}"></script> --}}
-  <script src="{{ global_asset('js/dashboard/vendor/jquery-migrate/dist/jquery-migrate.min.js') }}"></script>
-  <script src="{{ global_asset('js/dashboard/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+  {{-- <script src="{{ asset('js/dashboard/vendor/jquery/dist/jquery.min.js') }}}}"></script> --}}
+  <script src="{{ asset('js/dashboard/vendor/jquery-migrate/dist/jquery-migrate.min.js') }}"></script>
+  <script src="{{ asset('js/dashboard/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
 
   <!-- JS Implementing Plugins -->
-  <script src="{{ global_asset('js/dashboard/vendor/hs-form-search/dist/hs-form-search.min.js') }}"></script>
-  <script src="{{ global_asset('js/dashboard/vendor/hs-navbar-vertical-aside/dist/hs-navbar-vertical-aside.min.js') }}"></script>
+  <script src="{{ asset('js/dashboard/vendor/hs-form-search/dist/hs-form-search.min.js') }}"></script>
+  <script src="{{ asset('js/dashboard/vendor/hs-navbar-vertical-aside/dist/hs-navbar-vertical-aside.min.js') }}"></script>
 
-  <script src="{{ global_asset('js/dashboard/vendor/chart.js/dist/Chart.min.js') }}"></script>
-  <script src="{{ global_asset('js/dashboard/vendor/chartjs-chart-matrix/dist/chartjs-chart-matrix.min.js') }}"></script>
-  <script src="{{ global_asset('js/dashboard/vendor/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js') }}"></script>
-  <script src="{{ global_asset('js/dashboard/vendor/daterangepicker/moment.min.js') }}"></script>
-  <script src="{{ global_asset('js/dashboard/vendor/daterangepicker/daterangepicker.js') }}"></script>
-  <script src="{{ global_asset('js/dashboard/vendor/tom-select/dist/js/tom-select.complete.min.js') }}"></script>
-  <script src="{{ global_asset('js/dashboard/vendor/clipboard/dist/clipboard.min.js')  }}"></script>
-  <script src="{{ global_asset('js/dashboard/vendor/datatables/media/js/jquery.dataTables.min.js') }}"></script>
-  <script src="{{ global_asset('js/dashboard/vendor/datatables.net.extensions/select/select.min.js') }}"></script>
+  <script src="{{ asset('js/dashboard/vendor/chart.js/dist/Chart.min.js') }}"></script>
+  <script src="{{ asset('js/dashboard/vendor/chartjs-chart-matrix/dist/chartjs-chart-matrix.min.js') }}"></script>
+  <script src="{{ asset('js/dashboard/vendor/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js') }}"></script>
+  <script src="{{ asset('js/dashboard/vendor/daterangepicker/moment.min.js') }}"></script>
+  <script src="{{ asset('js/dashboard/vendor/daterangepicker/daterangepicker.js') }}"></script>
+  <script src="{{ asset('js/dashboard/vendor/tom-select/dist/js/tom-select.complete.min.js') }}"></script>
+  <script src="{{ asset('js/dashboard/vendor/clipboard/dist/clipboard.min.js')  }}"></script>
+  <script src="{{ asset('js/dashboard/vendor/datatables/media/js/jquery.dataTables.min.js') }}"></script>
+  <script src="{{ asset('js/dashboard/vendor/datatables.net.extensions/select/select.min.js') }}"></script>
 
   <!-- JS Front -->
-  <script src="{{ global_asset('js/dashboard/theme.min.js') }}"></script>
-  <script src="{{ global_asset('js/dashboard/hs.theme-appearance-charts.js') }}"></script>
+  <script src="{{ asset('js/dashboard/theme.min.js') }}"></script>
+  <script src="{{ asset('js/dashboard/hs.theme-appearance-charts.js') }}"></script>
 
   <!-- JS Plugins Init. -->
   <script>
@@ -1028,8 +1226,8 @@
       },
       language: {
         zeroRecords: `<div class="text-center p-4">
-              <img class="mb-3" src="{{ global_asset('images/dashboard/svg/illustrations/oc-error.svg') }}" alt="Image Description" style="width: 10rem;" data-hs-theme-appearance="default">
-              <img class="mb-3" src="{{ global_asset('imgaes/dashboard/svg/illustrations-light/oc-error.svg') }}" alt="Image Description" style="width: 10rem;" data-hs-theme-appearance="dark">
+              <img class="mb-3" src="{{ asset('images/dashboard/svg/illustrations/oc-error.svg') }}" alt="Image Description" style="width: 10rem;" data-hs-theme-appearance="default">
+              <img class="mb-3" src="{{ asset('imgaes/dashboard/svg/illustrations-light/oc-error.svg') }}" alt="Image Description" style="width: 10rem;" data-hs-theme-appearance="dark">
             <p class="mb-0">No data to show</p>
             </div>`
       }
