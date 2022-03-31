@@ -1,5 +1,6 @@
 {
     "Products": "المنتجات",
+    "Product":"المنتج",
     "Name":"الاسم",
     "Arabic name":"الاسم العربي",
     "Description":"الوصف",
@@ -23,5 +24,12 @@
     "or":"او",
     "Discard":"تجاهل",
     "Save":"حفظ",
-    "Select category":"اختر التصنيف"
+    "Select category":"اختر التصنيف",
+    "Options":"خيارات",
+    "Quantity":"الكمية",
+    "Edit":"تعديل",
+    "Delete":"حذف",
+    "Search products":"البحث عن المنتجات"
+
+
 }

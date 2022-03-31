@@ -27,6 +27,9 @@
   <link rel="preload" href="{{ asset('css/dashboard/theme-dark.min.css') }}" data-hs-appearance="dark" as="style">
 {{--select box  --}}
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+   {{-- Livewire --}}
+   @livewireStyles
+
 
   {{-- If user is logged in show header --}}
     @auth
@@ -1143,7 +1146,6 @@
 
   <script src="{{ asset('js/dashboard/vendor/hs-navbar-vertical-aside/dist/hs-navbar-vertical-aside-mini-cache.js') }}"></script>
 
-
   <!-- ========== END SECONDARY CONTENTS ========== -->
 
   <!-- JS Global Compulsory  -->
@@ -1175,6 +1177,9 @@
   <script src="{{ asset('js/dashboard/theme.min.js') }}"></script>
   <script src="{{ asset('js/dashboard/hs.theme-appearance-charts.js') }}"></script>
   <script src="{{ asset('js/myjava.js') }}"></script>
+
+
+
   <!-- JS Plugins Init. -->
   <script>
     $(document).on('ready', function () {
@@ -1433,5 +1438,6 @@
     </script>
 
   <!-- End Style Switcher JS -->
+  @livewireScripts
 </body>
 </html>
