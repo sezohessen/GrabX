@@ -36,9 +36,16 @@ Route::group([
             return back();
         }
     });
-    Auth::Routes();
     Route::get('/dashboard', [dashboardController::class,'index'])->name('dashboard');
     Route::resource('Product', ProductController::class);
+});
+Route::group([
+    'as' => 'tenant.',
+    'middleware' => [
+        'web',
+    ]
+],function(){
+    Auth::Routes();
 });
 
 
