@@ -42,7 +42,13 @@ return [
             'prefix' => '',
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
+/*         'tenant' => [
+            'driver' => 'mysql',
+            'host' => env('DB_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', '3306'),
 
+            // ...
+        ], */
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
