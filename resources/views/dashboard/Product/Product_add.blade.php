@@ -9,7 +9,7 @@
             <div class="col-sm mb-2 mb-sm-0">
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-no-gutter">
-                  <li class="breadcrumb-item"><a class="breadcrumb-link" href="{{ route('Product.index') }}"> {{ __('Products') }} </a></li>
+                  <li class="breadcrumb-item"><a class="breadcrumb-link" href="{{ route('tenant.Product.index') }}"> {{ __('Products') }} </a></li>
                   <li class="breadcrumb-item active" aria-current="page">{{ __('Add product') }}</li>
                 </ol>
               </nav>
@@ -33,7 +33,7 @@
               </div>
               <!-- End Header -->
               {{-- Form --}}
-              <form  action="{{route("Product.store")}}" method="POST" enctype="multipart/form-data">
+              <form  action="{{route("tenant.Product.store")}}" method="POST" enctype="multipart/form-data">
                 @csrf
               <!-- Body -->
               <div class="card-body">
@@ -225,7 +225,7 @@
             <div class="card-body">
               <div class="row justify-content-center justify-content-sm-between">
                 <div class="col">
-                    <button type="button" onclick="window.location='{{ route("Product.index") }}'" class="btn btn-ghost-light">{{ __('Discard') }}</button>
+                    <button type="button" onclick="window.location='{{ route('tenant.Product.index') }}'" class="btn btn-ghost-light">{{ __('Discard') }}</button>
                 </div>
                 <!-- End Col -->
 

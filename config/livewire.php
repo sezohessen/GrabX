@@ -81,7 +81,9 @@ return [
     |
     */
 
-    'middleware_group' => 'web',
+    'middleware_group' => ['web',
+    'universal',
+    InitializeTenancyByDomain::class],
 
     /*
     |--------------------------------------------------------------------------

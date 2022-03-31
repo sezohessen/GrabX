@@ -1,5 +1,6 @@
 <div>
     <!-- Content -->
+    
     <div class="content container-fluid">
      <!-- Page Header -->
      <div class="page-header">
@@ -93,7 +94,7 @@
                <td>{{  $product->qty }}</td>
                <td>
                  <div class="btn-group" role="group">
-                   <a class="btn btn-white btn-sm" href="{{ route('Product.edit',['Product'=>$product->id]) }}">
+                   <a class="btn btn-white btn-sm" href="{{ route('tenant.Product.edit',['Product'=>$product->id]) }}">
                      <i class="bi-pencil-fill me-1"></i> {{ __('Edit') }}
                    </a>
 
