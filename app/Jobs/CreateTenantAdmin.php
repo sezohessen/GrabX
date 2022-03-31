@@ -35,7 +35,7 @@ class CreateTenantAdmin implements ShouldQueue
     public function handle()
     {
         $this->tenant->run(function ($tenant){
-            $tenant->password   = bcrypt($tenant->password);
+            /* $tenant->password   = bcrypt($tenant->password); */
             User::create($tenant->only('name','email','password'));
             /* $seed   = new DatabaseSeeder();
             $seed->run(); */

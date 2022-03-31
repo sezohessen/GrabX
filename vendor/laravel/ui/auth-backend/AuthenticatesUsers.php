@@ -6,6 +6,7 @@ use App\Models\Category;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 
 trait AuthenticatesUsers
@@ -19,7 +20,6 @@ trait AuthenticatesUsers
      */
     public function showLoginForm()
     {
-
         return view('dashboard.auth.login');
     }
 

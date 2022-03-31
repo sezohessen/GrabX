@@ -3,7 +3,7 @@
 @section('content')
   <!-- ========== MAIN CONTENT ========== -->
     <!-- Content -->
-
+{{-- {{ dd($errors) }} --}}
     <div class="container-fluid px-3">
         <div class="row">
           <div class="col-lg-6 d-none d-lg-flex justify-content-center align-items-center min-vh-lg-100 position-relative bg-light px-0">
