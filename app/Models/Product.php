@@ -25,7 +25,7 @@ class Product extends Model
         'category_id'
     ];
 
-    public static function credentials($request,$Img,$active)
+    public static function credentials($request,$Img,$active = 1)
     {
         $credentials = [
             'name'              => $request->name,
@@ -46,4 +46,10 @@ class Product extends Model
     {
         return $this->BelongsTo(Image::class,'image_id');
     }
+
+    public function category(): BelongsTo
+    {
+        return $this->BelongsTo(Category::class,'category_id');
+    }
+
 }

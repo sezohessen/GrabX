@@ -39,9 +39,8 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        if($request->active != null) {$active = 1; } else {$active = 0;}   // Get active status
         $imageID        = add_Image($request->image,NULL,Product::base);   // Store image
-        $credentials    = Product::credentials($request,$imageID,$active); // Store product
+        $credentials    = Product::credentials($request,$imageID); // Store product
         $product        = Product::create($credentials);
         return view('dashboard.Product.Products');
     }
@@ -78,7 +77,23 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $Product)
     {
-        //
+        // Check if a new image has been added or it's the old one
+        if($request->image == null)
+        {
+            $imageID        = $Product->image_id;
+        } else {
+            $imageID        = add_Image($request->image,NULL,Product::base);
+        }
+        // Active Or not
+        if($request->active == null)
+        {
+            $active = 0;
+        } else {
+            $active = 1;
+        }
+        $credentials    = Product::credentials($request,$imageID,$active); // Store product
+        $Product->update($credentials);
+        return redirect()->route('Product.index');
     }
 
     /**

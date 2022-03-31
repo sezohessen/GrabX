@@ -25,8 +25,10 @@
   <!-- CSS Front Template -->
   <link rel="preload" href="{{ asset('css/dashboard/theme.min.css') }}" data-hs-appearance="default" as="style">
   <link rel="preload" href="{{ asset('css/dashboard/theme-dark.min.css') }}" data-hs-appearance="dark" as="style">
-{{--select box  --}}
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+  {{--select box  --}}
+  <link rel="stylesheet" href="{{ asset('css/dashboard/vendor/daterangepicker/daterangepicker.css') }}">
+    {{-- MY CSS --}}
+  <link rel="stylesheet" href="{{ asset('css/mycss.css') }}">
    {{-- Livewire --}}
    @livewireStyles
 
@@ -886,9 +888,8 @@
                         <span class="nav-link-title">Products</span>
                     </a>
                     <div id="navbarVerticalMenuPagesEcommerceProductsMenu" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuPagesEcommerceProductsMenu">
-                        <a class="nav-link " href="{{ route('Product.index') }}">Products</a>
-                        <a class="nav-link " href="#">Product Details</a>
-                        <a class="nav-link " href="{{ route('Product.create') }}">Add Product</a>
+                        <a class="nav-link " href="{{ route('Product.index') }}">{{ __('Products') }}</a>
+                        <a class="nav-link " href="{{ route('Product.create') }}">{{ __('Add Product') }}</a>
                     </div>
                   </div>
                         <!-- End Collapse -->
@@ -897,12 +898,12 @@
                         <div class="nav-item">
                           <a class="nav-link dropdown-toggle" href="#navbarVerticalMenuPagesEcommerceOrdersMenu" role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesEcommerceOrdersMenu" aria-expanded="false" aria-controls="navbarVerticalMenuPagesEcommerceOrdersMenu">
                             <i class="bi-bag-heart nav-icon"></i>
-                            <span class="nav-link-title">Orders</span>
+                            <span class="nav-link-title">{{ __('Orders') }}</span>
                           </a>
 
                           <div id="navbarVerticalMenuPagesEcommerceOrdersMenu" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuPagesMenuEcommerce">
-                            <a class="nav-link " href="./ecommerce-orders.html">Orders</a>
-                            <a class="nav-link " href="./ecommerce-order-details.html">Order Details</a>
+                            <a class="nav-link " href="./ecommerce-orders.html">{{ __('Orders') }}</a>
+                            <a class="nav-link " href="./ecommerce-order-details.html">{{ __('Order Details') }}</a>
                           </div>
                         </div>
                         <!-- End Collapse -->

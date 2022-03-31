@@ -202,7 +202,7 @@
                     <select required name="category_id" id="select-beast" placeholder="{{ __('Select category') }}" autocomplete="off">
                         <option value=""> {{ __('Select category') }}</option>
                         @foreach ($categories as $category )
-                            <option value="{{ $category->id }}"> {{ $category->name }} </option>
+                            <option value="{{ $category->id }}"> {{ LangDetail($category->name, $category->name_ar) }} </option>
                         @endforeach
                     </select>
                     @error('category_id')
@@ -225,7 +225,7 @@
             <div class="card-body">
               <div class="row justify-content-center justify-content-sm-between">
                 <div class="col">
-                    <button type="button" class="btn btn-ghost-light">{{ __('Discard') }}</button>
+                    <button type="button" onclick="window.location='{{ route("Product.index") }}'" class="btn btn-ghost-light">{{ __('Discard') }}</button>
                 </div>
                 <!-- End Col -->
 

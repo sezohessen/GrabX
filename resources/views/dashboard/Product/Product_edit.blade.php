@@ -34,6 +34,7 @@
               <!-- End Header -->
               {{-- Form --}}
               <form  action="{{route("Product.update",['Product'=>$Product->id])}}" method="POST" enctype="multipart/form-data">
+                @method('PATCH')
                 @csrf
               <!-- Body -->
               <div class="card-body">
@@ -172,7 +173,7 @@
                     <span class="text-dark">{{ __('Availability') }} <i class="bi-question-circle text-body ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Product availability switch toggler."></i></span>
                   </span>
                   <span class="col-4 col-sm-3 text-end">
-                    <input name="active" type="checkbox" class="form-check-input" id="availabilitySwitch1">
+                    <input {{ ($Product->active == 1) ? 'checked' : '' }} name="active" type="checkbox" class="form-check-input" id="availabilitySwitch1">
                   </span>
                 </label>
                 <!-- End Form Switch -->
@@ -215,9 +216,9 @@
                   <label for="categoryLabel" class="form-label"> {{ __('Category') }} </label>
                   <!-- Select -->
                     <select name="category_id" id="select-beast" placeholder="{{ __('Select category') }}" autocomplete="off">
-                        <option value="{{ $Product->category_id }}"> {{ __('Select category') }}</option>
+                        <option value="{{ $Product->category_id }}"> {{ LangDetail($Product->category->name, $Product->category->name_ar) }} </option>
                         @foreach ($categories as $category )
-                            <option value="{{ $category->id }}"> {{ $category->name }} </option>
+                            <option value="{{ $category->id }}">{{ LangDetail($category->name, $category->name_ar) }} </option>
                         @endforeach
                     </select>
                     @error('category_id')
@@ -240,7 +241,7 @@
             <div class="card-body">
               <div class="row justify-content-center justify-content-sm-between">
                 <div class="col">
-                    <button type="button" class="btn btn-ghost-light">{{ __('Discard') }}</button>
+                    <button type="button" onclick="window.location='{{ route("Product.index") }}'" class="btn btn-ghost-light">{{ __('Discard') }}</button>
                 </div>
                 <!-- End Col -->
 

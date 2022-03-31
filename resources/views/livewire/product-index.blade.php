@@ -84,7 +84,7 @@
                </td>
                <td>
                  <div class="form-check form-switch">
-                   <input class="form-check-input" type="checkbox" id="stocksCheckbox1" checked>
+                   <input wire:click="changeActive({{ $product->id }})" class="form-check-input" type="checkbox" id="stocksCheckbox1" {{ ($product->active == 1) ? 'checked' : '' }} >
                    <label class="form-check-label" for="stocksCheckbox1"></label>
                  </div>
                </td>
