@@ -20,14 +20,14 @@ class CategorySeeder extends Seeder
         $faker      = Faker::create();
         $image      = Image::where('base', Product::base)->get();
         $faker_ar   = Faker::create('ar_SA');
-        for ($i = 0; $i < 20; $i++) {
+        for ($i = 0; $i < 15; $i++) {
             $id     = DB::table('categories')->insertGetId([
                 'name'              => $faker->name,
                 'name_ar'           => $faker_ar->country,
                 'created_at'        => now(),
                 'updated_at'        => now(),
             ]);
-            for ($j=0; $j < 10; $j++) {
+            for ($j=0; $j < 7; $j++) {
                 DB::table('products')->insert([
                     'name'              => $faker->name,
                     'name_ar'           => $faker_ar->name,

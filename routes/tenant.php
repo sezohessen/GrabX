@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Route;
 use Stancl\Tenancy\Middleware\InitializeTenancyByDomain;
 use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
 use App\Http\Controllers\dashboard\dashboardController;
+use App\Http\Controllers\dashboard\ProductController;
+
 /*
 |--------------------------------------------------------------------------
 | Tenant Routes
@@ -22,6 +24,7 @@ Route::group([
     'as' => 'tenant.',
     'middleware' => [
         'web',
+        'auth',
         InitializeTenancyByDomain::class,
         PreventAccessFromCentralDomains::class,
     ]
@@ -34,10 +37,8 @@ Route::group([
         }
     });
     Auth::Routes();
-    Route::middleware(['auth','web'])->group(function () {
-        Route::get('/dashboard', [dashboardController::class,'index']);
-    });
-    
+    Route::get('/dashboard', [dashboardController::class,'index'])->name('dashboard');
+    Route::resource('Product', ProductController::class);
 });
 
 
