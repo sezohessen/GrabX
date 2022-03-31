@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-{{-- {{ dd($errors) }} --}}
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -9,36 +8,9 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('tenant.register') }}">
+                    <form method="POST" action="{{ route('register') }}">
                         @csrf
 
-                        <div class="row mb-3">
-                            <label for="company" class="col-md-4 col-form-label text-md-end">{{ __('Company Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="company" type="text" class="form-control @error('company') is-invalid @enderror" name="company" value="{{ old('company') }}" required autocomplete="company" autofocus>
-
-                                @error('company')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="mt-2 mb-2">
-                            <label for="domain" class="col-md-4 col-form-label text-md-end">{{ __('Domain Name') }}</label>
-
-                            <div class="d-inline-flex items-baseline">
-                                <input id="domain" type="text" class="form-control mr-2 ml-2 @error('domain') is-invalid @enderror" name="domain" value="{{ old('domain') }}" required autocomplete="domain" autofocus>
-
-                                @error('domain')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                                .{{ config('tenancy.central_domains')[0] }}
-                            </div>
-                        </div>
                         <div class="row mb-3">
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
 
@@ -52,6 +24,7 @@
                                 @enderror
                             </div>
                         </div>
+
                         <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
 

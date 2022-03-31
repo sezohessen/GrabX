@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'cd4eaee44c0f7e5217e3dbe4c39620ef7e177ac4',
+    'reference' => '6035698828b5ddf5145518451cbce62baf68ea32',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -416,7 +416,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'cd4eaee44c0f7e5217e3dbe4c39620ef7e177ac4',
+      'reference' => '6035698828b5ddf5145518451cbce62baf68ea32',
     ),
     'laravel/sail' => 
     array (
@@ -1042,12 +1042,12 @@
     ),
     'stancl/tenancy' => 
     array (
-      'pretty_version' => 'v3.5.3',
-      'version' => '3.5.3.0',
+      'pretty_version' => 'v3.5.4',
+      'version' => '3.5.4.0',
       'aliases' => 
       array (
       ),
-      'reference' => '49ebb75f007d649465fc3f847ddc76f6396b0337',
+      'reference' => '349125c02ebe71216bfbbb4ea0c3b955e03ba474',
     ),
     'stancl/virtualcolumn' => 
     array (

@@ -1,8 +1,7 @@
 <?php
 
-use App\Http\Controllers\dashboard\dashboardController;
+use App\Http\Controllers\RegisterdTenantController;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,9 +12,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', [dashboardController::class,'index']);
-});
-Auth::Routes();
 
+
+
+/* Register to create Tenant */
+
+Route::get('/register',[RegisterdTenantController::class,'create']);
+Route::post('/register',[RegisterdTenantController::class,'store']);
 
