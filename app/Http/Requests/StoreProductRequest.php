@@ -29,9 +29,8 @@ class StoreProductRequest extends FormRequest
             'desc'          => 'required|min:4|max:2042|string',
             'desc_ar'       => 'required|min:4|max:2042|string',
             'price'         => 'required|regex:/^\d+(\.\d{1,2})?$/',
-            'qty'           => 'required|min:1|',
-            'availabe_qty'  => 'required|min:1|',
-            'active'        => 'required|boolean',
+            'qty'           => 'nullable|',
+            'availabe_qty'  => 'required|',
             'image'         => 'required|',
             'category_id'   => 'required|integer',
         ];
