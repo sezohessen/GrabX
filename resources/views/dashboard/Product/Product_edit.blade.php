@@ -10,11 +10,11 @@
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-no-gutter">
                   <li class="breadcrumb-item"><a class="breadcrumb-link" href="{{ route('Product.index') }}"> {{ __('Products') }} </a></li>
-                  <li class="breadcrumb-item active" aria-current="page">{{ __('Add product') }}</li>
+                  <li class="breadcrumb-item active" aria-current="page">{{ __('Edit product') }}</li>
                 </ol>
               </nav>
 
-              <h1 class="page-header-title">{{ __('Add product') }}</h1>
+              <h1 class="page-header-title">{{ __('Edit product') }}</h1>
 
             </div>
             <!-- End Col -->
@@ -33,7 +33,7 @@
               </div>
               <!-- End Header -->
               {{-- Form --}}
-              <form  action="{{route("Product.store")}}" method="POST" enctype="multipart/form-data">
+              <form  action="{{route("Product.update",['Product'=>$Product->id])}}" method="POST" enctype="multipart/form-data">
                 @csrf
               <!-- Body -->
               <div class="card-body">
@@ -42,7 +42,7 @@
                         <!-- Form -->
                         <div class="mb-4">
                             <label for="productNameLabel" class="form-label">{{ __('Name')  }} <i class="bi-question-circle text-body ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Products are the goods or services you sell."></i></label>
-                            <input type="text" class="form-control" name="name" id="productNameLabel" placeholder="{{ __('Product name') }}" aria-label="{{ __('Product name') }}" value="">
+                            <input type="text" class="form-control" name="name" id="productNameLabel" placeholder="{{ __('Product name') }}" aria-label="{{ __('Product name') }}" value="{{ $Product->name }}">
                             @error('name')
                                 <div class="alert alert-danger mt-2">{{ $message }}</div>
                             @enderror
@@ -53,7 +53,7 @@
                         <!-- Form -->
                         <div class="mb-4">
                             <label for="productNameLabel" class="form-label">{{ __('Arabic name') }}</label>
-                            <input type="text" class="form-control" name="name_ar" id="productNameLabel" placeholder="{{ __('Product name in arabic') }}" aria-label=" {{  __('Product name in arabic') }}" value="">
+                            <input type="text" class="form-control" name="name_ar" id="productNameLabel" placeholder="{{ __('Product name in arabic') }}" aria-label=" {{  __('Product name in arabic') }}" value="{{ $Product->name_ar }}">
                             @error('name_ar')
                                 <div class="alert alert-danger mt-2">{{ $message }}</div>
                             @enderror
@@ -67,8 +67,9 @@
                     <div class="mb-4">
                       <label for="description" class="form-label"> {{ __('Description') }} </label>
                       <div class="form-floating">
-                        <textarea name="desc" class="form-control" placeholder="{{ __('Description') }}" id="floatingTextarea2" style="height: 100px"></textarea>
-                        <label for="desc"> {{ __('Description') }} </label>
+                        <textarea name="desc" class="form-control" placeholder="{{ __('Description') }}" id="floatingTextarea2" style="height: 100px">
+                        {!! $Product->desc !!}
+                        </textarea>
                         @error('desc')
                          <div class="alert alert-danger mt-2">{{ $message }}</div>
                         @enderror
@@ -83,8 +84,9 @@
                     <div class="mb-4">
                        <label for="weightLabel" class="form-label"> {{ __('Arabic description') }} </label>
                         <div class="form-floating">
-                            <textarea name="desc_ar" class="form-control" placeholder="{{ __('Arabic description') }}" id="floatingTextarea2" style="height: 100px"></textarea>
-                            <label for="desc_ar"> {{ __('Arabic description') }} </label>
+                            <textarea name="desc_ar" class="form-control" placeholder="{{ __('Arabic description') }}" id="floatingTextarea2" style="height: 100px">
+                                {{ $Product->desc_ar }}
+                            </textarea>
                             @error('desc_ar')
                                 <div class="alert alert-danger mt-2">{{ $message }}</div>
                             @enderror
@@ -116,7 +118,8 @@
                 <!-- Dropzone -->
                 <div id="attachFilesNewProjectLabel" class="js-dropzone dz-dropzone dz-dropzone-card">
                   <div class="dz-message">
-                    <img class="avatar avatar-xl avatar-4x3 mb-3" src="{{ asset('images/dashboard/svg/illustrations-light/oc-browse.svg') }}" alt="Image Description" data-hs-theme-appearance="dark">
+                    <img class="avatar avatar-xl avatar-4x3 mb-3" src="{{find_image($Product->image ,  App\Models\Product::base ) }}" alt="Image Description" data-hs-theme-appearance="default">
+                    <img class="avatar avatar-xl avatar-4x3 mb-3" src="{{find_image($Product->image ,  App\Models\Product::base ) }}" alt="Image Description" data-hs-theme-appearance="dark">
 
                     <div class="mb-3">
                         <label for="formFile" class="form-label"></label>
@@ -150,7 +153,8 @@
                 <div class="mb-4">
                   <label for="priceNameLabel" class="form-label">{{ __('Price') }}</label>
                   <div class="input-group">
-                    <input type="text" class="form-control" name="price" id="priceNameLabel" placeholder="0.00" aria-label="0.00">
+                    <input type="text" class="form-control" name="price" id="priceNameLabel" placeholder="0.00" aria-label="0.00"
+                     value="{{ $Product->price }}">
                   </div>
                   @error('price')
                    <div class="alert alert-danger mt-2">{{ $message }}</div>
@@ -190,7 +194,7 @@
                 <!-- Form -->
                 <div class="mb-4">
                   <label for="ProductQty" class="form-label"> {{ __("Product quantity") }} </label>
-                  <input type="text" class="form-control" name="qty" id="ProductQty" placeholder="{{ __("The amount of product you wanna add") }}" aria-label="eg.1 , 5">
+                  <input value="{{ $Product->qty }}" type="text" class="form-control" name="qty" id="ProductQty" placeholder="{{ __("The amount of product you wanna add") }}" aria-label="eg.1 , 5">
                 </div>
                 @error('qty')
                      <div class="alert alert-danger mt-2">{{ $message }}</div>
@@ -199,7 +203,7 @@
                 <!-- Form -->
                 <div class="mb-4">
                   <label for="ProductQty" class="form-label"> {{ __("Available quantity") }} </label>
-                  <input type="text" class="form-control" name="availabe_qty" id="ProductQty" placeholder="{{ __("The amount of product you have") }}" aria-label="eg.1 , 5">
+                  <input value="{{ $Product->availabe_qty }}" type="text" class="form-control" name="availabe_qty" id="ProductQty" placeholder="{{ __("The amount of product you have") }}" aria-label="eg.1 , 5">
                 </div>
                 @error('availabe_qty')
                     <div class="alert alert-danger mt-2">{{ $message }}</div>
@@ -211,7 +215,7 @@
                   <label for="categoryLabel" class="form-label"> {{ __('Category') }} </label>
                   <!-- Select -->
                     <select name="category_id" id="select-beast" placeholder="{{ __('Select category') }}" autocomplete="off">
-                        <option value=""> {{ __('Select category') }}</option>
+                        <option value="{{ $Product->category_id }}"> {{ __('Select category') }}</option>
                         @foreach ($categories as $category )
                             <option value="{{ $category->id }}"> {{ $category->name }} </option>
                         @endforeach

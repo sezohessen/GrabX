@@ -31,14 +31,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [dashboardController::class,'index'])->name('dashboard');
 
     // Products
-    Route::resource('Product', ProductController::class)->names([
-        'index'  => 'Product.index',
-        'create' => 'Product.create',
-        'store'  => 'Product.store',
-        'show'   => 'Product.show',
-        'edit'   => 'Product.edit',
-        'update' => 'Product.update',
-        'destroy'=> 'Product.destroy',
-    ]);
+    Route::resource('Product', ProductController::class);
 
 });

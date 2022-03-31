@@ -25,7 +25,7 @@ class ProductIndex extends Component
     public function render()
     {
         return view('livewire.product-index',[
-            'products'          => Product::where('name', 'LIKE', '%'. $this->search .'%')
+            'products'          => Product::orderBy('id','DESC')->where('name', 'LIKE', '%'. $this->search .'%')
                 ->orWhere('name_ar','LIKE', '%'. $this->search .'%')->paginate(10),
             'productsCount'     => Product::all()->count(),
         ]);

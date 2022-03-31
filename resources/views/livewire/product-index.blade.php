@@ -90,10 +90,10 @@
                </td>
                <td> {{ $product->availabe_qty }}</td>
                <td> {{ $product->price }} {{ __('KWD') }}</td>
-               <td>60</td>
+               <td>{{  $product->qty }}</td>
                <td>
                  <div class="btn-group" role="group">
-                   <a class="btn btn-white btn-sm" href="./ecommerce-product-details.html">
+                   <a class="btn btn-white btn-sm" href="{{ route('Product.edit',['Product'=>$product->id]) }}">
                      <i class="bi-pencil-fill me-1"></i> {{ __('Edit') }}
                    </a>
 
