@@ -11,7 +11,7 @@ class RegisterdTenantController extends Controller
 {
     public function create()
     {
-        
+
         return view('dashboard.auth.register');
     }
     public function store(RegisterTenantRequest $request)

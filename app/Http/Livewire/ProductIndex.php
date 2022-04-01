@@ -39,6 +39,12 @@ class ProductIndex extends Component
         $this->resetPage();
     }
 
+
+    public function deleteProduct($id)
+    {
+        Product::find($id)->delete();
+    }
+
     public function render()
     {
         return view('livewire.product-index',[

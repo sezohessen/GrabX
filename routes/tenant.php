@@ -8,6 +8,7 @@ use Stancl\Tenancy\Middleware\InitializeTenancyByDomain;
 use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
 use App\Http\Controllers\dashboard\dashboardController;
 use App\Http\Controllers\dashboard\ProductController;
+use App\Http\Livewire\ProductIndex;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,8 @@ Route::group([
     'as' => 'tenant.',
     'middleware' => [
         'web',
+        InitializeTenancyByDomain::class,
+        PreventAccessFromCentralDomains::class,
     ]
 ],function(){
     Auth::Routes();

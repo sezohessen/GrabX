@@ -49,6 +49,8 @@ trait AuthenticatesUsers
             if ($request->hasSession()) {
                 $request->session()->put('auth.password_confirmed_at', time());
             }
+            // set session to english
+            session(['app_locale' => 'en']);
 
         }
 

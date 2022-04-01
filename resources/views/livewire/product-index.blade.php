@@ -1,6 +1,5 @@
 <div>
     <!-- Content -->
-
     <div class="content container-fluid">
      <!-- Page Header -->
      <div class="page-header">
@@ -16,8 +15,8 @@
          <!-- End Col -->
        </div>
        <!-- End Row -->
-
      </div>
+
      <!-- End Page Header -->
      <!-- Card -->
      <div class="card">
@@ -81,6 +80,7 @@
                    </div>
                  </a>
                </td>
+
                <td class="table-column-ps-0">
                 <a class="d-flex align-items-center" href="#">
                     <div class="flex-grow-1 ms-3">
@@ -103,16 +103,20 @@
                      <i class="bi-pencil-fill me-1"></i> {{ __('Edit') }}
                    </a>
 
-                   <!-- Button Group -->
+                   <!-- Delete Group -->
+                {{-- <form action="{{route("tenant.Product.destroy",['Product'=>$product->id])}}" method="POST">
+                    @csrf
+                    @method('delete') --}}
                    <div class="btn-group">
-                     <button type="button" class="btn btn-white btn-icon btn-sm dropdown-toggle dropdown-toggle-empty" id="productsEditDropdown1" data-bs-toggle="dropdown" aria-expanded="false"></button>
+                     <button type="button" class="btn btn-white btn-icon btn-sm dropdown-toggle dropdown-toggle-empty"  data-bs-toggle="dropdown" aria-expanded="false"></button>
                      <div class="dropdown-menu dropdown-menu-end mt-1" aria-labelledby="productsEditDropdown1">
-                       <a class="dropdown-item" href="#">
+                       <button wire:click="deleteProduct({{ $product->id }})" class="dropdown-item">
                          <i class="bi-trash dropdown-item-icon"></i> {{ __('Delete') }}
-                       </a>
+                       </button>
                      </div>
                    </div>
-                   <!-- End Button Group -->
+                {{-- </form> --}}
+                   <!-- End Delete Group -->
                  </div>
                </td>
              </tr>

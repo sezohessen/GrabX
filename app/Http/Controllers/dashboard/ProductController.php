@@ -37,8 +37,9 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreProductRequest $request)
+    public function store(Request $request)
     {
+        dd($request->all());
         $imageID        = add_Image($request->image,NULL,Product::base);   // Store image
         $credentials    = Product::credentials($request,$imageID); // Store product
         $product        = Product::create($credentials);
@@ -104,8 +105,6 @@ class ProductController extends Controller
      */
     public function destroy(Product $Product)
     {
-        dd(1);
-        $Product->delete();
-        return 1;
+        // $Product->delete();
     }
 }

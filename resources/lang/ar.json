@@ -44,6 +44,8 @@
     "Dashboard":"لوحة التحكم",
     "Auto (system default)":"تلقائي (النظام الافتراضي)",
     "Default (light mode)":"افتراضي (الوضع الخفيف)",
-    "Dark":"أسود"
+    "Dark":"أسود",
+    "You can add select box to add option to your product ex: size, offers":"يمكنك إضافة مربع التحديد لإضافة خيار لمنتجك على سبيل المثال: الحجم والعروض",
+    "Add select box":"إضافة مربع التحديد"
 
 }

@@ -29,9 +29,12 @@
   <link rel="stylesheet" href="{{ global_asset('css/dashboard/vendor/daterangepicker/daterangepicker.css') }}">
     {{-- MY CSS --}}
   <link rel="stylesheet" href="{{ global_asset('css/mycss.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/centralCss.css') }}">
+
+  @yield('css')
    {{-- Livewire --}}
    @livewireStyles
-
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   {{-- If user is logged in show header --}}
   <link rel="stylesheet" href="{{ global_asset('css/dashboard/style.css') }}">
@@ -862,8 +865,10 @@
       @endauth
 
       {{-- Content --}}
-      <main id="content" role="main" class="main">
-        @yield('content')
+      @auth
+        <main id="content" role="main" class="main">
+      @endauth
+         @yield('content')
       </main>
         <!-- Footer -->
 
@@ -1251,6 +1256,9 @@
     </script>
 
   <!-- End Style Switcher JS -->
+    {{-- Alpinjs  --}}
+    <script defer src="https://unpkg.com/alpinejs@3.9.3/dist/cdn.min.js"></script>
   @livewireScripts
+  @yield('js')
 </body>
 </html>

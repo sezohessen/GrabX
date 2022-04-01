@@ -29,12 +29,16 @@ class RegisterTenantRequest extends FormRequest
             'name'      => 'required|string|max:255',
             'email'     => 'required|email|max:255',
             'password'  => ['required','confirmed',Password::defaults()],
+            'terms'     => 'required'
         ];
     }
     public function prepareForValidation()
     {
-        $this->merge([
-            'domain' => $this->domain. '.'.config('tenancy.central_domains')[0]
-        ]);
+        if ($this->domain)
+        {
+            $this->merge([
+                'domain' => $this->domain. '.'.config('tenancy.central_domains')[0]
+            ]);
+        }
     }
 }
