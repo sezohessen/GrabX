@@ -48,7 +48,7 @@
             <!-- End Search Form -->
           </div>
 
-          <div class="navbar-nav-wrap-content-end">
+          {{-- <div class="navbar-nav-wrap-content-end">
             <!-- Navbar -->
             <ul class="navbar-nav">
               <li class="nav-item d-none d-sm-inline-block">
@@ -675,7 +675,7 @@
               </li>
             </ul>
             <!-- End Navbar -->
-          </div>
+          </div> --}}
         </div>
       </header>
       {{-- Aside --}}
@@ -708,12 +708,12 @@
                 <div class="nav-item">
                   <a class="nav-link" href="#navbarVerticalMenuDashboards" role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuDashboards" aria-expanded="true" aria-controls="navbarVerticalMenuDashboards">
                     <i class="bi-house-door nav-icon"></i>
-                    <span class="nav-link-title">Dashboards</span>
+                    <span class="nav-link-title">@lang('Dashboard')</span>
                   </a>
                 </div>
                 <!-- End Collapse -->
 
-                <span class="dropdown-header mt-4">Pages</span>
+                <span class="dropdown-header mt-4">@lang('Pages')</span>
                 <small class="bi-three-dots nav-subtitle-replacer"></small>
 
                 <!-- Collapse -->
@@ -725,12 +725,12 @@
                   <div class="nav-item">
                     <a class="nav-link " href="{{ route('tenant.dashboard') }}" role="button">
                         <i class="bi-house-door-fill nav-icon"></i>
-                      <span class="nav-link-title"> Overview</span>
+                      <span class="nav-link-title"> @lang('Overview')</span>
                     </a>
                     {{-- start dropdown --}}
                     <a class="nav-link dropdown-toggle " href="#navbarVerticalMenuPagesEcommerceProductsMenu" role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesEcommerceProductsMenu" aria-expanded="false" aria-controls="navbarVerticalMenuPagesEcommerceMenu">
                         <i class="bi-basket nav-icon"></i>
-                        <span class="nav-link-title">Products</span>
+                        <span class="nav-link-title">@lang('Products')</span>
                     </a>
                     <div id="navbarVerticalMenuPagesEcommerceProductsMenu" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuPagesEcommerceProductsMenu">
                         <a class="nav-link " href="{{ route('tenant.Product.index') }}">{{ __('Products') }}</a>
@@ -748,7 +748,7 @@
 
                           <div id="navbarVerticalMenuPagesEcommerceOrdersMenu" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuPagesMenuEcommerce">
                             <a class="nav-link " href="./ecommerce-orders.html">{{ __('Orders') }}</a>
-                            <a class="nav-link " href="./ecommerce-order-details.html">{{ __('Order Details') }}</a>
+                            <a class="nav-link " href="./ecommerce-order-details.html">{{ __('Order details') }}</a>
                           </div>
                         </div>
                         <!-- End Collapse -->
@@ -757,13 +757,12 @@
                         <div class="nav-item">
                           <a class="nav-link dropdown-toggle" href="#navbarVerticalMenuPagesEcommerceCustomersMenu" role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesEcommerceCustomersMenu" aria-expanded="false" aria-controls="navbarVerticalMenuPagesEcommerceCustomersMenu">
                             <i class="bi-people-fill nav-icon"></i>
-                            <span class="nav-link-title">Customers</span>
+                            <span class="nav-link-title">@lang('Customers')</span>
                           </a>
 
                           <div id="navbarVerticalMenuPagesEcommerceCustomersMenu" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuPagesMenuEcommerce">
-                            <a class="nav-link " href="./ecommerce-customers.html">Customers</a>
-                            <a class="nav-link " href="./ecommerce-customer-details.html">Customer Details</a>
-                            <a class="nav-link " href="./ecommerce-add-customers.html">Add Customers</a>
+                            <a class="nav-link " href="./ecommerce-customers.html">@lang('Customers')</a>
+                            <a class="nav-link " href="./ecommerce-customer-details.html">@lang('Customer details')</a>
                           </div>
                         </div>
                         <!-- End Collapse -->
@@ -799,15 +798,15 @@
                     <div class="dropdown-menu navbar-dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="selectThemeDropdown">
                       <a class="dropdown-item" href="#" data-icon="bi-moon-stars" data-value="auto">
                         <i class="bi-moon-stars me-2"></i>
-                        <span class="text-truncate" title="Auto (system default)">Auto (system default)</span>
+                        <span class="text-truncate" title="Auto (system default)">@lang('Auto (system default)')</span>
                       </a>
                       <a class="dropdown-item" href="#" data-icon="bi-brightness-high" data-value="default">
                         <i class="bi-brightness-high me-2"></i>
-                        <span class="text-truncate" title="Default (light mode)">Default (light mode)</span>
+                        <span class="text-truncate" title="Default (light mode)">@lang('Default (light mode)')</span>
                       </a>
                       <a class="dropdown-item active" href="#" data-icon="bi-moon" data-value="dark">
                         <i class="bi-moon me-2"></i>
-                        <span class="text-truncate" title="Dark">Dark</span>
+                        <span class="text-truncate" title="Dark">@lang('Dark')</span>
                       </a>
                     </div>
                   </div>

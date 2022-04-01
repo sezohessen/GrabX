@@ -1,5 +1,8 @@
 <?php
 
+use Stancl\Tenancy\Middleware\InitializeTenancyByDomain;
+use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
+
 return [
 
     /*
@@ -82,8 +85,8 @@ return [
     */
 
     'middleware_group' => ['web',
-    'universal',
-    InitializeTenancyByDomain::class],
+    InitializeTenancyByDomain::class,
+    PreventAccessFromCentralDomains::class],
 
     /*
     |--------------------------------------------------------------------------

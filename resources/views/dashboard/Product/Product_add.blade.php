@@ -243,6 +243,9 @@
         </form>
           <!-- End Card -->
         </div>
+        {{-- Start popUp add-Ons --}}
+            @livewire('first-select-box')
+        {{-- Start popUp add-Ons --}}
       </div>
       <!-- End Content -->
 

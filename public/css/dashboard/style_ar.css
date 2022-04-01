@@ -9,6 +9,11 @@
         padding-left: 0!important;
     }
 }
+/* Custome classes */
+.ar-mr-4{
+    margin-right: 4px !important;
+}
+/* End classes */
 .navbar-vertical-fixed{
     right: 0;
     left: auto;

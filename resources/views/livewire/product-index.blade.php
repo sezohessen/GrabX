@@ -1,6 +1,6 @@
 <div>
     <!-- Content -->
-    
+
     <div class="content container-fluid">
      <!-- Page Header -->
      <div class="page-header">
@@ -52,6 +52,7 @@
                  </div>
                </th>
                <th>{{ __('Product') }}</th>
+               <th>{{ __('Product name') }}</th>
                <th>{{ __('Availability') }}</th>
                <th>{{ __('Available quantity') }}</th>
                <th>{{ __('Price') }}</th>
@@ -78,11 +79,15 @@
                    <div class="flex-shrink-0">
                      <img class="avatar avatar-lg" src="{{ find_image($product->image ,  App\Models\Product::base ) }}" alt="Image Description">
                    </div>
-                   <div class="flex-grow-1 ms-3">
-                     <h5 class="text-inherit mb-0"> {{ LangDetail($product->name, $product->name_ar) }}</h5>
-                   </div>
                  </a>
                </td>
+               <td class="table-column-ps-0">
+                <a class="d-flex align-items-center" href="#">
+                    <div class="flex-grow-1 ms-3">
+                        <h5 class="text-inherit mb-0"> {{ LangDetail($product->name, $product->name_ar) }}</h5>
+                    </div>
+                </a>
+              </td>
                <td>
                  <div class="form-check form-switch">
                    <input wire:click="changeActive({{ $product->id }})" class="form-check-input" type="checkbox" id="stocksCheckbox1" {{ ($product->active == 1) ? 'checked' : '' }} >
@@ -101,7 +106,6 @@
                    <!-- Button Group -->
                    <div class="btn-group">
                      <button type="button" class="btn btn-white btn-icon btn-sm dropdown-toggle dropdown-toggle-empty" id="productsEditDropdown1" data-bs-toggle="dropdown" aria-expanded="false"></button>
-
                      <div class="dropdown-menu dropdown-menu-end mt-1" aria-labelledby="productsEditDropdown1">
                        <a class="dropdown-item" href="#">
                          <i class="bi-trash dropdown-item-icon"></i> {{ __('Delete') }}

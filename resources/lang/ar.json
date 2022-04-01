@@ -33,7 +33,17 @@
     "Edit":"تعديل",
     "Delete":"حذف",
     "Search products":"البحث عن المنتجات",
-    "Edit product":"تعديل منتج"
-
+    "Edit product":"تعديل منتج",
+    "Overview":"الرئيسية",
+    "Orders":"الطلبات",
+    "Order details":"تفاصيل الطلب",
+    "Customers":"العملاء",
+    "Customer details":"تفاصيل العميل",
+    "Add Product":"أضف منتج",
+    "Pages":"الصفحات",
+    "Dashboard":"لوحة التحكم",
+    "Auto (system default)":"تلقائي (النظام الافتراضي)",
+    "Default (light mode)":"افتراضي (الوضع الخفيف)",
+    "Dark":"أسود"
 
 }
