@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\dashboard;
 
+use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -13,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.Category.index');
     }
 
     /**
@@ -43,10 +45,6 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.

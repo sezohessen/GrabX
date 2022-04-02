@@ -5,12 +5,12 @@
      <div class="page-header">
        <div class="row align-items-center mb-3">
          <div class="col-sm mb-2 mb-sm-0">
-           <h1 class="page-header-title">{{ __('Products') }} <span class="badge bg-soft-dark text-dark ms-2"> {{ $productsCount }} </span></h1>
+           <h1 class="page-header-title">{{ __('Categories') }} <span class="badge bg-soft-dark text-dark ms-2"> {{ $count }} </span></h1>
          </div>
          <!-- End Col -->
 
          <div class="col-sm-auto">
-           <a class="btn btn-primary" href="{{ route('tenant.Product.create') }}">{{ __('Add product') }}</a>
+           <a class="btn btn-primary" href="{{ route('tenant.Category.create') }}">{{ __('Add category') }}</a>
          </div>
          <!-- End Col -->
        </div>
@@ -29,7 +29,7 @@
                <div class="input-group-prepend input-group-text">
                  <i class="bi-search"></i>
                </div>
-               <input id="datatableSearch" wire:model="search" type="search" class="form-control" placeholder="{{ __('Search products') }}" aria-label="Search users">
+               <input id="datatableSearch" wire:model="search" type="search" class="form-control" placeholder="{{ __('Search category') }}" aria-label="@lang('Search')">
              </div>
              <!-- End Search -->
            </form>
@@ -50,12 +50,8 @@
                    </label>
                  </div>
                </th>
-               <th>{{ __('Product') }}</th>
-               <th>{{ __('Product name') }}</th>
-               <th>{{ __('Availability') }}</th>
-               <th>{{ __('Available quantity') }}</th>
-               <th>{{ __('Price') }}</th>
-               <th>{{ __('Quantity') }}</th>
+               <th>{{ __('Name(ENG)') }}</th>
+               <th>{{ __('Name(AR)') }}</th>
                <th>{{ __('Options') }}</th>
                <th></th>
                <th></th>
@@ -64,7 +60,7 @@
 
            <tbody>
             {{-- Start column --}}
-            @foreach ($products as $product )
+            @foreach ($categories as $category )
 
              <tr>
                <td class="table-column-pe-0">
@@ -73,44 +69,29 @@
                    <label class="form-check-label" for="datatableCheckAll1"></label>
                  </div>
                </td>
-               <td class="table-column-ps-0">
-                 <a class="d-flex align-items-center" href="#">
-                   <div class="flex-shrink-0">
-                     <img class="avatar avatar-lg" src="{{ find_image($product->image ,  App\Models\Product::base ) }}" alt="Image Description">
-                   </div>
-                 </a>
-               </td>
-
-               <td class="table-column-ps-0">
-                <a class="d-flex align-items-center" href="#">
-                    <div class="flex-grow-1 ms-3">
-                        <h5 class="text-inherit mb-0"> {{ LangDetail($product->name, $product->name_ar) }}</h5>
-                    </div>
-                </a>
-              </td>
-               <td>
-                 <div class="form-check form-switch">
-                   <input wire:click="changeActive({{ $product->id }})" class="form-check-input" type="checkbox" id="stocksCheckbox1" {{ ($product->active == 1) ? 'checked' : '' }} >
-                   <label class="form-check-label" for="stocksCheckbox1"></label>
-                 </div>
-               </td>
-               <td> {{ $product->availabe_qty }}</td>
-               <td> {{ $product->price }} {{ __('KWD') }}</td>
-               <td>{{  $product->qty }}</td>
+                <td class="table-column-ps-0">
+                    <a class="d-flex align-items-center" href="#">
+                        <div class="flex-grow-1 ms-3">
+                            <h5 class="text-inherit mb-0"> {{ $category->name }}</h5>
+                        </div>
+                    </a>
+                </td>
+                <td class="table-column-ps-0">
+                    <a class="d-flex align-items-center" href="#">
+                        <div class="flex-grow-1 ms-3">
+                            <h5 class="text-inherit mb-0"> {{ $category->name_ar }}</h5>
+                        </div>
+                    </a>
+                </td>
                <td>
                  <div class="btn-group" role="group">
-                   <a class="btn btn-white btn-sm" href="{{ route('tenant.Product.edit',['Product'=>$product->id]) }}">
+                   <a class="btn btn-white btn-sm" href="{{ route('tenant.Category.edit',['Category'=>$category->id]) }}">
                      <i class="bi-pencil-fill me-1"></i> {{ __('Edit') }}
                    </a>
-
-                   <!-- Delete Group -->
-                {{-- <form action="{{route("tenant.Product.destroy",['Product'=>$product->id])}}" method="POST">
-                    @csrf
-                    @method('delete') --}}
                    <div class="btn-group">
                      <button type="button" class="btn btn-white btn-icon btn-sm dropdown-toggle dropdown-toggle-empty"  data-bs-toggle="dropdown" aria-expanded="false"></button>
                      <div class="dropdown-menu dropdown-menu-end mt-1" aria-labelledby="productsEditDropdown1">
-                       <button wire:click="deleteProduct({{ $product->id }})" class="dropdown-item">
+                       <button wire:click="Delete({{ $category->id }})" class="dropdown-item">
                          <i class="bi-trash dropdown-item-icon"></i> {{ __('Delete') }}
                        </button>
                      </div>
@@ -124,7 +105,7 @@
              @endforeach
            </tbody>
          </table>
-         {{ $products->links() }}
+         {{ $categories->links() }}
        </div>
        <!-- End Table -->
        <!-- End Footer -->

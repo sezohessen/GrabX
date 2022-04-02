@@ -2,12 +2,14 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\dashboard\CategoryController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Stancl\Tenancy\Middleware\InitializeTenancyByDomain;
 use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
 use App\Http\Controllers\dashboard\dashboardController;
 use App\Http\Controllers\dashboard\ProductController;
+use App\Http\Livewire\ProductIndex;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,7 +40,8 @@ Route::group([
     });
     Route::get('/dashboard', [dashboardController::class,'index'])->name('dashboard');
     Route::resource('Product', ProductController::class);
-    Route::resource('Category', ProductController::class);
+    Route::resource('Category', CategoryController::class);
+    Route::get('/governorate', function() {return view('dashboard.Governorate.governorate'); })->name('governorate');
 });
 Route::group([
     'as' => 'tenant.',

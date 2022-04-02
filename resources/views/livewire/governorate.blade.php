@@ -1,21 +1,65 @@
+
 <div>
     <!-- Content -->
-    <div class="content container-fluid">
+    <div class="content container-fluid" style="position: relative">
      <!-- Page Header -->
      <div class="page-header">
        <div class="row align-items-center mb-3">
          <div class="col-sm mb-2 mb-sm-0">
-           <h1 class="page-header-title">{{ __('Products') }} <span class="badge bg-soft-dark text-dark ms-2"> {{ $productsCount }} </span></h1>
+           <h1 class="page-header-title">{{ __('Governorates') }} <span class="badge bg-soft-dark text-dark ms-2"> {{ $governorateCount }} </span></h1>
          </div>
          <!-- End Col -->
 
-         <div class="col-sm-auto">
-           <a class="btn btn-primary" href="{{ route('tenant.Product.create') }}">{{ __('Add product') }}</a>
+         {{-- Start add Modal  --}}
+         <div x-data="{ open: true }" class="col-sm-auto">
+           <a  @click="open = true" class="btn btn-primary" href="#">{{ __('Add Governorate') }}</a>
+            <div x-show=open>
+                <div class="my-wrapper"
+                 style="
+                    z-index: 99;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    position: fixed;
+                    background-color: rgba(50, 50, 50, 0.9);
+                 " ></div>
+                <div
+                style="
+                    z-index: 999;
+                    position: absolute;
+                    background-color: #f5f5f5;
+                    border: 1px solid #212121;
+                    border-radius: 2px;
+                    padding: 30px;
+                    border-radius: 10px;
+                    width: 400px;
+                    left: 50%;
+                    top: 10%;
+                    margin-left: -150px;
+                  ">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <h3>@lang('Add Governorate')</h3>
+                        </div>
+                        <div class="col-md-3">
+                            <i class="bi bi-x-circle nav-icon" style="color:red;cursor: pointer; font-size: 17px"></i>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label  for="domain" class="col-md-4 col-form-label text-md-end">{{ __('Domain Name') }}</label>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+            </div>
          </div>
          <!-- End Col -->
        </div>
        <!-- End Row -->
      </div>
+
+
 
      <!-- End Page Header -->
      <!-- Card -->
@@ -29,7 +73,7 @@
                <div class="input-group-prepend input-group-text">
                  <i class="bi-search"></i>
                </div>
-               <input id="datatableSearch" wire:model="search" type="search" class="form-control" placeholder="{{ __('Search products') }}" aria-label="Search users">
+               <input id="datatableSearch" wire:model="search" type="search" class="form-control" placeholder="{{ __('Search Governorate') }}" aria-label="Search users">
              </div>
              <!-- End Search -->
            </form>
@@ -50,21 +94,15 @@
                    </label>
                  </div>
                </th>
-               <th>{{ __('Product') }}</th>
-               <th>{{ __('Product name') }}</th>
-               <th>{{ __('Availability') }}</th>
-               <th>{{ __('Available quantity') }}</th>
-               <th>{{ __('Price') }}</th>
-               <th>{{ __('Quantity') }}</th>
+               <th>{{ __('Name') }}</th>
+               <th>{{ __('Name arabic') }}</th>
                <th>{{ __('Options') }}</th>
-               <th></th>
-               <th></th>
              </tr>
            </thead>
 
            <tbody>
             {{-- Start column --}}
-            @foreach ($products as $product )
+            @foreach ($governorates as $governorate )
 
              <tr>
                <td class="table-column-pe-0">
@@ -73,50 +111,36 @@
                    <label class="form-check-label" for="datatableCheckAll1"></label>
                  </div>
                </td>
-               <td class="table-column-ps-0">
-                 <a class="d-flex align-items-center" href="#">
-                   <div class="flex-shrink-0">
-                     <img class="avatar avatar-lg" src="{{ find_image($product->image ,  App\Models\Product::base ) }}" alt="Image Description">
-                   </div>
-                 </a>
-               </td>
 
                <td class="table-column-ps-0">
                 <a class="d-flex align-items-center" href="#">
                     <div class="flex-grow-1 ms-3">
-                        <h5 class="text-inherit mb-0"> {{ LangDetail($product->name, $product->name_ar) }}</h5>
+                        <h5 class="text-inherit mb-0"> {{ $governorate->name }}</h5>
                     </div>
                 </a>
               </td>
-               <td>
-                 <div class="form-check form-switch">
-                   <input wire:click="changeActive({{ $product->id }})" class="form-check-input" type="checkbox" id="stocksCheckbox1" {{ ($product->active == 1) ? 'checked' : '' }} >
-                   <label class="form-check-label" for="stocksCheckbox1"></label>
-                 </div>
-               </td>
-               <td> {{ $product->availabe_qty }}</td>
-               <td> {{ $product->price }} {{ __('KWD') }}</td>
-               <td>{{  $product->qty }}</td>
-               <td>
+              <td class="table-column-ps-0">
+                <a class="d-flex align-items-center" href="#">
+                    <div class="flex-grow-1 ms-3">
+                        <h5 class="text-inherit mb-0"> {{ $governorate->name_ar }}</h5>
+                    </div>
+                </a>
+              </td>
+              <td>
                  <div class="btn-group" role="group">
-                   <a class="btn btn-white btn-sm" href="{{ route('tenant.Product.edit',['Product'=>$product->id]) }}">
+                   <a class="btn btn-white btn-sm" href="{{ route('tenant.Product.edit',['Product'=>$governorate->id]) }}">
                      <i class="bi-pencil-fill me-1"></i> {{ __('Edit') }}
                    </a>
 
-                   <!-- Delete Group -->
-                {{-- <form action="{{route("tenant.Product.destroy",['Product'=>$product->id])}}" method="POST">
-                    @csrf
-                    @method('delete') --}}
                    <div class="btn-group">
                      <button type="button" class="btn btn-white btn-icon btn-sm dropdown-toggle dropdown-toggle-empty"  data-bs-toggle="dropdown" aria-expanded="false"></button>
                      <div class="dropdown-menu dropdown-menu-end mt-1" aria-labelledby="productsEditDropdown1">
-                       <button wire:click="deleteProduct({{ $product->id }})" class="dropdown-item">
+                       <button wire:click="deleteProduct({{ $governorate->id }})" class="dropdown-item">
                          <i class="bi-trash dropdown-item-icon"></i> {{ __('Delete') }}
                        </button>
                      </div>
                    </div>
-                {{-- </form> --}}
-                   <!-- End Delete Group -->
+
                  </div>
                </td>
              </tr>
@@ -124,7 +148,7 @@
              @endforeach
            </tbody>
          </table>
-         {{ $products->links() }}
+         {{ $governorates->links() }}
        </div>
        <!-- End Table -->
        <!-- End Footer -->

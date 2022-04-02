@@ -37,12 +37,13 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreProductRequest $request)
+    public function store(Request $request)
     {
+        dd($request->all());
         $imageID        = add_Image($request->image,NULL,Product::base);   // Store image
         $credentials    = Product::credentials($request,$imageID); // Store product
         $product        = Product::create($credentials);
-        return view('dashboard.Product.Products');
+        return redirect()->route('tenant.Product.index');
     }
 
     /**
@@ -51,10 +52,6 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
-    {
-        return view('dashboard.Product.Product');
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -93,7 +90,7 @@ class ProductController extends Controller
         }
         $credentials    = Product::credentials($request,$imageID,$active); // Store product
         $Product->update($credentials);
-        return redirect()->route('Product.index');
+        return redirect()->route('tenant.Product.index');
     }
 
     /**
@@ -102,8 +99,8 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Product $Product)
     {
-        //
+        // $Product->delete();
     }
 }

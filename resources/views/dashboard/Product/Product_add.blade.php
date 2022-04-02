@@ -33,7 +33,7 @@
               </div>
               <!-- End Header -->
               {{-- Form --}}
-              <form  action="{{route("tenant.Product.store")}}" method="POST" enctype="multipart/form-data">
+              <form  action="{{route("tenant.Product.store")}}" method="POST" enctype="multipart/form-data" novalidate>
                 @csrf
               <!-- Body -->
               <div class="card-body">
@@ -218,6 +218,9 @@
           <!-- End Col -->
         </div>
         <!-- End Row -->
+        {{-- Start popUp add-Ons --}}
+        @livewire('first-select-box')
+        {{-- Start popUp add-Ons --}}
 
         <div class="position-fixed start-50 bottom-0 translate-middle-x w-100 zi-99 mb-3" style="max-width: 40rem;">
           <!-- Card -->

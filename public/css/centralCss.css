@@ -1,0 +1,14 @@
+.slug-parent{
+    position: relative;
+}
+.domain-slug{
+    position: absolute;
+    top: 1px;
+    background: #dbdbdb;
+    right: 13px;
+    padding: 6px;
+    font-weight: bold;
+}
+.invalid-feedback{
+    display: block;
+}

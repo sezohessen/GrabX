@@ -33,7 +33,7 @@
               </div>
               <!-- End Header -->
               {{-- Form --}}
-              <form  action="{{route("Product.update",['Product'=>$Product->id])}}" method="POST" enctype="multipart/form-data">
+              <form  action="{{route("tenant.Product.update",['Product'=>$Product->id])}}" method="POST" enctype="multipart/form-data">
                 @method('PATCH')
                 @csrf
               <!-- Body -->
@@ -119,9 +119,7 @@
                 <!-- Dropzone -->
                 <div id="attachFilesNewProjectLabel" class="js-dropzone dz-dropzone dz-dropzone-card">
                   <div class="dz-message">
-                    <img class="avatar avatar-xl avatar-4x3 mb-3" src="{{find_image($Product->image ,  App\Models\Product::base ) }}" alt="Image Description" data-hs-theme-appearance="default">
-                    <img class="avatar avatar-xl avatar-4x3 mb-3" src="{{find_image($Product->image ,  App\Models\Product::base ) }}" alt="Image Description" data-hs-theme-appearance="dark">
-
+                    <img class="mb-3" src="{{find_image($Product->image ,  App\Models\Product::base ) }}" alt="Image Description" data-hs-theme-appearance="default">
                     <div class="mb-3">
                         <label for="formFile" class="form-label"></label>
                         <input name="image" class="form-control" type="file" id="formFile">
