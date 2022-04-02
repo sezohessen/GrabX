@@ -22,3 +22,6 @@
 .navbar-vertical-footer-list-item  .dropup .dropdown-menu[data-bs-popper]{
     text-align: right;
 }
+.popup-label{
+    text-align: right !important
+}

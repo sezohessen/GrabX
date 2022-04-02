@@ -1,4 +1,45 @@
 <div>
+    <style>
+        .my-wrapper {
+            z-index: 99;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            position: fixed;
+            background-color: rgba(50, 50, 50, 0.9);
+        }
+        .form-popup{
+            z-index: 999;
+            position: absolute;
+            background-color: #f5f5f5;
+            border: 1px solid #212121;
+            border-radius: 2px;
+            padding: 30px;
+            border-radius: 10px;
+            width: 600px;
+            left: 30%;
+            top: 10%;
+            margin-left: -150px;
+        }
+        .popup-label{
+            width: 100%;
+            text-align: left !important;
+        }
+        .padding-top{
+            padding-top: 5px;
+        }
+        .x-icon{
+            color:red;
+            cursor: pointer;
+            font-size: 22px
+        }
+        .lvError{
+            color: red;
+            margin-top: 5px;
+        }
+
+    </style>
     <!-- Content -->
     <div class="content container-fluid" style="position: relative">
      <!-- Page Header -->
@@ -10,43 +51,42 @@
          <!-- End Col -->
 
          {{-- Start add Modal  --}}
-         <div x-data="{ open: true }" class="col-sm-auto">
-           <a  @click="open = true" class="btn btn-primary" href="#">{{ __('Add Governorate') }}</a>
+         <div  x-data="{ open: $wire.isOpen }"   class="col-sm-auto">
+           <a  @click=" open = true " class="btn btn-primary" href="#">{{ __('Add Governorate') }}</a>
             <div x-show=open>
-                <div class="my-wrapper"
-                 style="
-                    z-index: 99;
-                    width: 100%;
-                    height: 100%;
-                    top: 0;
-                    left: 0;
-                    position: fixed;
-                    background-color: rgba(50, 50, 50, 0.9);
-                 " ></div>
-                <div
-                style="
-                    z-index: 999;
-                    position: absolute;
-                    background-color: #f5f5f5;
-                    border: 1px solid #212121;
-                    border-radius: 2px;
-                    padding: 30px;
-                    border-radius: 10px;
-                    width: 400px;
-                    left: 50%;
-                    top: 10%;
-                    margin-left: -150px;
-                  ">
+                <div class="my-wrapper" ></div>
+                <div class="form-popup" @keyup.escape.window="open=false" @click.outside="open = false">
                     <div class="row">
-                        <div class="col-md-9">
+                        <div class="col-md-11">
                             <h3>@lang('Add Governorate')</h3>
                         </div>
-                        <div class="col-md-3">
-                            <i class="bi bi-x-circle nav-icon" style="color:red;cursor: pointer; font-size: 17px"></i>
+                            <div class="col-md-1">
+                                <a @click="open = false">
+                                    <i class="bi bi-x-circle nav-icon x-icon"></i>
+                                </a>
+                            </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label  for="Governorate" class="col-md-4 col-form-label text-md-end popup-label">{{ __('Governorate in english') }}</label>
+                            <input placeholder="{{ __('Governorate in english') }}"
+                            type="text" class="form-control mr-2 ml-2 @error('governorate') is-invalid @enderror" wire:model="gover" value="{{ old('governorate') }}" required autocomplete="domain" autofocus>
+                            @error('gover') <div class="lvError">{{ $message }}</div> @enderror
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label  for="domain" class="col-md-4 col-form-label text-md-end">{{ __('Domain Name') }}</label>
+                        <div class="col-md-6">
+                            <label  for="Governorate" class="col-md-4 col-form-label text-md-end popup-label">{{ __('Governorate in arabic') }}</label>
+                            <input wire:model="gover_ar" placeholder="{{ __('Governorate in arabic') }}"
+                            type="text" class="form-control mr-2 ml-2 @error('governorate_ar') is-invalid @enderror"  value="{{ old('governorate_ar') }}" required autocomplete="domain" autofocus>
+                            @error('gover_ar') <div class="lvError">{{ $message }}</div> @enderror
+                        </div>
+                    </div>
+                    {{-- Save button --}}
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="d-grid gap-2 pt-4">
+                                <button wire:click="addGovernorate()" x-on:company-added.window="open = false"
+                                 type="submit" class="btn btn-primary btn-lg"> @lang('Save') </button>
                             </div>
                         </div>
                     </div>

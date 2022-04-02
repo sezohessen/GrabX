@@ -28,7 +28,7 @@
   {{--select box  --}}
   <link rel="stylesheet" href="{{ global_asset('css/dashboard/vendor/daterangepicker/daterangepicker.css') }}">
     {{-- MY CSS --}}
-  <link rel="stylesheet" href="{{ global_asset('css/mycss.css') }}">
+  <link rel="stylesheet" href="{{ global_asset('css/mycss.css') }}" type="text/css">
   <link rel="stylesheet" href="{{ asset('css/centralCss.css') }}">
 
   @yield('css')
