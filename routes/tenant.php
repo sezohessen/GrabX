@@ -39,6 +39,7 @@ Route::group([
     });
     Route::get('/dashboard', [dashboardController::class,'index'])->name('dashboard');
     Route::resource('Product', ProductController::class);
+    Route::get('/governorate', function() {return view('dashboard.Governorate.governorate'); })->name('governorate');
 });
 Route::group([
     'as' => 'tenant.',

@@ -744,6 +744,20 @@
 
                         <!-- Collapse -->
                         <div class="nav-item">
+                          <a class="nav-link dropdown-toggle" href="#governorate" role="button" data-bs-toggle="collapse" data-bs-target="#governorate" aria-expanded="false" aria-controls="navbarVerticalMenuPagesEcommerceOrdersMenu">
+                            <i class="bi bi-map nav-icon"></i>
+                            <span class="nav-link-title">{{ __('Regions') }}</span>
+                          </a>
+
+                          <div id="governorate" class="nav-collapse collapse " data-bs-parent="#governorate">
+                            <a class="nav-link " href="{{ route('tenant.governorate') }}">{{ __('All governorate') }}</a>
+                            <a class="nav-link " href="./ecommerce-order-details.html">{{ __('Add governorate') }}</a>
+                            <a class="nav-link " href="./ecommerce-orders.html">{{ __('All cities') }}</a>
+                            <a class="nav-link " href="./ecommerce-orders.html">{{ __('Add city') }}</a>
+                          </div>
+                        </div>
+                        <!-- Collapse -->
+                        <div class="nav-item">
                           <a class="nav-link dropdown-toggle" href="#navbarVerticalMenuPagesEcommerceOrdersMenu" role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesEcommerceOrdersMenu" aria-expanded="false" aria-controls="navbarVerticalMenuPagesEcommerceOrdersMenu">
                             <i class="bi-bag-heart nav-icon"></i>
                             <span class="nav-link-title">{{ __('Orders') }}</span>
@@ -1257,8 +1271,8 @@
 
   <!-- End Style Switcher JS -->
     {{-- Alpinjs  --}}
-    <script defer src="https://unpkg.com/alpinejs@3.9.3/dist/cdn.min.js"></script>
-  @livewireScripts
+    <script defer src="https://unpkg.com/alpinejs@3.9.5/dist/cdn.min.js"></script>
+    @livewireScripts
   @yield('js')
 </body>
 </html>

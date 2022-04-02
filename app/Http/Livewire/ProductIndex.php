@@ -23,6 +23,12 @@ class ProductIndex extends Component
         'page' => ['except' => 1, 'as' => 'p'],
         'search' => ['except' => '', 'as' => 's'],
     ];
+    // fix search on paginate
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
+
 
     // Change active status in product Homepage
     public $product;
@@ -33,12 +39,6 @@ class ProductIndex extends Component
             'active' => !$this->product->active
         ]);
     }
-    // fix search on paginate
-    public function updatingSearch()
-    {
-        $this->resetPage();
-    }
-
 
     public function deleteProduct($id)
     {

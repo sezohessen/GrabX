@@ -46,6 +46,17 @@
     "Default (light mode)":"افتراضي (الوضع الخفيف)",
     "Dark":"أسود",
     "You can add select box to add option to your product ex: size, offers":"يمكنك إضافة مربع التحديد لإضافة خيار لمنتجك على سبيل المثال: الحجم والعروض",
-    "Add select box":"إضافة مربع التحديد"
+    "Add select box":"إضافة مربع التحديد",
+    "Governorate":"المحافظة",
+    "Cities":"المدن",
+    "Add city":"أضف مدينة",
+    "All cities":"كل المدن",
+    "All governorate":"كل المحافظات",
+    "Add governorate":"أضف محافظة",
+    "Regions":"المناطق",
+    "Add Governorate":"أضف المحافظة",
+    "Search Governorate":"بحث عن المحافظة",
+    "Name arabic":"الاسم عربي",
+    "Governorates":"المحافظات"
 
 }
