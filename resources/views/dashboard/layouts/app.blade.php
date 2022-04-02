@@ -767,6 +767,19 @@
                           </div>
                         </div>
                         <!-- End Collapse -->
+                        <!-- Collapse -->
+                        <div class="nav-item">
+                            <a class="nav-link dropdown-toggle" href="#navbarVerticalMenuPagesEcommerceCategory" role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesEcommerceCategory" aria-expanded="false" aria-controls="navbarVerticalMenuPagesEcommerceCustomersMenu">
+                                <i class="bi bi-card-list nav-icon"></i>
+                              <span class="nav-link-title">@lang('Categories')</span>
+                            </a>
+
+                            <div id="navbarVerticalMenuPagesEcommerceCategory" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuPagesMenuEcommerce">
+                              <a class="nav-link " href="./ecommerce-customer-details.html">@lang('Show Categories')</a>
+                              <a class="nav-link " href="./ecommerce-add-customers.html">@lang('Add Category')</a>
+                            </div>
+                          </div>
+                          <!-- End Collapse -->
                       </div>
 
                       {{-- <a class="nav-link " href="./ecommerce-referrals.html">Referrals</a> --}}

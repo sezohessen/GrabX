@@ -38,11 +38,14 @@ Route::group([
     });
     Route::get('/dashboard', [dashboardController::class,'index'])->name('dashboard');
     Route::resource('Product', ProductController::class);
+    Route::resource('Category', ProductController::class);
 });
 Route::group([
     'as' => 'tenant.',
     'middleware' => [
         'web',
+        InitializeTenancyByDomain::class,
+        PreventAccessFromCentralDomains::class,
     ]
 ],function(){
     Auth::Routes();
