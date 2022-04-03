@@ -40,10 +40,6 @@ class City extends Component
         'addCity_ar'  => 'required|min:2',
         'addGover'    => 'required',
     ];
-    public function updated($propertyName)
-    {
-        $this->validateOnly($propertyName);
-    }
     // Add
     public function add()
     {
@@ -53,9 +49,8 @@ class City extends Component
         $newCity->name_ar         = $this->addCity_ar;
         $newCity->governorate_id  = $this->addGover;
         $newCity->save();
-        // $this->dispatchBrowserEvent('CloseModal');
-        $this->emit('CloseModal');
         $this->reset();
+
         session()->flash('add', __('City has successfully been added'));
     }
 
@@ -76,10 +71,10 @@ class City extends Component
     ];
     public function update($id)
     {
-        $validatedData      = $this->validate($this->updateRules);
-        $updateRecord =ModelsCity::find($id);
-        $updateRecord->name = $this->editCity ;
-        $updateRecord->name_ar =$this->editCity_ar  ;
+        $validatedData                = $this->validate($this->updateRules);
+        $updateRecord                 = ModelsCity::find($id);
+        $updateRecord->name           = $this->editCity ;
+        $updateRecord->name_ar        = $this->editCity_ar;
         $updateRecord->governorate_id = $this->editGover;
         $updateRecord->save();
         $this->reset();

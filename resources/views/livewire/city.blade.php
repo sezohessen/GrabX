@@ -26,7 +26,7 @@
            <a class="btn btn-primary" data-toggle="modal" data-target="#modalForm" href="#">{{ __('Add city') }}</a>
          </div>
            <!-- Add Modal -->
-        <div wire:ignore.self class="modal fade" id="modalForm" tabindex="-1"  role="dialog" aria-labelledby="exampleModalLabel"  aria-hidden="true">
+        <div wire:ignore.self class="modal fade" id="modalForm" tabindex="-1"  role="dialog" aria-labelledby="modalForm"  aria-hidden="true">
             <div class="modal-dialog"   role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -76,13 +76,14 @@
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('Close')</button>
-                    <button wire:click="add()"  type="button" class="btn btn-primary">@lang('Add city')</button>
+                    <button wire:click="add()" data-dismiss="modal"
+                     type="button" class="btn btn-primary">@lang('Add city')</button>
                     </div>
                 </div>
             </div>
         </div>
         {{-- End Add modal --}}
-                <!-- Add Modal -->
+                <!-- Edit Modal -->
             <div wire:ignore.self class="modal fade" id="updateModel" tabindex="-1"  role="dialog" aria-labelledby="exampleModalLabel"  aria-hidden="true">
             <div class="modal-dialog"   role="document">
                 <div class="modal-content">
@@ -133,16 +134,15 @@
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('Close')</button>
-                    <button wire:click="update({{ $cityId }})"  type="button" class="btn btn-primary">@lang('Edit city')</button>
+                    <button wire:click="update({{ $cityId }})" type="button" data-dismiss="modal" class="btn btn-primary">@lang('Edit city')</button>
                     </div>
                 </div>
             </div>
         </div>
-        {{-- End Add modal --}}
+        {{-- End Edit modal --}}
        </div>
        <!-- End Row -->
      </div>
-
      <!-- End Page Header -->
      <!-- Card -->
      <div class="card">
@@ -266,10 +266,8 @@
      <!-- End Card -->
    </div>
    @section('js')
-    <script>
-         window.livewire.on('userStore', () => {
-            $('#modalForm').modal('hide');
-        });
+   <script>
+
     </script>
    @endsection
    <!-- End Content -->
