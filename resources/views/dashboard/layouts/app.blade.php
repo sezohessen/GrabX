@@ -750,10 +750,8 @@
                           </a>
 
                           <div id="governorate" class="nav-collapse collapse " data-bs-parent="#governorate">
-                            <a class="nav-link " href="{{ route('tenant.governorate') }}">{{ __('All governorate') }}</a>
-                            <a class="nav-link " href="./ecommerce-order-details.html">{{ __('Add governorate') }}</a>
-                            <a class="nav-link " href="./ecommerce-orders.html">{{ __('All cities') }}</a>
-                            <a class="nav-link " href="./ecommerce-orders.html">{{ __('Add city') }}</a>
+                            <a class="nav-link " href="{{ route('tenant.governorate') }}">{{ __('Governorate') }}</a>
+                            <a class="nav-link " href="./ecommerce-orders.html">{{ __('Cities') }}</a>
                           </div>
                         </div>
                         <!-- Collapse -->

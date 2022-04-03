@@ -18,8 +18,8 @@ class Governorate extends Component
     public $gover_ar;
     public $isOpen = false;
 
-
-
+    public $editGoverName;
+    public $editGoverName_ar;
 
     protected $queryString = [
         'page' => ['except' => 1, 'as' => 'p'],
@@ -32,14 +32,14 @@ class Governorate extends Component
     }
 
     protected $rules = [
-        'gover'     => 'required|min:4',
-        'gover_ar'  => 'required|min:4',
+        'gover'     => 'required|min:2',
+        'gover_ar'  => 'required|min:2',
     ];
     public function updated($propertyName)
     {
         $this->validateOnly($propertyName);
     }
-    public function addGovernorate()
+    public function add()
     {
         $this->newGovernorate = new ModelsGovernorate();
         $validatedData = $this->validate();
@@ -48,8 +48,44 @@ class Governorate extends Component
         $this->newGovernorate->save();
         $this->dispatchBrowserEvent('company-added');
         $this->reset();
+        session()->flash('add', __('Governorate has successfully been added'));
 
     }
+
+    public function passEditData($id){
+
+        $editGover = ModelsGovernorate::where('id',$id)->first();
+        $this->editGoverName    = $editGover->name;
+        $this->editGoverName_ar = $editGover->name_ar;
+
+
+    }
+
+
+    protected $updateRules = [
+        'editGoverName'     => 'required|min:2',
+        'editGoverName_ar'  => 'required|min:2',
+    ];
+    public function update($id)
+    {
+        $validatedData = $this->validate($this->updateRules);
+        $updateRecord           =  ModelsGovernorate::find($id);
+        $updateRecord->update([
+        'name'     => $this->editGoverName,
+        'name_ar'  => $this->editGoverName_ar,
+        ]);
+        $this->dispatchBrowserEvent('company-edit');
+        $this->reset();
+        session()->flash('update', __('Governorate has successfully been updated'));
+    }
+
+
+    public function delete($id)
+    {
+        ModelsGovernorate::find($id)->delete();
+        session()->flash('delete', __('Governorate has successfully been deleted'));
+    }
+
 
     public function render()
     {

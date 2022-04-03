@@ -59,6 +59,9 @@
     "Name arabic":"الاسم عربي",
     "Governorates":"المحافظات",
     "Governorate in english":"المحافظة باللغة الإنجليزية",
-    "Governorate in arabic":"محافظة باللغة العربية"
+    "Governorate in arabic":"محافظة باللغة العربية",
+    "Governorate successfully been updated":"تم تحديث المحافظة بنجاح",
+    "Governorate has successfully been deleted":"تم حذف المحافظة بنجاح",
+    "Governorate has successfully been added":"تم أضافة المحافظة بنجاح"
 
 }

@@ -146,6 +146,8 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        "edit_gover_name" => 'Edit Governorate'
+    ],
 
 ];

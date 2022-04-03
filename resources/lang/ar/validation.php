@@ -209,7 +209,10 @@ return [
         "category_id"           => "التصنيف",
         "image"                 => "الصورة",
         "gover"                 => "المحافظة",
-        "gover_ar"              => "المحافظة بالعربي"
+        "gover_ar"              => "المحافظة بالعربي",
+        "editGoverName"         => "المحافظة",
+        "editGoverName_ar"      => "المحافظة بالعربي",
+
 
 
 

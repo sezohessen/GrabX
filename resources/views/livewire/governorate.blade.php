@@ -11,16 +11,16 @@
         }
         .form-popup{
             z-index: 999;
-            position: absolute;
+            position: fixed;
             background-color: #f5f5f5;
             border: 1px solid #212121;
             border-radius: 2px;
             padding: 30px;
             border-radius: 10px;
-            width: 600px;
-            left: 30%;
+            width: 700px;
+            left: 50%;
+            transform: translate(-50%, 0);
             top: 10%;
-            margin-left: -150px;
         }
         .popup-label{
             width: 100%;
@@ -38,7 +38,8 @@
             color: red;
             margin-top: 5px;
         }
-
+        /* Model showing fix */
+        [x-cloak] { display: none }
     </style>
     <!-- Content -->
     <div class="content container-fluid" style="position: relative">
@@ -51,7 +52,7 @@
          <!-- End Col -->
 
          {{-- Start add Modal  --}}
-         <div  x-data="{ open: $wire.isOpen }"   class="col-sm-auto">
+         <div x-cloak x-data="{ open: $wire.isOpen }"   class="col-sm-auto">
            <a  @click=" open = true " class="btn btn-primary" href="#">{{ __('Add Governorate') }}</a>
             <div x-show=open>
                 <div class="my-wrapper" ></div>
@@ -85,7 +86,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="d-grid gap-2 pt-4">
-                                <button wire:click="addGovernorate()" x-on:company-added.window="open = false"
+                                <button wire:click="add()" x-on:company-added.window="open = false"
                                  type="submit" class="btn btn-primary btn-lg"> @lang('Save') </button>
                             </div>
                         </div>
@@ -93,7 +94,7 @@
                  </div>
             </div>
          </div>
-         <!-- End Col -->
+         <!-- Start add Moda -->
        </div>
        <!-- End Row -->
      </div>
@@ -117,12 +118,32 @@
              <!-- End Search -->
            </form>
          </div>
-
+         <div>
+            @if (session()->has('delete'))
+                <div class="alert alert-danger">
+                    {{ session('delete') }}
+                </div>
+            @endif
+            <div>
+                @if (session()->has('add'))
+                    <div class="alert alert-success">
+                        {{ session('add') }}
+                    </div>
+                @endif
+            </div>
+            <div>
+                @if (session()->has('update'))
+                    <div class="alert alert-success">
+                        {{ session('update') }}
+                    </div>
+                @endif
+            </div>
+        </div>
        </div>
        <!-- End Header -->
 
        <!-- Table -->
-       <div class="table-responsive datatable-custom">
+       <div class="table-responsive datatable-custom" style="position: relative">
          <table id="datatable" class="table table-borderless table-thead-bordered table-nowrap table-align-middle card-table">
            <thead class="thead-light">
              <tr>
@@ -167,14 +188,54 @@
               </td>
               <td>
                  <div class="btn-group" role="group">
-                   <a class="btn btn-white btn-sm" href="{{ route('tenant.Product.edit',['Product'=>$governorate->id]) }}">
-                     <i class="bi-pencil-fill me-1"></i> {{ __('Edit') }}
-                   </a>
-
+                {{-- Start edit Modal  --}}
+                    <div x-cloak x-data="{ open: $wire.isOpen }"   class="col-sm-auto">
+                        <a wire:click="passEditData({{ $governorate->id }})"  @click=" open = true " class="btn btn-white btn-sm" href="#">{{ __('Edit') }}</a>
+                        <div x-show=open>
+                            <div class="my-wrapper" ></div>
+                            <div class="form-popup" @keyup.escape.window="open=false" @click.outside="open = false">
+                                <div class="row">
+                                    <div class="col-md-11">
+                                        <h3>@lang('Edit Governorate')</h3>
+                                    </div>
+                                        <div class="col-md-1">
+                                            <a @click="open = false">
+                                                <i class="bi bi-x-circle nav-icon x-icon"></i>
+                                            </a>
+                                        </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label  for="Governorate" class="col-md-4 col-form-label text-md-end popup-label">{{ __('Governorate in english') }}</label>
+                                        <input placeholder="{{ __('Governorate in english') }}"
+                                        type="text" class="form-control mr-2 ml-2 @error('governorate') is-invalid @enderror" wire:model="editGoverName" required autocomplete="domain" autofocus>
+                                        @error('editGoverName') <div class="lvError">{{ $message }}</div> @enderror
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label  for="Governorate" class="col-md-4 col-form-label text-md-end popup-label">{{ __('Governorate in arabic') }}</label>
+                                        <input  placeholder="{{ __('Governorate in arabic') }}" wire:model="editGoverName_ar"
+                                        type="text" class="form-control mr-2 ml-2 @error('governorate_ar') is-invalid @enderror"   required autocomplete="domain" autofocus>
+                                        @error('editGoverName_ar') <div class="lvError">{{ $message }}</div> @enderror
+                                    </div>
+                                </div>
+                                {{-- Save button --}}
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="d-grid gap-2 pt-4">
+                                            <button wire:click="update({{ $governorate->id }})" x-on:company-edit.window="open = false"
+                                            type="submit" class="btn btn-primary btn-lg"> @lang('Update') </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end edit Modal -->
                    <div class="btn-group">
                      <button type="button" class="btn btn-white btn-icon btn-sm dropdown-toggle dropdown-toggle-empty"  data-bs-toggle="dropdown" aria-expanded="false"></button>
                      <div class="dropdown-menu dropdown-menu-end mt-1" aria-labelledby="productsEditDropdown1">
-                       <button wire:click="deleteProduct({{ $governorate->id }})" class="dropdown-item">
+                       <button wire:click="delete({{ $governorate->id }})" class="dropdown-item">
                          <i class="bi-trash dropdown-item-icon"></i> {{ __('Delete') }}
                        </button>
                      </div>
