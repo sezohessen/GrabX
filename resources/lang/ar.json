@@ -74,5 +74,7 @@
     "Name(AR)":"الاسم بالعربية",
     "City(EN)":"المدينة بالانجليزية",
     "City(AR)":"المدينة بالعربية",
-    "Close":"غلق"
+    "Close":"غلق",
+    "Edit city":"تعديل مدينة",
+    "City has successfully been updated":"تم تحديث المدينة بنجاح"
 }

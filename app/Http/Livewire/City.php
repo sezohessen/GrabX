@@ -17,6 +17,12 @@ class City extends Component
     public $addCity_ar;
     public $addGover;
 
+    public $editCity;
+    public $editCity_ar;
+    public $editGover;
+
+    public $cityId;
+
     protected $queryString = [
         'page' => ['except' => 1, 'as' => 'p'],
         'search' => ['except' => '', 'as' => 's'],
@@ -51,6 +57,34 @@ class City extends Component
         $this->emit('CloseModal');
         $this->reset();
         session()->flash('add', __('City has successfully been added'));
+    }
+
+    public function edit($id)
+    {
+        $edit =ModelsCity::find($id);
+        $this->cityId       = $edit->id;
+        $this->editCity     = $edit->name;
+        $this->editCity_ar  = $edit->name_ar;
+        $this->editGover    = $edit->governorate_id;
+
+    }
+
+    protected $updateRules = [
+        'editCity'     => 'required|min:2',
+        'editCity_ar'  => 'required|min:2',
+        'editGover'    => 'required|',
+    ];
+    public function update($id)
+    {
+        $validatedData      = $this->validate($this->updateRules);
+        $updateRecord       =  ModelsCity::find($id);
+        $updateRecord->update([
+        'name'           => $this->editCity,
+        'name_ar'        => $this->editCity_ar,
+        'governorate_id' => $this->editGover
+        ]);
+        $this->reset();
+        session()->flash('update', __('City has successfully been updated'));
     }
 
     public function delete($id)

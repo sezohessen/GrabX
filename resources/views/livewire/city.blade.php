@@ -25,7 +25,7 @@
          <div class="col-sm-auto">
            <a class="btn btn-primary" data-toggle="modal" data-target="#modalForm" href="#">{{ __('Add city') }}</a>
          </div>
-           <!-- Modal -->
+           <!-- Add Modal -->
         <div wire:ignore.self class="modal fade" id="modalForm" tabindex="-1"  role="dialog" aria-labelledby="exampleModalLabel"  aria-hidden="true">
             <div class="modal-dialog"   role="document">
                 <div class="modal-content">
@@ -82,7 +82,65 @@
                 </div>
             </div>
         </div>
-        {{-- End modal --}}
+        {{-- End Add modal --}}
+                <!-- Add Modal -->
+            <div wire:ignore.self class="modal fade" id="updateModel" tabindex="-1"  role="dialog" aria-labelledby="exampleModalLabel"  aria-hidden="true">
+            <div class="modal-dialog"   role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                            <div class="col-md-10">
+                                <h5 class="modal-title" id="exampleModalLabel"> @lang('Edit city') </h5>
+                            </div>
+                            <div class="col-md-1">
+                                <a style="color: red; font-size: 20px;cursor: pointer;" data-dismiss="modal" aria-label="Close">
+                                    <i class="bi bi-x-circle nav-icon"></i>
+                                </a>
+                            </div>
+                    </div>
+                    <div class="container modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label style="width: 100%"  for="Governorate" class="col-md-4 col-form-label text-md-end popup-label">{{ __('Governorate') }}</label>
+                        </div>
+                        <div class="col-md-6">
+                        <!-- Select box-->
+                            <select  wire:model="editGover" id="select-beast" data-live-search="true"  aria-label="Default select example" placeholder="{{ __('Select category') }}" required>
+                                <option disabled > @lang('Select city') </option>
+                                @foreach ($governorates as $governorate )
+                                    <option value="{{ $governorate->id }}"> {{ LangDetail($governorate->name, $governorate->name_ar) }} </option>
+                                @endforeach
+                            </select>
+                                @error('addGover') <div class="lvError">{{ $message }}</div> @enderror
+                        </div>
+                        <hr>
+                        <div class="col-md-6">
+                            <label style="width: 100%"  for="Governorate" class="col-md-4 col-form-label text-md-end popup-label">{{ __('City(EN)') }}</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input placeholder="{{ __('City(EN)') }}"
+                            type="text" class="form-control mr-2 ml-2 @error('governorate') is-invalid @enderror" wire:model="editCity" required ="domain" autofocus>
+                            @error('addCity') <div class="lvError">{{ $message }}</div> @enderror
+                        </div>
+                        <hr>
+                        <div class="col-md-6">
+                            <label style="width: 100%"  for="Governorate" class="col-md-4 col-form-label text-md-end popup-label">{{ __('City(AR)') }}</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input wire:model="editCity_ar" placeholder="{{ __('City(AR)') }}"
+                            type="text" class="form-control mr-2 ml-2 @error('governorate_ar') is-invalid @enderror"  required ="domain" autofocus>
+                            @error('addCity_ar') <div class="lvError">{{ $message }}</div> @enderror
+                        </div>
+
+                    </div>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('Close')</button>
+                    <button wire:click="update({{ $cityId }})"  type="button" class="btn btn-primary">@lang('Edit city')</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- End Add modal --}}
        </div>
        <!-- End Row -->
      </div>
@@ -182,7 +240,7 @@
                 </td>
                <td>
                  <div class="btn-group" role="group">
-                   <a class="btn btn-white btn-sm" href="{{ route('tenant.Category.edit',['Category'=>$city->id]) }}">
+                   <a data-target="#updateModel" wire:click="edit({{ $city->id }})" data-toggle="modal" href="#" class="btn btn-white btn-sm">
                      <i class="bi-pencil-fill me-1"></i> {{ __('Edit') }}
                    </a>
                    <div class="btn-group">

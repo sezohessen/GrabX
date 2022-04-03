@@ -58,7 +58,6 @@ class Governorate extends Component
         $this->editGoverName    = $editGover->name;
         $this->editGoverName_ar = $editGover->name_ar;
 
-
     }
 
 
