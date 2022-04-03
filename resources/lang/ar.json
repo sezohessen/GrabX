@@ -62,6 +62,10 @@
     "Governorate in arabic":"محافظة باللغة العربية",
     "Governorate successfully been updated":"تم تحديث المحافظة بنجاح",
     "Governorate has successfully been deleted":"تم حذف المحافظة بنجاح",
-    "Governorate has successfully been added":"تم أضافة المحافظة بنجاح"
-
+    "Governorate has successfully been added":"تم أضافة المحافظة بنجاح",
+    "Categories":"التصنيفات",
+    "Add category":"اضف تصنيف",
+    "Search category":"ابحث عن تصنيف",
+    "Name(ENG)":"الاسم بالانجليزية",
+    "Name(AR)":"الاسم بالعربية"
 }

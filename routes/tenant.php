@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\dashboard\CategoryController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Stancl\Tenancy\Middleware\InitializeTenancyByDomain;
@@ -39,6 +40,7 @@ Route::group([
     });
     Route::get('/dashboard', [dashboardController::class,'index'])->name('dashboard');
     Route::resource('Product', ProductController::class);
+    Route::resource('Category', CategoryController::class);
     Route::get('/governorate', function() {return view('dashboard.Governorate.governorate'); })->name('governorate');
 });
 Route::group([

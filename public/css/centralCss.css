@@ -9,3 +9,6 @@
     padding: 6px;
     font-weight: bold;
 }
+.invalid-feedback{
+    display: block;
+}

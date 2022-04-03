@@ -52,10 +52,6 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
-    {
-        return view('dashboard.Product.Product');
-    }
 
     /**
      * Show the form for editing the specified resource.

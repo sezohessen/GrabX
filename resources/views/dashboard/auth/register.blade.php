@@ -1,8 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+
 {{-- {{ dd($errors) }} --}}
-<div class="container-fluid px-3">
+<div class="container-fluid px-3 sezo">
     <div class="row">
       <div class="col-lg-6 d-none d-lg-flex justify-content-center align-items-center min-vh-lg-100 position-relative bg-light px-0">
         <!-- Logo & Language -->
@@ -84,7 +85,7 @@
       <div class="col-lg-6 d-flex justify-content-center align-items-center min-vh-lg-100">
         <div class="w-100 content-space-t-4 content-space-t-lg-2 content-space-b-1" style="max-width: 25rem;">
           <!-- Form -->
-          <form method="POST" action="{{ route('tenant.register') }}" class="js-validate needs-validation" novalidate>
+          <form method="POST" action="{{ route('tenant.register') }}" class="js-validate needs-validation" >
             @csrf
             <div class="text-center">
               <div class="mb-5">
