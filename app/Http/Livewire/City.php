@@ -77,12 +77,11 @@ class City extends Component
     public function update($id)
     {
         $validatedData      = $this->validate($this->updateRules);
-        $updateRecord       =  ModelsCity::find($id);
-        $updateRecord->update([
-        'name'           => $this->editCity,
-        'name_ar'        => $this->editCity_ar,
-        'governorate_id' => $this->editGover
-        ]);
+        $updateRecord =ModelsCity::find($id);
+        $updateRecord->name = $this->editCity ;
+        $updateRecord->name_ar =$this->editCity_ar  ;
+        $updateRecord->governorate_id = $this->editGover;
+        $updateRecord->save();
         $this->reset();
         session()->flash('update', __('City has successfully been updated'));
     }

@@ -47,7 +47,6 @@
                         <div class="col-md-6">
                         <!-- Select box-->
                             <select  wire:model="addGover" id="select-beast" data-live-search="true"  aria-label="Default select example" placeholder="{{ __('Select category') }}" required>
-                                <option disabled > @lang('Select city') </option>
                                 @foreach ($governorates as $governorate )
                                     <option value="{{ $governorate->id }}"> {{ LangDetail($governorate->name, $governorate->name_ar) }} </option>
                                 @endforeach
@@ -105,7 +104,6 @@
                         <div class="col-md-6">
                         <!-- Select box-->
                             <select  wire:model="editGover" id="select-beast" data-live-search="true"  aria-label="Default select example" placeholder="{{ __('Select category') }}" required>
-                                <option disabled > @lang('Select city') </option>
                                 @foreach ($governorates as $governorate )
                                     <option value="{{ $governorate->id }}"> {{ LangDetail($governorate->name, $governorate->name_ar) }} </option>
                                 @endforeach
