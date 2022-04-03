@@ -66,9 +66,8 @@
                     <!-- Form -->
                     <div class="mb-4">
                       <label for="description" class="form-label"> {{ __('Description') }} </label>
-                      <div class="form-floating">
-                        <textarea required name="desc" class="form-control" placeholder="{{ __('Description') }}" id="floatingTextarea2" style="height: 100px"></textarea>
-                        <label  for="desc"> {{ __('Description') }} </label>
+                      <div class="form-group">
+                        <textarea required name="desc" class="form-control" placeholder="{{ __('Description') }}" id="floatingTextarea2" rows="6"></textarea>   
                         @error('desc')
                          <div class="alert alert-danger mt-2">{{ $message }}</div>
                         @enderror
@@ -82,9 +81,8 @@
                     <!-- Form -->
                     <div class="mb-4">
                        <label for="weightLabel" class="form-label"> {{ __('Arabic description') }} </label>
-                        <div class="form-floating">
-                            <textarea required name="desc_ar" class="form-control" placeholder="{{ __('Arabic description') }}" id="floatingTextarea2" style="height: 100px"></textarea>
-                            <label for="desc_ar"> {{ __('Arabic description') }} </label>
+                        <div class="form-group">
+                            <textarea required name="desc_ar" class="form-control" placeholder="{{ __('Arabic description') }}" id="floatingTextarea2" rows="6"></textarea> 
                             @error('desc_ar')
                                 <div class="alert alert-danger mt-2">{{ $message }}</div>
                             @enderror

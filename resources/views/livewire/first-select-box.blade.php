@@ -9,7 +9,7 @@
                         <label for="productNameLabel" class="form-label">{{ __('Select box name')  }} <i class="bi-question-circle text-body ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="@lang('You can add select box to add option to your product ex: size, offers')">
                         </i></label>
                         <input required type="text" class="form-control" name="mainSelect" id="productNameLabel" placeholder="{{ __('Select box name') }}" aria-label="{{ __('Select box name') }}" value="">
-                        @error('name')
+                        @error('mainSelect')
                             <div class="alert alert-danger mt-2">{{ $message }}</div>
                         @enderror
                     </div>
@@ -24,21 +24,16 @@
                     {{-- Second select --}}
                 <div x-if="open">
                     <div id="row" class="row">
-                        <div class="col-md-2">
-                            <div class="mb-4">
+                        <div class="col-md-4">
+                            <div class="mb-4" id="dynamic_field">
                                 <label for="productNameLabel" class="form-label">{{ __('Select box name')  }} <i class="bi-question-circle text-body ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="@lang('You can add select box to add option to your product ex: size, offers')">
                                 </i></label>
-                                <input required type="text" class="form-control" name="secondSelctName[]" id="productNameLabel" placeholder="{{ __('Select box name') }}" aria-label="{{ __('Select box name') }}" value="">
-                                @error('name')
+                                <input required type="text" class="form-control" name="secondSelctName[]" placeholder="{{ __('Select box name') }}" aria-label="{{ __('Select box name') }}" value="">
+                                <input required type="number" class="form-control" name="secondSelctPrice[]" placeholder="{{ __('Select box name') }}" aria-label="{{ __('Select box name') }}" value="">
+                                @error('secondSelctName.*')
                                     <div class="alert alert-danger mt-2">{{ $message }}</div>
                                 @enderror
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <div class="mb-4">
-                                <label for="productNameLabel" class="form-label">{{ __('Price')  }} </label>
-                                <input required type="text" class="form-control" name="secondSelctPrice[]" id="productNameLabel" placeholder="{{ __('Select box name') }}" aria-label="{{ __('Select box name') }}" value="">
-                                @error('name')
+                                @error('secondSelctPrice.*')
                                     <div class="alert alert-danger mt-2">{{ $message }}</div>
                                 @enderror
                             </div>
@@ -60,31 +55,11 @@
 </div>
 @section('js')
     <script>
+        var i = 0;
         function AddMoreSelect() {
-          const div = document.createElement('div');
-          div.className = 'row';
-          div.innerHTML = `
-                <div class="col-md-2">
-                    <div class="mb-4">
-                        <label for="productNameLabel" class="form-label">{{ __('Select box name')  }} <i class="bi-question-circle text-body ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="@lang('You can add select box to add option to your product ex: size, offers')">
-                        </i></label>
-                        <input required type="text" class="form-control" name="secondSelctName[]" id="productNameLabel" placeholder="{{ __('Select box name') }}" aria-label="{{ __('Select box name') }}">
-                        @error('name')
-                            <div class="alert alert-danger mt-2">{{ $message }}</div>
-                        @enderror
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="mb-4">
-                        <label for="productNameLabel" class="form-label">{{ __('Price')  }} </label>
-                        <input required type="text" class="form-control" name="secondSelctPrice[]" id="productNameLabel" placeholder="{{ __('Select box name') }}" aria-label="{{ __('Select box name') }}">
-                        @error('name')
-                            <div class="alert alert-danger mt-2">{{ $message }}</div>
-                        @enderror
-                    </div>
-                </div>
-            `;
-            document.getElementById('row').appendChild(div);
+            i++;
+            $('#dynamic_field').append(`<input required type="text" class="form-control" name="secondSelctName[]"  placeholder="{{ __('Select box name') }}" aria-label="{{ __('Select box name') }}" value="">`);
         }
+
     </script>
 @endsection
