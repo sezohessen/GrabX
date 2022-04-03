@@ -12,7 +12,8 @@ class City extends Model
     protected $table    = 'cities';
     protected $fillable=[
         'name',
-        'name_ar'
+        'name_ar',
+        'deliverly_cost'
     ];
 
     public function governorate(): BelongsTo

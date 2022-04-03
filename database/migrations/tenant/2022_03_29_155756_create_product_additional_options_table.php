@@ -13,17 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cities', function (Blueprint $table) {
+        Schema::create('product_additional_options', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('name_ar');
-            $table->bigInteger('governorate_id')->unsigned();
-            $table->foreign('governorate_id')
-            ->references('id')->on('governorates')
+
+            $table->bigInteger('product_id')->unsigned();
+            $table->foreign('product_id')
+            ->references('id')->on('products')
             ->onDelete('cascade')
             ->onUpdate('cascade');
-
-            $table->integer('deliverly_cost');
             $table->timestamps();
         });
     }
@@ -35,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cities');
+        Schema::dropIfExists('product_additional_options');
     }
 };
