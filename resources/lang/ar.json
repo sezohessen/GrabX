@@ -63,9 +63,16 @@
     "Governorate successfully been updated":"تم تحديث المحافظة بنجاح",
     "Governorate has successfully been deleted":"تم حذف المحافظة بنجاح",
     "Governorate has successfully been added":"تم أضافة المحافظة بنجاح",
+    "City has successfully been deleted":"تم حذف المدينة بنجاح",
+    "City has successfully been added":"تمت إضافة المدينة بنجاح",
+    "Product has successfully been deleted":"تم حذف المنتج بنجاح",
+    "availability has successfully been changed":"تم تغيير التوفر بنجاح",
     "Categories":"التصنيفات",
     "Add category":"اضف تصنيف",
     "Search category":"ابحث عن تصنيف",
     "Name(ENG)":"الاسم بالانجليزية",
-    "Name(AR)":"الاسم بالعربية"
+    "Name(AR)":"الاسم بالعربية",
+    "City(EN)":"المدينة بالانجليزية",
+    "City(AR)":"المدينة بالعربية",
+    "Close":"غلق"
 }

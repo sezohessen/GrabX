@@ -37,7 +37,20 @@
 
        </div>
        <!-- End Header -->
-
+       <div>
+           @if (session()->has('delete'))
+                <div class="alert alert-danger">
+                    {{ session('delete') }}
+                </div>
+            @endif
+       </div>
+       <div>
+        @if (session()->has('change'))
+             <div class="alert alert-success">
+                 {{ session('change') }}
+             </div>
+         @endif
+    </div>
        <!-- Table -->
        <div class="table-responsive datatable-custom">
          <table id="datatable" class="table table-borderless table-thead-bordered table-nowrap table-align-middle card-table">

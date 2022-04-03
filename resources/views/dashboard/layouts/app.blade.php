@@ -26,7 +26,7 @@
   <link rel="preload" href="{{ global_asset('css/dashboard/theme.min.css') }}" data-hs-appearance="default" as="style">
   <link rel="preload" href="{{ global_asset('css/dashboard/theme-dark.min.css') }}" data-hs-appearance="dark" as="style">
   {{--select box  --}}
-  <link rel="stylesheet" href="{{ global_asset('css/dashboard/vendor/daterangepicker/daterangepicker.css') }}">
+
     {{-- MY CSS --}}
   <link rel="stylesheet" href="{{ global_asset('css/mycss.css') }}" type="text/css">
   <link rel="stylesheet" href="{{ asset('css/centralCss.css') }}">
@@ -750,8 +750,8 @@
                           </a>
 
                           <div id="governorate" class="nav-collapse collapse " data-bs-parent="#governorate">
-                            <a class="nav-link " href="{{ route('tenant.governorate') }}">{{ __('Governorate') }}</a>
-                            <a class="nav-link " href="./ecommerce-orders.html">{{ __('Cities') }}</a>
+                            <a class="nav-link " href="{{ route('tenant.Governorate') }}">{{ __('Governorate') }}</a>
+                            <a class="nav-link " href="{{ route('tenant.City') }}">{{ __('Cities') }}</a>
                           </div>
                         </div>
                         <!-- Collapse -->

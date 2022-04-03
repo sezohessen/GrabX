@@ -63,8 +63,8 @@
                             <h3>@lang('Add Governorate')</h3>
                         </div>
                             <div class="col-md-1">
-                                <a @click="open = false">
-                                    <i class="bi bi-x-circle nav-icon x-icon"></i>
+                                <a style="color: red; font-size: 20px;cursor: pointer;" @click="open = false">
+                                    <i class="bi bi-x-circle nav-icon"></i>
                                 </a>
                             </div>
                     </div>
@@ -119,30 +119,27 @@
              <!-- End Search -->
            </form>
          </div>
-         <div>
-            @if (session()->has('delete'))
-                <div class="alert alert-danger">
-                    {{ session('delete') }}
-                </div>
-            @endif
-            <div>
-                @if (session()->has('add'))
-                    <div class="alert alert-success">
-                        {{ session('add') }}
-                    </div>
-                @endif
-            </div>
-            <div>
-                @if (session()->has('update'))
-                    <div class="alert alert-success">
-                        {{ session('update') }}
-                    </div>
-                @endif
-            </div>
-        </div>
        </div>
        <!-- End Header -->
-
+       @if (session()->has('delete'))
+        <div class="alert alert-danger">
+            {{ session('delete') }}
+            </div>
+         @endif
+        <div>
+        @if (session()->has('add'))
+            <div class="alert alert-success">
+                {{ session('add') }}
+            </div>
+        @endif
+        </div>
+        <div>
+        @if (session()->has('update'))
+            <div class="alert alert-success">
+                {{ session('update') }}
+            </div>
+        @endif
+        </div>
        <!-- Table -->
        <div class="table-responsive datatable-custom" style="position: relative">
          <table id="datatable" class="table table-borderless table-thead-bordered table-nowrap table-align-middle card-table">

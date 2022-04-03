@@ -212,6 +212,9 @@ return [
         "gover_ar"              => "المحافظة بالعربي",
         "editGoverName"         => "المحافظة",
         "editGoverName_ar"      => "المحافظة بالعربي",
+        "add_city_ar"           => "أسم المدينة بالعربي",
+        "add_city"              => "أسم المدينة",
+        "add_gover"             => "المحافظة"
 
 
 

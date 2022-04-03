@@ -91,9 +91,6 @@ class Governorate extends Component
     {
         $gover = ModelsGovernorate::where('name', 'LIKE', '%'. $this->search .'%')
         ->orWhere('name_ar','LIKE', '%'. $this->search .'%')->orderBy('id','desc')->paginate(10)
-        ->orWhere('name_ar','LIKE', '%'. $this->search .'%')
-        ->orderBy('id','DESC')
-        ->paginate(10)
         ->appends('search', $this->search);
         return view('livewire.governorate',[
             'governorates'          => $gover,

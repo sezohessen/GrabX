@@ -38,11 +38,13 @@ class ProductIndex extends Component
         $this->product->update([
             'active' => !$this->product->active
         ]);
+        session()->flash('change', __('availability has successfully been changed'));
     }
 
     public function deleteProduct($id)
     {
         Product::find($id)->delete();
+        session()->flash('delete', __('Product has successfully been deleted'));
     }
 
     public function render()
