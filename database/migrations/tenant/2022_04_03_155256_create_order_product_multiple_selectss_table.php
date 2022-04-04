@@ -27,8 +27,8 @@ return new class extends Migration
             ->onDelete('cascade')
             ->onUpdate('cascade');
 
-            $table->bigInteger('product_multiple_select_item_id')->unsigned();
-            $table->foreign('product_multiple_select_item_id')
+            $table->bigInteger('product_item_id')->unsigned();
+            $table->foreign('product_item_id')
             ->references('id')->on('product_multiple_select_items')
             ->onDelete('cascade')
             ->onUpdate('cascade');
