@@ -13,17 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cities', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('name_ar');
-            $table->bigInteger('governorate_id')->unsigned();
-            $table->foreign('governorate_id')
-            ->references('id')->on('governorates')
-            ->onDelete('cascade')
-            ->onUpdate('cascade');
-
-            $table->integer('deliverly_cost');
+            $table->string('phone');
+            $table->string('email')->nullable();
+            $table->boolean('pickup')->nullable();
+            $table->boolean('deliverly')->nullable();
+            $table->integer('discount');
+            $table->integer('subtotal');
+            $table->integer('total');
+            $table->integer('status');
             $table->timestamps();
         });
     }
@@ -35,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cities');
+        Schema::dropIfExists('orders');
     }
 };

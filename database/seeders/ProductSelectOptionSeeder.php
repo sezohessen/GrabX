@@ -18,7 +18,7 @@ class ProductSelectOptionSeeder extends Seeder
     {
         $faker      = Faker::create();
         $products   = Product::all();
-        for ($i = 0; $i < 50; $i++) {
+        for ($i = 0; $i < 20; $i++) {
             $id     = DB::table('product_select_options')->insertGetId([
                 'name'              => $faker->name,
                 'name_ar'           => $faker->name,

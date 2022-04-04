@@ -24,10 +24,11 @@ class GovernorateSeeder extends Seeder
                 'created_at'        => now(),
                 'updated_at'        => now(),
             ]);
-            for ($j=0; $j < 10; $j++) {
+            for ($j=0; $j < 5; $j++) {
                 DB::table('cities')->insert([
                     'name'              => $faker->country,
                     'name_ar'           => $faker_ar->country,
+                    'deliverly_cost'    => $faker->numberBetween(1,20),
                     'governorate_id'    => $id,
                     'created_at'        => now(),
                     'updated_at'        => now(),
