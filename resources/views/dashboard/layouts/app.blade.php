@@ -738,6 +738,7 @@
                     <div id="navbarVerticalMenuPagesEcommerceProductsMenu" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuPagesEcommerceProductsMenu">
                         <a class="nav-link " href="{{ route('tenant.Product.index') }}">{{ __('Products') }}</a>
                         <a class="nav-link " href="{{ route('tenant.Product.create') }}">{{ __('Add Product') }}</a>
+                        <a class="nav-link " href="{{ route('tenant.PromoCode') }}">{{ __('Promo code') }}</a>
                     </div>
                   </div>
                         <!-- End Collapse -->
@@ -789,8 +790,7 @@
                             </a>
 
                             <div id="navbarVerticalMenuPagesEcommerceCategory" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuPagesMenuEcommerce">
-                              <a class="nav-link " href="{{ route('tenant.Category.index') }}">@lang('Show Categories')</a>
-                              <a class="nav-link " href="{{ route('tenant.Category.create') }}">@lang('Add Category')</a>
+                              <a class="nav-link " href="{{ route('tenant.Category.index') }}">@lang('Categories')</a>
                             </div>
                           </div>
                           <!-- End Collapse -->

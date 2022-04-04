@@ -41,8 +41,9 @@ Route::group([
     Route::get('/dashboard', [dashboardController::class,'index'])->name('dashboard');
     Route::resource('Product', ProductController::class);
     Route::resource('Category', CategoryController::class);
-    Route::get('/Governorate', function() {return view('dashboard.Governorate.governorate'); })->name('Governorate');
+    Route::get('/Governorate', function() {return view('dashboard.Governorate.index'); })->name('Governorate');
     Route::get('/City', function() {return view('dashboard.Cities.index'); })->name('City');
+    Route::get('/PromoCode', function() {return view('dashboard.Promo.index'); })->name('PromoCode');
 });
 Route::group([
     'as' => 'tenant.',

@@ -82,5 +82,23 @@
     "Category has successfully been updated":"تم تعديل التصنيف  بنجاح",
     "Category(AR)":"التصنيف(بالعربي)",
     "Category(EN)":"التصنيف(بالانجليزي)",
-    "Edit category":"تعديل تصنيف"
+    "Edit category":"تعديل تصنيف",
+    "Delivery cost":"تكلفة التوصيل",
+    "Add promo code":"أضف كود الخصم",
+    "Code":"الكود",
+    "Discount":"الخصم",
+    "Max price discount":"أقصى سعر للخصم",
+    "Max count":"اقص حد للخصم",
+    "Usable":"عدد الاكواد الصالحة للاستعمال",
+    "Active":"نشط",
+    "Search code or discount":"أبحث عن كود او خصم",
+    "Codes":"الأكواد",
+    "Promo code":"أكواد الخصم",
+    "Promo Code has successfully been deleted":"تم حذف كود الخصم بنجاح",
+    "Promo code has successfully been added":"تمت إضافة كود الخصم بنجاح",
+    "Promo code has successfully been updated":"تمت تعديل كود الخصم بنجاح",
+    "Edit promo code":"تعديل كود الخصم"
+
+
+
 }

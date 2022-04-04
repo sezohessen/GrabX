@@ -216,7 +216,18 @@ return [
         "addCity"               => "أسم المدينة",
         "addGover"              => "المحافظة",
         "addCategory"           => "التصنيف",
-        "addCategory_ar"           => "التصنيف بالعربي"
+        "addCategory_ar"        => "التصنيف بالعربي",
+        "addCode,"              => "الكود",
+        "addDiscount"           => "الخصم",
+        "addMaxPrice"           => "اقصي سعر للخصم",
+        "addMaxCount"           => "اقصي عدد",
+        "editUsable"            => "الاستخدام",
+        "editCode"             => "الكود",
+        "editDiscount"          => "الخصم",
+        "editMaxPrice"          => "اقصي سعر للخصم",
+        "editMaxCount"          => "اقصي عدد",
+        "editUsable"            => "الاستخدام",
+
 
 
 

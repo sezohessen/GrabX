@@ -71,7 +71,15 @@
                             type="text" class="form-control mr-2 ml-2 @error('governorate_ar') is-invalid @enderror"  required ="domain" autofocus>
                             @error('addCity_ar') <div class="lvError">{{ $message }}</div> @enderror
                         </div>
-
+                        <hr>
+                        <div class="col-md-6">
+                            <label style="width: 100%"  for="DeliveryCost" class="col-md-4 col-form-label text-md-end popup-label">{{ __('Delivery cost') }}</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input wire:model="addCost" placeholder="{{ __('Delivery cost') }}"
+                            type="text" class="form-control mr-2 ml-2"  autofocus>
+                            @error('addCost') <div class="lvError">{{ $message }}</div> @enderror
+                        </div>
                     </div>
                     </div>
                     <div class="modal-footer">
@@ -129,7 +137,15 @@
                             type="text" class="form-control mr-2 ml-2 @error('governorate_ar') is-invalid @enderror"  required ="domain" autofocus>
                             @error('addCity_ar') <div class="lvError">{{ $message }}</div> @enderror
                         </div>
-
+                        <hr>
+                        <div class="col-md-6">
+                            <label style="width: 100%"  for="DeliveryCost" class="col-md-4 col-form-label text-md-end popup-label">{{ __('Delivery cost') }}</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input wire:model="editCost" placeholder="{{ __('Delivery cost') }}"
+                            type="text" class="form-control mr-2 ml-2"  autofocus>
+                            @error('editCost') <div class="lvError">{{ $message }}</div> @enderror
+                        </div>
                     </div>
                     </div>
                     <div class="modal-footer">
@@ -199,6 +215,7 @@
                <th>{{ __('Name(ENG)') }}</th>
                <th>{{ __('Name(AR)') }}</th>
                <th>{{ __('Governorate') }}</th>
+               <th>{{ __('Delivery cost') }}</th>
                <th>{{ __('Options') }}</th>
                <th></th>
                <th></th>
@@ -234,6 +251,13 @@
                     <a class="d-flex align-items-center" href="#">
                         <div class="flex-grow-1 ms-3">
                             <h5 class="text-inherit mb-0"> {{ langDetail($city->governorate->name,$city->governorate->name_ar) }}</h5>
+                        </div>
+                    </a>
+                </td>
+                <td class="table-column-ps-0">
+                    <a class="d-flex align-items-center" href="#">
+                        <div class="flex-grow-1 ms-3">
+                            <h5 class="text-inherit mb-0"> {{ $city->deliverly_cost }}</h5>
                         </div>
                     </a>
                 </td>
