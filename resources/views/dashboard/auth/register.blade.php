@@ -178,7 +178,7 @@
 
             <!-- Form Check -->
             <div class="form-check mb-4">
-              <input class="form-check-input" name="terms" type="checkbox" value="" id="termsCheckbox" required>
+              <input class="form-check-input" name="terms" type="checkbox" value="true" id="termsCheckbox" required>
               <label class="form-check-label" for="termsCheckbox">
                 I accept the <a href="#">Terms and Conditions</a>
               </label>
