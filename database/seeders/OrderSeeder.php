@@ -104,7 +104,7 @@ class OrderSeeder extends Seeder
         $product_addition   = ProductAdditionalOptionItem::all();
 
         /* Make Order Seeder with way of order(Pickup,Deliverly ) with it's information and order items details */
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 40; $i++) {
             $id     = DB::table('orders')->insertGetId([
                 'name'              => $faker->name,
                 'phone'             => $faker->phoneNumber,
@@ -115,7 +115,7 @@ class OrderSeeder extends Seeder
                 'subtotal'          => $price = $faker->numberBetween(5,150),
                 'deliverly_cost'    => $existPickUP ? 0 : $faker->numberBetween(1,10),
                 'total'             => $faker->numberBetween($price,151),
-                'status'            => array_rand($status),
+                'status'            => $status[array_rand($status)],
                 'created_at'        => now(),
                 'updated_at'        => now(),
             ]);
@@ -134,7 +134,7 @@ class OrderSeeder extends Seeder
                     'order_id'          => $id,
                     'governorate_id'    => $governorate->id,
                     'city_id'           => $governorate->cities->random()->id,
-                    'unit_type'         => array_rand($unit_type),
+                    'unit_type'         => $unit_type[array_rand($unit_type)],
                     'street'            => $faker->city,
                     'house_num'         => $faker->numberBetween(1,10),
                     'special_direction' => $faker->city,
@@ -151,28 +151,37 @@ class OrderSeeder extends Seeder
                     'created_at'        => now(),
                     'updated_at'        => now(),
                 ]);
-                $this->seedOrderProductOption(
-                    'order_item_options',
-                    $id,
-                    $product,
-                    'product_select_option_item_id',
-                    $product_option
-                );
-                $this->seedOrderProductOption(
-                    'order_product_multiple_selects',
-                    $id,
-                    $product,
-                    'product_item_id',
-                    $product_muloption
-                );
-                $this->seedOrderProductOption(
-                    'order_product_additional_option_items',
-                    $id,
-                    $product,
-                    'product_item_id',
-                    $product_addition,
-                    $qty = 1
-                );
+                $rand = rand(0,3);
+                if(!$rand){
+                    $this->seedOrderProductOption(
+                        'order_item_options',
+                        $id,
+                        $product,
+                        'product_select_option_item_id',
+                        $product_option
+                    );
+                }
+                $rand = rand(0,2);
+                if(!$rand){
+                    $this->seedOrderProductOption(
+                        'order_product_multiple_selects',
+                        $id,
+                        $product,
+                        'product_item_id',
+                        $product_muloption
+                    );
+                }
+                $rand = rand(0,2);
+                if(!$rand){
+                    $this->seedOrderProductOption(
+                        'order_product_additional_option_items',
+                        $id,
+                        $product,
+                        'product_item_id',
+                        $product_addition,
+                        $qty = 1
+                    );
+                }
             }
 
         }

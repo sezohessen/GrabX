@@ -9,15 +9,15 @@ class Order extends Model
 {
     use HasFactory;
     const status = [
-        0   => 'pending',
-        1   => 'on the way',
-        2   => 'deliverled',
-        3   => 'canceled'
+        'pending'       => 1,
+        'on way'        => 2,
+        'delivered'     => 3,
+        'canceled'      => 4,
     ];
     const unit_type = [
-        0   => 'house',
-        1   => 'appartment',
-        2   => 'office',
+        'house'         => 1,
+        'appartment'    => 2,
+        'office'        => 3
     ];
     protected $table    = 'orders';
     protected $fillable=[

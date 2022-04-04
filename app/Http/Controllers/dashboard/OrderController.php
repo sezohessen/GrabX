@@ -9,6 +9,6 @@ class OrderController extends Controller
 {
     public function index()
     {
-        dd(1);
+        return view('dashboard.Orders.index');
     }
 }

@@ -44,7 +44,7 @@ Route::group([
     Route::resource('Category', CategoryController::class);
     Route::get('/Governorate', function() {return view('dashboard.Governorate.governorate'); })->name('Governorate');
     Route::get('/City', function() {return view('dashboard.Cities.index'); })->name('City');
-    Route::get('orders', [OrderController::class,'index'])->name('order');
+    Route::get('orders', [OrderController::class,'index'])->name('order.index');
 });
 Route::group([
     'as' => 'tenant.',

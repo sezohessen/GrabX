@@ -70,8 +70,6 @@
                <th>{{ __('Price') }}</th>
                <th>{{ __('Quantity') }}</th>
                <th>{{ __('Options') }}</th>
-               <th></th>
-               <th></th>
              </tr>
            </thead>
 
