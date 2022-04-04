@@ -83,8 +83,8 @@
             </div>
         </div>
         {{-- End Add modal --}}
-                <!-- Edit Modal -->
-            <div wire:ignore.self class="modal fade" id="updateModel" tabindex="-1"  role="dialog" aria-labelledby="exampleModalLabel"  aria-hidden="true">
+        <!-- Edit Modal -->
+        <div wire:ignore.self class="modal fade" id="updateModel" tabindex="-1"  role="dialog" aria-labelledby="exampleModalLabel"  aria-hidden="true">
             <div class="modal-dialog"   role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -162,6 +162,7 @@
          </div>
        </div>
        <!-- End Header -->
+       {{-- Messages --}}
             <div>
                 @if (session()->has('add'))
                     <div class="alert alert-success">

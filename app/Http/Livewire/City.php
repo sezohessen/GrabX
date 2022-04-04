@@ -50,7 +50,6 @@ class City extends Component
         $newCity->governorate_id  = $this->addGover;
         $newCity->save();
         $this->reset();
-
         session()->flash('add', __('City has successfully been added'));
     }
 

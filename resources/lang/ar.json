@@ -67,6 +67,7 @@
     "City has successfully been added":"تمت إضافة المدينة بنجاح",
     "Product has successfully been deleted":"تم حذف المنتج بنجاح",
     "availability has successfully been changed":"تم تغيير التوفر بنجاح",
+    "Category has successfully been added":"تمت إضافة التصنيف بنجاح",
     "Categories":"التصنيفات",
     "Add category":"اضف تصنيف",
     "Search category":"ابحث عن تصنيف",
@@ -76,5 +77,10 @@
     "City(AR)":"المدينة بالعربية",
     "Close":"غلق",
     "Edit city":"تعديل مدينة",
-"City has successfully been updated":"تم تحديث المدينة بنجاح"
+    "City has successfully been updated":"تم تحديث المدينة بنجاح",
+    "Category has successfully been deleted":"تم حذف التصنيف  بنجاح",
+    "Category has successfully been updated":"تم تعديل التصنيف  بنجاح",
+    "Category(AR)":"التصنيف(بالعربي)",
+    "Category(EN)":"التصنيف(بالانجليزي)",
+    "Edit category":"تعديل تصنيف"
 }
