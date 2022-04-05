@@ -97,30 +97,10 @@
 
     </style>
 @endsection
-
 <div class="card mb-3 mb-lg-5">
     <!-- Header -->
     <div class="card-header card-header-content-sm-between">
-        <h4 class="card-header-title mb-2 mb-sm-0">Sales <i class="bi-question-circle text-body ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Net sales (gross sales minus discounts and returns) plus taxes and shipping. Includes orders from all sales channels."></i></h4>
-
-        <div class="d-grid d-sm-flex gap-2">
-
-        <!-- Change data -->
-        <span class="dropdown">
-            <button>@lang('Select data')</button>
-            <label>
-              <input type="checkbox">
-              <ul>
-                <li wire:click="today()">@lang('Today')</li>
-                <li>Another Action</li>
-                <li>Something else here</li>
-                <li class="divider"></li>
-                <li>Separated link</li>
-              </ul>
-            </label>
-          </span>
-        <!-- End Change data -->
-        </div>
+        <h4 class="card-header-title mb-2 mb-sm-0"> @lang('Last week sales') <i class="bi-question-circle text-body ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="@lang('Statistics of products sold during the past week')"></i></h4>
     </div>
     <!-- End Header -->
     <!-- Body -->
@@ -128,8 +108,7 @@
         <div class="row col-lg-divider">
         <div class="col-lg-9 mb-5 mb-lg-0">
             <!-- Bar Chart -->
-            @php
-            @endphp
+        @if($cash0) {{ $cash0 }} @else
             <div class="chartjs-custom mb-4">
             <canvas id="ecommerce-sales" class="js-chart" style="height: 15rem;" data-hs-chartjs-options='{
                         "type": "bar",
@@ -145,6 +124,7 @@
                             "data": [@foreach ($casheAmont as $key => $orderCash){{ $orderCash }}@if ($key + 1 != 7),@endif @endforeach],
                             "backgroundColor": "#49be25",
                             "borderColor": "#49be25"
+
                         }]
                         },
                         "options": {
@@ -192,8 +172,8 @@
                         }
                     }'></canvas>
             </div>
+        @endif
             <!-- End Bar Chart -->
-
             <div class="row justify-content-center">
             <div class="col-auto">
                 <span class="legend-indicator" style="background-color: #49be25 !important "></span> Revenue
@@ -214,10 +194,16 @@
                 <!-- Stats -->
                 <div class="d-flex justify-content-center flex-column" style="min-height: 9rem;">
                 <h6 class="card-subtitle">Revenue</h6>
-                <span class="d-block display-4 text-dark mb-1 me-3">$97,458.20</span>
-                <span class="d-block text-success">
-                    <i class="bi-graph-up me-1"></i> $2,401.02 (3.7%)
-                </span>
+                <span class="d-block display-4 text-dark mb-1 me-3">@lang('Weekly') </span>
+                @if($percent >= $previousWeekly)
+                    <span class="d-block text-success">
+                        <i class="bi-graph-up me-1"></i> {{ number_format($totalOrderPrice, 0, '.', ',') }} ({{ $percent }}%)
+                    </span>
+                @else
+                    <span class="d-block text-danger">
+                        <i class="bi-graph-down me-1"></i> {{ number_format($totalOrderPrice, 0, '.', ',') }} ({{ $percent }}%)
+                    </span>
+                @endif
                 </div>
                 <!-- End Stats -->
 
@@ -228,11 +214,17 @@
             <div class="col-sm-6 col-lg-12">
                 <!-- Stats -->
                 <div class="d-flex justify-content-center flex-column" style="min-height: 9rem;">
-                <h6 class="card-subtitle">Orders</h6>
-                <span class="d-block display-4 text-dark mb-1 me-3">67,893</span>
-                <span class="d-block text-danger">
-                    <i class="bi-graph-down me-1"></i> +3,301 (1.2%)
-                </span>
+                <h6 class="card-subtitle">@lang('Orders')</h6>
+                <span class="d-block display-4 text-dark mb-1 me-3"> {{ $totalOrder }} </span>
+                @if($percent >= $previousWeekly)
+                    <span class="d-block text-danger">
+                        <i class="bi-graph-up me-1"></i> @lang('Products')
+                    </span>
+                @else
+                    <span class="d-block text-danger">
+                        <i class="bi-graph-down me-1"></i> @lang('Products')
+                    </span>
+                @endif
                 </div>
                 <!-- End Stats -->
             </div>

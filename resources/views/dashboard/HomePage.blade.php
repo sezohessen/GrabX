@@ -17,19 +17,20 @@
                       <div class="flex-grow-1">
                         <h6 class="card-subtitle mb-3">@lang('Total sales')</h6>
                         <h3 class="card-title">
+                            <i class="bi bi-cash-coin"></i>
                              {{ number_format($totalOrderPrice, 0, '.', ',') }}
                         </h3>
                         <div class="d-flex align-items-center">
-                          <span class="d-block fs-6" style="margin: 0 2px"> {{ $orders->count() }} @lang('Order')</span>
+                          <span class="d-block fs-6" style="margin: 0 2px"> @lang('Monthly profit') </span>
                           {{-- If data exist --}}
                           @if($IsSeeded != null)
                             @if($weekly >= $previousMonthly)
                                 <span class="badge bg-soft-success text-success ms-2">
-                                    <i class="bi-graph-up"></i> {{ $percent }}%
+                                    <i class="bi-graph-up"></i>  ({{ $percent }}%)
                                 </span>
                             @else
                                 <span class="badge bg-soft-danger text-danger ms-2">
-                                    <i class="bi-graph-up"></i> {{ $percent }}%
+                                    <i class="bi-graph-down"></i> ({{ $percent }}%)
                                 </span>
                             @endif
                           @endif
@@ -119,19 +120,17 @@
                 <div class="col-lg-4 mb-3 mb-lg-5">
                   <div class="d-grid gap-2 gap-lg-4">
                     <!-- Card -->
-                    <a class="card card-hover-shadow" href="#">
+                    <a class="card card-hover-shadow" href="{{ route('tenant.Product.create') }}">
                       <div class="card-body">
                         <div class="d-flex align-items-center">
                           <div class="flex-shrink-0">
-                            <img class="avatar avatar-lg avatar-4x3" src="./assets/svg/illustrations/oc-megaphone.svg" alt="Image Description" style="min-height: 5rem;" data-hs-theme-appearance="default">
+                            <img class="avatar avatar-lg avatar-4x3" src="{{ global_asset('img/static/ladder-svgrepo-com.svg') }}" alt="Image Description" style="min-height: 5rem;" data-hs-theme-appearance="default">
                             <img class="avatar avatar-lg avatar-4x3" src="./assets/svg/illustrations-light/oc-megaphone.svg" alt="Image Description" style="min-height: 5rem;" data-hs-theme-appearance="dark">
                           </div>
-
                           <div class="flex-grow-1 ms-4">
-                            <h3 class="text-inherit mb-1">Product</h3>
-                            <span class="text-body">Create a new product</span>
+                            <h3 class="text-inherit mb-1">@lang('Product')</h3>
+                            <span class="text-body">@lang('Add product')</span>
                           </div>
-
                           <div class="ms-2 text-end">
                             <i class="bi-chevron-right text-body text-inherit"></i>
                           </div>

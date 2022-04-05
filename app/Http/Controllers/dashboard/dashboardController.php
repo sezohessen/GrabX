@@ -29,11 +29,11 @@ class dashboardController extends Controller
         if($IsSeeded != null)
         {
             // calculate percentage of order sales
-            $dateFrom           = Carbon::now()->subDays(7);
+            $dateFrom           = Carbon::now()->subDays(30);
             $dateTo             = Carbon::now();
             $weekly             = Order::whereBetween('created_at', [$dateFrom, $dateTo])->sum('total');
-            $previousDateFrom   = Carbon::now()->subDays(14);
-            $previousDateTo     = Carbon::now()->subDays(7);
+            $previousDateFrom   = Carbon::now()->subDays(60);
+            $previousDateTo     = Carbon::now()->subDays(31);
             $previousMonthly    = Order::whereBetween('created_at', [$previousDateFrom,$previousDateTo])->sum('total');
             if($previousMonthly < $weekly){
                 if($previousMonthly > 0){
