@@ -15,14 +15,25 @@
                     <!-- Media -->
                     <div class="d-flex">
                       <div class="flex-grow-1">
-                        <h6 class="card-subtitle mb-3">In-store Sales</h6>
-                        <h3 class="card-title">$7,820.75</h3>
-
+                        <h6 class="card-subtitle mb-3">@lang('Total sales')</h6>
+                        <h3 class="card-title">
+                            <i class="bi bi-cash-coin"></i>
+                             {{ number_format($totalOrderPrice, 0, '.', ',') }}
+                        </h3>
                         <div class="d-flex align-items-center">
-                          <span class="d-block fs-6">5k orders</span>
-                          <span class="badge bg-soft-success text-success ms-2">
-                            <i class="bi-graph-up"></i> 4.3%
-                          </span>
+                          <span class="d-block fs-6" style="margin: 0 2px"> @lang('Monthly profit') </span>
+                          {{-- If data exist --}}
+                          @if($IsSeeded != null)
+                            @if($weekly >= $previousMonthly)
+                                <span class="badge bg-soft-success text-success ms-2">
+                                    <i class="bi-graph-up"></i>  ({{ $percent }}%)
+                                </span>
+                            @else
+                                <span class="badge bg-soft-danger text-danger ms-2">
+                                    <i class="bi-graph-down"></i> ({{ $percent }}%)
+                                </span>
+                            @endif
+                          @endif
                         </div>
                       </div>
 
@@ -38,14 +49,11 @@
                     <!-- Media -->
                     <div class="d-flex">
                       <div class="flex-grow-1">
-                        <h6 class="card-subtitle mb-3">Website Sales</h6>
-                        <h3 class="card-title">$985,937.45</h3>
+                        <h6 class="card-subtitle mb-3"> @lang('Products amount') </h6>
+                        <h3 class="card-title"> {{ $products->count() }} </h3>
 
                         <div class="d-flex align-items-center">
-                          <span class="d-block fs-6">21k orders</span>
-                          <span class="badge bg-soft-success text-success ms-2">
-                            <i class="bi-graph-up"></i> 12.5%
-                          </span>
+                          <span class="d-block fs-6"> @lang('Sold products') {{ $soldProducts->count() }} </span>
                         </div>
                       </div>
 
@@ -61,11 +69,13 @@
                     <!-- Media -->
                     <div class="d-flex">
                       <div class="flex-grow-1">
-                        <h6 class="card-subtitle mb-3">Discount</h6>
-                        <h3 class="card-title">$15,503.00</h3>
+                        <h6 class="card-subtitle mb-3"> @lang('Most used code') </h6>
+                        <h3 class="card-title">
+                            [{{ $maxCode->code }}] @lang('Used')  {{ number_format($mostPromoCodeUsed, 0, '.', ',') }} @lang('Times')
+                        </h3>
 
                         <div class="d-flex align-items-center">
-                          <span class="d-block fs-6">6k orders</span>
+                          <span class="d-block fs-6"> {{ $promoCodeUsage }} @lang('Promo code used')</span>
                         </div>
                       </div>
 
@@ -81,8 +91,8 @@
                     <!-- Media -->
                     <div class="d-flex">
                       <div class="flex-grow-1">
-                        <h6 class="card-subtitle mb-3">Affiliate</h6>
-                        <h3 class="card-title">$3,982.53</h3>
+                        <h6 class="card-subtitle mb-3"> @lang('Canceled orders') </h6>
+                        <h3 class="card-title"> {{ $canceldOrders->count() }} </h3>
 
                         <div class="d-flex align-items-center">
                           <span class="d-block fs-6">150 orders</span>
@@ -103,176 +113,24 @@
                 <!-- End Row -->
               </div>
               <!-- End Card -->
-
-              <!-- Card -->
-              <div class="card mb-3 mb-lg-5">
-                <!-- Header -->
-                <div class="card-header card-header-content-sm-between">
-                  <h4 class="card-header-title mb-2 mb-sm-0">Sales <i class="bi-question-circle text-body ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Net sales (gross sales minus discounts and returns) plus taxes and shipping. Includes orders from all sales channels."></i></h4>
-
-                  <div class="d-grid d-sm-flex gap-2">
-                    <!-- Select -->
-                    <div class="tom-select-custom">
-                      <select class="js-select form-select form-select-sm" autocomplete="off" data-hs-tom-select-options='{
-                                "searchInDropdown": false,
-                                "hideSearch": true,
-                                "dropdownWidth": "10rem"
-                              }'>
-                        <option value="online-store">Online store</option>
-                        <option value="in-store">In-store</option>
-                      </select>
-                    </div>
-                    <!-- End Select -->
-
-                    <!-- Daterangepicker -->
-                    <button id="js-daterangepicker-predefined" class="btn btn-white btn-sm dropdown-toggle">
-                      <i class="bi-calendar-week"></i>
-                      <span class="js-daterangepicker-predefined-preview ms-1"></span>
-                    </button>
-                    <!-- End Daterangepicker -->
-                  </div>
-                </div>
-                <!-- End Header -->
-
-                <!-- Body -->
-                <div class="card-body">
-                  <div class="row col-lg-divider">
-                    <div class="col-lg-9 mb-5 mb-lg-0">
-                      <!-- Bar Chart -->
-                      <div class="chartjs-custom mb-4">
-                        <canvas id="ecommerce-sales" class="js-chart" style="height: 15rem;" data-hs-chartjs-options='{
-                                  "type": "bar",
-                                  "data": {
-                                    "labels": ["1AM","2AM","3AM","4AM","5AM","6AM","7AM","8AM","9AM","10AM","11AM"],
-                                    "datasets": [{
-                                      "data": [200, 300, 290, 350, 150, 350, 300, 100, 125, 220, 200, 300, 290, 350, 150, 350, 300, 100, 125, 220, 225],
-                                      "backgroundColor": "#377dff",
-                                      "hoverBackgroundColor": "#377dff",
-                                      "borderColor": "#377dff"
-                                    },
-                                    {
-                                      "data": [150, 230, 382, 204, 169, 290, 300, 100, 300, 225, 120, 150, 230, 382, 204, 169, 290, 300, 100, 300, 140],
-                                      "backgroundColor": "#e7eaf3",
-                                      "borderColor": "#e7eaf3"
-                                    }]
-                                  },
-                                  "options": {
-                                    "scales": {
-                                      "yAxes": [{
-                                        "gridLines": {
-                                          "color": "#e7eaf3",
-                                          "drawBorder": false,
-                                          "zeroLineColor": "#e7eaf3"
-                                        },
-                                        "ticks": {
-                                          "beginAtZero": true,
-                                          "stepSize": 100,
-                                          "fontSize": 12,
-                                          "fontColor": "#97a4af",
-                                          "fontFamily": "Open Sans, sans-serif",
-                                          "padding": 10
-                                        }
-                                      }],
-                                      "xAxes": [{
-                                        "gridLines": {
-                                          "display": false,
-                                          "drawBorder": false
-                                        },
-                                        "ticks": {
-                                          "fontSize": 12,
-                                          "fontColor": "#97a4af",
-                                          "fontFamily": "Open Sans, sans-serif",
-                                          "padding": 5
-                                        },
-                                        "categoryPercentage": 0.5,
-                                        "maxBarThickness": "10"
-                                      }]
-                                    },
-                                    "cornerRadius": 2,
-                                    "tooltips": {
-                                      "hasIndicator": true,
-                                      "mode": "index",
-                                      "intersect": false
-                                    },
-                                    "hover": {
-                                      "mode": "nearest",
-                                      "intersect": true
-                                    }
-                                  }
-                                }'></canvas>
-                      </div>
-                      <!-- End Bar Chart -->
-
-                      <div class="row justify-content-center">
-                        <div class="col-auto">
-                          <span class="legend-indicator"></span> Revenue
-                        </div>
-                        <!-- End Col -->
-
-                        <div class="col-auto">
-                          <span class="legend-indicator bg-primary"></span> Orders
-                        </div>
-                        <!-- End Col -->
-                      </div>
-                      <!-- End Row -->
-                    </div>
-
-                    <div class="col-lg-3">
-                      <div class="row">
-                        <div class="col-sm-6 col-lg-12">
-                          <!-- Stats -->
-                          <div class="d-flex justify-content-center flex-column" style="min-height: 9rem;">
-                            <h6 class="card-subtitle">Revenue</h6>
-                            <span class="d-block display-4 text-dark mb-1 me-3">$97,458.20</span>
-                            <span class="d-block text-success">
-                              <i class="bi-graph-up me-1"></i> $2,401.02 (3.7%)
-                            </span>
-                          </div>
-                          <!-- End Stats -->
-
-                          <hr class="d-none d-lg-block my-0">
-                        </div>
-                        <!-- End Col -->
-
-                        <div class="col-sm-6 col-lg-12">
-                          <!-- Stats -->
-                          <div class="d-flex justify-content-center flex-column" style="min-height: 9rem;">
-                            <h6 class="card-subtitle">Orders</h6>
-                            <span class="d-block display-4 text-dark mb-1 me-3">67,893</span>
-                            <span class="d-block text-danger">
-                              <i class="bi-graph-down me-1"></i> +3,301 (1.2%)
-                            </span>
-                          </div>
-                          <!-- End Stats -->
-                        </div>
-                        <!-- End Col -->
-                      </div>
-                      <!-- End Row -->
-                    </div>
-                  </div>
-                  <!-- End Row -->
-                </div>
-                <!-- End Body -->
-              </div>
-              <!-- End Card -->
+              {{-- Sales chart --}}
+              @livewire('sales-chart')
 
               <div class="row">
                 <div class="col-lg-4 mb-3 mb-lg-5">
                   <div class="d-grid gap-2 gap-lg-4">
                     <!-- Card -->
-                    <a class="card card-hover-shadow" href="#">
+                    <a class="card card-hover-shadow" href="{{ route('tenant.Product.create') }}">
                       <div class="card-body">
                         <div class="d-flex align-items-center">
                           <div class="flex-shrink-0">
-                            <img class="avatar avatar-lg avatar-4x3" src="./assets/svg/illustrations/oc-megaphone.svg" alt="Image Description" style="min-height: 5rem;" data-hs-theme-appearance="default">
+                            <img class="avatar avatar-lg avatar-4x3" src="{{ global_asset('img/static/ladder-svgrepo-com.svg') }}" alt="Image Description" style="min-height: 5rem;" data-hs-theme-appearance="default">
                             <img class="avatar avatar-lg avatar-4x3" src="./assets/svg/illustrations-light/oc-megaphone.svg" alt="Image Description" style="min-height: 5rem;" data-hs-theme-appearance="dark">
                           </div>
-
                           <div class="flex-grow-1 ms-4">
-                            <h3 class="text-inherit mb-1">Product</h3>
-                            <span class="text-body">Create a new product</span>
+                            <h3 class="text-inherit mb-1">@lang('Product')</h3>
+                            <span class="text-body">@lang('Add product')</span>
                           </div>
-
                           <div class="ms-2 text-end">
                             <i class="bi-chevron-right text-body text-inherit"></i>
                           </div>

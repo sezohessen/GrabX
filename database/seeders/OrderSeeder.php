@@ -116,7 +116,7 @@ class OrderSeeder extends Seeder
                 'deliverly_cost'    => $existPickUP ? 0 : $faker->numberBetween(1,10),
                 'total'             => $faker->numberBetween($price,151),
                 'status'            => $existPickUP ? $status["pending"]:$status[array_rand($status)],
-                'created_at'        => now(),
+                'created_at'        => $faker->dateTimeBetween('-1 month', '+1 month'),
                 'updated_at'        => now(),
             ]);
             if($existPickUP){

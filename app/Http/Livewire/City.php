@@ -16,10 +16,12 @@ class City extends Component
     public $addCity;
     public $addCity_ar;
     public $addGover;
+    public $addCost;
 
     public $editCity;
     public $editCity_ar;
     public $editGover;
+    public $editCost;
 
     public $cityId;
 
@@ -39,11 +41,8 @@ class City extends Component
         'addCity'     => 'required|min:2',
         'addCity_ar'  => 'required|min:2',
         'addGover'    => 'required',
+        'addCost'     => 'nullable|max:9'
     ];
-    public function updated($propertyName)
-    {
-        $this->validateOnly($propertyName);
-    }
     // Add
     public function add()
     {
@@ -52,9 +51,8 @@ class City extends Component
         $newCity->name            = $this->addCity;
         $newCity->name_ar         = $this->addCity_ar;
         $newCity->governorate_id  = $this->addGover;
+        $newCity->deliverly_cost  = $this->addCost;
         $newCity->save();
-        // $this->dispatchBrowserEvent('CloseModal');
-        $this->emit('CloseModal');
         $this->reset();
         session()->flash('add', __('City has successfully been added'));
     }
@@ -66,6 +64,7 @@ class City extends Component
         $this->editCity     = $edit->name;
         $this->editCity_ar  = $edit->name_ar;
         $this->editGover    = $edit->governorate_id;
+        $this->editCost     = $edit->deliverly_cost;
 
     }
 
@@ -73,16 +72,17 @@ class City extends Component
         'editCity'     => 'required|min:2',
         'editCity_ar'  => 'required|min:2',
         'editGover'    => 'required|',
+        'editCost'     => 'nullable|max:9'
     ];
     public function update($id)
     {
-        $validatedData      = $this->validate($this->updateRules);
-        $updateRecord       =  ModelsCity::find($id);
-        $updateRecord->update([
-        'name'           => $this->editCity,
-        'name_ar'        => $this->editCity_ar,
-        'governorate_id' => $this->editGover
-        ]);
+        $validatedData                = $this->validate($this->updateRules);
+        $updateRecord                 = ModelsCity::find($id);
+        $updateRecord->name           = $this->editCity ;
+        $updateRecord->name_ar        = $this->editCity_ar;
+        $updateRecord->governorate_id = $this->editGover;
+        $updateRecord->deliverly_cost = $this->editCost;
+        $updateRecord->save();
         $this->reset();
         session()->flash('update', __('City has successfully been updated'));
     }

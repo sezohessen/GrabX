@@ -46,7 +46,7 @@
        </div>
        <div>
         @if (session()->has('change'))
-             <div class="alert alert-success">
+             <div class="alert alert-info">
                  {{ session('change') }}
              </div>
          @endif

@@ -212,9 +212,23 @@ return [
         "gover_ar"              => "المحافظة بالعربي",
         "editGoverName"         => "المحافظة",
         "editGoverName_ar"      => "المحافظة بالعربي",
-        "add_city_ar"           => "أسم المدينة بالعربي",
-        "add_city"              => "أسم المدينة",
-        "add_gover"             => "المحافظة"
+        "addCity_ar"            => "أسم المدينة بالعربي",
+        "addCity"               => "أسم المدينة",
+        "addGover"              => "المحافظة",
+        "addCategory"           => "التصنيف",
+        "addCategory_ar"        => "التصنيف بالعربي",
+        "addCode,"              => "الكود",
+        "addDiscount"           => "الخصم",
+        "addMaxPrice"           => "اقصي سعر للخصم",
+        "addMaxCount"           => "اقصي عدد",
+        "editUsable"            => "الاستخدام",
+        "editCode"             => "الكود",
+        "editDiscount"          => "الخصم",
+        "editMaxPrice"          => "اقصي سعر للخصم",
+        "editMaxCount"          => "اقصي عدد",
+        "editUsable"            => "الاستخدام",
+
+
 
 
 

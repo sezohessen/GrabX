@@ -26,7 +26,7 @@
            <a class="btn btn-primary" data-toggle="modal" data-target="#modalForm" href="#">{{ __('Add city') }}</a>
          </div>
            <!-- Add Modal -->
-        <div wire:ignore.self class="modal fade" id="modalForm" tabindex="-1"  role="dialog" aria-labelledby="exampleModalLabel"  aria-hidden="true">
+        <div wire:ignore.self class="modal fade" id="modalForm" tabindex="-1"  role="dialog" aria-labelledby="modalForm"  aria-hidden="true">
             <div class="modal-dialog"   role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -47,7 +47,6 @@
                         <div class="col-md-6">
                         <!-- Select box-->
                             <select  wire:model="addGover" id="select-beast" data-live-search="true"  aria-label="Default select example" placeholder="{{ __('Select category') }}" required>
-                                <option disabled > @lang('Select city') </option>
                                 @foreach ($governorates as $governorate )
                                     <option value="{{ $governorate->id }}"> {{ LangDetail($governorate->name, $governorate->name_ar) }} </option>
                                 @endforeach
@@ -72,19 +71,28 @@
                             type="text" class="form-control mr-2 ml-2 @error('governorate_ar') is-invalid @enderror"  required ="domain" autofocus>
                             @error('addCity_ar') <div class="lvError">{{ $message }}</div> @enderror
                         </div>
-
+                        <hr>
+                        <div class="col-md-6">
+                            <label style="width: 100%"  for="DeliveryCost" class="col-md-4 col-form-label text-md-end popup-label">{{ __('Delivery cost') }}</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input wire:model="addCost" placeholder="{{ __('Delivery cost') }}"
+                            type="text" class="form-control mr-2 ml-2"  autofocus>
+                            @error('addCost') <div class="lvError">{{ $message }}</div> @enderror
+                        </div>
                     </div>
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('Close')</button>
-                    <button wire:click="add()"  type="button" class="btn btn-primary">@lang('Add city')</button>
+                    <button wire:click="add()" data-dismiss="modal"
+                     type="button" class="btn btn-primary">@lang('Add city')</button>
                     </div>
                 </div>
             </div>
         </div>
         {{-- End Add modal --}}
-                <!-- Add Modal -->
-            <div wire:ignore.self class="modal fade" id="updateModel" tabindex="-1"  role="dialog" aria-labelledby="exampleModalLabel"  aria-hidden="true">
+        <!-- Edit Modal -->
+        <div wire:ignore.self class="modal fade" id="updateModel" tabindex="-1"  role="dialog" aria-labelledby="exampleModalLabel"  aria-hidden="true">
             <div class="modal-dialog"   role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -105,7 +113,6 @@
                         <div class="col-md-6">
                         <!-- Select box-->
                             <select  wire:model="editGover" id="select-beast" data-live-search="true"  aria-label="Default select example" placeholder="{{ __('Select category') }}" required>
-                                <option disabled > @lang('Select city') </option>
                                 @foreach ($governorates as $governorate )
                                     <option value="{{ $governorate->id }}"> {{ LangDetail($governorate->name, $governorate->name_ar) }} </option>
                                 @endforeach
@@ -130,21 +137,28 @@
                             type="text" class="form-control mr-2 ml-2 @error('governorate_ar') is-invalid @enderror"  required ="domain" autofocus>
                             @error('addCity_ar') <div class="lvError">{{ $message }}</div> @enderror
                         </div>
-
+                        <hr>
+                        <div class="col-md-6">
+                            <label style="width: 100%"  for="DeliveryCost" class="col-md-4 col-form-label text-md-end popup-label">{{ __('Delivery cost') }}</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input wire:model="editCost" placeholder="{{ __('Delivery cost') }}"
+                            type="text" class="form-control mr-2 ml-2"  autofocus>
+                            @error('editCost') <div class="lvError">{{ $message }}</div> @enderror
+                        </div>
                     </div>
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('Close')</button>
-                    <button wire:click="update({{ $cityId }})"  type="button" class="btn btn-primary">@lang('Edit city')</button>
+                    <button wire:click="update({{ $cityId }})" type="button" data-dismiss="modal" class="btn btn-primary">@lang('Edit city')</button>
                     </div>
                 </div>
             </div>
         </div>
-        {{-- End Add modal --}}
+        {{-- End Edit modal --}}
        </div>
        <!-- End Row -->
      </div>
-
      <!-- End Page Header -->
      <!-- Card -->
      <div class="card">
@@ -164,6 +178,7 @@
          </div>
        </div>
        <!-- End Header -->
+       {{-- Messages --}}
             <div>
                 @if (session()->has('add'))
                     <div class="alert alert-success">
@@ -200,6 +215,7 @@
                <th>{{ __('Name(ENG)') }}</th>
                <th>{{ __('Name(AR)') }}</th>
                <th>{{ __('Governorate') }}</th>
+               <th>{{ __('Delivery cost') }}</th>
                <th>{{ __('Options') }}</th>
                <th></th>
                <th></th>
@@ -238,6 +254,13 @@
                         </div>
                     </a>
                 </td>
+                <td class="table-column-ps-0">
+                    <a class="d-flex align-items-center" href="#">
+                        <div class="flex-grow-1 ms-3">
+                            <h5 class="text-inherit mb-0"> {{ $city->deliverly_cost }}</h5>
+                        </div>
+                    </a>
+                </td>
                <td>
                  <div class="btn-group" role="group">
                    <a data-target="#updateModel" wire:click="edit({{ $city->id }})" data-toggle="modal" href="#" class="btn btn-white btn-sm">
@@ -268,10 +291,8 @@
      <!-- End Card -->
    </div>
    @section('js')
-    <script>
-         window.livewire.on('userStore', () => {
-            $('#modalForm').modal('hide');
-        });
+   <script>
+
     </script>
    @endsection
    <!-- End Content -->

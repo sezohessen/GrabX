@@ -724,21 +724,21 @@
 
                 </div>
                 <div id="navbarVerticalMenuPagesMenu">
-                    <!-- Collapse -->
-                    <div class="nav-item">
-                        <a class="nav-link " href="{{ route('tenant.dashboard') }}" role="button">
-                            <i class="bi-house-door-fill nav-icon"></i>
-                            <span class="nav-link-title"> @lang('Overview')</span>
-                        </a>
-                        {{-- start dropdown --}}
-                        <a class="nav-link dropdown-toggle " href="" role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesEcommerceProductsMenu" aria-expanded="false" aria-controls="navbarVerticalMenuPagesEcommerceMenu">
-                            <i class="bi-basket nav-icon"></i>
-                            <span class="nav-link-title">@lang('Products')</span>
-                        </a>
-                        <div id="navbarVerticalMenuPagesEcommerceProductsMenu" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuPagesEcommerceProductsMenu">
-                            <a class="nav-link " href="{{ route('tenant.Product.index') }}">{{ __('Products') }}</a>
-                            <a class="nav-link " href="{{ route('tenant.Product.create') }}">{{ __('Add Product') }}</a>
-                        </div>
+                  <!-- Collapse -->
+                  <div class="nav-item">
+                    <a class="nav-link " href="{{ route('tenant.dashboard') }}" role="button">
+                        <i class="bi-house-door-fill nav-icon"></i>
+                      <span class="nav-link-title"> @lang('Overview')</span>
+                    </a>
+                    {{-- start dropdown --}}
+                    <a class="nav-link dropdown-toggle " href="#navbarVerticalMenuPagesEcommerceProductsMenu" role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesEcommerceProductsMenu" aria-expanded="false" aria-controls="navbarVerticalMenuPagesEcommerceMenu">
+                        <i class="bi-basket nav-icon"></i>
+                        <span class="nav-link-title">@lang('Products')</span>
+                    </a>
+                    <div id="navbarVerticalMenuPagesEcommerceProductsMenu" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuPagesEcommerceProductsMenu">
+                        <a class="nav-link " href="{{ route('tenant.Product.index') }}">{{ __('Products') }}</a>
+                        <a class="nav-link " href="{{ route('tenant.Product.create') }}">{{ __('Add Product') }}</a>
+                        <a class="nav-link " href="{{ route('tenant.PromoCode') }}">{{ __('Promo code') }}</a>
                     </div>
                     <!-- End Collapse -->
                     <!-- Collapse -->
@@ -766,19 +766,6 @@
                         <a class="nav-link " href="{{ route('tenant.City') }}">{{ __('Cities') }}</a>
                         </div>
                     </div>
-                    <!-- Collapse -->
-                    <div class="nav-item">
-                        <a class="nav-link dropdown-toggle" href="#navbarVerticalMenuPagesEcommerceOrdersMenu" role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesEcommerceOrdersMenu" aria-expanded="false" aria-controls="navbarVerticalMenuPagesEcommerceOrdersMenu">
-                        <i class="bi-bag-heart nav-icon"></i>
-                        <span class="nav-link-title">{{ __('Orders') }}</span>
-                        </a>
-
-                        <div id="navbarVerticalMenuPagesEcommerceOrdersMenu" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuPagesMenuEcommerce">
-                        <a class="nav-link " href="./ecommerce-orders.html">{{ __('Orders') }}</a>
-                        <a class="nav-link " href="./ecommerce-order-details.html">{{ __('Order details') }}</a>
-                        </div>
-                    </div>
-                    <!-- End Collapse -->
 
                     <!-- Collapse -->
                     <div class="nav-item">
@@ -801,8 +788,7 @@
                             </a>
 
                             <div id="navbarVerticalMenuPagesEcommerceCategory" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuPagesMenuEcommerce">
-                              <a class="nav-link " href="{{ route('tenant.Category.index') }}">@lang('Show Categories')</a>
-                              <a class="nav-link " href="{{ route('tenant.Category.create') }}">@lang('Add Category')</a>
+                              <a class="nav-link " href="{{ route('tenant.Category.index') }}">@lang('Categories')</a>
                             </div>
                           </div>
                           <!-- End Collapse -->
