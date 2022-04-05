@@ -115,7 +115,7 @@ class OrderSeeder extends Seeder
                 'subtotal'          => $price = $faker->numberBetween(5,150),
                 'deliverly_cost'    => $existPickUP ? 0 : $faker->numberBetween(1,10),
                 'total'             => $faker->numberBetween($price,151),
-                'status'            => $status[array_rand($status)],
+                'status'            => $existPickUP ? $status["pending"]:$status[array_rand($status)],
                 'created_at'        => now(),
                 'updated_at'        => now(),
             ]);

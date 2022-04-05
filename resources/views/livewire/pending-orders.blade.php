@@ -147,9 +147,11 @@
                         <button type="button" class="btn btn-white btn-icon btn-sm dropdown-toggle dropdown-toggle-empty"  data-bs-toggle="dropdown" aria-expanded="false"></button>
                         <div class="dropdown-menu dropdown-menu-end mt-1" aria-labelledby="productsEditDropdown1">
                             @if ($order->status == App\Models\Order::status['pending'])
+                                @if (!$order->pickup)
                                 <button wire:click="toOnTheWay({{ $order->id }})" class="d-block w-100 my-1 text-white btn btn-info btn-xs">
                                     <i class="fa-solid fa-motorcycle mx-2"></i>{{ __('On the way') }}
                                 </button>
+                                @endif
                                 <button wire:click="toDelivered({{ $order->id }})" class="d-block w-100 my-1 text-white btn btn-success btn-xs">
                                     <i class="bi-check mx-2"></i> {{ __('Delivered') }}
                                 </button>
