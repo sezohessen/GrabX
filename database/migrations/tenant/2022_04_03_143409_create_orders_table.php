@@ -20,8 +20,9 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->boolean('pickup')->nullable();
             $table->boolean('deliverly')->nullable();
-            $table->integer('discount');
+            $table->integer('discount')->nullable();
             $table->integer('subtotal');
+            $table->integer('deliverly_cost');
             $table->integer('total');
             $table->integer('status');
             $table->timestamps();

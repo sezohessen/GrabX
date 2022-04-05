@@ -740,50 +740,49 @@
                         <a class="nav-link " href="{{ route('tenant.Product.create') }}">{{ __('Add Product') }}</a>
                         <a class="nav-link " href="{{ route('tenant.PromoCode') }}">{{ __('Promo code') }}</a>
                     </div>
-                  </div>
-                        <!-- End Collapse -->
-
-                        <!-- Collapse -->
-                        <div class="nav-item">
-                          <a class="nav-link dropdown-toggle" href="#governorate" role="button" data-bs-toggle="collapse" data-bs-target="#governorate" aria-expanded="false" aria-controls="navbarVerticalMenuPagesEcommerceOrdersMenu">
-                            <i class="bi bi-map nav-icon"></i>
-                            <span class="nav-link-title">{{ __('Regions') }}</span>
-                          </a>
-
-                          <div id="governorate" class="nav-collapse collapse " data-bs-parent="#governorate">
-                            <a class="nav-link " href="{{ route('tenant.Governorate') }}">{{ __('Governorate') }}</a>
-                            <a class="nav-link " href="{{ route('tenant.City') }}">{{ __('Cities') }}</a>
-                          </div>
+                    <!-- End Collapse -->
+                    <!-- Collapse -->
+                    <div class="nav-item">
+                        <a class="nav-link dropdown-toggle" href=""role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesEcommerceOrder" aria-expanded="false" aria-controls="navbarVerticalMenuPagesEcommerceMenu">
+                            <i class="bi bi-cart4 nav-icon"></i>
+                            <span class="nav-link-title"> @lang('Orders')</span>
+                        </a>
+                        <div id="navbarVerticalMenuPagesEcommerceOrder" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuPagesEcommerceOrder">
+                            <a class="nav-link " href="{{ route('tenant.order.index') }}">{{ __('Show Orders') }}</a>
+                            <a class="nav-link " href="{{ route('tenant.order.index') }}">{{ __('Pending Orders') }}</a>
+                            <a class="nav-link " href="{{ route('tenant.order.index') }}">{{ __('Canceled Orders') }}</a>
                         </div>
-                        <!-- Collapse -->
-                        <div class="nav-item">
-                          <a class="nav-link dropdown-toggle" href="#navbarVerticalMenuPagesEcommerceOrdersMenu" role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesEcommerceOrdersMenu" aria-expanded="false" aria-controls="navbarVerticalMenuPagesEcommerceOrdersMenu">
-                            <i class="bi-bag-heart nav-icon"></i>
-                            <span class="nav-link-title">{{ __('Orders') }}</span>
-                          </a>
+                    </div>
+                    <!-- End Collapse -->
 
-                          <div id="navbarVerticalMenuPagesEcommerceOrdersMenu" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuPagesMenuEcommerce">
-                            <a class="nav-link " href="./ecommerce-orders.html">{{ __('Orders') }}</a>
-                            <a class="nav-link " href="./ecommerce-order-details.html">{{ __('Order details') }}</a>
-                          </div>
+                    <!-- Collapse -->
+                    <div class="nav-item">
+                        <a class="nav-link dropdown-toggle" href="#governorate" role="button" data-bs-toggle="collapse" data-bs-target="#governorate" aria-expanded="false" aria-controls="navbarVerticalMenuPagesEcommerceOrdersMenu">
+                        <i class="bi bi-map nav-icon"></i>
+                        <span class="nav-link-title">{{ __('Regions') }}</span>
+                        </a>
+
+                        <div id="governorate" class="nav-collapse collapse " data-bs-parent="#governorate">
+                        <a class="nav-link " href="{{ route('tenant.Governorate') }}">{{ __('Governorate') }}</a>
+                        <a class="nav-link " href="{{ route('tenant.City') }}">{{ __('Cities') }}</a>
                         </div>
-                        <!-- End Collapse -->
+                    </div>
 
-                        <!-- Collapse -->
-                        <div class="nav-item">
-                          <a class="nav-link dropdown-toggle" href="#navbarVerticalMenuPagesEcommerceCustomersMenu" role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesEcommerceCustomersMenu" aria-expanded="false" aria-controls="navbarVerticalMenuPagesEcommerceCustomersMenu">
-                            <i class="bi-people-fill nav-icon"></i>
-                            <span class="nav-link-title">@lang('Customers')</span>
-                          </a>
+                    <!-- Collapse -->
+                    <div class="nav-item">
+                        <a class="nav-link dropdown-toggle" href="#navbarVerticalMenuPagesEcommerceCustomersMenu" role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesEcommerceCustomersMenu" aria-expanded="false" aria-controls="navbarVerticalMenuPagesEcommerceCustomersMenu">
+                        <i class="bi-people-fill nav-icon"></i>
+                        <span class="nav-link-title">@lang('Customers')</span>
+                        </a>
 
-                          <div id="navbarVerticalMenuPagesEcommerceCustomersMenu" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuPagesMenuEcommerce">
-                            <a class="nav-link " href="./ecommerce-customers.html">@lang('Customers')</a>
-                            <a class="nav-link " href="./ecommerce-customer-details.html">@lang('Customer details')</a>
-                          </div>
+                        <div id="navbarVerticalMenuPagesEcommerceCustomersMenu" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuPagesMenuEcommerce">
+                        <a class="nav-link " href="./ecommerce-customers.html">@lang('Customers')</a>
+                        <a class="nav-link " href="./ecommerce-customer-details.html">@lang('Customer details')</a>
                         </div>
-                        <!-- End Collapse -->
-                        <!-- Collapse -->
-                        <div class="nav-item">
+                    </div>
+                    <!-- End Collapse -->
+                    <!-- Collapse -->
+                    <div class="nav-item">
                             <a class="nav-link dropdown-toggle" href="#navbarVerticalMenuPagesEcommerceCategory" role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesEcommerceCategory" aria-expanded="false" aria-controls="navbarVerticalMenuPagesEcommerceCustomersMenu">
                                 <i class="bi bi-card-list nav-icon"></i>
                               <span class="nav-link-title">@lang('Categories')</span>
@@ -794,7 +793,7 @@
                             </div>
                           </div>
                           <!-- End Collapse -->
-                      </div>
+                </div>
 
                       {{-- <a class="nav-link " href="./ecommerce-referrals.html">Referrals</a> --}}
 

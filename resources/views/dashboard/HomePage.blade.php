@@ -15,14 +15,24 @@
                     <!-- Media -->
                     <div class="d-flex">
                       <div class="flex-grow-1">
-                        <h6 class="card-subtitle mb-3">In-store Sales</h6>
-                        <h3 class="card-title">$7,820.75</h3>
-
+                        <h6 class="card-subtitle mb-3">@lang('Total sales')</h6>
+                        <h3 class="card-title">
+                             {{ number_format($totalOrderPrice, 0, '.', ',') }}
+                        </h3>
                         <div class="d-flex align-items-center">
-                          <span class="d-block fs-6">5k orders</span>
-                          <span class="badge bg-soft-success text-success ms-2">
-                            <i class="bi-graph-up"></i> 4.3%
-                          </span>
+                          <span class="d-block fs-6" style="margin: 0 2px"> {{ $orders->count() }} @lang('Order')</span>
+                          {{-- If data exist --}}
+                          @if($IsSeeded != null)
+                            @if($weekly >= $previousMonthly)
+                                <span class="badge bg-soft-success text-success ms-2">
+                                    <i class="bi-graph-up"></i> {{ $percent }}%
+                                </span>
+                            @else
+                                <span class="badge bg-soft-danger text-danger ms-2">
+                                    <i class="bi-graph-up"></i> {{ $percent }}%
+                                </span>
+                            @endif
+                          @endif
                         </div>
                       </div>
 
@@ -38,14 +48,11 @@
                     <!-- Media -->
                     <div class="d-flex">
                       <div class="flex-grow-1">
-                        <h6 class="card-subtitle mb-3">Website Sales</h6>
-                        <h3 class="card-title">$985,937.45</h3>
+                        <h6 class="card-subtitle mb-3"> @lang('Products amount') </h6>
+                        <h3 class="card-title"> {{ $products->count() }} </h3>
 
                         <div class="d-flex align-items-center">
-                          <span class="d-block fs-6">21k orders</span>
-                          <span class="badge bg-soft-success text-success ms-2">
-                            <i class="bi-graph-up"></i> 12.5%
-                          </span>
+                          <span class="d-block fs-6"> @lang('Sold products') {{ $soldProducts->count() }} </span>
                         </div>
                       </div>
 
@@ -61,11 +68,13 @@
                     <!-- Media -->
                     <div class="d-flex">
                       <div class="flex-grow-1">
-                        <h6 class="card-subtitle mb-3">Discount</h6>
-                        <h3 class="card-title">$15,503.00</h3>
+                        <h6 class="card-subtitle mb-3"> @lang('Most used code') </h6>
+                        <h3 class="card-title">
+                            [{{ $maxCode->code }}] @lang('Used')  {{ number_format($mostPromoCodeUsed, 0, '.', ',') }} @lang('Times')
+                        </h3>
 
                         <div class="d-flex align-items-center">
-                          <span class="d-block fs-6">6k orders</span>
+                          <span class="d-block fs-6"> {{ $promoCodeUsage }} @lang('Promo code used')</span>
                         </div>
                       </div>
 
@@ -81,8 +90,8 @@
                     <!-- Media -->
                     <div class="d-flex">
                       <div class="flex-grow-1">
-                        <h6 class="card-subtitle mb-3">Affiliate</h6>
-                        <h3 class="card-title">$3,982.53</h3>
+                        <h6 class="card-subtitle mb-3"> @lang('Canceled orders') </h6>
+                        <h3 class="card-title"> {{ $canceldOrders->count() }} </h3>
 
                         <div class="d-flex align-items-center">
                           <span class="d-block fs-6">150 orders</span>

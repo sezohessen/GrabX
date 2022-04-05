@@ -166,7 +166,7 @@
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('Close')</button>
-                    <button wire:click="update({{ $codeId }})" type="button" data-dismiss="modal" class="btn btn-primary">@lang('Edit city')</button>
+                    <button wire:click="update({{ $codeId }})" type="button" data-dismiss="modal" class="btn btn-primary">@lang('Edit promo code')</button>
                     </div>
                 </div>
             </div>

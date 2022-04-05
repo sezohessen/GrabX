@@ -97,8 +97,34 @@
     "Promo Code has successfully been deleted":"تم حذف كود الخصم بنجاح",
     "Promo code has successfully been added":"تمت إضافة كود الخصم بنجاح",
     "Promo code has successfully been updated":"تمت تعديل كود الخصم بنجاح",
-    "Edit promo code":"تعديل كود الخصم"
-
-
-
+    "Edit promo code":"تعديل كود الخصم",
+    "Pending Orders":"الطلبات الجديدة",
+    "Canceled Orders":"الطلبات الملغية",
+    "Search Orders":"ابحث عن طلب",
+    "Phone":"الهاتف",
+    "Way":"نوع الطلب",
+    "Total":"المبغ الكلي",
+    "Status":"الحالة",
+    "Customer name":"اسم العميل",
+    "Show Orders":"عرض الطلبات",
+    "On the way":"في الطريق",
+    "Delivered":"تم التوصيل",
+    "Pending":"قيد الانتظار",
+    "Canceled":"ألغيت",
+    "Cancel":"الغي",
+    "Show":"عرض",
+    "Order has been delivered Successfully":"تم تسليم الطلب بنجاح",
+    "Order has been deleted":"تم حذف الطلب",
+    "Order is on the way to reach":"الطلب في طريقة للوصول",
+    "Order has been canceled Successfully":"تم إلغاء الطلب بنجاح",
+    "Products amount":"كمية المنتجات",
+    "Total sales":"إجمالي المبيعات",
+    "Order":"طلب",
+    "Sold products":"المنتجات المباعة",
+    "Promo code used":"كود مستخدم",
+    "Total discount":"إجمالي الخصم",
+    "Canceled orders":"الطلبات الملغاة",
+    "Most used code":"اكثر كود تم استخدامه",
+    "Used":"أستخدم",
+    "Times":"مرة"
 }

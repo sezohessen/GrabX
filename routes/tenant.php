@@ -8,8 +8,9 @@ use Illuminate\Support\Facades\Route;
 use Stancl\Tenancy\Middleware\InitializeTenancyByDomain;
 use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
 use App\Http\Controllers\dashboard\dashboardController;
+use App\Http\Controllers\dashboard\OrderController;
 use App\Http\Controllers\dashboard\ProductController;
-use App\Http\Livewire\ProductIndex;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,7 @@ Route::group([
     Route::get('/Governorate', function() {return view('dashboard.Governorate.index'); })->name('Governorate');
     Route::get('/City', function() {return view('dashboard.Cities.index'); })->name('City');
     Route::get('/PromoCode', function() {return view('dashboard.Promo.index'); })->name('PromoCode');
+    Route::get('orders', [OrderController::class,'index'])->name('order.index');
 });
 Route::group([
     'as' => 'tenant.',

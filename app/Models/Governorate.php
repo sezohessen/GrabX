@@ -13,4 +13,7 @@ class Governorate extends Model
         'name',
         'name_ar'
     ];
+    public function cities() {
+        return $this->hasMany(City::class);
+    }
 }

@@ -34,7 +34,7 @@ return new class extends Migration
             ->onDelete('cascade')
             ->onUpdate('cascade');
 
-            $table->integer('deliverly_cost');
+
 
             $table->integer('unit_type');
             $table->text('street');
