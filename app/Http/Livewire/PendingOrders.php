@@ -6,7 +6,7 @@ use App\Models\Order;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class Orders extends Component
+class PendingOrders extends Component
 {
     use WithPagination;
 
@@ -63,13 +63,18 @@ class Orders extends Component
 
     public function render()
     {
-        $orders         = Order::where('id', $this->search)
-        ->orWhere('name', 'LIKE', '%'. $this->search .'%')
-        ->orWhere('phone', 'LIKE', '%'. $this->search .'%')
+        $orders     = Order::query()
+        ->whereIn('status', [Order::status['pending'],Order::status['on way']])
+        ->where(function($query) {
+               $query->orWhere('id', $this->search)
+                    ->orWhere('name', 'LIKE', '%'. $this->search .'%')
+                    ->orWhere('phone', 'LIKE', '%'. $this->search .'%');
+        })
         ->orderBy('id','DESC')
         ->paginate($this->pagination)
         ->appends('search', $this->search);
-        $ordersCount    = Order::all()->count();
-        return view('livewire.orders',compact('orders','ordersCount'));
+        $ordersCount    = Order::where('status',Order::status['on way'])
+        ->orWhere('status',Order::status['pending'])->get()->count();
+        return view('livewire.pending-orders',compact('orders','ordersCount'));
     }
 }
