@@ -21,13 +21,13 @@ class SalesChart extends Component
         for ($i = 0; $i < 7; $i++) {
             $data[] = Order::whereBetween(
                 'created_at',
-                [Carbon::now()->subWeek($i + 1), Carbon::now()->subWeek($i)]
+                [Carbon::now()->subDay($i + 1), Carbon::now()->subDay($i)]
             )->get()->count();
         }
         for ($i = 0; $i < 7; $i++) {
             $cashe[] = Order::whereBetween(
                 'created_at',
-                [Carbon::now()->subWeek($i + 1), Carbon::now()->subWeek($i)]
+                [Carbon::now()->subDay($i + 1), Carbon::now()->subDay($i)]
             )->get()->sum('total');
         }
         $this->chartDateTime = ["Day 1","Day 2","Day 3","Day 4","Day 5","Day 6","Day 7"];
@@ -38,32 +38,24 @@ class SalesChart extends Component
         {
             return $this->cash0 = 'There is no recoreds';
         }
-        $this->totalOrderPrice    = Order::all()->sum('total');
+        $previousDateFrom   = Carbon::now()->subDays(14);
+        $previousDateTo     = Carbon::now()->subDays(8);
+        $dateFrom           = Carbon::now()->subDays(7);
+        $dateTo             = Carbon::now();
+        $this->totalOrderPrice    = Order::whereBetween('created_at', [$dateFrom, $dateTo])->sum('total');
         $this->totalOrder         = array_sum($data);
 
         // Revenue
-        $dateFrom           = Carbon::now()->subDays(7);
-        $dateTo             = Carbon::now();
+        $productWeekly      = Order::whereBetween('created_at', [$dateFrom, $dateTo])->count();
+        $productPrevWeekly  = Order::whereBetween('created_at', [$previousDateFrom, $previousDateTo])->count();
         $weekly             = Order::whereBetween('created_at', [$dateFrom, $dateTo])->sum('total');
-        $previousDateFrom   = Carbon::now()->subDays(14);
-        $previousDateTo     = Carbon::now()->subDays(8);
         $previousWeekly     = Order::whereBetween('created_at', [$previousDateFrom,$previousDateTo])->sum('total');
-        if($previousWeekly < $weekly){
-            if($previousWeekly > 0){
-                $percent_from = $weekly - $previousWeekly;
-                $float  = $percent_from / $previousWeekly * 100; //increase percent
-                $percent = bcadd($float,'0',2);
-            }else{
-                $percent = 100; //increase percent
-            }
-        }else{
-            $percent_from = $previousWeekly - $weekly;
-            $float = $percent_from / $previousWeekly * 100; //decrease percent
-            $percent = bcadd($float,'0',2);
-        }
-
+        $percent_from       = abs($previousWeekly - $weekly);//Get Difference amount from previous and current amount of orders
+        $previousWeekly     = !$previousWeekly ? 1 : $previousWeekly; // Avoid Division by zero problem
+        $float              = $percent_from / max($previousWeekly,$weekly) * 100;
+        $percent            = bcadd($float,'0',2);
         // end calculate percentage of order sales
 
-        return view('livewire.sales-chart',compact('percent','previousWeekly'));
+        return view('livewire.sales-chart',compact('weekly','percent','previousWeekly','productWeekly'));
     }
 }

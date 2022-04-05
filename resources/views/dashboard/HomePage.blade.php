@@ -71,7 +71,7 @@
                       <div class="flex-grow-1">
                         <h6 class="card-subtitle mb-3"> @lang('Most used code') </h6>
                         <h3 class="card-title">
-                            [{{ $maxCode->code }}] @lang('Used')  {{ number_format($mostPromoCodeUsed, 0, '.', ',') }} @lang('Times')
+                            [{{ isset($maxCode->code) ? $maxCode->code : __('Create Promo') }}] @lang('Used')  {{ number_format($mostPromoCodeUsed, 0, '.', ',') }} @lang('Times')
                         </h3>
 
                         <div class="d-flex align-items-center">

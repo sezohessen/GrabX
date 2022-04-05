@@ -97,7 +97,7 @@
                 <div class="d-flex justify-content-center flex-column" style="min-height: 9rem;">
                 <h6 class="card-subtitle">Revenue</h6>
                 <span class="d-block display-4 text-dark mb-1 me-3">@lang('Weekly') </span>
-                @if($percent >= $previousWeekly)
+                @if($weekly >= $previousWeekly)
                     <span class="d-block text-success">
                         <i class="bi-graph-up me-1"></i> {{ number_format($totalOrderPrice, 0, '.', ',') }} ({{ $percent }}%)
                     </span>
@@ -117,14 +117,14 @@
                 <!-- Stats -->
                 <div class="d-flex justify-content-center flex-column" style="min-height: 9rem;">
                 <h6 class="card-subtitle">@lang('Orders')</h6>
-                <span class="d-block display-4 text-dark mb-1 me-3"> {{ $totalOrder }} </span>
+                <span class="d-block display-4 text-dark mb-1 me-3"> {{ $productWeekly }} </span>
                 @if($percent >= $previousWeekly)
-                    <span class="d-block text-danger">
-                        <i class="bi-graph-up me-1"></i> @lang('Products')
+                    <span class="d-block text-success">
+                        <i class="bi-graph-up me-1"></i> (0%)
                     </span>
                 @else
                     <span class="d-block text-danger">
-                        <i class="bi-graph-down me-1"></i> @lang('Products')
+                        <i class="bi-graph-down me-1"></i> (0%)
                     </span>
                 @endif
                 </div>
