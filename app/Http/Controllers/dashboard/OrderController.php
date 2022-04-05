@@ -11,4 +11,8 @@ class OrderController extends Controller
     {
         return view('dashboard.Orders.index');
     }
+    public function pending()
+    {
+        return view('dashboard.Orders.pending');
+    }
 }

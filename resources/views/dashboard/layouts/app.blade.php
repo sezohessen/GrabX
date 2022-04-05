@@ -749,8 +749,7 @@
                         </a>
                         <div id="navbarVerticalMenuPagesEcommerceOrder" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuPagesEcommerceOrder">
                             <a class="nav-link " href="{{ route('tenant.order.index') }}">{{ __('Show Orders') }}</a>
-                            <a class="nav-link " href="{{ route('tenant.order.index') }}">{{ __('Pending Orders') }}</a>
-                            <a class="nav-link " href="{{ route('tenant.order.index') }}">{{ __('Canceled Orders') }}</a>
+                            <a class="nav-link " href="{{ route('tenant.order.pending') }}">{{ __('Pending Orders') }}</a>
                         </div>
                     </div>
                     <!-- End Collapse -->

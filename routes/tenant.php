@@ -46,6 +46,7 @@ Route::group([
     Route::get('/City', function() {return view('dashboard.Cities.index'); })->name('City');
     Route::get('/PromoCode', function() {return view('dashboard.Promo.index'); })->name('PromoCode');
     Route::get('orders', [OrderController::class,'index'])->name('order.index');
+    Route::get('orders/pending', [OrderController::class,'pending'])->name('order.pending');
 });
 Route::group([
     'as' => 'tenant.',
