@@ -18,7 +18,7 @@ class OrderSeeder extends Seeder
      *
      * @return void
      */
-    public function seedProductOption($table1,$table2,$column,$products){
+    public function seedProductOption($table1,$table2,$column,$products,$OneSelect = NULL){
         $faker          = Faker::create();
         $faker_ar       = Faker::create('ar_SA');
         /* Make Select option For products */
@@ -30,7 +30,9 @@ class OrderSeeder extends Seeder
                 'created_at'    => now(),
                 'updated_at'    => now(),
             ]);
-            for ($j = 0; $j < 2; $j++) {
+            $fixed = 2;
+            if($OneSelect)$fixed = 1;
+            for ($j = 0; $j < $fixed; $j++) {
                 DB::table($table2)->insert([
                     'name'          => $faker->name,
                     'name_ar'       => $faker_ar->name,
@@ -75,8 +77,8 @@ class OrderSeeder extends Seeder
         $faker          = Faker::create();
         $faker_ar       = Faker::create('ar_SA');
         $governorates   = Governorate::all();
-        $status         = Order::status;
-        $unit_type      = Order::unit_type;
+        $status         = Order::StatusType();
+        $unit_type      = Order::UnitType();
         $products       = Product::all();
 
         /* Prepare for Orders */
@@ -85,7 +87,8 @@ class OrderSeeder extends Seeder
             'product_select_options',
             'product_select_option_items',
             'product_select_option_id',
-            $products
+            $products,
+            $OneSelect = 1
         );
         $this->seedProductOption(
             'product_multiple_selects',
@@ -115,7 +118,7 @@ class OrderSeeder extends Seeder
                 'subtotal'          => $price = $faker->numberBetween(5,150),
                 'deliverly_cost'    => $existPickUP ? 0 : $faker->numberBetween(1,10),
                 'total'             => $faker->numberBetween($price,151),
-                'status'            => $existPickUP ? $status["pending"]:$status[array_rand($status)],
+                'status'            => $existPickUP ? Order::Pending:$faker->numberBetween(1,4),
                 'created_at'        => $faker->dateTimeBetween('-1 month', '+1 month'),
                 'updated_at'        => now(),
             ]);
@@ -134,7 +137,7 @@ class OrderSeeder extends Seeder
                     'order_id'          => $id,
                     'governorate_id'    => $governorate->id,
                     'city_id'           => $governorate->cities->random()->id,
-                    'unit_type'         => $unit_type[array_rand($unit_type)],
+                    'unit_type'         => $faker->numberBetween(1,3),
                     'street'            => $faker->city,
                     'house_num'         => $faker->numberBetween(1,10),
                     'special_direction' => $faker->city,

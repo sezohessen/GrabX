@@ -12,6 +12,10 @@ class OrderProductMultipleSelect extends Model
     protected $fillable=[
         'order_id',
         'product_id',
-        'product_multiple_select_item_id'
+        'product_item_id'
     ];
+    public function item()
+    {
+        return $this->belongsTo(ProductMultipleSelectItem::class,'product_item_id','id');
+    }
 }

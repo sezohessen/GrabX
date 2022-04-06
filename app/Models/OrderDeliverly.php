@@ -19,4 +19,17 @@ class OrderDeliverly extends Model
         'house_num',
         'special_direction'
     ];
+    /**
+     * Get the user that owns the OrderDeliverly
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function governorate()
+    {
+        return $this->belongsTo(Governorate::class);
+    }
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
 }

@@ -47,6 +47,7 @@ Route::group([
     Route::get('/PromoCode', function() {return view('dashboard.Promo.index'); })->name('PromoCode');
     Route::get('orders', [OrderController::class,'index'])->name('order.index');
     Route::get('orders/pending', [OrderController::class,'pending'])->name('order.pending');
+    Route::get('orders/show/{id}', [OrderController::class,'show'])->name('order.show');
 });
 Route::group([
     'as' => 'tenant.',

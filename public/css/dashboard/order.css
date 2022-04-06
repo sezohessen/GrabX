@@ -1,0 +1,8 @@
+.orders-product img{
+    width: 100%;
+    min-height: 70px;
+    max-height: 70px;
+}
+.orders-product p{
+    font-size: 13px;
+}

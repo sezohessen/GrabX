@@ -119,50 +119,58 @@
                 </td>
                 <td class="table-column-ps-0">
                     <div class="flex-grow-1 ms-3">
-                        @if ($order->status == App\Models\Order::status['pending'])
+                        @if ($order->status == App\Models\Order::Pending)
                             <button class="btn btn-primary btn-sm pe-none">
-                                <i class="fa-solid fa-bars-progress"></i> @lang('Pending')
+                                <i class="fa-solid fa-bars-progress"></i>
+                                {{ App\Models\Order::StatusType()[App\Models\Order::Pending] }}
                             </button>
-                        @elseif($order->status == App\Models\Order::status['on way'])
+                        @elseif($order->status == App\Models\Order::OnWay)
                             <button class="btn btn-info btn-sm pe-none">
-                                <i class="fa-solid fa-motorcycle"></i> @lang('On the way')
+                                <i class="fa-solid fa-motorcycle"></i>
+                                {{ App\Models\Order::StatusType()[App\Models\Order::OnWay] }}
                             </button>
-                        @elseif($order->status == App\Models\Order::status['delivered'])
+                        @elseif($order->status == App\Models\Order::Delivered)
                             <button class="btn btn-success btn-sm pe-none">
-                                <i class="bi bi-check"></i> @lang('Delivered')
+                                <i class="bi bi-check"></i>
+                                {{ App\Models\Order::StatusType()[App\Models\Order::Delivered] }}
                             </button>
                         @else
                             <button class="btn btn-danger btn-sm pe-none">
-                                <i class="bi bi-x-circle-fill"></i> @lang('Canceled')
+                                <i class="bi bi-x-circle-fill"></i>
+                                {{ App\Models\Order::StatusType()[App\Models\Order::Canceled] }}
                             </button>
                         @endif
                     </div>
                 </td>
                <td>
                  <div class="btn-group" role="group">
-                   <a class="btn btn-white btn-sm" href="{{ route('tenant.order.index') }}">
+                    <a class="btn btn-white btn-sm" href="{{ route('tenant.order.show',['id'=>$order->id]) }}">
                      <i class="bi-pencil-fill me-1"></i> {{ __('Show') }}
                    </a>
                    <div class="btn-group">
                         <button type="button" class="btn btn-white btn-icon btn-sm dropdown-toggle dropdown-toggle-empty"  data-bs-toggle="dropdown" aria-expanded="false"></button>
                         <div class="dropdown-menu dropdown-menu-end mt-1" aria-labelledby="productsEditDropdown1">
-                            @if ($order->status == App\Models\Order::status['pending'])
+                            @if ($order->status == App\Models\Order::Pending)
                                 @if (!$order->pickup)
                                 <button wire:click="toOnTheWay({{ $order->id }})" class="d-block w-100 my-1 text-white btn btn-info btn-xs">
-                                    <i class="fa-solid fa-motorcycle mx-2"></i>{{ __('On the way') }}
+                                    <i class="fa-solid fa-motorcycle mx-2"></i>
+                                    {{ App\Models\Order::StatusType()[App\Models\Order::OnWay] }}
                                 </button>
                                 @endif
                                 <button wire:click="toDelivered({{ $order->id }})" class="d-block w-100 my-1 text-white btn btn-success btn-xs">
-                                    <i class="bi-check mx-2"></i> {{ __('Delivered') }}
+                                    <i class="bi-check mx-2"></i>
+                                    {{ App\Models\Order::StatusType()[App\Models\Order::Delivered] }}
                                 </button>
-                            @elseif($order->status == App\Models\Order::status['on way'])
+                            @elseif($order->status == App\Models\Order::OnWay)
                                 <button wire:click="toDelivered({{ $order->id }})" class="d-block w-100 my-1 text-white btn btn-success btn-xs">
-                                    <i class="bi-check mx-2"></i> {{ __('Delivered') }}
+                                    <i class="bi-check mx-2"></i>
+                                    {{ App\Models\Order::StatusType()[App\Models\Order::Delivered] }}
                                 </button>
                             @endif
-                            @if(!($order->status == App\Models\Order::status['canceled']))
+                            @if(!($order->status == App\Models\Order::Canceled))
                                 <button wire:click="toCanceled({{ $order->id }})" class="d-block w-100 my-1 text-white btn btn-danger btn-xs">
-                                    <i class="bi bi-x-circle-fill"></i> {{ __('Cancel') }}
+                                    <i class="bi bi-x-circle-fill"></i>
+                                    {{ App\Models\Order::StatusType()[App\Models\Order::Canceled] }}
                                 </button>
                             @endif
                                 <button wire:click="toDelete({{ $order->id }})" class="dropdown-item">

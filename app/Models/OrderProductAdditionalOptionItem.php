@@ -13,6 +13,11 @@ class OrderProductAdditionalOptionItem extends Model
         'qty',
         'order_id',
         'product_id',
-        'product_additional_option_item_id'
+        'product_item_id'
     ];
+    public function item()
+    {
+        return $this->belongsTo(ProductAdditionalOptionItem::class,'product_item_id','id');
+    }
+
 }

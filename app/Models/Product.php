@@ -51,5 +51,25 @@ class Product extends Model
     {
         return $this->BelongsTo(Category::class,'category_id');
     }
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class,'order_items');
+    }
+    public function orderProduct()
+    {
+        return $this->hasOne(OrderItem::class,'product_id','id');
+    }
+    public function orderProductSelectOption()
+    {
+        return $this->hasMany(OrderItemOption::class,'product_id','id');
+    }
+    public function orderProductAdditionalOption()
+    {
+        return $this->hasMany(OrderProductAdditionalOptionItem::class,'product_id','id');
+    }
+    public function orderProductMultiOption()
+    {
+        return $this->hasMany(OrderProductMultipleSelect::class,'product_id','id');
+    }
 
 }
