@@ -119,4 +119,11 @@ if(!function_exists('view_image')){
        }
        return null;
    }
+   if(!function_exists('multiply2Numbers')){
+    function multiply2Numbers($numberOne,$numberTwo){
+            $result = $numberOne * $numberTwo;
+            return $result;
+        }
+        return null;
+    }
 }

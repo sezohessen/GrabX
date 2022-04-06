@@ -116,7 +116,7 @@ class OrderSeeder extends Seeder
                 'deliverly_cost'    => $existPickUP ? 0 : $faker->numberBetween(1,10),
                 'total'             => $faker->numberBetween($price,151),
                 'status'            => $existPickUP ? $status["pending"]:$status[array_rand($status)],
-                'created_at'        => $faker->dateTimeBetween('-1 month', '+1 month'),
+                'created_at'        => $faker->dateTimeBetween('-1 week', '+1 day'),
                 'updated_at'        => now(),
             ]);
             if($existPickUP){
@@ -148,7 +148,7 @@ class OrderSeeder extends Seeder
                     'product_id'        => $product = $products->random()->id,
                     'qty'               => $faker->numberBetween(1,4),
                     'price'             => $faker->numberBetween(1,50),
-                    'created_at'        => now(),
+                    'created_at'        => $faker->dateTimeBetween('-2 week', 'now'),
                     'updated_at'        => now(),
                 ]);
                 $rand = rand(0,3);

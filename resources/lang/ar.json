@@ -127,6 +127,19 @@
     "Most used code":"اكثر كود تم استخدامه",
     "Used":"أستخدم",
     "Times":"مرة",
-    "Statistics of products sold during the past week":"احصائيه بيع المنتجات خلال الاسبوع الفائت",
-    "Monthly profit":"الربح الشهري"
+    "Statistics of products sold during this week & last week":"إحصائيات المنتجات المباعة خلال هذا الأسبوع والأسبوع الماضي",
+    "Monthly profit":"الربح الشهري",
+    "No promo code exists":"لا يوجد رمز ترويجي",
+    "Week sales":"مبيعات الأسبوع",
+    "Weekly":"أسبوعي",
+    "Revenues":"الإيرادات",
+    "Create a new category":"قم بإنشاء تصنيف جديدة",
+    "Create a new discount code":"قم بإنشاء رمز خصم جديد",
+    "View all":"مشاهدة الكل",
+    "Top products - Most sold":"أفضل المنتجات- الأكثر مبيعًا",
+    "Product profit":"ربح المنتج",
+    "Sold":"مباع",
+    "Product image":"صورة المنتج",
+    "Quantity sold":"الكمية المباعة"
+
 }

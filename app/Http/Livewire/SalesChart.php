@@ -3,6 +3,8 @@
 namespace App\Http\Livewire;
 
 use App\Models\Order;
+use App\Models\OrderItem;
+use App\Models\OrderProductAdditionalOptionItem;
 use Carbon\Carbon;
 use Livewire\Component;
 
@@ -14,7 +16,6 @@ class SalesChart extends Component
     public $cash0;
     public $totalOrderPrice;
     public $totalOrder;
-
 
     public function render()
     {
@@ -38,13 +39,19 @@ class SalesChart extends Component
         {
             return $this->cash0 = 'There is no recoreds';
         }
-        $previousDateFrom   = Carbon::now()->subDays(14);
-        $previousDateTo     = Carbon::now()->subDays(8);
-        $dateFrom           = Carbon::now()->subDays(7);
-        $dateTo             = Carbon::now();
+        $previousDateFrom         = Carbon::now()->subDays(14);
+        $previousDateTo           = Carbon::now()->subDays(8);
+        $dateFrom                 = Carbon::now()->subDays(7);
+        $dateTo                   = Carbon::now();
         $this->totalOrderPrice    = Order::whereBetween('created_at', [$dateFrom, $dateTo])->sum('total');
         $this->totalOrder         = array_sum($data);
-
+        // get weekly sold products
+        $weeklySoldProducts         = OrderItem::whereBetween('created_at',[$dateFrom, $dateTo])->sum('qty');
+        $lastWeekSoldProducts       = OrderItem::whereBetween('created_at',[$previousDateFrom, $previousDateTo])->sum('qty');
+        $product_percent_from       = abs($lastWeekSoldProducts - $weeklySoldProducts);//Get Difference amount from previous and current amount of orders
+        $product_previousWeekly     = !$lastWeekSoldProducts ? 1 : $lastWeekSoldProducts; // Avoid Division by zero problem
+        $product_float              = $product_percent_from / max($product_previousWeekly,$weeklySoldProducts) * 100;
+        $product_percent            = bcadd($product_float,'0',2);
         // Revenue
         $productWeekly      = Order::whereBetween('created_at', [$dateFrom, $dateTo])->count();
         $productPrevWeekly  = Order::whereBetween('created_at', [$previousDateFrom, $previousDateTo])->count();
@@ -56,6 +63,6 @@ class SalesChart extends Component
         $percent            = bcadd($float,'0',2);
         // end calculate percentage of order sales
 
-        return view('livewire.sales-chart',compact('weekly','percent','previousWeekly','productWeekly'));
+        return view('livewire.sales-chart',compact('weekly','percent','previousWeekly','productWeekly','weeklySoldProducts','product_previousWeekly','product_percent'));
     }
 }

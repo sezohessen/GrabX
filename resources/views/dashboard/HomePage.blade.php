@@ -71,11 +71,11 @@
                       <div class="flex-grow-1">
                         <h6 class="card-subtitle mb-3"> @lang('Most used code') </h6>
                         <h3 class="card-title">
-                            [{{ isset($maxCode->code) ? $maxCode->code : __('Create Promo') }}] @lang('Used')  {{ number_format($mostPromoCodeUsed, 0, '.', ',') }} @lang('Times')
+                            [{{ isset($maxCode->code) ? $maxCode->code : __('No promo code exists') }}] @lang('Used')  {{ number_format($mostPromoCodeUsed, 0, '.', ',') }} @lang('Times')
                         </h3>
 
                         <div class="d-flex align-items-center">
-                          <span class="d-block fs-6"> {{ $promoCodeUsage }} @lang('Promo code used')</span>
+                          <span class="d-block fs-6"> {{ number_format($promoCodeUsage, 0, '.', ',') }} @lang('Promo code used')</span>
                         </div>
                       </div>
 
@@ -123,9 +123,9 @@
                     <a class="card card-hover-shadow" href="{{ route('tenant.Product.create') }}">
                       <div class="card-body">
                         <div class="d-flex align-items-center">
-                          <div class="flex-shrink-0">
-                            <img class="avatar avatar-lg avatar-4x3" src="{{ global_asset('img/static/ladder-svgrepo-com.svg') }}" alt="Image Description" style="min-height: 5rem;" data-hs-theme-appearance="default">
-                            <img class="avatar avatar-lg avatar-4x3" src="./assets/svg/illustrations-light/oc-megaphone.svg" alt="Image Description" style="min-height: 5rem;" data-hs-theme-appearance="dark">
+                          <div class="flex-shrink-0 img-rtl">
+                            <img class="avatar avatar-lg avatar-4x3" src="{{ global_asset('img/static/medicine.gif') }}" alt="add product" style="min-height: 5rem;" data-hs-theme-appearance="default">
+                            <img class="avatar avatar-lg avatar-4x3" src="{{ global_asset('img/static/medicine.gif') }}" alt="add product" style="min-height: 5rem;" data-hs-theme-appearance="dark">
                           </div>
                           <div class="flex-grow-1 ms-4">
                             <h3 class="text-inherit mb-1">@lang('Product')</h3>
@@ -140,17 +140,17 @@
                     <!-- End Card -->
 
                     <!-- Card -->
-                    <a class="card card-hover-shadow" href="#">
+                    <a class="card card-hover-shadow" href="{{ route('tenant.Category.index') }}">
                       <div class="card-body">
                         <div class="d-flex align-items-center">
                           <div class="flex-shrink-0">
-                            <img class="avatar avatar-lg avatar-4x3" src="./assets/svg/illustrations/oc-collection.svg" alt="Image Description" style="min-height: 5rem;" data-hs-theme-appearance="default">
-                            <img class="avatar avatar-lg avatar-4x3" src="./assets/svg/illustrations-light/oc-collection.svg" alt="Image Description" style="min-height: 5rem;" data-hs-theme-appearance="dark">
+                            <img class="avatar avatar-lg avatar-4x3" src="{{ global_asset('img/static/shopping-bag.gif') }}" alt="Image Description" style="min-height: 5rem;" data-hs-theme-appearance="default">
+                            <img class="avatar avatar-lg avatar-4x3" src="{{ global_asset('img/static/shopping-bag.gif') }}" alt="Image Description" style="min-height: 5rem;" data-hs-theme-appearance="dark">
                           </div>
 
                           <div class="flex-grow-1 ms-4">
-                            <h3 class="text-inherit mb-1">Collection</h3>
-                            <span class="text-body">Create a new collection</span>
+                            <h3 class="text-inherit mb-1">@lang('Category')</h3>
+                            <span class="text-body">@lang('Create a new category')</span>
                           </div>
 
                           <div class="ms-2 text-end">
@@ -162,17 +162,17 @@
                     <!-- End Card -->
 
                     <!-- Card -->
-                    <a class="card card-hover-shadow" href="#">
+                    <a class="card card-hover-shadow" href="{{ route('tenant.PromoCode') }}">
                       <div class="card-body">
                         <div class="d-flex align-items-center">
                           <div class="flex-shrink-0">
-                            <img class="avatar avatar-lg avatar-4x3" src="./assets/svg/illustrations/oc-discount.svg" alt="Image Description" style="min-height: 5rem;" data-hs-theme-appearance="default">
-                            <img class="avatar avatar-lg avatar-4x3" src="./assets/svg/illustrations-light/oc-discount.svg" alt="Image Description" style="min-height: 5rem;" data-hs-theme-appearance="dark">
+                            <img class="avatar avatar-lg avatar-4x3" src="{{ global_asset('img/static/cash.gif') }}" alt="Image Description" style="min-height: 5rem;" data-hs-theme-appearance="default">
+                            <img class="avatar avatar-lg avatar-4x3" src="{{ global_asset('img/static/cash.gif') }}" alt="Image Description" style="min-height: 5rem;" data-hs-theme-appearance="dark">
                           </div>
 
                           <div class="flex-grow-1 ms-4">
-                            <h3 class="text-inherit mb-1">Discount</h3>
-                            <span class="text-body">Create a new discount</span>
+                            <h3 class="text-inherit mb-1">@lang('Discount')</h3>
+                            <span class="text-body">@lang('Create a new discount code')</span>
                           </div>
 
                           <div class="ms-2 text-end">
@@ -191,9 +191,9 @@
                   <div class="card h-100">
                     <!-- Header -->
                     <div class="card-header card-header-content-between">
-                      <h4 class="card-header-title">Top products</h4>
+                      <h4 class="card-header-title">@lang('Top products - Most sold')</h4>
 
-                      <a class="btn btn-ghost-secondary btn-sm" href="#">View all</a>
+                      <a class="btn btn-ghost-secondary btn-sm" href="{{ route('tenant.Product.index') }}">@lang('View all')</a>
                     </div>
                     <!-- End Header -->
 
@@ -204,146 +204,35 @@
                         <table class="table table-borderless table-thead-bordered table-nowrap table-align-middle card-table">
                           <thead class="thead-light">
                             <tr>
-                              <th scope="col">Item</th>
-                              <th scope="col">Change</th>
-                              <th scope="col">Price</th>
-                              <th scope="col">Sold</th>
-                              <th scope="col">Sales</th>
+                              <th scope="col">@lang('Product image')</th>
+                              <th scope="col">@lang('Product name')</th>
+                              <th scope="col">@lang('Price')</th>
+                              <th scope="col">@lang('Quantity sold')</th>
+                              <th scope="col">@lang('Product profit')</th>
                             </tr>
                           </thead>
 
                           <tbody>
-                            <tr>
-                              <td>
-                                <!-- Media -->
-                                <a class="d-flex align-items-center" href="./ecommerce-product-details.html">
-                                  <div class="flex-shrink-0">
-                                    <img class="avatar" src="./assets/img/400x400/img4.jpg" alt="Image Description">
-                                  </div>
-
-                                  <div class="flex-grow-1 ms-3">
-                                    <h5 class="text-inherit mb-0">Photive wireless speakers</h5>
-                                  </div>
-                                </a>
-                                <!-- End Media -->
-                              </td>
-                              <td><i class="bi-graph-down text-danger me-1"></i> 72%</td>
-                              <td>$65</td>
-                              <td>7,545</td>
-                              <td>
-                                <h4 class="mb-0">$15,302.00</h4>
-                              </td>
-                            </tr>
-
-                            <tr>
-                              <td>
-                                <!-- Media -->
-                                <a class="d-flex align-items-center" href="./ecommerce-product-details.html">
-                                  <div class="flex-shrink-0">
-                                    <img class="avatar" src="./assets/img/400x400/img26.jpg" alt="Image Description">
-                                  </div>
-
-                                  <div class="flex-grow-1 ms-3">
-                                    <h5 class="text-inherit mb-0">Topman shoe in green</h5>
-                                  </div>
-                                </a>
-                                <!-- End Media -->
-                              </td>
-                              <td><i class="bi-graph-up text-success me-1"></i> 69%</td>
-                              <td>$21</td>
-                              <td>6,643</td>
-                              <td>
-                                <h4 class="mb-0">$12,492.21</h4>
-                              </td>
-                            </tr>
-
-                            <tr>
-                              <td>
-                                <!-- Media -->
-                                <a class="d-flex align-items-center" href="./ecommerce-product-details.html">
-                                  <div class="flex-shrink-0">
-                                    <img class="avatar" src="./assets/img/400x400/img25.jpg" alt="Image Description">
-                                  </div>
-
-                                  <div class="flex-grow-1 ms-3">
-                                    <h5 class="text-inherit mb-0">RayBan black sunglasses</h5>
-                                  </div>
-                                </a>
-                                <!-- End Media -->
-                              </td>
-                              <td><i class="bi-graph-down text-danger me-1"></i> 65%</td>
-                              <td>$37</td>
-                              <td>5,951</td>
-                              <td>
-                                <h4 class="mb-0">$10,351.71</h4>
-                              </td>
-                            </tr>
-
-                            <tr>
-                              <td>
-                                <!-- Media -->
-                                <a class="d-flex align-items-center" href="./ecommerce-product-details.html">
-                                  <div class="flex-shrink-0">
-                                    <img class="avatar" src="./assets/img/400x400/img6.jpg" alt="Image Description">
-                                  </div>
-
-                                  <div class="flex-grow-1 ms-3">
-                                    <h5 class="text-inherit mb-0">Mango Women's shoe</h5>
-                                  </div>
-                                </a>
-                                <!-- End Media -->
-                              </td>
-                              <td><i class="bi-graph-down text-danger me-1"></i> 53%</td>
-                              <td>$65</td>
-                              <td>5,002</td>
-                              <td>
-                                <h4 class="mb-0">$9,917.45</h4>
-                              </td>
-                            </tr>
-
-                            <tr>
-                              <td>
-                                <!-- Media -->
-                                <a class="d-flex align-items-center" href="./ecommerce-product-details.html">
-                                  <div class="flex-shrink-0">
-                                    <img class="avatar" src="./assets/img/400x400/img3.jpg" alt="Image Description">
-                                  </div>
-
-                                  <div class="flex-grow-1 ms-3">
-                                    <h5 class="text-inherit mb-0">Calvin Klein t-shirts</h5>
-                                  </div>
-                                </a>
-                                <!-- End Media -->
-                              </td>
-                              <td><i class="bi-graph-up text-success me-1"></i> 50%</td>
-                              <td>$89</td>
-                              <td>4,714</td>
-                              <td>
-                                <h4 class="mb-0">$8,466.02</h4>
-                              </td>
-                            </tr>
-
-                            <tr>
-                              <td>
-                                <!-- Media -->
-                                <a class="d-flex align-items-center" href="./ecommerce-product-details.html">
-                                  <div class="flex-shrink-0">
-                                    <img class="avatar" src="./assets/img/400x400/img5.jpg" alt="Image Description">
-                                  </div>
-
-                                  <div class="flex-grow-1 ms-3">
-                                    <h5 class="text-inherit mb-0">Givenchy perfume</h5>
-                                  </div>
-                                </a>
-                                <!-- End Media -->
-                              </td>
-                              <td><i class="bi-graph-up text-success me-1"></i> 50%</td>
-                              <td>$99</td>
-                              <td>4,155</td>
-                              <td>
-                                <h4 class="mb-0">$7,715.89</h4>
-                              </td>
-                            </tr>
+                              @foreach ($TopSales as $TopProduct)
+                                <tr>
+                                <td>
+                                    <!-- Media -->
+                                    <a class="d-flex align-items-center" href="#">
+                                    <div class="flex-shrink-0">
+                                        <img class="avatar" src="{{ find_image($TopProduct->image ,  App\Models\Product::base ) }}" alt="Top product image">
+                                    </div>
+                                    </a>
+                                    <!-- End Media -->
+                                </td>
+                                <td><h5 class="text-inherit mb-0"> {{ LangDetail($TopProduct->name, $TopProduct->name_ar) }} </h5></td>
+                                <td>{{ number_format($TopProduct->price, 0, '.', ',') }} @lang('KWD') </td>
+                                <td> {{ $TopProduct->orderItems->sum('qty') }} </td>
+                                <td><h5 class="text-inherit mb-0"> {{ multiply2Numbers($TopProduct->orderItems->sum('qty'),$TopProduct->price) }} @lang('KWD') </h5></td>
+                                <td>
+                                    <h4 class="mb-0">  </h4>
+                                </td>
+                                </tr>
+                            @endforeach
                           </tbody>
                         </table>
                       </div>

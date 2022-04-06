@@ -10,6 +10,7 @@ use App\Models\Product;
 use App\Models\PromoCode;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class dashboardController extends Controller
 {
@@ -49,13 +50,20 @@ class dashboardController extends Controller
                 $percent = bcadd($float,'0',2);
             }
             // end calculate percentage of order sales
-
+            // Top sold product'
+            $TopSales = Product::query()
+            ->leftJoin('order_items','products.id','=','order_items.product_id')
+            ->selectRaw('products.* , COALESCE(sum(order_items.qty),0) total_sold')
+            ->groupBy('products.id')
+            ->orderBy('total_sold','desc')
+            ->take(10)
+            ->get();
             return view('dashboard.HomePage',
             compact('orders','totalOrderPrice','IsSeeded','previousMonthly','weekly'
-            ,'percent','products','soldProducts','promoCodeUsage','canceldOrders','maxCode','mostPromoCodeUsed'));
+            ,'percent','products','soldProducts','promoCodeUsage','canceldOrders','maxCode','mostPromoCodeUsed','TopSales'));
         } else { // new website [Without data]
             return view('dashboard.HomePage',
-            compact('orders','totalOrderPrice','IsSeeded','products','soldProducts','promoCodeUsage','canceldOrders','maxCode','mostPromoCodeUsed'));
+            compact('orders','totalOrderPrice','IsSeeded','products','soldProducts','promoCodeUsage','canceldOrders','maxCode','mostPromoCodeUsed','TopSales'));
         }
 
     }
