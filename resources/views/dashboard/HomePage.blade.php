@@ -250,7 +250,7 @@
               <div id="cardFullScreenEg" class="card overflow-hidden mb-3 mb-lg-5">
                 <!-- Header -->
                 <div class="card-header card-header-content-between">
-                  <h4 class="card-header-title">Your top countries <i class="bi-patch-check-fill text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="This report is based on 100% of sessions."></i></h4>
+                  <h4 class="card-header-title">@lang('Top countries visits')<i class="bi-patch-check-fill text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="This report is based on 100% of sessions."></i></h4>
 
                   <a class="btn btn-ghost-secondary btn-sm" href="#">View all</a>
                 </div>
@@ -267,68 +267,15 @@
                         </div>
 
                         <div class="flex-grow-1 ms-lg-3">
-                          <span class="d-block fs-6">Users</span>
+                          <span class="d-block fs-6"> @lang('Visitors') </span>
                           <div class="d-flex align-items-center">
-                            <h3 class="mb-0">34,413</h3>
-                            <span class="badge bg-soft-success text-success ms-2">
-                              <i class="bi-graph-up"></i> 12.5%
-                            </span>
+                            <h3 class="mb-0"> {{ number_format($totalOrderPrice, 0, '.', ',') }} </h3>
                           </div>
                         </div>
                       </div>
                       <!-- End Stats -->
                     </div>
 
-                    <div class="col-sm-3">
-                      <!-- Stats -->
-                      <div class="d-lg-flex align-items-lg-center">
-                        <div class="flex-shrink-0">
-                          <i class="bi-clock-history fs-1"></i>
-                        </div>
-
-                        <div class="flex-grow-1 ms-lg-3">
-                          <span class="d-block fs-6">Avg. session duration</span>
-                          <div class="d-flex align-items-center">
-                            <h3 class="mb-0">1m 3s</h3>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- End Stats -->
-                    </div>
-
-                    <div class="col-sm-3">
-                      <!-- Stats -->
-                      <div class="d-lg-flex align-items-lg-center">
-                        <div class="flex-shrink-0">
-                          <i class="bi-files-alt fs-1"></i>
-                        </div>
-
-                        <div class="flex-grow-1 ms-lg-3">
-                          <span class="d-block fs-6">Pages/Sessions</span>
-                          <div class="d-flex align-items-center">
-                            <h3 class="mb-0">1.78</h3>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- End Stats -->
-                    </div>
-
-                    <div class="col-sm-3">
-                      <!-- Stats -->
-                      <div class="d-lg-flex align-items-lg-center">
-                        <div class="flex-shrink-0">
-                          <i class="bi-pie-chart fs-1"></i>
-                        </div>
-
-                        <div class="flex-grow-1 ms-lg-3">
-                          <span class="d-block fs-6">Bounce rate</span>
-                          <div class="d-flex align-items-center">
-                            <h3 class="mb-0">62.9%</h3>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- End Stats -->
-                    </div>
                   </div>
                   <!-- End Row -->
                 </div>
@@ -339,7 +286,7 @@
                 <!-- Body -->
                 <div class="card-body">
                   <div class="row no-gutters">
-                    <div class="col-lg-7">
+                    <div class="col-lg-6">
                       <!-- JSVector Map -->
                       <div style="height: 20.5rem;">
                         <div class="js-jsvectormap jsvectormap-custom" data-hs-js-vector-map-options='{
@@ -371,16 +318,15 @@
                     </div>
                     <!-- End Col -->
 
-                    <div class="col-lg-5">
+                    <div class="col-lg-6">
                       <!-- Table -->
                       <div class="table-responsive">
                         <table class="table table-lg table-borderless table-thead-bordered table-nowrap table-align-middle card-table">
                           <thead>
                             <tr>
-                              <th class="border-top-0">Country</th>
-                              <th class="border-top-0">Visits</th>
-                              <th class="border-top-0">Purchases</th>
-                              <th class="border-top-0">Change</th>
+                              <th class="border-top-0">@lang('Country')</th>
+                              <th class="border-top-0">@lang('Visits')</th>
+                              <th class="border-top-0">@lang('Cities')</th>
                             </tr>
                           </thead>
 

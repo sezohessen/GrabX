@@ -21,5 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PromoCodeSeeder::class);
         $this->call(ProductSelectOptionSeeder::class);
         $this->call(OrderSeeder::class);
+        $this->call(GuestIpSeeder::class);
+
     }
 }
