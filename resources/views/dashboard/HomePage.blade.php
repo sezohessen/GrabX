@@ -320,108 +320,31 @@
 
                     <div class="col-lg-6">
                       <!-- Table -->
-                      <div class="table-responsive">
-                        <table class="table table-lg table-borderless table-thead-bordered table-nowrap table-align-middle card-table">
-                          <thead>
-                            <tr>
-                              <th class="border-top-0">@lang('Country')</th>
-                              <th class="border-top-0">@lang('Visits')</th>
-                              <th class="border-top-0">@lang('Cities')</th>
-                            </tr>
-                          </thead>
+                      <div class="card-body-height">
+                        <!-- Table -->
+                        <div class="table-responsive">
+                          <table class="table table-borderless table-thead-bordered table-nowrap table-align-middle card-table">
+                            <thead class="thead-light">
+                              <tr>
+                                <th scope="col">@lang('Visitors')</th>
+                                <th scope="col">@lang('number of visitors')</th>
+                              </tr>
+                            </thead>
 
-                          <tbody>
-                            <tr>
-                              <td>
-                                <div class="d-flex align-items-center">
-                                  <div class="flex-shrink-0">
-                                    <img class="avatar-xss avatar-circle" src="./assets/vendor/flag-icon-css/flags/1x1/us.svg" alt="Image description" />
-                                  </div>
-                                  <div class="flex-grow-1 ms-2">USA</div>
-                                </div>
-                              </td>
-                              <td>10,013</td>
-                              <td>$5,361</td>
-                              <td>
-                                <div class="d-flex align-items-center">
-                                  73.2% <i class="bi-graph-up text-success ms-1"></i>
-                                </div>
-                              </td>
-                            </tr>
-
-                            <tr>
-                              <td>
-                                <div class="d-flex align-items-center">
-                                  <div class="flex-shrink-0">
-                                    <img class="avatar-xss avatar-circle" src="./assets/vendor/flag-icon-css/flags/1x1/in.svg" alt="Image description" />
-                                  </div>
-                                  <div class="flex-grow-1 ms-2">India</div>
-                                </div>
-                              </td>
-                              <td>8,545</td>
-                              <td>$4,923</td>
-                              <td>
-                                <div class="d-flex align-items-center">
-                                  45.8% <i class="bi-graph-down text-danger ms-1"></i>
-                                </div>
-                              </td>
-                            </tr>
-
-                            <tr>
-                              <td>
-                                <div class="d-flex align-items-center">
-                                  <div class="flex-shrink-0">
-                                    <img class="avatar-xss avatar-circle" src="./assets/vendor/flag-icon-css/flags/1x1/ca.svg" alt="Image description" />
-                                  </div>
-                                  <div class="flex-grow-1 ms-2">Canada</div>
-                                </div>
-                              </td>
-                              <td>6,837</td>
-                              <td>$3,954</td>
-                              <td>
-                                <div class="d-flex align-items-center">
-                                  24.4% <i class="bi-graph-up text-success ms-1"></i>
-                                </div>
-                              </td>
-                            </tr>
-
-                            <tr>
-                              <td>
-                                <div class="d-flex align-items-center">
-                                  <div class="flex-shrink-0">
-                                    <img class="avatar-xss avatar-circle" src="./assets/vendor/flag-icon-css/flags/1x1/de.svg" alt="Image description" />
-                                  </div>
-                                  <div class="flex-grow-1 ms-2">Germany</div>
-                                </div>
-                              </td>
-                              <td>4,512</td>
-                              <td>$2,512</td>
-                              <td>
-                                <div class="d-flex align-items-center">
-                                  12.8% <i class="bi-graph-up text-success ms-1"></i>
-                                </div>
-                              </td>
-                            </tr>
-
-                            <tr>
-                              <td>
-                                <div class="d-flex align-items-center">
-                                  <div class="flex-shrink-0">
-                                    <img class="avatar-xss avatar-circle" src="./assets/vendor/flag-icon-css/flags/1x1/gb.svg" alt="Image description" />
-                                  </div>
-                                  <div class="flex-grow-1 ms-2">UK</div>
-                                </div>
-                              </td>
-                              <td>3,795</td>
-                              <td>$1,173</td>
-                              <td>
-                                <div class="d-flex align-items-center">
-                                  67.9% <i class="bi-graph-down text-danger ms-1"></i>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
+                            <tbody>
+                                @foreach ($countryCount as $country)
+                                  <tr>
+                                  <td><h5 class="text-inherit mb-0"> {{ $country->country }} </h5></td>
+                                  <td> {{ $country->count }} </td>
+                                  <td>
+                                      <h4 class="mb-0">  </h4>
+                                  </td>
+                                  </tr>
+                              @endforeach
+                            </tbody>
+                          </table>
+                        </div>
+                        <!-- End Table -->
                       </div>
                       <!-- End Table -->
                     </div>

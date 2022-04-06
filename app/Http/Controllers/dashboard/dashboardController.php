@@ -20,22 +20,22 @@ class dashboardController extends Controller
 
     public function index(Request $request)
     {
-        $ip                 =  request()->ip();
-        $getIp              =  geoip()->getLocation($ip);
-        $storeIp            =  GuestIp ::create([
-            'ip'            => $getIp->ip,
-            'iso_code'      => $getIp->iso_code,
-            'country'       => $getIp->country,
-            'city'          => $getIp->city,
-            'state'         => $getIp->state,
-            'state_name'    => $getIp->state_name,
-            'postal_code'   => $getIp->postal_code,
-            'lat'           => $getIp->lat,
-            'lon'           => $getIp->lon,
-            'timezone'      => $getIp->timezone,
-            'continent'     => $getIp->continent,
-            'currency'      => $getIp->currency,
-        ]);
+        // $ip                 =  request()->ip();
+        // $getIp              =  geoip()->getLocation($ip);
+        // $storeIp            =  GuestIp ::create([
+        //     'ip'            => $getIp->ip,
+        //     'iso_code'      => $getIp->iso_code,
+        //     'country'       => $getIp->country,
+        //     'city'          => $getIp->city,
+        //     'state'         => $getIp->state,
+        //     'state_name'    => $getIp->state_name,
+        //     'postal_code'   => $getIp->postal_code,
+        //     'lat'           => $getIp->lat,
+        //     'lon'           => $getIp->lon,
+        //     'timezone'      => $getIp->timezone,
+        //     'continent'     => $getIp->continent,
+        //     'currency'      => $getIp->currency,
+        // ]);
         // End get Ip
 
         $orders             = Order::get();
@@ -53,10 +53,6 @@ class dashboardController extends Controller
         ->groupBy('country')->orderBy('count','DESC')
         ->get();
 
-        // $guestsCities       = GuestIp::where('')
-
-
-        dd($guestsCities);
         // Top sold product'
         $TopSales = Product::query()
         ->leftJoin('order_items','products.id','=','order_items.product_id')
