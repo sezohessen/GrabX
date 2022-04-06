@@ -24,9 +24,9 @@ return new class extends Migration
             $table->string('postal_code')->nullable();
             $table->integer('lat')->nullable();
             $table->integer('lon')->nullable();
-            $table->integer('timezone')->nullable();
-            $table->integer('continent')->nullable();
-            $table->integer('currency')->nullable();
+            $table->string('timezone')->nullable();
+            $table->string('continent')->nullable();
+            $table->string('currency')->nullable();
             $table->timestamps();
         });
     }

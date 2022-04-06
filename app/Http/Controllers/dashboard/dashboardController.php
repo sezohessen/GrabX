@@ -38,6 +38,8 @@ class dashboardController extends Controller
         // ]);
         // End get Ip
 
+
+
         $orders             = Order::get();
         $totalOrderPrice    = Order::all()->sum('total');
         $IsSeeded           = Order::first();
@@ -47,11 +49,12 @@ class dashboardController extends Controller
         $promoCodeUsage     = PromoCode::all()->sum('usable');
         $mostPromoCodeUsed  = PromoCode::max('usable');
         $maxCode            = PromoCode::where('usable',$mostPromoCodeUsed)->first();
-        $guests             = GuestIp::orderBy('country','DESC')->get();
+        $guests             = GuestIp::orderBy('id','DESC')->get();
         $visitorsCount      = GuestIp::all()->count();
         $countryCount       = DB::table('guests_ip')->select('country', DB::raw('COUNT(*) as `count`'))
         ->groupBy('country')->orderBy('count','DESC')
         ->get();
+
 
         // Top sold product'
         $TopSales = Product::query()

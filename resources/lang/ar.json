@@ -142,7 +142,14 @@
     "Product image":"صورة المنتج",
     "Quantity sold":"الكمية المباعة",
     "Top countries visits":"أعلي الدول زيارة",
-    "Visitors":"الزائرين",
-    "number of visitors":"عدد الزائرين"
+    "Most visitors by country":"معظم الزوار حسب الدولة",
+    "number of visitors":"عدد الزائرين",
+    "Records are stored in the database":"السجلات مخزنة في قاعدة البيانات",
+    "continent":"القارة",
+    "City":"المدينة",
+    "state":"المقاطعة",
+    "currency":"عملة",
+    "Country":"الدولة"
+
 
 }

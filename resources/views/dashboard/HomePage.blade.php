@@ -250,7 +250,7 @@
               <div id="cardFullScreenEg" class="card overflow-hidden mb-3 mb-lg-5">
                 <!-- Header -->
                 <div class="card-header card-header-content-between">
-                  <h4 class="card-header-title">@lang('Top countries visits')<i class="bi-patch-check-fill text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="This report is based on 100% of sessions."></i></h4>
+                  <h4 class="card-header-title">@lang('Top countries visits')<i class="bi-patch-check-fill text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="__('Records are stored in the database')"></i></h4>
 
                   <a class="btn btn-ghost-secondary btn-sm" href="#">View all</a>
                 </div>
@@ -269,7 +269,7 @@
                         <div class="flex-grow-1 ms-lg-3">
                           <span class="d-block fs-6"> @lang('Visitors') </span>
                           <div class="d-flex align-items-center">
-                            <h3 class="mb-0"> {{ number_format($totalOrderPrice, 0, '.', ',') }} </h3>
+                            <h3 class="mb-0"> {{ number_format($visitorsCount, 0, '.', ',') }} </h3>
                           </div>
                         </div>
                       </div>
@@ -286,37 +286,6 @@
                 <!-- Body -->
                 <div class="card-body">
                   <div class="row no-gutters">
-                    <div class="col-lg-6">
-                      <!-- JSVector Map -->
-                      <div style="height: 20.5rem;">
-                        <div class="js-jsvectormap jsvectormap-custom" data-hs-js-vector-map-options='{
-                              "regionStyle": {
-                                "initial": {
-                                  "fill": "#bdc5d1"
-                                },
-                                "hover": {
-                                  "fill": "#77838f"
-                                }
-                              },
-                              "markerStyle": {
-                                "initial": {
-                                  "stroke-width": 2,
-                                  "fill": "#377dff",
-                                  "stroke": "#fff",
-                                  "stroke-opacity": 1,
-                                  "r": 6
-                                },
-                                "hover": {
-                                  "fill": "#377dff",
-                                  "stroke": "#377dff"
-                                }
-                              }
-                                                }'>
-                        </div>
-                      </div>
-                      <!-- End JSVector Map -->
-                    </div>
-                    <!-- End Col -->
 
                     <div class="col-lg-6">
                       <!-- Table -->
@@ -326,7 +295,7 @@
                           <table class="table table-borderless table-thead-bordered table-nowrap table-align-middle card-table">
                             <thead class="thead-light">
                               <tr>
-                                <th scope="col">@lang('Visitors')</th>
+                                <th scope="col">@lang('Most visitors by country')</th>
                                 <th scope="col">@lang('number of visitors')</th>
                               </tr>
                             </thead>
@@ -336,9 +305,6 @@
                                   <tr>
                                   <td><h5 class="text-inherit mb-0"> {{ $country->country }} </h5></td>
                                   <td> {{ $country->count }} </td>
-                                  <td>
-                                      <h4 class="mb-0">  </h4>
-                                  </td>
                                   </tr>
                               @endforeach
                             </tbody>
@@ -349,8 +315,47 @@
                       <!-- End Table -->
                     </div>
                     <!-- End Col -->
+                </div>
+                <hr>
+                <div class="row no-gutters">
+
+                    <div class="col-lg-12">
+                        <!-- Table -->
+                        <div class="card-body-height">
+                          <!-- Table -->
+                          <div class="table-responsive">
+                            <table class="table table-borderless table-thead-bordered table-nowrap table-align-middle card-table">
+                              <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">@lang('continent')</th>
+                                    <th scope="col">@lang('Country')</th>
+                                    <th scope="col">@lang('City')</th>
+                                    <th scope="col">@lang('state')</th>
+                                    <th scope="col">@lang('currency')</th>
+                                </tr>
+                              </thead>
+
+                              <tbody>
+                                  @foreach ($guests as $guest)
+                                    <tr>
+                                        <td><h5 class="text-inherit mb-0"> {{ $guest->continent }} </h5></td>
+                                        <td> {{ $guest->country }} </td>
+                                        <td> {{ $guest->city }} </td>
+                                        <td> {{ $guest->state }} </td>
+                                        <td> {{ $guest->currency }} </td>
+                                        <td> {{ $guest->count }} </td>
+                                    </tr>
+                                @endforeach
+                              </tbody>
+                            </table>
+                          </div>
+                          <!-- End Table -->
+                        </div>
+                        <!-- End Table -->
+                      </div>
                   </div>
                   <!-- End Row -->
+
                 </div>
                 <!-- End Body -->
               </div>
