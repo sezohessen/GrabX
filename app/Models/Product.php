@@ -71,5 +71,11 @@ class Product extends Model
     {
         return $this->hasMany(OrderProductMultipleSelect::class,'product_id','id');
     }
+    /* public function orderOptionsSelect()
+    {
+        return $this->belongsToMany(ProductSelectOptionItem::class, 'order_item_options','order_id')->withPivot(["price",'qty']);
+    } */
+    
+
 
 }

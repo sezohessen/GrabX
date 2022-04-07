@@ -42,6 +42,11 @@
                     <hr>
                     <div class="card orders-product">
                         @foreach ($products as $product)
+                        <?php $options = App\Models\OrderItemOption::where('order_id',$order->id)
+                            ->where('product_id',$product->id)
+                            ->where('copy_numb',$product->pivot->copy_num)
+                            ->get(); ?>
+
                             <div class="row my-2 mx-2">
                                 <div class="col-md-2">
                                     <img class="avatar avatar-lg" src="{{ find_image($product->image ,  App\Models\Product::base ) }}" alt="Image Description">
@@ -51,14 +56,14 @@
                                         <span class="text-danger">{{ $product->orderProduct->qty }}x</span>
                                         {{ LangDetail($product->name, $product->name_ar) }}
                                     </h5>
-                                    @foreach ($product->orderProductSelectOption as $selectOption)
+                                    @foreach ($options as $selectOption)
                                     <p class="mb-0">
                                          {{ LangDetail($selectOption->item->option->name,$selectOption->item->option->name_ar) }} :
                                          {{ LangDetail($selectOption->item->name,$selectOption->item->name_ar) }}
                                         <span class="text-success">{{ $selectOption->item->price }} @lang('KWD')</span>
                                     </p>
                                     @endforeach
-                                    @foreach ($product->orderProductAdditionalOption as $selectAddi)
+                                   {{--  @foreach ($product->orderProductAdditionalOption as $selectAddi)
                                     <p class="mb-0">
                                          <span class="text-info">{{ $selectAddi->qty }}x</span>
                                          {{ LangDetail($selectAddi->item->name,$selectAddi->item->name_ar) }}
@@ -72,11 +77,11 @@
                                         {{ LangDetail($selectMulti->item->name,$selectMulti->item->name_ar) }}
                                         <span class="text-success">{{ $selectMulti->item->price }} @lang('KWD')</span>
                                     </p>
-                                    @endforeach
+                                    @endforeach --}}
 
                                 </div>
                                 <div class="col-md-3">
-                                    <h6>@lang('Price per unit')</h6><span class="text-success">{{ $product->orderProduct->price }} @lang('KWD')</span>
+                                    <h6>@lang('Price per unit')</h6><span class="text-success">{{ $product->pivot->price }} @lang('KWD')</span>
                                 </div>
                             </div>
                             <hr class="my-1">

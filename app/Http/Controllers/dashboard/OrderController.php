@@ -21,10 +21,10 @@ class OrderController extends Controller
     {
 
         $order      = Order::findOrFail($id);
-        $products   = Product::whereHas('orders', function($q) use($id){
+/*         $products   = Product::whereHas('orders', function($q) use($id){
             $q->where('order_items.order_id', $id);
-        })->get();
-        /* dd($order->products); */
+        })->get(); */
+        $products   = $order->products;
         return view('dashboard.Orders.show',compact('order','products'));
     }
 }
