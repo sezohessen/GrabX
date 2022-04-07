@@ -149,7 +149,10 @@
     "City":"المدينة",
     "state":"المقاطعة",
     "currency":"عملة",
-    "Country":"الدولة"
-
+    "Country":"الدولة",
+    "Website visitors":"زوار الموقع",
+    "maximum show number":"أقصى عدد للعرض",
+    "Canceled orders cash":"اموال الطلبات الملغاة",
+    "Cash":"ألاموال"
 
 }

@@ -20,6 +20,7 @@ class dashboardController extends Controller
 
     public function index(Request $request)
     {
+
         // $ip                 =  request()->ip();
         // $getIp              =  geoip()->getLocation($ip);
         // $storeIp            =  GuestIp ::create([
@@ -49,12 +50,27 @@ class dashboardController extends Controller
         $promoCodeUsage     = PromoCode::all()->sum('usable');
         $mostPromoCodeUsed  = PromoCode::max('usable');
         $maxCode            = PromoCode::where('usable',$mostPromoCodeUsed)->first();
-        $guests             = GuestIp::orderBy('id','DESC')->get();
+        $guests             = GuestIp::orderBy('id','DESC')->take(100)->get();
         $visitorsCount      = GuestIp::all()->count();
         $countryCount       = DB::table('guests_ip')->select('country', DB::raw('COUNT(*) as `count`'))
         ->groupBy('country')->orderBy('count','DESC')
         ->get();
 
+        //refunded orders
+        $refundedOrders          = Order::where('status',4)->get();
+        $refundedOrdersTotal     = Order::where('status',4)->sum('total');
+        for ($i = 0; $i < 7; $i++) {
+            $refundedOrdersArray[] = $refundedOrders->whereBetween(
+                'created_at',
+                [Carbon::now()->subDay($i + 1), Carbon::now()->subDay($i)]
+            )->count();
+        }
+        for ($i = 0; $i < 7; $i++) {
+            $refundedOrdersCash[] = $refundedOrders->whereBetween(
+                'created_at',
+                [Carbon::now()->subDay($i + 1), Carbon::now()->subDay($i)]
+            )->sum('total');
+        }
 
         // Top sold product'
         $TopSales = Product::query()
@@ -68,32 +84,23 @@ class dashboardController extends Controller
         $previousMonthly = 0;
         $weekly          = 0;
         $percent         = 0;
-        if($IsSeeded != null)
-        {
-            // calculate percentage of order sales
-            $dateFrom           = Carbon::now()->subDays(30);
-            $dateTo             = Carbon::now();
-            $weekly             = Order::whereBetween('created_at', [$dateFrom, $dateTo])->sum('total');
-            $previousDateFrom   = Carbon::now()->subDays(60);
-            $previousDateTo     = Carbon::now()->subDays(31);
-            $previousMonthly    = Order::whereBetween('created_at', [$previousDateFrom,$previousDateTo])->sum('total');
-            if($previousMonthly < $weekly){
-                if($previousMonthly > 0){
-                    $percent_from = $weekly - $previousMonthly;
-                    $float  = $percent_from / $previousMonthly * 100; //increase percent
-                    $percent = bcadd($float,'0',2);
-                }else{
-                    $percent = 100; //increase percent
-                }
-            }else{
-                $percent_from = $previousMonthly - $weekly;
-                $float = $percent_from / $previousMonthly * 100; //decrease percent
-                $percent = bcadd($float,'0',2);
-            }
-            // end calculate percentage of order sales
-        }
+        // calculate percentage of order sales
+        $dateFrom           = Carbon::now()->subDays(30);
+        $dateTo             = Carbon::now();
+        $weekly             = Order::whereBetween('created_at', [$dateFrom, $dateTo])->where('status', '=', 3)->sum('total');
+        $previousDateFrom   = Carbon::now()->subDays(60);
+        $previousDateTo     = Carbon::now()->subDays(31);
+        $previousMonthly    = Order::whereBetween('created_at', [$previousDateFrom,$previousDateTo])->where('status', '=', 3)->sum('total');
+        $productWeekly      = Order::whereBetween('created_at', [$dateFrom, $dateTo])->count();
+        $weekly             = Order::whereBetween('created_at', [$dateFrom, $dateTo])->sum('total');
+        $previousWeekly     = Order::whereBetween('created_at', [$previousDateFrom,$previousDateTo])->sum('total');
+        $percent_from       = abs($previousWeekly - $weekly);//Get Difference amount from previous and current amount of orders
+        $previousWeekly     = !$previousWeekly ? 1 : $previousWeekly; // Avoid Division by zero problem
+        $float              = $percent_from / max($previousWeekly,$weekly) * 100;
+        $percent            = bcadd($float,'0',2);
+
         return view('dashboard.HomePage',compact('orders','totalOrderPrice','IsSeeded','previousMonthly','weekly','percent','products','soldProducts','promoCodeUsage','canceldOrders'
-        ,'maxCode','mostPromoCodeUsed','visitorsCount','TopSales','guests','countryCount'));
+        ,'maxCode','mostPromoCodeUsed','visitorsCount','TopSales','guests','countryCount','refundedOrders','refundedOrdersTotal','refundedOrdersArray','refundedOrdersCash'));
 
     }
 }
