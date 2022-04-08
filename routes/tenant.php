@@ -48,6 +48,7 @@ Route::group([
     Route::get('/Settings', function() {return view('dashboard.Settings.index'); })->name('Settings');
     Route::get('orders', [OrderController::class,'index'])->name('order.index');
     Route::get('orders/pending', [OrderController::class,'pending'])->name('order.pending');
+    Route::get('orders/show/{id}', [OrderController::class,'show'])->name('order.show');
 });
 Route::group([
     'as' => 'tenant.',

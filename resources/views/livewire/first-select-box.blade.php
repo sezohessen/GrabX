@@ -28,8 +28,8 @@
                             <div class="mb-4" id="dynamic_field">
                                 <label for="productNameLabel" class="form-label">{{ __('Select box name')  }} <i class="bi-question-circle text-body ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="@lang('You can add select box to add option to your product ex: size, offers')">
                                 </i></label>
-                                <input required type="text" class="form-control" name="secondSelctName[]" placeholder="{{ __('Select box name') }}" aria-label="{{ __('Select box name') }}" value="">
-                                <input required type="number" class="form-control" name="secondSelctPrice[]" placeholder="{{ __('Select box name') }}" aria-label="{{ __('Select box name') }}" value="">
+                                <input type="text" class="form-control" name="secondSelctName[0]" placeholder="{{ __('Select box name') }}" aria-label="{{ __('Select box name') }}" >
+                                <input type="number" class="form-control" name="secondSelctPrice[0]" placeholder="{{ __('Select box name') }}" aria-label="{{ __('Select box name') }}">
                                 @error('secondSelctName.*')
                                     <div class="alert alert-danger mt-2">{{ $message }}</div>
                                 @enderror
@@ -58,7 +58,8 @@
         var i = 0;
         function AddMoreSelect() {
             i++;
-            $('#dynamic_field').append(`<input required type="text" class="form-control" name="secondSelctName[]"  placeholder="{{ __('Select box name') }}" aria-label="{{ __('Select box name') }}" value="">`);
+            var index = '<input  type="text" name="secondSelctName['+i+']" value="asdasdas" >';
+            $('#dynamic_field').append(index);
         }
 
     </script>

@@ -16,4 +16,8 @@ class ProductSelectOptionItem extends Model
         'product_select_option_id',
         'price'
     ];
+    public function option()
+    {
+        return $this->belongsTo(ProductSelectOption::class,'product_select_option_id','id');
+    }
 }

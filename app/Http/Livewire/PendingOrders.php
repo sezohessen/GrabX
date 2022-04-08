@@ -33,7 +33,7 @@ class PendingOrders extends Component
     {
         $this->order = Order::where('id',$id)->first();
         $this->order->update([
-            'status' => Order::status['delivered']
+            'status' => Order::Delivered
         ]);
         session()->flash('delivered', __('Order has been delivered Successfully'));
     }
@@ -41,7 +41,7 @@ class PendingOrders extends Component
     {
         $this->order = Order::where('id',$id)->first();
         $this->order->update([
-            'status' => Order::status['on way']
+            'status' => Order::OnWay
         ]);
         session()->flash('OnTheWay', __('Order is on the way to reach'));
     }
@@ -49,7 +49,7 @@ class PendingOrders extends Component
     {
         $this->order = Order::where('id',$id)->first();
         $this->order->update([
-            'status' => Order::status['canceled']
+            'status' => Order::Canceled
         ]);
         session()->flash('canceled', __('Order has been canceled Successfully'));
     }
@@ -64,7 +64,7 @@ class PendingOrders extends Component
     public function render()
     {
         $orders     = Order::query()
-        ->whereIn('status', [Order::status['pending'],Order::status['on way']])
+        ->whereIn('status', [Order::Pending,Order::OnWay])
         ->where(function($query) {
                $query->orWhere('id', $this->search)
                     ->orWhere('name', 'LIKE', '%'. $this->search .'%')
@@ -73,8 +73,9 @@ class PendingOrders extends Component
         ->orderBy('id','DESC')
         ->paginate($this->pagination)
         ->appends('search', $this->search);
-        $ordersCount    = Order::where('status',Order::status['on way'])
-        ->orWhere('status',Order::status['pending'])->get()->count();
+        $ordersCount    = Order::whereIn('status',  [Order::Pending,Order::OnWay])
+        ->get()
+        ->count();
         return view('livewire.pending-orders',compact('orders','ordersCount'));
     }
 }

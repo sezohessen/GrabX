@@ -13,22 +13,23 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('order_items', function (Blueprint $table) {
+        Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            /* $table->integer('copy_num')->nullable(); */
-            $table->bigInteger('order_id')->unsigned();
-            $table->foreign('order_id')
-            ->references('id')->on('orders')
-            ->onDelete('cascade')
-            ->onUpdate('cascade');
-            $table->bigInteger('product_id')->unsigned();
-            $table->foreign('product_id')
-            ->references('id')->on('products')
-            ->onDelete('cascade')
-            ->onUpdate('cascade');
-            $table->integer('qty');
-            $table->decimal('price',10,2);
+            $table->string('company_name');
+            $table->text('desc');
+            $table->text('desc_ar');
 
+            $table->bigInteger('logo_id')->unsigned();
+            $table->foreign('logo_id')
+            ->references('id')->on('images')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+
+            $table->bigInteger('bg_id')->unsigned();
+            $table->foreign('bg_id')
+            ->references('id')->on('images')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
             $table->timestamps();
         });
     }
@@ -40,6 +41,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('order_items');
+        Schema::dropIfExists('settings');
     }
 };
