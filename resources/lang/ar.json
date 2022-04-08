@@ -127,7 +127,7 @@
     "Most used code":"اكثر كود تم استخدامه",
     "Used":"أستخدم",
     "Times":"مرة",
-    "Statistics of products sold during this week & last week":"إحصائيات المنتجات المباعة خلال هذا الأسبوع والأسبوع الماضي",
+    "Statistics of products sold during this week":"إحصائيات المنتجات المباعة خلال هذا الأسبوع",
     "Monthly profit":"الربح الشهري",
     "No promo code exists":"لا يوجد رمز ترويجي",
     "Week sales":"مبيعات الأسبوع",
@@ -156,6 +156,7 @@
     "Cash":"ألاموال",
     "Total canceled orders":"إجمالي الطلبات الملغاة",
     "Total canceled orders cash":"أجمالي اموال الطلبات الملغاة",
-    "Weekly canceled orders statistics":"إحصائيات الطلبات الملغاة الأسبوعية"
+    "Weekly canceled orders statistics":"إحصائيات الطلبات الملغاة الأسبوعية",
+    "Settings":"الإعدادات"
 
 }

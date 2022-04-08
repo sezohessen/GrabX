@@ -790,8 +790,20 @@
                             <div id="navbarVerticalMenuPagesEcommerceCategory" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuPagesMenuEcommerce">
                               <a class="nav-link " href="{{ route('tenant.Category.index') }}">@lang('Categories')</a>
                             </div>
-                          </div>
-                          <!-- End Collapse -->
+                    </div>
+                    <!-- End Collapse -->
+                     <!-- Collapse -->
+                    <div class="nav-item">
+                            <a class="nav-link dropdown-toggle" href="#settings" role="button" data-bs-toggle="collapse" data-bs-target="#settings" aria-expanded="false" aria-controls="navbarVerticalMenuPagesEcommerceCustomersMenu">
+                                <i class="bi bi-gear nav-icon"></i>
+                              <span class="nav-link-title">@lang('Settings')</span>
+                            </a>
+
+                            <div id="settings" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuPagesMenuEcommerce">
+                              <a class="nav-link " href="{{ route('tenant.Settings') }}">@lang('Settings')</a>
+                            </div>
+                    </div>
+                    <!-- End Collapse -->
                 </div>
 
                       {{-- <a class="nav-link " href="./ecommerce-referrals.html">Referrals</a> --}}

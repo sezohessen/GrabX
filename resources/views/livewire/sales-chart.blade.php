@@ -2,7 +2,7 @@
 <div class="card mb-3 mb-lg-5">
     <!-- Header -->
     <div class="card-header card-header-content-sm-between">
-        <h4 class="card-header-title mb-2 mb-sm-0"> @lang('Week sales') <i class="bi-question-circle text-body ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="@lang('Statistics of products sold during this week & last week')"></i></h4>
+        <h4 class="card-header-title mb-2 mb-sm-0"> @lang('Week sales') <i class="bi-question-circle text-body ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="@lang('Statistics of products sold during this week')"></i></h4>
     </div>
     <!-- End Header -->
     <!-- Body -->
