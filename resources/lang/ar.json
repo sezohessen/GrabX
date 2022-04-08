@@ -153,6 +153,9 @@
     "Website visitors":"زوار الموقع",
     "maximum show number":"أقصى عدد للعرض",
     "Canceled orders cash":"اموال الطلبات الملغاة",
-    "Cash":"ألاموال"
+    "Cash":"ألاموال",
+    "Total canceled orders":"إجمالي الطلبات الملغاة",
+    "Total canceled orders cash":"أجمالي اموال الطلبات الملغاة",
+    "Weekly canceled orders statistics":"إحصائيات الطلبات الملغاة الأسبوعية"
 
 }

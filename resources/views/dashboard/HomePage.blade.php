@@ -337,25 +337,24 @@
                     <div class="col-lg-6">
                         <!-- Body -->
                         <div class="card-body">
-                        <h4>@lang('Canceled orders')</h4>
-
-                        <div class="row align-items-sm-center mt-4 mt-sm-0 mb-5">
-                            <div class="col-sm mb-3 mb-sm-0">
+                        <h4>@lang('Total canceled orders')
                             <span class="display-5 text-dark me-2">{{ number_format($refundedOrders->count(), 0, '.', ',') }}</span>
-                            </div>
-                            <!-- End Col -->
+                        </h4>
+                        <div class="row align-items-sm-center mt-4 mt-sm-0 mb-5">
 
                             <div class="col-sm-auto">
-                                @lang('Canceled orders cash')
+                                @lang('Total canceled orders cash')
                             <span class="h3 text-danger">
-                                {{ number_format($refundedOrdersTotal, 0, '.', ',') }}
+                                {{ number_format($refundedOrdersTotal, 0, '.', ',') }} @lang('KWD')
                                 <i class="bi-graph-up"></i>
                             </span>
                             </div>
                             <!-- End Col -->
                         </div>
                         <!-- End Row -->
-
+                        <div class="row align-items-sm-center mt-4 mt-sm-0 mb-5">
+                                @lang('Weekly canceled orders statistics')
+                        </div>
                         <!-- Bar Chart -->
                         <div class="chartjs-custom mb-4" style="height: 18rem;">
                             <canvas id="ecommerce-overview-4" class="js-chart" data-hs-chartjs-options='{
@@ -440,7 +439,7 @@
                             <!-- End Col -->
 
                             <div class="col-auto">
-                            <span class="legend-indicator bg-Primary"></span> @lang('Orders')
+                            <span class="legend-indicator bg-primary"></span> @lang('Orders')
                             </div>
                             <!-- End Col -->
                         </div>
