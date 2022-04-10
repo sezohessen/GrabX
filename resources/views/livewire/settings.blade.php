@@ -32,7 +32,7 @@
             </div>
             <!-- End Profile Cover -->
             <!-- Avatar -->
-            <label class="avatar avatar-xxl avatar-circle avatar-uploader profile-cover-avatar" for="editAvatarUploaderModal">
+            <label id="avatar" class="avatar avatar-xxl avatar-circle avatar-uploader profile-cover-avatar" for="editAvatarUploaderModal">
                 @if ($Setting->logo_id)
                     @if ($logo)
                     <img id="editAvatarImgModal" class="avatar-img" src="{{ $logo->temporaryUrl() }}" alt="Image Description">

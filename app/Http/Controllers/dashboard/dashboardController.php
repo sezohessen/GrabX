@@ -9,6 +9,7 @@ use App\Models\Order ;
 use App\Models\OrderItem;
 use App\Models\Product;
 use App\Models\PromoCode;
+use App\Models\Setting;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -40,7 +41,7 @@ class dashboardController extends Controller
         // End get Ip
 
 
-
+        $Setting            = Setting::first();
         $orders             = Order::get();
         $totalOrderPrice    = Order::all()->sum('total');
         $IsSeeded           = Order::first();
@@ -100,7 +101,8 @@ class dashboardController extends Controller
         $percent            = bcadd($float,'0',2);
 
         return view('dashboard.HomePage',compact('orders','totalOrderPrice','IsSeeded','previousMonthly','weekly','percent','products','soldProducts','promoCodeUsage','canceldOrders'
-        ,'maxCode','mostPromoCodeUsed','visitorsCount','TopSales','guests','countryCount','refundedOrders','refundedOrdersTotal','refundedOrdersArray','refundedOrdersCash'));
+        ,'maxCode','mostPromoCodeUsed','visitorsCount','TopSales','guests','countryCount'
+        ,'refundedOrders','refundedOrdersTotal','refundedOrdersArray','refundedOrdersCash'));
 
     }
 }
