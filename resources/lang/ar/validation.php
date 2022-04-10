@@ -227,6 +227,7 @@ return [
         "editMaxPrice"          => "اقصي سعر للخصم",
         "editMaxCount"          => "اقصي عدد",
         "editUsable"            => "الاستخدام",
+        "company_name"          => "أسم الشركة"
 
 
 

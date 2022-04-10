@@ -39,7 +39,6 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
         $imageID        = add_Image($request->image,NULL,Product::base);   // Store image
         $credentials    = Product::credentials($request,$imageID); // Store product
         $product        = Product::create($credentials);

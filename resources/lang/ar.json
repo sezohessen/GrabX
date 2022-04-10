@@ -181,7 +181,18 @@
     "Price per unit":"السعر لكل وحدة",
     "Order price":"سعر الطلب",
     "Subtotal":"المجموع الفرعي",
-    "Delivery Cost":"تكلفة التوصيل"
+    "Delivery Cost":"تكلفة التوصيل",
+    "website settings":"إعدادات الموقع",
+    "Company name":"اسم الشركة",
+    "Displayed on public ":"معروض للجمهور",
+    "Website description(AR)":"وصف الموقع باللغة العربية",
+    "Website description(EN)":"وصف الموقع باللغة الإنجليزية",
+    "Your company name":"أسم الشركة",
+    "Type your description in english":"اكتب وصفك باللغة الإنجليزية",
+    "Type your description in arabic":"اكتب وصفك باللغة العربية",
+    "Save changes":"حفظ التغيرات",
+    "Settings have been updated successfully":"تم تحديث الإعدادات بنجاح"
 
-    
+
+
 }
