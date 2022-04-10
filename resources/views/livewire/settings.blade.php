@@ -1,7 +1,7 @@
 <div>
-    <style>
-        .error{color:red}
-    </style>
+    @section('css')
+    <link rel="stylesheet" href="{{ global_asset('css/dashboard/setting.css') }}">
+    @endsection
     <form wire:submit.prevent="save">
         <div class="d-grid gap-3 gap-lg-5">
           <!-- Card -->
