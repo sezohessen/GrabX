@@ -9,8 +9,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Setting extends Model
 {
     use HasFactory;
-    const logo = '/img/logo/';
-    const bg = '/img/bg/';
+    const logo = '/img/logo';
+    const bg = '/img/bg';
     protected $table    = 'settings';
     protected $fillable=[
         'company_name',

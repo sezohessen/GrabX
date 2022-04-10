@@ -98,13 +98,15 @@ if(!function_exists('add_Image_tenant')){
        $Image = $id ? Image::findOrFail($id) : NULL;
        $extension = $file->getClientOriginalExtension();
        $fileName = time() . rand(11111, 99999) . '.' . $extension;
-       $destinationPath = public_path() . $base;
-       $file = Storage::disk('public')->put($fileName, $destinationPath);
+       /* $destinationPath = storage_path().$fileName; */
+       /* $file->move($destinationPath,$fileName); */
+       $test = Storage::disk('public')->put('app'.$base, $file);
+       $url = tenant_asset($test);
        if($Image)
        {
            //Delete Old image
            try {
-               $file_old = $destinationPath . $Image->name;
+               $file_old = $url;
                unlink($file_old);
                if(!$update)$Image->delete();
            } catch (Exception $e) {
@@ -114,11 +116,11 @@ if(!function_exists('add_Image_tenant')){
        }
         //Update new image
        if($update){
-           $Image->name = $fileName;
+           $Image->name = $test;
            $Image->base = $base;
            $Image->save();
        }else{
-           $Image = Image::create(['name'=> $fileName, 'base' =>  $base]);
+           $Image = Image::create(['name'=> $test, 'base' =>  $base]);
        }
        return $Image->id;
 

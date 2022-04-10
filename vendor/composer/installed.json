@@ -1759,17 +1759,17 @@
         },
         {
             "name": "league/commonmark",
-            "version": "2.2.3",
-            "version_normalized": "2.2.3.0",
+            "version": "2.3.0",
+            "version_normalized": "2.3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "47b015bc4e50fd4438c1ffef6139a1fb65d2ab71"
+                "reference": "32a49eb2b38fe5e5c417ab748a45d0beaab97955"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/47b015bc4e50fd4438c1ffef6139a1fb65d2ab71",
-                "reference": "47b015bc4e50fd4438c1ffef6139a1fb65d2ab71",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/32a49eb2b38fe5e5c417ab748a45d0beaab97955",
+                "reference": "32a49eb2b38fe5e5c417ab748a45d0beaab97955",
                 "shasum": ""
             },
             "require": {
@@ -1778,17 +1778,19 @@
                 "php": "^7.4 || ^8.0",
                 "psr/event-dispatcher": "^1.0",
                 "symfony/deprecation-contracts": "^2.1 || ^3.0",
-                "symfony/polyfill-php80": "^1.15"
+                "symfony/polyfill-php80": "^1.16"
             },
             "require-dev": {
                 "cebe/markdown": "^1.0",
                 "commonmark/cmark": "0.30.0",
                 "commonmark/commonmark.js": "0.30.0",
                 "composer/package-versions-deprecated": "^1.8",
+                "embed/embed": "^4.4",
                 "erusev/parsedown": "^1.0",
                 "ext-json": "*",
                 "github/gfm": "0.29.0",
                 "michelf/php-markdown": "^1.4",
+                "nyholm/psr7": "^1.5",
                 "phpstan/phpstan": "^0.12.88 || ^1.0.0",
                 "phpunit/phpunit": "^9.5.5",
                 "scrutinizer/ocular": "^1.8.1",
@@ -1800,11 +1802,11 @@
             "suggest": {
                 "symfony/yaml": "v2.3+ required if using the Front Matter extension"
             },
-            "time": "2022-02-26T21:24:45+00:00",
+            "time": "2022-04-07T22:37:05+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "2.3-dev"
+                    "dev-main": "2.4-dev"
                 }
             },
             "installation-source": "dist",
@@ -1951,17 +1953,17 @@
         },
         {
             "name": "league/flysystem",
-            "version": "3.0.14",
-            "version_normalized": "3.0.14.0",
+            "version": "3.0.15",
+            "version_normalized": "3.0.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "46a5450352540e89cb8e7eb20c58b5b4aae481f6"
+                "reference": "3b71cd136dc0331ee87b636b25f4ee339368c718"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/46a5450352540e89cb8e7eb20c58b5b4aae481f6",
-                "reference": "46a5450352540e89cb8e7eb20c58b5b4aae481f6",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/3b71cd136dc0331ee87b636b25f4ee339368c718",
+                "reference": "3b71cd136dc0331ee87b636b25f4ee339368c718",
                 "shasum": ""
             },
             "require": {
@@ -1990,7 +1992,7 @@
                 "phpunit/phpunit": "^9.5.11",
                 "sabre/dav": "^4.3.1"
             },
-            "time": "2022-04-06T18:17:37+00:00",
+            "time": "2022-04-08T18:36:06+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -2024,7 +2026,7 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem/issues",
-                "source": "https://github.com/thephpleague/flysystem/tree/3.0.14"
+                "source": "https://github.com/thephpleague/flysystem/tree/3.0.15"
             },
             "funding": [
                 {
@@ -2103,17 +2105,17 @@
         },
         {
             "name": "livewire/livewire",
-            "version": "v2.10.4",
-            "version_normalized": "2.10.4.0",
+            "version": "v2.10.5",
+            "version_normalized": "2.10.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/livewire/livewire.git",
-                "reference": "2d68c61a8edf338534fdd8e2b2750dca2e741439"
+                "reference": "9ea6237760f627b3b6a05d15137880780ac843b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/livewire/livewire/zipball/2d68c61a8edf338534fdd8e2b2750dca2e741439",
-                "reference": "2d68c61a8edf338534fdd8e2b2750dca2e741439",
+                "url": "https://api.github.com/repos/livewire/livewire/zipball/9ea6237760f627b3b6a05d15137880780ac843b5",
+                "reference": "9ea6237760f627b3b6a05d15137880780ac843b5",
                 "shasum": ""
             },
             "require": {
@@ -2133,7 +2135,7 @@
                 "phpunit/phpunit": "^8.4|^9.0",
                 "psy/psysh": "@stable"
             },
-            "time": "2022-02-18T22:35:27+00:00",
+            "time": "2022-04-07T21:38:12+00:00",
             "type": "library",
             "extra": {
                 "laravel": {
@@ -2167,7 +2169,7 @@
             "description": "A front-end framework for Laravel.",
             "support": {
                 "issues": "https://github.com/livewire/livewire/issues",
-                "source": "https://github.com/livewire/livewire/tree/v2.10.4"
+                "source": "https://github.com/livewire/livewire/tree/v2.10.5"
             },
             "funding": [
                 {
@@ -2254,17 +2256,17 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "2.4.0",
-            "version_normalized": "2.4.0.0",
+            "version": "2.5.0",
+            "version_normalized": "2.5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "d7fd7450628561ba697b7097d86db72662f54aef"
+                "reference": "4192345e260f1d51b365536199744b987e160edc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/d7fd7450628561ba697b7097d86db72662f54aef",
-                "reference": "d7fd7450628561ba697b7097d86db72662f54aef",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/4192345e260f1d51b365536199744b987e160edc",
+                "reference": "4192345e260f1d51b365536199744b987e160edc",
                 "shasum": ""
             },
             "require": {
@@ -2307,7 +2309,7 @@
                 "rollbar/rollbar": "Allow sending log messages to Rollbar",
                 "ruflin/elastica": "Allow sending log messages to an Elastic Search server"
             },
-            "time": "2022-03-14T12:44:37+00:00",
+            "time": "2022-04-08T15:43:54+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -2340,7 +2342,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Seldaek/monolog/issues",
-                "source": "https://github.com/Seldaek/monolog/tree/2.4.0"
+                "source": "https://github.com/Seldaek/monolog/tree/2.5.0"
             },
             "funding": [
                 {
@@ -5738,17 +5740,17 @@
         },
         {
             "name": "stancl/tenancy",
-            "version": "v3.5.5",
-            "version_normalized": "3.5.5.0",
+            "version": "v3.5.6",
+            "version_normalized": "3.5.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/archtechx/tenancy.git",
-                "reference": "f065ea60b0e56c6a22cd75c476ca448649f8ffe2"
+                "reference": "40bf576e0087f3350fa5f91c2c73962a7dcdff50"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/archtechx/tenancy/zipball/f065ea60b0e56c6a22cd75c476ca448649f8ffe2",
-                "reference": "f065ea60b0e56c6a22cd75c476ca448649f8ffe2",
+                "url": "https://api.github.com/repos/archtechx/tenancy/zipball/40bf576e0087f3350fa5f91c2c73962a7dcdff50",
+                "reference": "40bf576e0087f3350fa5f91c2c73962a7dcdff50",
                 "shasum": ""
             },
             "require": {
@@ -5766,7 +5768,7 @@
                 "orchestra/testbench": "^4.0|^5.0|^6.0|^7.0",
                 "spatie/valuestore": "^1.2.5"
             },
-            "time": "2022-04-01T20:53:09+00:00",
+            "time": "2022-04-08T01:13:29+00:00",
             "type": "library",
             "extra": {
                 "laravel": {
@@ -5807,7 +5809,7 @@
             ],
             "support": {
                 "issues": "https://github.com/archtechx/tenancy/issues",
-                "source": "https://github.com/archtechx/tenancy/tree/v3.5.5"
+                "source": "https://github.com/archtechx/tenancy/tree/v3.5.6"
             },
             "funding": [
                 {

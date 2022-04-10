@@ -9,10 +9,14 @@
             <!-- Profile Cover -->
             <div class="profile-cover">
               <div class="profile-cover-img-wrapper">
-                @if ($bg)
+                @if ($Setting->bg_id)
+                    @if ($bg)
+                        <img id="profileCoverImg" class="profile-cover-img" src="{{ $bg->temporaryUrl() }}" alt="Uploaded image">
+                    @else
+                        <img id="profileCoverImg" class="profile-cover-img" src="{{ tenant_asset($Setting->background->name) }}" alt="Image Description">
+                    @endif
+                @elseif($bg)
                     <img id="profileCoverImg" class="profile-cover-img" src="{{ $bg->temporaryUrl() }}" alt="Uploaded image">
-                @else
-                    <img id="profileCoverImg" class="profile-cover-img" src="{{ find_image_tenant($Setting->background ,  App\Models\Setting::bg ) }}" alt="Image Description">
                 @endif
                 <!-- Custom File Cover -->
                 <div class="profile-cover-content profile-cover-uploader p-3">
@@ -29,10 +33,14 @@
             <!-- End Profile Cover -->
             <!-- Avatar -->
             <label class="avatar avatar-xxl avatar-circle avatar-uploader profile-cover-avatar" for="editAvatarUploaderModal">
-                @if ($logo)
-                <img id="editAvatarImgModal" class="avatar-img" src="{{ $logo->temporaryUrl() }}" alt="Image Description">
-                @else
-                <img id="editAvatarImgModal" class="avatar-img" src="{{ find_image($Setting->logo ,  App\Models\Setting::logo ) }}" alt="Image Description">
+                @if ($Setting->logo_id)
+                    @if ($logo)
+                    <img id="editAvatarImgModal" class="avatar-img" src="{{ $logo->temporaryUrl() }}" alt="Image Description">
+                    @else
+                    <img id="editAvatarImgModal" class="avatar-img" src="{{ tenant_asset($Setting->logo->name) }}" alt="Image Description">
+                    @endif
+                @elseif($logo)
+                    <img id="editAvatarImgModal" class="avatar-img" src="{{ $logo->temporaryUrl() }}" alt="Image Description">
                 @endif
               <input type="file" wire:model="logo" class="js-file-attach avatar-uploader-input" id="editAvatarUploaderModal" data-hs-file-attach-options='{
                           "textTarget": "#editAvatarImgModal",

@@ -94,7 +94,7 @@ class ImageSeeder extends Seeder
                 'created_at'        =>  now()
             ],
             [
-                'name'              =>  "logon.png",
+                'name'              =>  "logo.png",
                 'base'              =>  "/img/logo/",
                 'updated_at'        =>  now(),
                 'created_at'        =>  now()
