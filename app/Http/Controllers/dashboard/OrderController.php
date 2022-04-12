@@ -24,7 +24,7 @@ class OrderController extends Controller
 /*         $products   = Product::whereHas('orders', function($q) use($id){
             $q->where('order_items.order_id', $id);
         })->get(); */
-        $products   = $order->products;
-        return view('dashboard.Orders.show',compact('order','products'));
+        /* $products   = $order->products; */
+        return view('dashboard.Orders.show',compact('order'));
     }
 }

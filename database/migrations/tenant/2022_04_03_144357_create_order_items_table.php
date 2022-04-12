@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('order_items', function (Blueprint $table) {
             $table->id();
-            /* $table->integer('copy_num')->nullable(); */
+
             $table->bigInteger('order_id')->unsigned();
             $table->foreign('order_id')
             ->references('id')->on('orders')
@@ -28,6 +28,7 @@ return new class extends Migration
             ->onUpdate('cascade');
             $table->integer('qty');
             $table->decimal('price',10,2);
+            $table->integer('copy_num')->default(1);
 
             $table->timestamps();
         });

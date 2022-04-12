@@ -41,11 +41,12 @@
                     <h5>@lang("Order's products")</h5>
                     <hr>
                     <div class="card orders-product">
-                        @foreach ($products as $product)
+                        @foreach ($order->products as $product)
                         <?php $options = App\Models\OrderItemOption::where('order_id',$order->id)
                             ->where('product_id',$product->id)
-                            ->where('copy_numb',$product->pivot->copy_num)
-                            ->get(); ?>
+                            ->where('copy_num',$product->pivot->copy_num)
+                            ->get();
+                        ?>
 
                             <div class="row my-2 mx-2">
                                 <div class="col-md-2">
@@ -53,31 +54,20 @@
                                 </div>
                                 <div class="col-md-7">
                                     <h5 class="text-inherit mb-0">
-                                        <span class="text-danger">{{ $product->orderProduct->qty }}x</span>
+                                        <span class="text-danger">{{ $product->pivot->qty }}x</span>
                                         {{ LangDetail($product->name, $product->name_ar) }}
                                     </h5>
                                     @foreach ($options as $selectOption)
-                                    <p class="mb-0">
-                                         {{ LangDetail($selectOption->item->option->name,$selectOption->item->option->name_ar) }} :
-                                         {{ LangDetail($selectOption->item->name,$selectOption->item->name_ar) }}
-                                        <span class="text-success">{{ $selectOption->item->price }} @lang('KWD')</span>
-                                    </p>
+                                        @if($selectOption->item)
+                                            <p class="mb-0">
+                                                @if($selectOption->item->option->type==3&&$selectOption->qty > 0 ) <span class="text-info">{{ $selectOption->qty }}x</span> @endif
+                                                {{ $selectOption->item->option->name }} : {{ $selectOption->item->name }}
+                                            <span class="text-success">{{ $selectOption->item->price }} @lang('KWD')</span>
+                                            </p>
+                                        @else
+                                            <p class="text-warning">@lang('Option Deleted')</p>
+                                        @endif
                                     @endforeach
-                                   {{--  @foreach ($product->orderProductAdditionalOption as $selectAddi)
-                                    <p class="mb-0">
-                                         <span class="text-info">{{ $selectAddi->qty }}x</span>
-                                         {{ LangDetail($selectAddi->item->name,$selectAddi->item->name_ar) }}
-                                        <span class="text-success">{{ $selectAddi->item->price }}
-                                             ({{ $selectAddi->item->price * $selectAddi->qty }})
-                                            @lang('KWD')</span>
-                                    </p>
-                                    @endforeach
-                                    @foreach ($product->orderProductMultiOption as $selectMulti)
-                                    <p class="mb-0">
-                                        {{ LangDetail($selectMulti->item->name,$selectMulti->item->name_ar) }}
-                                        <span class="text-success">{{ $selectMulti->item->price }} @lang('KWD')</span>
-                                    </p>
-                                    @endforeach --}}
 
                                 </div>
                                 <div class="col-md-3">

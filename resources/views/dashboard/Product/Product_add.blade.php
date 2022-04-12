@@ -1,5 +1,4 @@
 @extends('dashboard.layouts.app')
-
 @section('content')
 <!-- Content -->
 <div class="content container-fluid">

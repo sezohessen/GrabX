@@ -11,11 +11,15 @@ class ProductSelectOptionItem extends Model
     protected $table    = 'product_select_option_items';
     protected $fillable=[
         'name',
-        'name_ar',
         'product_id',
         'product_select_option_id',
-        'price'
+        'price',
+        'max_count'
     ];
+    const OneSelect         = 1;
+    const MultipleSelect    = 2;
+    const AdditionalSelect  = 3;
+
     public function option()
     {
         return $this->belongsTo(ProductSelectOption::class,'product_select_option_id','id');

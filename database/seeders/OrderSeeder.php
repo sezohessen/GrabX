@@ -18,93 +18,39 @@ class OrderSeeder extends Seeder
      *
      * @return void
      */
-    public function seedProductOption($table1,$table2,$column,$products,$OneSelect = NULL){
-        $faker          = Faker::create();
-        $faker_ar       = Faker::create('ar_SA');
-        /* Make Select option For products */
-        for ($i = 0; $i < 2; $i++) {
-            $idOption     = DB::table($table1)->insertGetId([
-                'name'          => $faker->name,
-                'name_ar'       => $faker_ar->name,
-                'product_id'    => $product = $products->random()->id,
-                'created_at'    => now(),
-                'updated_at'    => now(),
-            ]);
-            $fixed = 2;
-            if($OneSelect)$fixed = 1;
-            for ($j = 0; $j < $fixed; $j++) {
-                DB::table($table2)->insert([
-                    'name'          => $faker->name,
-                    'name_ar'       => $faker_ar->name,
-                    'price'         => $faker->numberBetween(1,5),
-                    'product_id'    => $product,
-                    $column         => $idOption,
-                    'created_at'    => now(),
-                    'updated_at'    => now(),
-                ]);
-            }
-        }
-    }
-    public function seedOrderProductOption($table,$orderID,$productID,$columnName,$optionIDs,$qty = NULL)
-    {
-        $faker          = Faker::create();
-        if($qty){
-            for ($j = 0; $j < 2; $j++) {
-                DB::table($table)->insert([
-                    'order_id'          => $orderID,
-                    'product_id'        => $productID,
-                    $columnName         => $optionIDs->random()->id,
-                    'qty'               => $faker->numberBetween(1,4),
-                    'created_at'        => now(),
-                    'updated_at'        => now(),
-                ]);
-            }
-        }else{
-            for ($j = 0; $j < 2; $j++) {
-                DB::table($table)->insert([
-                    'order_id'          => $orderID,
-                    'product_id'        => $productID,
-                    $columnName         => $optionIDs->random()->id,
-                    'created_at'        => now(),
-                    'updated_at'        => now(),
-                ]);
-            }
-        }
 
-    }
     public function run()
     {
         $faker          = Faker::create();
         $faker_ar       = Faker::create('ar_SA');
         $governorates   = Governorate::all();
-        $status         = Order::StatusType();
-        $unit_type      = Order::UnitType();
         $products       = Product::all();
 
         /* Prepare for Orders */
 
-        $this->seedProductOption(
-            'product_select_options',
-            'product_select_option_items',
-            'product_select_option_id',
-            $products,
-            $OneSelect = 1
-        );
-        $this->seedProductOption(
-            'product_multiple_selects',
-            'product_multiple_select_items',
-            'product_multiple_select_id',
-            $products
-        );
-        $this->seedProductOption(
-            'product_additional_options',
-            'product_additional_option_items',
-            'product_select_option_id',
-            $products
-        );
+        /* Make Select option For products */
+        for ($i = 0; $i < 20; $i++) {
+            $idOption     = DB::table('product_select_options')->insertGetId([
+                'name'          => $faker->name,
+                'product_id'    => $product = $products->random()->id,
+                'type'          => $type = $faker->numberBetween(1,3),
+                'created_at'    => now(),
+                'updated_at'    => now(),
+            ]);
+            $rand = rand(1,3);
+            for ($j = 0; $j < $rand; $j++) {
+                DB::table('product_select_option_items')->insert([
+                    'name'          => $faker->name,
+                    'price'         => $faker->numberBetween(1,5),
+                    'max_count'     => ($type = ProductSelectOptionItem::MultipleSelect)? $faker->numberBetween(5,10) : NULL,
+                    'product_id'    => $product,
+                    'product_select_option_id'         => $idOption,
+                    'created_at'    => now(),
+                    'updated_at'    => now(),
+                ]);
+            }
+        }
         $product_option     = ProductSelectOptionItem::all();
-        $product_muloption  = ProductMultipleSelectItem::all();
-        $product_addition   = ProductAdditionalOptionItem::all();
 
         /* Make Order Seeder with way of order(Pickup,Deliverly ) with it's information and order items details */
         for ($i = 0; $i < 40; $i++) {
@@ -155,38 +101,17 @@ class OrderSeeder extends Seeder
                     'updated_at'        => now(),
                 ]);
                 $rand = rand(0,3);
-                if(!$rand){
-                    $this->seedOrderProductOption(
-                        'order_item_options',
-                        $id,
-                        $product,
-                        'product_select_option_item_id',
-                        $product_option
-                    );
-                }
-                $rand = rand(0,2);
-                if(!$rand){
-                    $this->seedOrderProductOption(
-                        'order_product_multiple_selects',
-                        $id,
-                        $product,
-                        'product_item_id',
-                        $product_muloption
-                    );
-                }
-                $rand = rand(0,2);
-                if(!$rand){
-                    $this->seedOrderProductOption(
-                        'order_product_additional_option_items',
-                        $id,
-                        $product,
-                        'product_item_id',
-                        $product_addition,
-                        $qty = 1
-                    );
+                for ($j = 0; $j < $rand; $j++) {
+                    DB::table('order_item_options')->insert([
+                        'order_id'          => $id,
+                        'product_id'        => $product,
+                        'product_select_option_item_id'    => $product_option->random()->id,
+                        'qty'               => ($product_option->option->type==3) ? $faker->numberBetween(1,4) : NULL,
+                        'created_at'        => now(),
+                        'updated_at'        => now(),
+                    ]);
                 }
             }
-
         }
     }
 }
