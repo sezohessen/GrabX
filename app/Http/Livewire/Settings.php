@@ -21,8 +21,8 @@ class Settings extends Component
         'Setting.company_name'    => 'min:2|max:20',
         'Setting.desc'            => 'min:10|max:244',
         'Setting.desc_ar'         => 'min:10|max:244',
-        'bg'                      => 'nullable|image|mimes:jpeg,jpg,png,gif,svg',
-        'logo'                    => 'nullable|image|mimes:jpeg,jpg,png,gif,svg',
+        'bg'                      => 'nullable|image',
+        'logo'                    => 'nullable|image',
     ];
 
     public function mount()
@@ -31,17 +31,16 @@ class Settings extends Component
     }
 
 
-    public function save(Request $request)
+    public function save()
     {
-        $this->validate();
+
+        // $this->validate();
         $bool1 = 1;
         $bool2 = 1;
         if(!$this->Setting->bg_id)$bool1        = 0;
         if(!$this->Setting->logo_id)$bool2      = 0;
         if($this->bg)$this->Setting->bg_id      = add_Image_tenant($this->bg,$this->Setting->bg_id,Setting::bg,$bool1);
         if($this->logo)$this->Setting->logo_id  = add_Image_tenant($this->logo,$this->Setting->logo_id,Setting::logo,$bool2);
-
-
 
         $this->Setting->update();
 
