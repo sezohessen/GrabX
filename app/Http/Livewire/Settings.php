@@ -34,7 +34,7 @@ class Settings extends Component
     public function save()
     {
 
-        // $this->validate();
+            $this->validate();
         $bool1 = 1;
         $bool2 = 1;
         if(!$this->Setting->bg_id)$bool1        = 0;

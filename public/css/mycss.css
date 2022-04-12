@@ -1,7 +1,7 @@
 .form-control {border: 1px solid black !important};
 .img-rtl{margin: 0 4px;}
 .legend-indicator{background-color: aqua;}
-
+.error {color:red}
 /* Loader */
 .loader-wrapper{
     width: 100%;
