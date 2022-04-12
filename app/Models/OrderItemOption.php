@@ -13,7 +13,8 @@ class OrderItemOption extends Model
         'order_id',
         'product_id',
         'product_select_option_item_id',
-        'copy_num'
+        'copy_num',
+        'qty'
     ];
     /**
      * Get the user that owns the OrderItemOption

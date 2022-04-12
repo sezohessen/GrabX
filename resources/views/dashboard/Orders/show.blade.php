@@ -58,27 +58,16 @@
                                         {{ LangDetail($product->name, $product->name_ar) }}
                                     </h5>
                                     @foreach ($options as $selectOption)
-                                    <p class="mb-0">
-                                         {{ LangDetail($selectOption->item->option->name,$selectOption->item->option->name_ar) }} :
-                                         {{ LangDetail($selectOption->item->name,$selectOption->item->name_ar) }}
-                                        <span class="text-success">{{ $selectOption->item->price }} @lang('KWD')</span>
-                                    </p>
+                                        @if($selectOption->item)
+                                            <p class="mb-0">
+                                                @if($selectOption->item->option->type==3&&$selectOption->qty > 0 ) <span class="text-info">{{ $selectOption->qty }}x</span> @endif
+                                                {{ $selectOption->item->option->name }} : {{ $selectOption->item->name }}
+                                            <span class="text-success">{{ $selectOption->item->price }} @lang('KWD')</span>
+                                            </p>
+                                        @else
+                                            <p class="text-warning">@lang('Option Deleted')</p>
+                                        @endif
                                     @endforeach
-                                   {{--  @foreach ($product->orderProductAdditionalOption as $selectAddi)
-                                    <p class="mb-0">
-                                         <span class="text-info">{{ $selectAddi->qty }}x</span>
-                                         {{ LangDetail($selectAddi->item->name,$selectAddi->item->name_ar) }}
-                                        <span class="text-success">{{ $selectAddi->item->price }}
-                                             ({{ $selectAddi->item->price * $selectAddi->qty }})
-                                            @lang('KWD')</span>
-                                    </p>
-                                    @endforeach
-                                    @foreach ($product->orderProductMultiOption as $selectMulti)
-                                    <p class="mb-0">
-                                        {{ LangDetail($selectMulti->item->name,$selectMulti->item->name_ar) }}
-                                        <span class="text-success">{{ $selectMulti->item->price }} @lang('KWD')</span>
-                                    </p>
-                                    @endforeach --}}
 
                                 </div>
                                 <div class="col-md-3">

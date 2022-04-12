@@ -106,6 +106,7 @@ class OrderSeeder extends Seeder
                         'order_id'          => $id,
                         'product_id'        => $product,
                         'product_select_option_item_id'    => $product_option->random()->id,
+                        'qty'               => ($product_option->option->type==3) ? $faker->numberBetween(1,4) : NULL,
                         'created_at'        => now(),
                         'updated_at'        => now(),
                     ]);

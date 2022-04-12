@@ -163,5 +163,12 @@
     "User can only select one option of it":"يمكن للمستخدم تحديد خيار واحد فقط منه",
     "User can select multiple options of it":"يمكن للمستخدم تحديد خيارات متعددة منه",
     "Qty":"الكمية",
-    "Add more":"اضافة المزيد"
+    "Add more":"اضافة المزيد",
+    "Add Select Option(Choose One)":"اضف خيار(يختار واحد فقط)",
+    "Add Select Option(Choose Multiple)":"اضف خيار(يختار اكتر من واحد)",
+    "Add Select Option With Qty(Choose Multiple)":"اضف خيار مع كمية(يختار اكتر من واحد)",
+    "Add Options":"اضف خيارات",
+    "You can not edit product options, If you need create new one":"لا يمكنك تعديل خيارات المنتج ، إذا كنت تريد انشيء واحد جديد",
+    "If you add any option , Older Options will be deleted":"إذا قمت بإضافة أي خيار ، فسيتم حذف الخيارات القديمة",
+    "Option Deleted":"تم الحذف الاضافات"
 }

@@ -41,85 +41,95 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        /* dd($request->all()); */
         $imageID        = add_Image($request->image,NULL,Product::base);   // Store image
         $credentials    = Product::credentials($request,$imageID); // Store product
         $product        = Product::create($credentials);
-
+        $this->CreateOptions($request,$product);
+        return redirect()->route('tenant.Product.index');
+    }
+    public function CreateOptions($request,$product)
+    {
         /* One Select Options */
-        foreach($request->mainSelect as $key => $select){
-            if($select){
-                if($request->secondSelctName[$key]&&$request->secondSelctPrice[$key]){
-                    for ($i=0; $i < count($request->secondSelctName[$key]); $i++) {
-                        if($request->secondSelctName[$key][$i]&&$request->secondSelctPrice[$key][$i]){
-                            if(!$i){
-                                $option = ProductSelectOption::create([
-                                    'name'          => $select,
-                                    'type'          => ProductSelectOptionItem::OneSelect,
-                                    'product_id'    => $product->id,
+        if($request->mainSelect){
+            foreach($request->mainSelect as $key => $select){
+                if($select){
+                    if($request->secondSelctName[$key]&&$request->secondSelctPrice[$key]){
+                        for ($i=0; $i < count($request->secondSelctName[$key]); $i++) {
+                            if($request->secondSelctName[$key][$i]&&$request->secondSelctPrice[$key][$i]){
+                                if(!$i){
+                                    $option = ProductSelectOption::create([
+                                        'name'          => $select,
+                                        'type'          => ProductSelectOptionItem::OneSelect,
+                                        'product_id'    => $product->id,
+                                    ]);
+                                }
+                                ProductSelectOptionItem::create([
+                                    'name'  =>  $request->secondSelctName[$key][$i],
+                                    'price' =>  $request->secondSelctPrice[$key][$i],
+                                    'product_select_option_id'  =>  $option->id,
+                                    'product_id'    => $product->id
                                 ]);
                             }
-                            ProductSelectOptionItem::create([
-                                'name'  =>  $request->secondSelctName[$key][$i],
-                                'price' =>  $request->secondSelctPrice[$key][$i],
-                                'product_select_option_id'  =>  $option->id,
-                                'product_id'    => $product->id
-                            ]);
                         }
                     }
                 }
             }
         }
         /* Multiple Select Options */
-        foreach($request->MultiSelect as $key => $select){
-            if($select){
-                if($request->MultiSelectName[$key]&&$request->MultiSelectPrice[$key]){
-                    for ($i=0; $i < count($request->MultiSelectName[$key]); $i++) {
-                        if($request->MultiSelectName[$key][$i]&&$request->MultiSelectPrice[$key][$i]){
-                            if(!$i){
-                                $option = ProductSelectOption::create([
-                                    'name'          => $select,
-                                    'type'          => ProductSelectOptionItem::MultipleSelect,
-                                    'product_id'    => $product->id,
+        if($request->MultiSelect){
+            foreach($request->MultiSelect as $key => $select){
+                if($select){
+                    if($request->MultiSelectName[$key]&&$request->MultiSelectPrice[$key]){
+                        for ($i=0; $i < count($request->MultiSelectName[$key]); $i++) {
+                            if($request->MultiSelectName[$key][$i]&&$request->MultiSelectPrice[$key][$i]){
+                                if(!$i){
+                                    $option = ProductSelectOption::create([
+                                        'name'          => $select,
+                                        'type'          => ProductSelectOptionItem::MultipleSelect,
+                                        'product_id'    => $product->id,
+                                    ]);
+                                }
+                                ProductSelectOptionItem::create([
+                                    'name'  =>  $request->MultiSelectName[$key][$i],
+                                    'price' =>  $request->MultiSelectPrice[$key][$i],
+                                    'product_select_option_id'  =>  $option->id,
+                                    'product_id'    => $product->id
                                 ]);
                             }
-                            ProductSelectOptionItem::create([
-                                'name'  =>  $request->MultiSelectName[$key][$i],
-                                'price' =>  $request->MultiSelectPrice[$key][$i],
-                                'product_select_option_id'  =>  $option->id,
-                                'product_id'    => $product->id
-                            ]);
                         }
                     }
                 }
             }
         }
         /* Additional Select Options */
-        foreach($request->AdditionalSelect as $key => $select){
-            if($select){
-                if($request->AdditionalSelectName[$key]&&$request->AdditionalSelectPrice[$key]){
-                    for ($i=0; $i < count($request->AdditionalSelectName[$key]); $i++) {
-                        if($request->AdditionalSelectName[$key][$i]&&$request->AdditionalSelectPrice[$key][$i]){
-                            if(!$i){
-                                $option = ProductSelectOption::create([
-                                    'name'          => $select,
-                                    'type'          => ProductSelectOptionItem::AdditionalSelect,
-                                    'product_id'    => $product->id,
+        if($request->AdditionalSelect){
+            foreach($request->AdditionalSelect as $key => $select){
+                if($select){
+                    if($request->AdditionalSelectName[$key]&&$request->AdditionalSelectPrice[$key]){
+                        for ($i=0; $i < count($request->AdditionalSelectName[$key]); $i++) {
+                            if($request->AdditionalSelectName[$key][$i]&&$request->AdditionalSelectPrice[$key][$i]){
+                                if(!$i){
+                                    $option = ProductSelectOption::create([
+                                        'name'          => $select,
+                                        'type'          => ProductSelectOptionItem::AdditionalSelect,
+                                        'product_id'    => $product->id,
+                                    ]);
+                                }
+                                ProductSelectOptionItem::create([
+                                    'name'  =>  $request->AdditionalSelectName[$key][$i],
+                                    'price' =>  $request->AdditionalSelectPrice[$key][$i],
+                                    'max_count' => $request->MaxQty[$key][$i] ? $request->MaxQty[$key][$i]:10,
+                                    'product_select_option_id'  =>  $option->id,
+                                    'product_id'    => $product->id
                                 ]);
                             }
-                            ProductSelectOptionItem::create([
-                                'name'  =>  $request->AdditionalSelectName[$key][$i],
-                                'price' =>  $request->AdditionalSelectPrice[$key][$i],
-                                'max_count' => $request->MaxQty[$key][$i] ? $request->MaxQty[$key][$i]:10,
-                                'product_select_option_id'  =>  $option->id,
-                                'product_id'    => $product->id
-                            ]);
                         }
                     }
                 }
             }
         }
-        return redirect()->route('tenant.Product.index');
+
     }
 
     /**
@@ -166,6 +176,11 @@ class ProductController extends Controller
         }
         $credentials    = Product::credentials($request,$imageID,$active); // Store product
         $Product->update($credentials);
+
+        if($request->AdditionalSelect||$request->MultiSelect||$request->mainSelect){
+            $Product->SelectOption()->delete();
+            $this->CreateOptions($request,$Product);
+        }
         return redirect()->route('tenant.Product.index');
     }
 

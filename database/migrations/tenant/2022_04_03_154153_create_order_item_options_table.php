@@ -27,11 +27,11 @@ return new class extends Migration
             ->references('id')->on('products')
             ->onDelete('cascade')
             ->onUpdate('cascade');
-
-            $table->bigInteger('product_select_option_item_id')->unsigned();
+            $table->integer('qty')->nullable();
+            $table->bigInteger('product_select_option_item_id')->unsigned()->nullable();
             $table->foreign('product_select_option_item_id')
             ->references('id')->on('product_select_option_items')
-            ->onDelete('cascade')
+            ->onDelete('set null')
             ->onUpdate('cascade');
             $table->integer('copy_num')->default(1);
             $table->timestamps();

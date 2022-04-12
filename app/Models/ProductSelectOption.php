@@ -14,4 +14,13 @@ class ProductSelectOption extends Model
         'product_id',
         'type',
     ];
+    /**
+     * Get all of the Items for the ProductSelectOption
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function Items()
+    {
+        return $this->hasMany(ProductSelectOptionItem::class,'product_select_option_id','id');
+    }
 }
