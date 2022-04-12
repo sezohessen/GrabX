@@ -33,7 +33,7 @@ return new class extends Migration
             ->references('id')->on('product_select_option_items')
             ->onDelete('cascade')
             ->onUpdate('cascade');
-
+            $table->integer('copy_num')->default(1);
             $table->timestamps();
         });
     }

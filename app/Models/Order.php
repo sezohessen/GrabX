@@ -59,6 +59,11 @@ class Order extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
+    /**
+     * Get all of the comments for the Order
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function products()
     {
         return $this->belongsToMany(Product::class, 'order_items')->withPivot(["price",'qty','copy_num']);

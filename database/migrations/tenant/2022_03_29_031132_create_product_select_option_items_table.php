@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('name_ar');
             $table->decimal('price',10,2);
-
+            $table->integer('type')->nullable();
+            $table->integer('max_count')->nullable();
             $table->bigInteger('product_id')->unsigned();
             $table->foreign('product_id')
             ->references('id')->on('products')

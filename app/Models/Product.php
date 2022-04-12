@@ -63,19 +63,19 @@ class Product extends Model
     {
         return $this->hasMany(OrderItemOption::class,'product_id','id');
     }
-    public function orderProductAdditionalOption()
+/*     public function orderProductAdditionalOption()
     {
         return $this->hasMany(OrderProductAdditionalOptionItem::class,'product_id','id');
     }
     public function orderProductMultiOption()
     {
         return $this->hasMany(OrderProductMultipleSelect::class,'product_id','id');
-    }
+    } */
     /* public function orderOptionsSelect()
     {
         return $this->belongsToMany(ProductSelectOptionItem::class, 'order_item_options','order_id')->withPivot(["price",'qty']);
     } */
-    
+
 
 
 }

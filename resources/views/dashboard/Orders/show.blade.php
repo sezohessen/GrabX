@@ -41,11 +41,12 @@
                     <h5>@lang("Order's products")</h5>
                     <hr>
                     <div class="card orders-product">
-                        @foreach ($products as $product)
+                        @foreach ($order->products as $product)
                         <?php $options = App\Models\OrderItemOption::where('order_id',$order->id)
                             ->where('product_id',$product->id)
-                            ->where('copy_numb',$product->pivot->copy_num)
-                            ->get(); ?>
+                            ->where('copy_num',$product->pivot->copy_num)
+                            ->get();
+                        ?>
 
                             <div class="row my-2 mx-2">
                                 <div class="col-md-2">
@@ -53,7 +54,7 @@
                                 </div>
                                 <div class="col-md-7">
                                     <h5 class="text-inherit mb-0">
-                                        <span class="text-danger">{{ $product->orderProduct->qty }}x</span>
+                                        <span class="text-danger">{{ $product->pivot->qty }}x</span>
                                         {{ LangDetail($product->name, $product->name_ar) }}
                                     </h5>
                                     @foreach ($options as $selectOption)
