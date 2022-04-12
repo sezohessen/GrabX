@@ -10,7 +10,7 @@
     $Setting = App\Models\Setting::first();
     @endphp
     <!-- Title -->
-    <title> {{ $Setting->company_name }} @yield('title')</title>
+    <title> {{ $Setting->company_name }} - @yield('title')</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="./favicon.ico">

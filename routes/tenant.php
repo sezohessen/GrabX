@@ -10,7 +10,7 @@ use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
 use App\Http\Controllers\dashboard\dashboardController;
 use App\Http\Controllers\dashboard\OrderController;
 use App\Http\Controllers\dashboard\ProductController;
-
+use App\Http\Controllers\Frontend\HomepageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,6 +59,8 @@ Route::group([
     ]
 ],function(){
     Auth::Routes();
+    // Frontend - main website
+    Route::get('/',[HomepageController::class,'index'])->name('Homepage');
 });
 
 
