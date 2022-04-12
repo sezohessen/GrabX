@@ -16,9 +16,7 @@ return new class extends Migration
         Schema::create('product_select_option_items', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('name_ar');
             $table->decimal('price',10,2);
-            $table->integer('type')->nullable();
             $table->integer('max_count')->nullable();
             $table->bigInteger('product_id')->unsigned();
             $table->foreign('product_id')

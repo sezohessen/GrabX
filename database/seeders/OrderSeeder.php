@@ -32,8 +32,8 @@ class OrderSeeder extends Seeder
         for ($i = 0; $i < 20; $i++) {
             $idOption     = DB::table('product_select_options')->insertGetId([
                 'name'          => $faker->name,
-                'name_ar'       => $faker_ar->name,
                 'product_id'    => $product = $products->random()->id,
+                'type'          => $type = $faker->numberBetween(1,3),
                 'created_at'    => now(),
                 'updated_at'    => now(),
             ]);
@@ -41,11 +41,9 @@ class OrderSeeder extends Seeder
             for ($j = 0; $j < $rand; $j++) {
                 DB::table('product_select_option_items')->insert([
                     'name'          => $faker->name,
-                    'name_ar'       => $faker_ar->name,
                     'price'         => $faker->numberBetween(1,5),
+                    'max_count'     => ($type = ProductSelectOptionItem::MultipleSelect)? $faker->numberBetween(5,10) : NULL,
                     'product_id'    => $product,
-                    'type'          => $type = $faker->numberBetween(1,3),
-                    'max_count'     => $type? $faker->numberBetween(5,10) : NULL,
                     'product_select_option_id'         => $idOption,
                     'created_at'    => now(),
                     'updated_at'    => now(),

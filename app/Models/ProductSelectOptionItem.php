@@ -11,11 +11,9 @@ class ProductSelectOptionItem extends Model
     protected $table    = 'product_select_option_items';
     protected $fillable=[
         'name',
-        'name_ar',
         'product_id',
         'product_select_option_id',
         'price',
-        'type',
         'max_count'
     ];
     const OneSelect         = 1;

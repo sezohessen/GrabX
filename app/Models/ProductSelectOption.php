@@ -11,7 +11,7 @@ class ProductSelectOption extends Model
     protected $table    = 'product_select_options';
     protected $fillable=[
         'name',
-        'name_ar',
-        'product_id'
+        'product_id',
+        'type',
     ];
 }

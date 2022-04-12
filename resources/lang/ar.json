@@ -152,5 +152,16 @@
     "Price per unit":"السعر لكل وحدة",
     "Order price":"سعر الطلب",
     "Subtotal":"المجموع الفرعي",
-    "Delivery Cost":"تكلفة التوصيل"
+    "Delivery Cost":"تكلفة التوصيل",
+    "Option Name":"اسم الخيار",
+    "Max Qty":"اعلي كمية",
+    "Max quantity that user can add":"اعلي كمية التي يمكن للمستخدم إضافتها",
+    "Select only one":"يختار واحد فقط",
+    "Select multiple options":"اختيار اكتر من خيار",
+    "Additional Quantity Select":"اختيار كميات اضافية",
+    "You can add options that user can select and choose this quantity":"يمكنك إضافة خيارات يمكن للمستخدم تحديدها واختيار هذه الكمية",
+    "User can only select one option of it":"يمكن للمستخدم تحديد خيار واحد فقط منه",
+    "User can select multiple options of it":"يمكن للمستخدم تحديد خيارات متعددة منه",
+    "Qty":"الكمية",
+    "Add more":"اضافة المزيد"
 }
