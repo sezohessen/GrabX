@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('Frontend.layouts.app')
 @section('content')
     <div>hey</div>
 @endsection

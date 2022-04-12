@@ -6,11 +6,17 @@
     <!-- Required Meta Tags Always Come First -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
     @php
     $Setting = App\Models\Setting::first();
     @endphp
-    <!-- Title -->
-    <title> {{ $Setting->company_name }} - @yield('title')</title>
+    @if($Setting)
+    <title>{{ $Setting->company_name }}</title>
+    @else
+    <title>grabx</title>
+    @endif
+
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="./favicon.ico">
@@ -71,7 +77,7 @@
         <div class="navbar-vertical-container">
             <div class="navbar-vertical-footer-offset">
                 <!-- Logo -->
-
+                @if($Setting->logo)
                 <a id="dashboard-logo" class="avatar avatar-xxl avatar-circle avatar-uploader profile-cover-avatar"
                     href="./index.html" aria-label="Front">
                     <img class="navbar-brand-logo" src="{{ tenant_asset($Setting->logo->name) }}" alt="Logo"
@@ -83,6 +89,7 @@
                     <img class="navbar-brand-logo-mini" src="{{ tenant_asset($Setting->logo->name) }}" alt="Logo"
                         data-hs-theme-appearance="dark">
                 </a>
+                @endif
 
                 <!-- End Logo -->
 
