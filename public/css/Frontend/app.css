@@ -1,3 +1,8 @@
+/* My css classes */
+.margin-t-40{
+    margin-top: 20px;
+}
+/* End */
 .row>*{
     padding: 0;
     margin: 0;
@@ -30,5 +35,48 @@ vertical-align: middle;
 line-height: 300px;
 }
 .list-card-image img{
+    width: 100%;
     max-height: 220px;
+    border-radius: 20px
+}
+.price{
+    color: #27a6ad;
+    font-weight: bold;
+    line-height: 30px;
+}
+.add-button{
+    background-color: transparent;
+    color: black;
+    border: 2px solid #27a6ad;
+    padding: 4px 30px;
+    border-radius: 4px;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    transition: 0.5s;
+}
+.add-button:hover{
+    animation: normal;
+    background-color:#27a6ad ;
+    color: white;
+}
+.frontend-lang{
+    z-index: 99;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+}
+.frontend-lang .dropdown button{
+    background-color: transparent;
+    position: absolute;
+    top: -1px;
+}
+.lang-dropdown{
+    padding: 10px 20px;
+}
+.lang-items{
+    padding: 10px 20px;
+}
+.navi-item img{
+    width: 25px;
+    height: 25px;
 }

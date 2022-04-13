@@ -58,6 +58,12 @@ Route::group([
         PreventAccessFromCentralDomains::class,
     ]
 ],function(){
+    // Route::get('/lang/{locale}', function ($locale) {
+    //     if (in_array($locale, ['ar', 'en']) ) {
+    //         session()->put('app_locale', $locale);
+    //         return back();
+    //     }
+    // });
     Auth::Routes();
     // Frontend - main website
     Route::get('/',[HomepageController::class,'index'])->name('Homepage');
