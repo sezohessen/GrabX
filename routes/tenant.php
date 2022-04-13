@@ -11,6 +11,7 @@ use App\Http\Controllers\dashboard\dashboardController;
 use App\Http\Controllers\dashboard\OrderController;
 use App\Http\Controllers\dashboard\ProductController;
 use App\Http\Controllers\Frontend\HomepageController;
+use App\Http\Controllers\Frontend\ProductController as FrontendProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,6 +69,7 @@ Route::group([
     // Frontend - main website
     Route::get('/',[HomepageController::class,'index'])->name('Homepage');
     Route::get('/products/{id}',[HomepageController::class,'show'])->name('CategoryProducts');
+    Route::get('/product/{id}',[FrontendProductController::class,'show'])->name('Product');
 });
 
 

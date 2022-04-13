@@ -77,6 +77,7 @@
         <div class="navbar-vertical-container">
             <div class="navbar-vertical-footer-offset">
                 <!-- Logo -->
+            @if($Setting)
                 @if($Setting->logo)
                 <a id="dashboard-logo" class="avatar avatar-xxl avatar-circle avatar-uploader profile-cover-avatar"
                     href="./index.html" aria-label="Front">
@@ -90,6 +91,7 @@
                         data-hs-theme-appearance="dark">
                 </a>
                 @endif
+            @endif
 
                 <!-- End Logo -->
 

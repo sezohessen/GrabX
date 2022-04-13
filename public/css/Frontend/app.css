@@ -24,7 +24,7 @@ body{
 .header-title{
     text-align: center;
     text-decoration: underline;
-    margin: 20px 0;
+    margin: 5px 0 15px 0;
 }
 .category-card{
     margin: 6px 0;
@@ -79,4 +79,21 @@ line-height: 300px;
 .navi-item img{
     width: 25px;
     height: 25px;
+}
+.product-img img{
+    height: 550px;
+    object-fit: contain;
+    width: 100%
+}
+.product-card{
+    background: aliceblue;
+    padding: 10px;
+    box-shadow: -1px 1px 1px #acb3b9;
+    border-radius: 4px;
+}
+.ava-qty{
+    background: #a3a5ff;
+    padding: 4px;
+    border-radius: 4px;
+    font-weight: 400;
 }

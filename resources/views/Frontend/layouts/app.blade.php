@@ -48,9 +48,15 @@
                         <div class="container">
                             <div class="row align-items-center">
                                 <div class="col-1">
+                                    @if($setting->logo)
                                     <a href="home.html" class="brand-wrap mb-0">
                                         <img alt="#" class="img-fluid" src="{{ tenant_asset($setting->logo->name) }}">
                                     </a>
+                                    @else
+                                    <a href="home.html" class="brand-wrap mb-0">
+                                        <img alt="#" class="img-fluid" src="{{ global_asset('img/products/164868101991327.jpg') }}">
+                                    </a>
+                                    @endif
                                     <!-- brand-wrap.// -->
                                 </div>
                                 <div class="col-md-3">
@@ -86,6 +92,11 @@
                 <div class="background-img">
                     <img src="{{ tenant_asset($setting->background->name) }}" class="img-fluid" alt="background-image">
                 </div>
+                @else
+                <div class="background-img">
+                    <img src="{{ global_asset('img/static/background.jpg') }}" class="img-fluid" alt="background-image">
+                </div>
+                @endif
                 <div class="frontend-lang">
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle lang-dropdown navi-link" type="button"
@@ -122,7 +133,6 @@
                         </ul>
                     </div>
                 </div>
-                @endif
             </div>
 
         </div>
