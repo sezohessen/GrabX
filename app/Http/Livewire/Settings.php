@@ -21,7 +21,7 @@ class Settings extends Component
         'Setting.company_name'    => 'min:2|max:20',
         'Setting.desc'            => 'min:10|max:244',
         'Setting.desc_ar'         => 'min:10|max:244',
-        'bg'                      => 'nullable|image',
+        'bg'                      => 'nullable|dimensions:min_width=1000,min_height=1000,max_width=1200,max_height=1200',
         'logo'                    => 'nullable|image',
     ];
 

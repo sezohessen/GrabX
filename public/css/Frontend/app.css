@@ -1,7 +1,26 @@
+.row>*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-style: oblique;
+}
 .background-img img{
-    flex-shrink: 0;
-    min-width: 100%;
-    min-height: 100%;
-    object-fit: cover;
-    background-repeat: no-repeat;
+  width:  1024px;
+  height: 1000px;
+  object-fit: cover;
+  position: fixed;
+}
+.header{
+    text-align: center;
+    text-decoration: underline;
+    margin: 20px 0;
+}
+.category-card{
+    margin: 6px 0;
+}
+.category-name{
+text-align: center;
+vertical-align: middle;
+line-height: 300px;
 }
