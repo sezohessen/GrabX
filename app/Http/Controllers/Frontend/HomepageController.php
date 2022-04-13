@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Product;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 
@@ -50,7 +51,10 @@ class HomePageController extends Controller
      */
     public function show($id)
     {
-        dd($id);
+        $category = Category::find($id);
+        $products = Product::where('active',1)->where('category_id',$id)->paginate(10);
+
+        return view('Frontend.Products',compact('products','category'));
     }
 
     /**
