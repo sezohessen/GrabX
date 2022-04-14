@@ -67,7 +67,7 @@ Route::group([
     Route::get('/products/{id}',[HomepageController::class,'show'])->name('CategoryProducts');
     Route::get('/product/{id}',[FrontendProductController::class,'show'])->name('Product');
     Route::post('/cart/{id}',[CartController::class,'addToCart'])->name('cart.addToCart');
-    Route::get('/order',[FrontendOrderController::class,'show'])->name('order.show');
+    Route::get('/order',[FrontendOrderController::class,'show'])->name('cart.show');
 });
 
 
