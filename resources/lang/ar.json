@@ -213,5 +213,11 @@
     "Option Deleted":"تم الحذف الاضافات",
     "Upload":"ارفع الصورة",
     "Remove":"ازالة",
-    "select language":"اختار اللغة"
+    "select language":"اختار اللغة",
+    "Add to order":"اضف الي الطلب",
+    "Review Order":"مراجعة الطلب",
+    "Order Items":"منتجات الطلب",
+    "Apply":"نفذ",
+    "Enter code":"ادخل كود الخصم",
+    "Go to checkout":"اذهب لاستكمال الطلب"
 }

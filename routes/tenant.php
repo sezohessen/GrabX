@@ -10,7 +10,9 @@ use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
 use App\Http\Controllers\dashboard\dashboardController;
 use App\Http\Controllers\dashboard\OrderController;
 use App\Http\Controllers\dashboard\ProductController;
+use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\HomepageController;
+use App\Http\Controllers\Frontend\OrderController as FrontendOrderController;
 use App\Http\Controllers\Frontend\ProductController as FrontendProductController;
 
 /*
@@ -64,6 +66,8 @@ Route::group([
     Route::get('/',[HomepageController::class,'index'])->name('Homepage');
     Route::get('/products/{id}',[HomepageController::class,'show'])->name('CategoryProducts');
     Route::get('/product/{id}',[FrontendProductController::class,'show'])->name('Product');
+    Route::post('/cart/{id}',[CartController::class,'addToCart'])->name('cart.addToCart');
+    Route::get('/order',[FrontendOrderController::class,'show'])->name('order.show');
 });
 
 

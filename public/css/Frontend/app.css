@@ -1,54 +1,65 @@
 /* My css classes */
-.margin-t-40{
+.margin-t-40 {
     margin-top: 20px;
     padding: 0 10px;
 }
+
 /* End */
-.row>*{
+.row>* {
     padding: 0;
     margin: 0;
 }
-body{
+
+body {
     font-style: oblique;
 }
-.back-icon svg{
+
+.back-icon svg {
     width: 50px;
     height: 30px;
     color: black;
 }
-.background-img img{
-  width:  1024px;
-  height: 1000px;
-  object-fit: cover;
-  position: fixed;
+
+.background-img img {
+    width: 1024px;
+    height: 1000px;
+    object-fit: cover;
+    position: fixed;
 }
-.header-title{
+
+.header-title {
     text-align: center;
     margin: 5px 0 15px 0;
 }
-.category-card{
+
+.category-card {
     margin: 6px 0;
 }
-.category-name{
-text-align: center;
-vertical-align: middle;
-line-height: 300px;
+
+.category-name {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 300px;
 }
-.list-card-image img{
+
+.list-card-image img {
     width: 100%;
     max-height: 220px;
     min-height: 220px;
     border-radius: 20px
 }
-.price{
+
+.price {
     color: #27a6ad;
     font-weight: bold;
     line-height: 30px;
 }
-.mini-price{
+
+.mini-price {
     color: #27a6ad;
 }
-.add-button{
+
+.add-button {
     background-color: transparent;
     color: black;
     border: 2px solid #27a6ad;
@@ -58,52 +69,63 @@ line-height: 300px;
     -moz-transition: 0.5s;
     transition: 0.5s;
 }
-.add-button:hover{
+
+.add-button:hover {
     animation: normal;
-    background-color:#27a6ad ;
+    background-color: #27a6ad;
     color: white;
 }
-.frontend-lang{
+
+.frontend-lang {
     z-index: 99;
     position: absolute;
     top: 4px;
     left: 4px;
 }
-.frontend-lang .dropdown button{
+
+.frontend-lang .dropdown button {
     background-color: transparent;
     position: fixed;
     top: 4px;
 }
-.lang-dropdown{
+
+.lang-dropdown {
     padding: 10px 20px;
 }
-.lang-items{
+
+.lang-items {
     padding: 10px 20px;
 }
-.navi-item img{
+
+.navi-item img {
     width: 25px;
     height: 25px;
 }
-.product-img img{
+
+.product-img img {
     height: 550px;
     object-fit: contain;
     width: 100%
 }
-.product-card{
+
+.product-card {
     background: aliceblue;
     padding: 10px;
     box-shadow: -1px 1px 1px #acb3b9;
     border-radius: 4px;
 }
-.ava-qty{
+
+.ava-qty {
     background: #a3a5ff;
     padding: 4px;
     border-radius: 4px;
     font-weight: 400;
 }
-.check-box{
+
+.check-box {
     padding: 10px 0;
 }
+
 .icon-shape {
     display: inline-flex;
     align-items: center;
@@ -117,12 +139,14 @@ line-height: 300px;
     height: 2rem;
 
 }
-.order-button{
-    width:inherit;
+
+.order-button {
+    width: inherit;
     position: fixed;
-    bottom:10px;
+    bottom: 10px;
 }
-.order-button button{
+
+.order-button button {
     padding: 8px 240px;
     background-color: cadetblue;
     border: 0;
@@ -132,6 +156,68 @@ line-height: 300px;
     -moz-transition: 0.5s;
     transition: 0.5s;
 }
-.order-button button:hover{
+
+.order-button button:hover {
     background-color: #3b6466;
+}
+
+.Additional-Select .value-button {
+    display: inline-block;
+    border: 1px solid #ddd;
+    margin: 0px;
+    width: 40px;
+    height: 20px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 11px 0;
+    background: #eee;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.Additional-Select .value-button:hover {
+    cursor: pointer;
+}
+.Additional-Select .mini-price {
+    line-height: 40px;
+}
+.Additional-Select #decrease {
+    margin-top: -4px;
+    height: 40px;
+    margin-right: -4px;
+    border-radius: 8px 0 0 8px;
+}
+
+.Additional-Select #increase {
+    margin-top: -4px;
+    height: 40px;
+    margin-left: -4px;
+    border-radius: 0 8px 8px 0;
+}
+
+.Additional-Select #input-wrap {
+    margin: 0px;
+    padding: 0px;
+}
+
+.Additional-Select input {
+    height: 30px;
+    width: 50px;
+    text-align: center;
+    border: none;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    margin: 0px;
+    width: 40px;
+    height: 40px;
+}
+
+.Additional-Select input[type=number]::-webkit-inner-spin-button,
+.Additional-Select input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }

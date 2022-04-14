@@ -1,39 +1,23 @@
 @extends('Frontend.layouts.app')
-
+@section('css')
+<link rel="stylesheet" href="{{ global_asset('css/Frontend/app.css') }}">
+@endsection
 @section('js')
     <script>
-        function incrementValue(e) {
-        e.preventDefault();
-        var fieldName = $(e.target).data('field');
-        var parent = $(e.target).closest('div');
-        var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
-        if (!isNaN(currentVal)) {
-            parent.find('input[name=' + fieldName + ']').val(currentVal + 1);
-        } else {
-            parent.find('input[name=' + fieldName + ']').val(0);
-        }
+    function increaseValue(id) {
+        var value = parseInt(document.getElementById('number_'+id).value, 10);
+        value = isNaN(value) ? 0 : value;
+        value++;
+        document.getElementById('number_'+id).value = value;
     }
 
-    function decrementValue(e) {
-        e.preventDefault();
-        var fieldName = $(e.target).data('field');
-        var parent = $(e.target).closest('div');
-        var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
-
-        if (!isNaN(currentVal) && currentVal > 0) {
-            parent.find('input[name=' + fieldName + ']').val(currentVal - 1);
-        } else {
-            parent.find('input[name=' + fieldName + ']').val(0);
-        }
+    function decreaseValue(id) {
+        var value = parseInt(document.getElementById('number_'+id).value, 10);
+        value = isNaN(value) ? 0 : value;
+        value < 1 ? value = 1 : '';
+        value--;
+        document.getElementById('number_'+id).value = value;
     }
-
-    $('.Multiple-group').on('click', '.button-plus', function(e) {
-        incrementValue(e);
-    });
-
-    $('.Multiple-group').on('click', '.button-minus', function(e) {
-        decrementValue(e);
-    });
 
     </script>
 @endsection
@@ -80,131 +64,133 @@
             </div>
         </div>
         {{-- End --}}
-        <form action="">
-        {{-- Start ordering --}}
-        <div class="reviews-members-body">
-            {{-- One Select --}}
-            @if($selectOptionOneSelect->first())
-            <hr style="margin: 10px 0">
-            @foreach ($selectOptionOneSelect as $selectOne )
-            <div class="row">
-                <div class="col-md-12">
-                    <h4> {{$selectOne->name}}</h4>
-                </div>
-            </div>
-            <div class="check-box">
-                @foreach ($selectOne->Items as $key => $Item)
-                <div class="row py-2">
-                    <div class="col-md-6">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault"
-                            @if (!$key)
-                                {{ 'checked' }}
-                            @endif
-                                id="flexRadioDefault1">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                {{ $Item->name }}
-                            </label>
-                        </div>
-                    </div>
-                    @if($Item->price)
-                    <div class="col-md-6">
-                        <div class="mini-price">+{{ $Item->price }} @lang('KWD') </div>
-                    </div>
-                    @endif
-                </div>
-                @endforeach
-            </div>
-            @endforeach
-            @endif
-            {{-- End one Select --}}
-            {{-- Start Multiple select --}}
-            @if($selectOptionMultipleSelect->first())
+        <form action="{{ route('tenant.cart.addToCart',['id'=>$product->id]) }}" method="POST" >
+            @csrf
+            @method('POST')
+            {{-- Start ordering --}}
+            <div class="reviews-members-body">
+                {{-- One Select --}}
+                @if($selectOptionOneSelect->first())
                 <hr style="margin: 10px 0">
-                @foreach ($selectOptionMultipleSelect as $MultipleSelect)
+                @foreach ($selectOptionOneSelect as $selectOne )
                 <div class="row">
                     <div class="col-md-12">
-                        <h4> {{$MultipleSelect->name}}</h4>
+                        <h4> {{$selectOne->name}}</h4>
                     </div>
                 </div>
-                @endforeach
-                @if($selectOptionMultipleSelect->first())
-                @foreach ($MultipleSelect->Items as $Item)
-                {{-- Option --}}
-                <div class="row py-2">
-                    <div class="col-md-4">
-                        {{ $Item->name }}
+                <div class="check-box">
+                    @foreach ($selectOne->Items as $key => $Item)
+                    <div class="row py-2">
+                        <div class="col-md-6">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="OneSelect[]" value="{{ $Item->id }}"
+                                @if (!$key)
+                                    {{ 'checked' }}
+                                @endif
+                                    id="flexRadioDefault1">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    {{ $Item->name }}
+                                </label>
+                            </div>
+                        </div>
+                        @if($Item->price)
+                        <div class="col-md-6">
+                            <div class="mini-price">+{{ $Item->price }} @lang('KWD') </div>
+                        </div>
+                        @endif
                     </div>
-                    <div class="col-md-4 Multiple-group">
-                        <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 " data-field="quantity">
-                        <input type="number" step="1" data-max="{{ $Item->max_count }}" value="1" name="quantity" class="quantity-field border-0 text-center w-25">
-                        <input type="button" value="+" class="button-plus border rounded-circle icon-shape icon-sm " data-field="quantity">
-                    </div>
-                    <div class="col-md-4">
-                        <span class="mini-price"> +{{ $Item->price }} @lang('KWD')</span>
-                    </div>
+                    @endforeach
                 </div>
-                {{-- End Option --}}
                 @endforeach
                 @endif
-            @endif
-            {{-- End Multiple select --}}
-            {{-- Start Additional Select --}}
-            @if($selectOptionAdditionalSelect->first())
-            <hr style="margin: 10px 0">
-            @foreach ($selectOptionAdditionalSelect as $selectOne )
-            <div class="row">
-                <div class="col-md-12">
-                    <h4> {{$selectOne->name}}</h4>
-                </div>
-            </div>
-            <div class="check-box">
-                @foreach ($selectOne->Items as $Item)
-                <div class="row py-2">
-                    <div class="col-md-6">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                {{ $Item->name }}
-                            </label>
+                {{-- End one Select --}}
+                {{-- Start Multiple select --}}
+                @if($selectOptionMultipleSelect->first())
+                    <hr style="margin: 10px 0">
+                    @foreach ($selectOptionMultipleSelect as $MultipleSelect)
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4> {{$MultipleSelect->name}}</h4>
                         </div>
                     </div>
-                    @if($Item->price)
-                    <div class="col-md-6">
-                        <div class="mini-price">+{{ $Item->price }} @lang('KWD') </div>
+                    @endforeach
+                    @if($selectOptionMultipleSelect->first())
+                    @foreach ($MultipleSelect->Items as $Item)
+                    {{-- Option --}}
+                    <div class="row py-2 Additional-Select">
+                        <div class="col-md-4">
+                            {{ $Item->name }}
+                        </div>
+                        <div class="col-md-4">
+                            <div class="value-button" id="decrease" onclick="decreaseValue({{ $Item->id }})" value="Decrease Value">-</div>
+                            <input type="number" id="number_{{ $Item->id }}" name="AdditionalSelect[{{ $Item->id }}]" value="0" />
+                            <div class="value-button" id="increase" onclick="increaseValue({{ $Item->id }})" value="Increase Value">+</div>
+                        </div>
+                        <div class="col-md-4">
+                            <span class="mini-price"> +{{ $Item->price }} @lang('KWD')</span>
+                        </div>
                     </div>
+                    {{-- End Option --}}
+                    @endforeach
                     @endif
+                @endif
+                {{-- End Multiple select --}}
+                {{-- Start Additional Select --}}
+                @if($selectOptionAdditionalSelect->first())
+                <hr style="margin: 10px 0">
+                @foreach ($selectOptionAdditionalSelect as $selectOne )
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4> {{$selectOne->name}}</h4>
+                    </div>
+                </div>
+                <div class="check-box">
+                    @foreach ($selectOne->Items as $Item)
+                    <div class="row py-2">
+                        <div class="col-md-6">
+                            <div class="form-check">
+                                <input class="form-check-input" name="MultiSelect[]" type="checkbox" value="{{ $Item->id }}" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    {{ $Item->name }}
+                                </label>
+                            </div>
+                        </div>
+                        @if($Item->price)
+                        <div class="col-md-6">
+                            <div class="mini-price">+{{ $Item->price }} @lang('KWD') </div>
+                        </div>
+                        @endif
+                    </div>
+                    @endforeach
                 </div>
                 @endforeach
-            </div>
-            @endforeach
-            @endif
-            {{-- End Additional Select --}}
-            <hr style="margin: 10px 0">
-            {{-- Qty --}}
-            <div class="row py-4">
-                <div class="col-md-6">
-                    <h6>@lang('Quantity')</h6>
-                </div>
-                <div class="col-md-6">
-                    <div class="Multiple-group">
-                        <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 " data-field="quantity">
-                        <input type="number" step="1" max="10" value="1" name="quantity" class="quantity-field border-0 text-center w-25">
-                        <input type="button" value="+" class="button-plus border rounded-circle icon-shape icon-sm " data-field="quantity">
+                @endif
+                {{-- End Additional Select --}}
+                <hr style="margin: 10px 0">
+                {{-- Qty --}}
+                <div class="row py-4">
+                    <div class="col-md-6">
+                        <h6>@lang('Quantity')</h6>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="Multiple-group">
+                            <input type="button" value="-" id="decrease" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 "onclick="decreaseValue(0)">
+                            <input type="number" id="number_0" value="1" name="quantity" class="quantity-field border-0 text-center w-25">
+                            <input type="button" value="+" id="increase" class="button-plus border rounded-circle icon-shape icon-sm " onclick="increaseValue(0)">
+                        </div>
                     </div>
                 </div>
-            </div>
-            {{-- End Qty --}}
-            {{-- Order button --}}
-            <div class="row">
-                <div class="col-md-12" style="position: relative">
-                    <div class="order-button">
-                        <button type="submit">Order <span> [Price] </span> </button>
+                {{-- End Qty --}}
+                {{-- Order button --}}
+                <div class="row">
+                    <div class="col-md-12" style="position: relative">
+                        <div class="order-button">
+                            <button type="submit">Order <span> [Price] </span> </button>
+                        </div>
                     </div>
                 </div>
+                {{-- End  ordering--}}
             </div>
-            {{-- End  ordering--}}
-        </div>
         </form>
     </div>
 </div>
