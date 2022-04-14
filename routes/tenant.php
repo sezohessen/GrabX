@@ -34,12 +34,6 @@ Route::group([
     ]
 ],function(){
     /* Every Route in Tenant will be here !! */
-    Route::get('/lang/{locale}', function ($locale) {
-        if (in_array($locale, ['ar', 'en']) ) {
-            session()->put('app_locale', $locale);
-            return back();
-        }
-    });
     Route::get('/dashboard', [dashboardController::class,'index'])->name('dashboard');
     Route::resource('Product', ProductController::class);
     Route::resource('Category', CategoryController::class);
@@ -59,12 +53,12 @@ Route::group([
         PreventAccessFromCentralDomains::class,
     ]
 ],function(){
-    // Route::get('/lang/{locale}', function ($locale) {
-    //     if (in_array($locale, ['ar', 'en']) ) {
-    //         session()->put('app_locale', $locale);
-    //         return back();
-    //     }
-    // });
+    Route::get('/lang/{locale}', function ($locale) {
+        if (in_array($locale, ['ar', 'en']) ) {
+            session()->put('app_locale', $locale);
+            return back();
+        }
+    });
     Auth::Routes();
     // Frontend - main website
     Route::get('/',[HomepageController::class,'index'])->name('Homepage');
