@@ -32,6 +32,7 @@
     @if (App::isLocale('ar'))
     <link rel="stylesheet" href="{{ global_asset('css/Frontend/style_ar.css') }}">
     @endif
+    @yield('css')
 </head>
 
 <body>
@@ -146,6 +147,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
         integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
+    @yield('js')
 </body>
 
 </html>

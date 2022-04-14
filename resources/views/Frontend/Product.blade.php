@@ -1,67 +1,189 @@
 @extends('Frontend.layouts.app')
 
-@section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h4 class="header-title"> {{ LangDetail($product->name,$product->name_ar) }} </h4>
-            </div>
-            <div class="col-md-12">
-                <div class="product-img">
-                    <img src="{{ find_image($product->image ,  App\Models\Product::base ) }}" alt="product-img">
-                </div>
-            </div>
-        </div>
-        {{-- Start section --}}
-        <div class="row my-2 product-card" >
-            <div class="col-md-6">
-                @lang('Description')
-            </div>
-            <div class="col-md-6">
-                {{ LangDetail($product->desc,$product->desc_ar) }}
-            </div>
-        </div>
-        {{-- Start section --}}
-        <div class="row my-2 product-card" >
-            <div class="col-md-6">
-                @lang('Price')
-            </div>
-            <div class="col-md-6">
-                {{ $product->price }} @lang('KWD')
-            </div>
-        </div>
-        {{-- Start section --}}
-        <div class="row my-2 product-card" >
-            <div class="col-md-6">
-                @lang('Available quantity')
-           </div>
-           <div class="col-md-6">
-              <span class="ava-qty"> {{ $product->availabe_qty }}</span>
-          </div>
-          <hr style="margin: 10px 0">
-            <div class="col-md-6">
-                @lang('Quantity')
-            </div>
-            <div class="col-md-6">
-                <div class="input-group">
-                    <span class="input-group-btn">
-                        <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-lg" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/>
-                              </svg>
-                        </button>
-                    </span>
-                    <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1">
-                    <span class="input-group-btn">
-                        <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
-                              </svg>
-                        </button>
-                    </span>
-                </div>
-            </div>
+@section('js')
+    <script>
+        function incrementValue(e) {
+        e.preventDefault();
+        var fieldName = $(e.target).data('field');
+        var parent = $(e.target).closest('div');
+        var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
 
+        if (!isNaN(currentVal)) {
+            parent.find('input[name=' + fieldName + ']').val(currentVal + 1);
+        } else {
+            parent.find('input[name=' + fieldName + ']').val(0);
+        }
+    }
+
+    function decrementValue(e) {
+        e.preventDefault();
+        var fieldName = $(e.target).data('field');
+        var parent = $(e.target).closest('div');
+        var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
+
+        if (!isNaN(currentVal) && currentVal > 0) {
+            parent.find('input[name=' + fieldName + ']').val(currentVal - 1);
+        } else {
+            parent.find('input[name=' + fieldName + ']').val(0);
+        }
+    }
+
+    $('.Multiple-group').on('click', '.button-plus', function(e) {
+        incrementValue(e);
+    });
+
+    $('.Multiple-group').on('click', '.button-minus', function(e) {
+        decrementValue(e);
+    });
+
+    </script>
+@endsection
+
+@section('content')
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="product-img">
+                <img src="{{ find_image($product->image ,  App\Models\Product::base ) }}" alt="product-img">
+            </div>
+        </div>
+        <div class="col-md-12">
+            <h4 class="header-title"> {{ LangDetail($product->name,$product->name_ar) }} </h4>
         </div>
     </div>
+    <div class="bg-white p-3 mb-3 restaurant-detailed-ratings-and-reviews shadow-sm rounded">
+        {{-- Start section --}}
+        <div class="reviews-members py-3">
+            <div class="media">
+                <div class="media-body">
+                    <div class="reviews-members-body">
+                        <div class="row my-2">
+                            <div class="col-md-4">
+                                @lang('Description')
+                            </div>
+                            <div class="col-md-8">
+                                {{ LangDetail($product->desc,$product->desc_ar) }}
+                            </div>
+                        </div>
+                        {{-- Start section --}}
+                        <div class="row my-2">
+                            <div class="col-md-4">
+                                @lang('Price')
+                            </div>
+                            <div class="col-md-8 price">
+                                {{ $product->price }} @lang('KWD')
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- End --}}
+        <hr style="margin: 10px 0">
+        {{-- Start ordering --}}
+        <div class="reviews-members">
+            <div class="media">
+                <div class="media-body">
+                    <div class="reviews-members-body">
+                        {{-- One Select --}}
+                        @if($selectOptionOneSelect)
+                        @foreach ($selectOptionOneSelect as $selectOne )
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4> {{$selectOne->name}}</h4>
+                            </div>
+                        </div>
+                        <div class="check-box">
+                            @foreach ($selectOne->Items as $Item)
+                            <div class="row py-2">
+                                <div class="col-md-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                            id="flexRadioDefault1">
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                            {{ $Item->name }}
+                                        </label>
+                                    </div>
+                                </div>
+                                @if($Item->price)
+                                <div class="col-md-6">
+                                    <div class="mini-price">+{{ $Item->price }} @lang('KWD') </div>
+                                </div>
+                                @endif
+                            </div>
+                            @endforeach
+                        </div>
+                        @endforeach
+                        @endif
+                        {{-- End one Select --}}
+                        <hr style="margin: 10px 0">
+                        {{-- Start Multiple select --}}
+                        @if($selectOptionMultipleSelect)
+                            @foreach ($selectOptionMultipleSelect as $MultipleSelect)
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4> {{$MultipleSelect->name}}</h4>
+                                </div>
+                            </div>
+                            @endforeach
+                            @if($selectOptionMultipleSelect->first())
+                            @foreach ($MultipleSelect->Items as $Item)
+                            {{-- Option --}}
+                            <div class="row py-2">
+                                <div class="col-md-4">
+                                    {{ $Item->name }}
+                                </div>
+                                <div class="col-md-4 Multiple-group">
+                                    <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 " data-field="quantity">
+                                    <input type="number" step="1" max="10" value="1" name="quantity" class="quantity-field border-0 text-center w-25">
+                                    <input type="button" value="+" class="button-plus border rounded-circle icon-shape icon-sm " data-field="quantity">
+                                </div>
+                                <div class="col-md-4">
+                                    <span class="mini-price"> +{{ $Item->price }} @lang('KWD')</span>
+                                </div>
+                            </div>
+                            {{-- End Option --}}
+                            @endforeach
+                            @endif
+                        @endif
+                        {{-- End Multiple select --}}
+                        <hr style="margin: 10px 0">
+                        {{-- Start Additional Select --}}
+                        @if($selectOptionAdditionalSelect)
+                        @foreach ($selectOptionAdditionalSelect as $selectOne )
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4> {{$selectOne->name}}</h4>
+                            </div>
+                        </div>
+                        <div class="check-box">
+                            @foreach ($selectOne->Items as $Item)
+                            <div class="row py-2">
+                                <div class="col-md-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                            {{ $Item->name }}
+                                        </label>
+                                    </div>
+                                </div>
+                                @if($Item->price)
+                                <div class="col-md-6">
+                                    <div class="mini-price">+{{ $Item->price }} @lang('KWD') </div>
+                                </div>
+                                @endif
+                            </div>
+                            @endforeach
+                        </div>
+                        @endforeach
+                        @endif
+                        {{-- End Additional Select --}}
+                        {{-- End  ordering--}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
 @endsection

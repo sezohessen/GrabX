@@ -1,6 +1,7 @@
 /* My css classes */
 .margin-t-40{
     margin-top: 20px;
+    padding: 0 10px;
 }
 /* End */
 .row>*{
@@ -23,7 +24,6 @@ body{
 }
 .header-title{
     text-align: center;
-    text-decoration: underline;
     margin: 5px 0 15px 0;
 }
 .category-card{
@@ -43,6 +43,9 @@ line-height: 300px;
     color: #27a6ad;
     font-weight: bold;
     line-height: 30px;
+}
+.mini-price{
+    color: #27a6ad;
 }
 .add-button{
     background-color: transparent;
@@ -96,4 +99,20 @@ line-height: 300px;
     padding: 4px;
     border-radius: 4px;
     font-weight: 400;
+}
+.check-box{
+    padding: 10px 0;
+}
+.icon-shape {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.icon-sm {
+    width: 2rem;
+    height: 2rem;
+
 }
