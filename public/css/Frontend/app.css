@@ -116,3 +116,15 @@ line-height: 300px;
     height: 2rem;
 
 }
+.order-button{
+    width:inherit;
+    position: fixed;
+    bottom:10px;
+}
+.order-button button{
+    padding: 8px 240px;
+    background: cadetblue;
+    border: 0;
+    border-radius: 4px;
+    color: white;
+}
