@@ -170,5 +170,8 @@
     "Add Options":"اضف خيارات",
     "You can not edit product options, If you need create new one":"لا يمكنك تعديل خيارات المنتج ، إذا كنت تريد انشيء واحد جديد",
     "If you add any option , Older Options will be deleted":"إذا قمت بإضافة أي خيار ، فسيتم حذف الخيارات القديمة",
-    "Option Deleted":"تم الحذف الاضافات"
+    "Option Deleted":"تم الحذف الاضافات",
+    "Upload":"ارفع الصورة",
+    "Product image":"صورة المنتج",
+    "Remove":"ازالة"
 }

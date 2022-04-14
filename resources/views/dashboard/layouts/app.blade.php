@@ -1281,7 +1281,8 @@
   <!-- End Style Switcher JS -->
     {{-- Alpinjs  --}}
     <script defer src="https://unpkg.com/alpinejs@3.9.5/dist/cdn.min.js"></script>
+
     @livewireScripts
-  @yield('js')
+    @yield('js')
 </body>
 </html>
