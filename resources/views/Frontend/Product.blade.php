@@ -88,7 +88,7 @@
             @foreach ($selectOptionOneSelect as $selectOne )
             <div class="row">
                 <div class="col-md-12">
-                    <h4> {{$selectOne->name}}</h4>
+                    <h4> {{$selectOne->name}} [@lang('Required')]</h4>
                 </div>
             </div>
             <div class="check-box">
@@ -120,7 +120,7 @@
                 @foreach ($selectOptionMultipleSelect as $MultipleSelect)
                 <div class="row">
                     <div class="col-md-12">
-                        <h4> {{$MultipleSelect->name}}</h4>
+                        <h4> {{$MultipleSelect->name}} </h4>
                     </div>
                 </div>
                 @endforeach
@@ -193,9 +193,9 @@
             {{-- End Qty --}}
             {{-- Order button --}}
             <div class="row">
-                <div class="col-md-12" style="position: relative">
+                <div class="col-md-12" style="width: 60%;">
                     <div class="order-button">
-                        <button type="submit">Order <span> [Price] </span> </button>
+                        <button type="submit"> @lang('Add To Cart') <span> [Price] </span> </button>
                     </div>
                 </div>
             </div>

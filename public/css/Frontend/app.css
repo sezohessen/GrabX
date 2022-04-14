@@ -122,7 +122,8 @@ line-height: 300px;
     bottom:10px;
 }
 .order-button button{
-    padding: 8px 240px;
+    width: inherit;
+    padding: 4px;
     background-color: cadetblue;
     border: 0;
     border-radius: 4px;
