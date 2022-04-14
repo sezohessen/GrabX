@@ -19,7 +19,7 @@
         </div>
     </div>
     <div class="container-fluid">
-        <div class="row">
+        <div class="row" style="margin-bottom: 50px">
             @foreach ($products as $product)
                 <div class="col-md-6">
                     <div class="osahan-slider-item">
@@ -51,6 +51,12 @@
                     </div>
                 </div>
             @endforeach
+        </div>
+        {{-- Checkout --}}
+        <div class="col-md-4">
+            <div class="checkout">
+                <x-checkout-button/>
+            </div>
         </div>
     </div>
 @endsection

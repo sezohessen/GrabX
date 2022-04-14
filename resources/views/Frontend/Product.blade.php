@@ -42,6 +42,15 @@
 @section('content')
 <div class="container">
     <div class="row">
+        <div class="col-md-1">
+            <span class="back-icon">
+                <a href="{{ route('tenant.CategoryProducts',['id' => $product->category_id]) }}" title="@lang('Products page')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-square-fill" viewBox="0 0 16 16">
+                        <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm10.5 10V4a.5.5 0 0 0-.832-.374l-4.5 4a.5.5 0 0 0 0 .748l4.5 4A.5.5 0 0 0 10.5 12z"/>
+                    </svg>
+                </a>
+            </span>
+        </div>
         <div class="col-md-12">
             <div class="product-img">
                 <img src="{{ find_image($product->image ,  App\Models\Product::base ) }}" alt="product-img">
@@ -193,7 +202,7 @@
             {{-- End Qty --}}
             {{-- Order button --}}
             <div class="row">
-                <div class="col-md-12" style="width: 60%;">
+                <div class="col-md-7">
                     <div class="order-button">
                         <button type="submit"> @lang('Add To Cart') <span> [Price] </span> </button>
                     </div>

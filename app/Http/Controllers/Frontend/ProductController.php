@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductSelectOption;
 use App\Models\ProductSelectOptionItem;
@@ -20,6 +21,10 @@ class ProductController extends Controller
 
         // dd($selectOptionAdditionalSelect[0]->Items);
         // dd($selectOptionOneSelect);
-        return view('Frontend.Product',compact('product','selectOptionOneSelect','selectOptionMultipleSelect','selectOptionAdditionalSelect'));
+        return view('Frontend.Product',compact('product','selectOptionOneSelect','selectOptionMultipleSelect','selectOptionAdditionalSelect',));
+    }
+    public function OrderDetails()
+    {
+       return view('Frontend.OrderDetails');
     }
 }

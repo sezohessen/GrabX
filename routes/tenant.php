@@ -64,6 +64,8 @@ Route::group([
     Route::get('/',[HomepageController::class,'index'])->name('Homepage');
     Route::get('/products/{id}',[HomepageController::class,'show'])->name('CategoryProducts');
     Route::get('/product/{id}',[FrontendProductController::class,'show'])->name('Product');
+    Route::get('/order-details',[FrontendProductController::class,'OrderDetails'])->name('OrderDetails');
+
 });
 
 

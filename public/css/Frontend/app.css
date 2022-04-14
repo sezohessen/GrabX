@@ -84,7 +84,8 @@ line-height: 300px;
     height: 25px;
 }
 .product-img img{
-    height: 550px;
+    max-height: 400px;
+    min-height: 400px;
     object-fit: contain;
     width: 100%
 }
@@ -124,7 +125,7 @@ line-height: 300px;
 .order-button button{
     width: inherit;
     padding: 4px;
-    background-color: cadetblue;
+    background-color: #27a6ad;
     border: 0;
     border-radius: 4px;
     color: white;
@@ -132,6 +133,22 @@ line-height: 300px;
     -moz-transition: 0.5s;
     transition: 0.5s;
 }
-.order-button button:hover{
+.order-button button:hover,.checkout:hover{
     background-color: #3b6466;
+}
+.checkout{
+    text-align: center;
+    background-color: #27a6ad;
+    border-radius: 4px;
+    padding: 4px;
+    position: fixed;
+    bottom: 10px;
+    width: inherit;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.checkout a {
+    color: white;
 }
