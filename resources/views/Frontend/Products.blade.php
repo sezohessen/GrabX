@@ -23,7 +23,7 @@
             @foreach ($products as $product)
                 <div class="col-md-6">
                     <div class="osahan-slider-item">
-                        <div class="list-card bg-gray h-100 rounded overflow-hidden position-relative shadow-sm margin-t-40">
+                        <div class="list-card bg-gray h-100 rounded overflow-hidden position-relative margin-t-40">
                             <div class="list-card-image">
                                 <a href="{{ route('tenant.Product',['id' => $product->id]) }}">
                                     <img alt="product" src="{{ find_image($product->image ,  App\Models\Product::base ) }}" class="img-thumbnail">
