@@ -70,8 +70,8 @@ line-height: 300px;
 }
 .frontend-lang .dropdown button{
     background-color: transparent;
-    position: absolute;
-    top: -1px;
+    position: fixed;
+    top: 4px;
 }
 .lang-dropdown{
     padding: 10px 20px;
@@ -123,8 +123,14 @@ line-height: 300px;
 }
 .order-button button{
     padding: 8px 240px;
-    background: cadetblue;
+    background-color: cadetblue;
     border: 0;
     border-radius: 4px;
     color: white;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    transition: 0.5s;
+}
+.order-button button:hover{
+    background-color: #3b6466;
 }

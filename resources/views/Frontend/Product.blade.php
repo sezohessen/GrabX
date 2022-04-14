@@ -79,12 +79,12 @@
             </div>
         </div>
         {{-- End --}}
-        <hr style="margin: 10px 0">
         <form action="">
         {{-- Start ordering --}}
         <div class="reviews-members-body">
             {{-- One Select --}}
-            @if($selectOptionOneSelect)
+            @if($selectOptionOneSelect->first())
+            <hr style="margin: 10px 0">
             @foreach ($selectOptionOneSelect as $selectOne )
             <div class="row">
                 <div class="col-md-12">
@@ -114,9 +114,9 @@
             @endforeach
             @endif
             {{-- End one Select --}}
-            <hr style="margin: 10px 0">
             {{-- Start Multiple select --}}
-            @if($selectOptionMultipleSelect)
+            @if($selectOptionMultipleSelect->first())
+                <hr style="margin: 10px 0">
                 @foreach ($selectOptionMultipleSelect as $MultipleSelect)
                 <div class="row">
                     <div class="col-md-12">
@@ -145,9 +145,9 @@
                 @endif
             @endif
             {{-- End Multiple select --}}
-            <hr style="margin: 10px 0">
             {{-- Start Additional Select --}}
-            @if($selectOptionAdditionalSelect)
+            @if($selectOptionAdditionalSelect->first())
+            <hr style="margin: 10px 0">
             @foreach ($selectOptionAdditionalSelect as $selectOne )
             <div class="row">
                 <div class="col-md-12">
