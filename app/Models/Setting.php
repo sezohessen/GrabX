@@ -4,12 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Setting extends Model
 {
     use HasFactory;
-    const logo = '/img/logo/';
-    const bg = '/img/bg/';
+    const logo = '/img/logo';
+    const bg = '/img/bg';
     protected $table    = 'settings';
     protected $fillable=[
         'company_name',
@@ -18,4 +19,14 @@ class Setting extends Model
         'logo_id',
         'bg_id'
     ];
+    public function logo(): BelongsTo
+    {
+        return $this->BelongsTo(Image::class,'logo_id');
+    }
+
+    public function background(): BelongsTo
+    {
+        return $this->BelongsTo(Image::class,'bg_id');
+    }
+
 }

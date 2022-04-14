@@ -1,0 +1,136 @@
+/* My css classes */
+.margin-t-40{
+    margin-top: 20px;
+    padding: 0 10px;
+}
+/* End */
+.row>*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-style: oblique;
+}
+.back-icon svg{
+    width: 50px;
+    height: 30px;
+    color: black;
+}
+.background-img img{
+  width:  1024px;
+  height: 1000px;
+  object-fit: cover;
+  position: fixed;
+}
+.header-title{
+    text-align: center;
+    margin: 5px 0 15px 0;
+}
+.category-card{
+    margin: 6px 0;
+}
+.category-name{
+text-align: center;
+vertical-align: middle;
+line-height: 300px;
+}
+.list-card-image img{
+    width: 100%;
+    max-height: 220px;
+    border-radius: 20px
+}
+.price{
+    color: #27a6ad;
+    font-weight: bold;
+    line-height: 30px;
+}
+.mini-price{
+    color: #27a6ad;
+}
+.add-button{
+    background-color: transparent;
+    color: black;
+    border: 2px solid #27a6ad;
+    padding: 4px 30px;
+    border-radius: 4px;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    transition: 0.5s;
+}
+.add-button:hover{
+    animation: normal;
+    background-color:#27a6ad ;
+    color: white;
+}
+.frontend-lang{
+    z-index: 99;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+}
+.frontend-lang .dropdown button{
+    background-color: transparent;
+    position: fixed;
+    top: 4px;
+}
+.lang-dropdown{
+    padding: 10px 20px;
+}
+.lang-items{
+    padding: 10px 20px;
+}
+.navi-item img{
+    width: 25px;
+    height: 25px;
+}
+.product-img img{
+    height: 550px;
+    object-fit: contain;
+    width: 100%
+}
+.product-card{
+    background: aliceblue;
+    padding: 10px;
+    box-shadow: -1px 1px 1px #acb3b9;
+    border-radius: 4px;
+}
+.ava-qty{
+    background: #a3a5ff;
+    padding: 4px;
+    border-radius: 4px;
+    font-weight: 400;
+}
+.check-box{
+    padding: 10px 0;
+}
+.icon-shape {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.icon-sm {
+    width: 2rem;
+    height: 2rem;
+
+}
+.order-button{
+    width:inherit;
+    position: fixed;
+    bottom:10px;
+}
+.order-button button{
+    padding: 8px 240px;
+    background-color: cadetblue;
+    border: 0;
+    border-radius: 4px;
+    color: white;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    transition: 0.5s;
+}
+.order-button button:hover{
+    background-color: #3b6466;
+}

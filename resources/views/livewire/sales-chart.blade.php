@@ -2,7 +2,7 @@
 <div class="card mb-3 mb-lg-5">
     <!-- Header -->
     <div class="card-header card-header-content-sm-between">
-        <h4 class="card-header-title mb-2 mb-sm-0"> @lang('Last week sales') <i class="bi-question-circle text-body ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="@lang('Statistics of products sold during the past week')"></i></h4>
+        <h4 class="card-header-title mb-2 mb-sm-0"> @lang('Week sales') <i class="bi-question-circle text-body ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="@lang('Statistics of products sold during this week')"></i></h4>
     </div>
     <!-- End Header -->
     <!-- Body -->
@@ -24,8 +24,8 @@
                         },
                         {
                             "data": [@foreach ($casheAmont as $key => $orderCash){{ $orderCash }}@if ($key + 1 != 7),@endif @endforeach],
-                            "backgroundColor": "#49be25",
-                            "borderColor": "#49be25"
+                            "backgroundColor": "#bdc5d1",
+                            "borderColor": "#bdc5d1"
 
                         }]
                         },
@@ -78,12 +78,12 @@
             <!-- End Bar Chart -->
             <div class="row justify-content-center">
             <div class="col-auto">
-                <span class="legend-indicator" style="background-color: #49be25 !important "></span> Revenue
+                <span class="legend-indicator"></span> @lang('Revenues')
             </div>
             <!-- End Col -->
 
             <div class="col-auto">
-                <span class="legend-indicator bg-primary"></span> Orders
+                <span class="legend-indicator bg-primary"></span> @lang('Orders')
             </div>
             <!-- End Col -->
             </div>
@@ -95,11 +95,14 @@
             <div class="col-sm-6 col-lg-12">
                 <!-- Stats -->
                 <div class="d-flex justify-content-center flex-column" style="min-height: 9rem;">
-                <h6 class="card-subtitle">Revenue</h6>
+                <h6 class="card-subtitle">@lang('Revenues')</h6>
                 <span class="d-block display-4 text-dark mb-1 me-3">@lang('Weekly') </span>
                 @if($weekly >= $previousWeekly)
                     <span class="d-block text-success">
-                        <i class="bi-graph-up me-1"></i> {{ number_format($totalOrderPrice, 0, '.', ',') }} ({{ $percent }}%)
+                        <i class="bi-graph-up me-1"></i>
+                         {{ number_format($totalOrderPrice, 0, '.', ',') }}
+                        <i class="bi bi-cash-coin"></i>
+                         ({{ $percent }}%)
                     </span>
                 @else
                     <span class="d-block text-danger">
@@ -118,13 +121,13 @@
                 <div class="d-flex justify-content-center flex-column" style="min-height: 9rem;">
                 <h6 class="card-subtitle">@lang('Orders')</h6>
                 <span class="d-block display-4 text-dark mb-1 me-3"> {{ $productWeekly }} </span>
-                @if($percent >= $previousWeekly)
+                @if($weeklySoldProducts >= $product_previousWeekly)
                     <span class="d-block text-success">
-                        <i class="bi-graph-up me-1"></i> (0%)
+                        <i class="bi-graph-up me-1"></i> ({{ $product_percent }}%)
                     </span>
                 @else
                     <span class="d-block text-danger">
-                        <i class="bi-graph-down me-1"></i> (0%)
+                        <i class="bi-graph-down me-1"></i> ({{ $product_percent }}%)
                     </span>
                 @endif
                 </div>

@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CountryCodeSeeder::class);
         $this->call(PromoCodeSeeder::class);
         $this->call(OrderSeeder::class);
+        $this->call(GuestIpSeeder::class);
         $this->call(SettingSeeder::class);
     }
 }

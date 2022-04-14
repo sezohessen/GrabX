@@ -222,12 +222,13 @@ return [
         "addMaxPrice"           => "اقصي سعر للخصم",
         "addMaxCount"           => "اقصي عدد",
         "editUsable"            => "الاستخدام",
-        "editCode"             => "الكود",
+        "editCode"              => "الكود",
         "editDiscount"          => "الخصم",
         "editMaxPrice"          => "اقصي سعر للخصم",
         "editMaxCount"          => "اقصي عدد",
         "editUsable"            => "الاستخدام",
-
+        "company_name"          => "أسم الشركة",
+        "bg"                    => "الخلفية"
 
 
 

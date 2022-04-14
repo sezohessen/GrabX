@@ -97,7 +97,7 @@ class OrderSeeder extends Seeder
                     'product_id'        => $product = $products->random()->id,
                     'qty'               => $faker->numberBetween(1,4),
                     'price'             => $faker->numberBetween(1,50),
-                    'created_at'        => now(),
+                    'created_at'        => $faker->dateTimeBetween('-2 week', 'now'),
                     'updated_at'        => now(),
                 ]);
                 $rand = rand(0,3);

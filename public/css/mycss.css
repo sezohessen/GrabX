@@ -1,1 +1,51 @@
 .form-control {border: 1px solid black !important};
+.img-rtl{margin: 0 4px;}
+.legend-indicator{background-color: aqua;}
+.error {color:red}
+/* Loader */
+.loader-wrapper{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #292727;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    z-index: 111;
+}
+.loader {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    top: 10%;
+    border: 4px solid #fff;
+    animation: loader 2s infinite ease;
+    z-index: 222;
+}
+.loader-inner{
+    vertical-align: top;
+    display: inline-block;
+    width: 100%;
+    background-color: #fff;
+    animation: loader-inner 2s infinite ease;
+
+}
+
+@keyframes loader{
+    0% {transform: rotate(0deg);}
+    25% {transform: rotate(180deg);}
+    50% {transform: rotate(180deg);}
+    75% {transform: rotate(360deg);}
+    100% {transform: rotate(360deg);}
+}
+
+@keyframes loader-inner{
+    0% {height: 0%;}
+    25% {height: 0%;}
+    50% {height: 100%;}
+    75% {height: 100%;}
+    100% {height: 0%;}
+}
