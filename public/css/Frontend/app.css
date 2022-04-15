@@ -4,6 +4,11 @@
     padding: 0 10px;
 }
 /* End */
+/* Css var */
+ :root{
+     --button-color: #27a6ad;
+ }
+/* End Var */
 .row>*{
     padding: 0;
     margin: 0;
@@ -59,7 +64,7 @@ line-height: 300px;
 }
 .add-button:hover{
     animation: normal;
-    background-color:#27a6ad ;
+    background-color: var(--button-color);
     color: white;
 }
 .frontend-lang{
@@ -125,7 +130,7 @@ line-height: 300px;
 .order-button button{
     width: inherit;
     padding: 4px;
-    background-color: #27a6ad;
+    background-color: var(--button-color);
     border: 0;
     border-radius: 4px;
     color: white;
@@ -159,11 +164,29 @@ line-height: 300px;
     border: 1px solid black;
 }
 .toggle-button:hover{
-    background-color: #27a6ad;
+    background-color: var(--button-color);
     color: white;
     border: 1px solid #27a6ad;
 }
 .header{
     margin-bottom: 20px;
     text-align: center;
+}
+.checkbox-button{
+    border: 1px solid black;
+    margin: 0 20px;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    transition: 0.5s;
+}
+input[type="radio"]:checked + label {
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.proceed-button{
+    background-color: var(--button-color);
+    border-color: #27a6ad;
+    color: white;
 }

@@ -122,9 +122,16 @@
                                 <label for="organizationLabel" class="col-form-label form-label">@lang('Unit type')</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" name="organization" id="organizationLabel"
-                                    placeholder="@lang('home, office, building')" aria-label="Your organization"
-                                    value="">
+                                <div class="btn-group"  role="group" aria-label="Basic radio toggle button group">
+                                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                                    <label class="btn checkbox-button" for="btnradio1"> @lang('House') </label>
+
+                                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                                    <label class="btn checkbox-button" for="btnradio2">@lang('Apartment')  </label>
+
+                                    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                                    <label class="btn checkbox-button" for="btnradio3">@lang('Office') </label>
+                                  </div>
                             </div>
                         </div>
                         <!-- End Form -->
@@ -170,8 +177,8 @@
 
                         <!-- End Form -->
                         {{-- Button 1 --}}
-                        <div class="d-flex justify-content-end">
-                            <button type="submit" class="btn btn-primary">@lang('Save changes')</button>
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" class="btn proceed-button">@lang('Proceed to payment')</button>
                         </div>
                     </form>
                     <!-- End Form -->
@@ -226,8 +233,8 @@
                             </div>
                             <!-- End Form -->
                             {{-- Button 2 --}}
-                            <div class="d-flex justify-content-end">
-                                <button type="submit" class="btn btn-primary">@lang('Save changes')</button>
+                            <div class="d-flex justify-content-center">
+                                <button type="submit" class="btn proceed-button">@lang('Proceed to payment')</button>
                             </div>
                         </div>
                     </form>
