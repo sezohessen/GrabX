@@ -6,6 +6,7 @@
 /* css var */
 :root{
     --button-color: #27a6ad;
+    --button-color-hover: yellow;
 }
 /* End */
 .row>* {
