@@ -3,7 +3,10 @@
     margin-top: 20px;
     padding: 0 10px;
 }
-
+/* css var */
+:root{
+    --button-color: #27a6ad;
+}
 /* End */
 .row>* {
     padding: 0;
