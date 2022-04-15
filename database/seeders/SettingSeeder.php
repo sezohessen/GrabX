@@ -24,9 +24,9 @@ class SettingSeeder extends Seeder
             'company_name'      => $faker->name,
             'desc'              => $faker->text,
             'desc_ar'           => $faker->text,
-            'logo_id'           => $logo->random()->id,
-            'bg_id'             => $bg->random()->id,
-            'created_at'        => now(),
+            // 'logo_id'           => $logo->random()->id,
+            // 'bg_id'             => $bg->random()->id,
+            // 'created_at'        => now(),
             'updated_at'        => now(),
         ]);
     }

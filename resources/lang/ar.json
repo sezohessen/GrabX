@@ -210,5 +210,26 @@
     "Add Options":"اضف خيارات",
     "You can not edit product options, If you need create new one":"لا يمكنك تعديل خيارات المنتج ، إذا كنت تريد انشيء واحد جديد",
     "If you add any option , Older Options will be deleted":"إذا قمت بإضافة أي خيار ، فسيتم حذف الخيارات القديمة",
-    "Option Deleted":"تم الحذف الاضافات"
+    "Option Deleted":"تم الحذف الاضافات",
+    "select language":"اختار اللغة",
+    "Required":"مطلوب",
+    "Unit type":"نوع الوحدة",
+    "Unit number":"رقم الوحدة",
+    "House number":"رقم البيت",
+    "Special direction":"اتجاه خاص",
+    "home, office, building":"المنزل ، المكتب ، المبنى",
+    "Select governorate":"حدد المحافظة",
+    "Select governoratef first":"حدد المحافظةاولا",
+    "Street name":"أسم الشارع",
+    "write your own direction with landmarks":"اكتب اتجاهك الخاص مع المعالم",
+    "Delivery":"توصيل",
+    "Pickup":"استلام من المطعم",
+    "Toyota, Mitsubishi, Rolls-Royce":"تويوتا ، ميتسوبيشي ، رولز رويس",
+    "Vehicle type":"نوع السيارة",
+    "Vehicle color":"لون السيارة",
+    "Red, Black, Yellow":"أحمر ، أسود ، أصفر",
+    "Vehicle plate number":"رقم لوحة السيارة",
+    "Choose order type":"اختر نوع الطلب",
+    "Proceed to payment":"انتقل الي الدفع"
+
 }
