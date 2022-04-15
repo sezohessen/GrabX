@@ -11,7 +11,9 @@ use App\Http\Controllers\dashboard\dashboardController;
 use App\Http\Controllers\dashboard\OrderController;
 use App\Http\Controllers\dashboard\ProductController;
 use App\Http\Controllers\Frontend\getCityController;
+use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\HomepageController;
+use App\Http\Controllers\Frontend\OrderController as FrontendOrderController;
 use App\Http\Controllers\Frontend\ProductController as FrontendProductController;
 use GuzzleHttp\Psr7\Response;
 use Symfony\Component\Console\Input\Input;
@@ -73,6 +75,8 @@ Route::group([
     // Return city value
     Route::get('api/city/{id}',[getCityController::class,'getCity']);
 
+    Route::post('/cart/{id}',[CartController::class,'addToCart'])->name('cart.addToCart');
+    Route::get('/order',[FrontendOrderController::class,'show'])->name('cart.show');
 });
 
 

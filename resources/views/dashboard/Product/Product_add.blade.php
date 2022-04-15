@@ -1,4 +1,7 @@
 @extends('dashboard.layouts.app')
+@section('css')
+<link rel="stylesheet" href="{{ global_asset('css/dashboard/product.css') }}">
+@endsection
 @section('content')
 <!-- Content -->
 <div class="content container-fluid">
@@ -114,27 +117,23 @@
                 <div class="card mb-3 mb-lg-5">
                     <!-- Header -->
                     <div class="card-header card-header-content-between">
-                        <h4 class="card-header-title"> {{ __('Media') }} </h4>
+                        <h4 class="card-header-title"> {{ __('Product image') }} </h4>
                         <!-- End Dropdown -->
                     </div>
                     <!-- End Header -->
 
                     <!-- Body -->
-                    <div class="card-body">
-                        <!-- Dropzone -->
-                        <div id="attachFilesNewProjectLabel" class="js-dropzone dz-dropzone dz-dropzone-card">
-                            <div class="dz-message">
-                                <img class="avatar avatar-xl avatar-4x3 mb-3"
-                                    src="{{ asset('images/dashboard/svg/illustrations-light/oc-browse.svg') }}"
-                                    alt="Image Description" data-hs-theme-appearance="dark">
-
-                                <div class="mb-3">
-                                    <label for="formFile" class="form-label"></label>
-                                    <input required name="image" class="form-control" type="file" id="formFile">
+                    <div class="card-body image-section">
+                        <div class="avatar-upload">
+                            <div class="avatar-edit">
+                                <input type='file' id="imageUpload" name="image" accept=".png, .jpg, .jpeg" />
+                                <label for="imageUpload"></label>
+                            </div>
+                            <div class="avatar-preview">
+                                <div id="imagePreview" style="background-image: url({{ global_asset('img/products/default.jpg') }});">
                                 </div>
                             </div>
                         </div>
-                        <!-- End Dropzone -->
                     </div>
                     @error('image')
                     <div class="alert alert-danger mt-2">{{ $message }}</div>
@@ -265,5 +264,5 @@
     <!-- End Card -->
 </div>
 <!-- End Content -->
-
 @endsection
+

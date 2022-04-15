@@ -65,7 +65,7 @@
                </th>
                <th>{{ __('Product') }}</th>
                <th>{{ __('Product name') }}</th>
-               <th>{{ __('Availability') }}</th>
+               <th>{{ __('Active') }}</th>
                <th>{{ __('Available quantity') }}</th>
                <th>{{ __('Price') }}</th>
                <th>{{ __('Quantity') }}</th>

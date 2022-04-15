@@ -1,5 +1,7 @@
 @extends('dashboard.layouts.app')
-
+@section('css')
+<link rel="stylesheet" href="{{ global_asset('css/dashboard/product.css') }}">
+@endsection
 @section('content')
     <!-- Content -->
     <div class="content container-fluid">
@@ -119,29 +121,26 @@
                     <div class="card mb-3 mb-lg-5">
                         <!-- Header -->
                         <div class="card-header card-header-content-between">
-                            <h4 class="card-header-title"> {{ __('Media') }} </h4>
+                            <h4 class="card-header-title"> {{ __('Product image') }} </h4>
                             <!-- End Dropdown -->
                         </div>
                         <!-- End Header -->
 
                         <!-- Body -->
-                        <div class="card-body">
-                            <!-- Dropzone -->
-                            <div id="attachFilesNewProjectLabel" class="js-dropzone dz-dropzone dz-dropzone-card">
-                                <div class="dz-message">
-                                    <img class="mb-3"
-                                        src="{{ find_image($Product->image, App\Models\Product::base) }}"
-                                        alt="Image Description" data-hs-theme-appearance="default">
-                                    <div class="mb-3">
-                                        <label for="formFile" class="form-label"></label>
-                                        <input name="image" class="form-control" type="file" id="formFile">
+                        <div class="card-body image-section">
+                            <div class="avatar-upload">
+                                <div class="avatar-edit">
+                                    <input type='file' id="imageUpload" name="image" accept=".png, .jpg, .jpeg" />
+                                    <label for="imageUpload"></label>
+                                </div>
+                                <div class="avatar-preview">
+                                    <div id="imagePreview" style="background-image: url({{ find_image($Product->image, App\Models\Product::base) }});">
                                     </div>
                                 </div>
                             </div>
-                            <!-- End Dropzone -->
                         </div>
                         @error('image')
-                            <div class="alert alert-danger mt-2">{{ $message }}</div>
+                        <div class="alert alert-danger mt-2">{{ $message }}</div>
                         @enderror
                         <!-- Body -->
                     </div>
@@ -180,7 +179,7 @@
                             <!-- Form Switch -->
                             <label class="row form-check form-switch" for="availabilitySwitch1">
                                 <span class="col-8 col-sm-9 ms-0">
-                                    <span class="text-dark">{{ __('Availability') }} <i
+                                    <span class="text-dark">{{ __('Active') }} <i
                                             class="bi-question-circle text-body ms-1" data-bs-toggle="tooltip"
                                             data-bs-placement="top" title="Product availability switch toggler."></i></span>
                                 </span>

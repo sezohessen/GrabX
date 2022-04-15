@@ -211,7 +211,6 @@
     "You can not edit product options, If you need create new one":"لا يمكنك تعديل خيارات المنتج ، إذا كنت تريد انشيء واحد جديد",
     "If you add any option , Older Options will be deleted":"إذا قمت بإضافة أي خيار ، فسيتم حذف الخيارات القديمة",
     "Option Deleted":"تم الحذف الاضافات",
-    "select language":"اختار اللغة",
     "Required":"مطلوب",
     "Unit type":"نوع الوحدة",
     "Unit number":"رقم الوحدة",
@@ -230,6 +229,14 @@
     "Red, Black, Yellow":"أحمر ، أسود ، أصفر",
     "Vehicle plate number":"رقم لوحة السيارة",
     "Choose order type":"اختر نوع الطلب",
-    "Proceed to payment":"انتقل الي الدفع"
-
+    "Proceed to payment":"انتقل الي الدفع",
+    "Upload":"ارفع الصورة",
+    "Remove":"ازالة",
+    "select language":"اختار اللغة",
+    "Add to order":"اضف الي الطلب",
+    "Review Order":"مراجعة الطلب",
+    "Order Items":"منتجات الطلب",
+    "Apply":"نفذ",
+    "Enter code":"ادخل كود الخصم",
+    "Go to checkout":"اذهب لاستكمال الطلب"
 }
