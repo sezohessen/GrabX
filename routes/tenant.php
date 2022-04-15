@@ -10,10 +10,14 @@ use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
 use App\Http\Controllers\dashboard\dashboardController;
 use App\Http\Controllers\dashboard\OrderController;
 use App\Http\Controllers\dashboard\ProductController;
+use App\Http\Controllers\Frontend\getCityController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\HomepageController;
 use App\Http\Controllers\Frontend\OrderController as FrontendOrderController;
 use App\Http\Controllers\Frontend\ProductController as FrontendProductController;
+use GuzzleHttp\Psr7\Response;
+use Symfony\Component\Console\Input\Input;
+use Symfony\Component\Console\Input\InputOption;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,6 +70,11 @@ Route::group([
     Route::get('/',[HomepageController::class,'index'])->name('Homepage');
     Route::get('/products/{id}',[HomepageController::class,'show'])->name('CategoryProducts');
     Route::get('/product/{id}',[FrontendProductController::class,'show'])->name('Product');
+    Route::get('/order-details',[FrontendProductController::class,'OrderDetails'])->name('OrderDetails');
+    Route::get('/your-details',[FrontendProductController::class,'BuyerDetails'])->name('BuyerDetails');
+    // Return city value
+    Route::get('api/city/{id}',[getCityController::class,'getCity']);
+
     Route::post('/cart/{id}',[CartController::class,'addToCart'])->name('cart.addToCart');
     Route::get('/order',[FrontendOrderController::class,'show'])->name('cart.show');
 });
