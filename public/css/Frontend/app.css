@@ -152,3 +152,18 @@ line-height: 300px;
 .checkout a {
     color: white;
 }
+.toggle-button {
+    background-color: inherit;
+    padding: 5px;
+    transition: 0.5s;
+    border: 1px solid black;
+}
+.toggle-button:hover{
+    background-color: #27a6ad;
+    color: white;
+    border: 1px solid #27a6ad;
+}
+.header{
+    margin-bottom: 20px;
+    text-align: center;
+}
