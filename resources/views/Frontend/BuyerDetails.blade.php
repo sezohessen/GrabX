@@ -100,6 +100,7 @@
                                 <!-- End Select -->
                             </div>
                         </div>
+
                         <!-- Select city -->
                         <div class="row mb-4">
                             <div class="col-md-4">
@@ -107,8 +108,8 @@
                             </div>
                             <div class="col-md-8">
                                 <!-- Select -->
-                                <select required class="city" name="governorate_id" id="" autocomplete="off">
-                                    <option selected value=""> {{ __('Select governoratef first') }}</option>
+                                <select required class="form-select city" aria-label="Default select example" name="governorate_id" id="" autocomplete="off">
+                                    <option selected  value=""> {{ __('Select governoratef first') }}</option>
                                 </select>
                                 @error('category_id')
                                 <div class="alert alert-danger mt-2">{{ $message }}</div>
