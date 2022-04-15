@@ -1,0 +1,31 @@
+body{
+    font-family: 'Vazirmatn', sans-serif;
+}
+.frontend-lang{
+    top: 0px;
+    left: 0px;
+    right: 15px;
+}
+.frontend-lang li.navi-item a{
+    text-align: right;
+    display: block;
+    padding: 8px 0;
+}
+.frontend-lang .navi-text{
+    padding: 0px 5px;   
+}
+/* Product Page */
+.Additional-Select #increase{
+    border-radius: 8px 0 0 8px!important;
+    margin-top: 1px;
+}
+.Additional-Select #decrease{
+    border-radius: 0 8px 8px 0!important;
+    margin-top: 1px;
+}
+.Additional-Select input {
+    margin: -4px!important;
+}
+.mini-price {
+    text-align: center;
+}
