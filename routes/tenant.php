@@ -12,7 +12,7 @@ use App\Http\Controllers\dashboard\OrderController;
 use App\Http\Controllers\dashboard\ProductController;
 use App\Http\Controllers\Frontend\getCityController;
 use App\Http\Controllers\Frontend\CartController;
-use App\Http\Controllers\Frontend\HomeFPageController;
+use App\Http\Controllers\Frontend\HomePageController;
 use App\Http\Controllers\Frontend\OrderController as FrontendOrderController;
 use App\Http\Controllers\Frontend\ProductController as FrontendProductController;
 use GuzzleHttp\Psr7\Response;
