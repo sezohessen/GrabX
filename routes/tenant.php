@@ -12,7 +12,7 @@ use App\Http\Controllers\dashboard\OrderController;
 use App\Http\Controllers\dashboard\ProductController;
 use App\Http\Controllers\Frontend\getCityController;
 use App\Http\Controllers\Frontend\CartController;
-use App\Http\Controllers\Frontend\HomepageController;
+use App\Http\Controllers\Frontend\HomeFPageController;
 use App\Http\Controllers\Frontend\OrderController as FrontendOrderController;
 use App\Http\Controllers\Frontend\ProductController as FrontendProductController;
 use GuzzleHttp\Psr7\Response;
@@ -67,8 +67,8 @@ Route::group([
     });
     Auth::Routes();
     // Frontend - main website
-    Route::get('/',[HomepageController::class,'index'])->name('Homepage');
-    Route::get('/products/{id}',[HomepageController::class,'show'])->name('CategoryProducts');
+    Route::get('/',[HomePageController::class,'index'])->name('Homepage');
+    Route::get('/products/{id}',[HomePageController::class,'show'])->name('CategoryProducts');
     Route::get('/product/{id}',[FrontendProductController::class,'show'])->name('Product');
     Route::get('/order-details',[FrontendProductController::class,'OrderDetails'])->name('OrderDetails');
     Route::get('/your-details',[FrontendProductController::class,'BuyerDetails'])->name('BuyerDetails');
