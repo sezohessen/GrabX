@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+Route::get('/test',function(){ return 1; });
 
 
 /* Register to create Tenant */
@@ -22,7 +23,3 @@ use Illuminate\Support\Facades\Route;
 Route::get('/register',[RegisterdTenantController::class,'create']);
 Route::post('/register',[RegisterdTenantController::class,'store']);
 
-// test
-Route::get('test123', function(){
-    echo 'testtt';
-});
