@@ -66,10 +66,6 @@ Route::group([
         }
     });
     Auth::Routes();
-    // Frontend - main website
-    // Route::get('/', function(){
-    //     echo 'Test';
-    // });
     Route::get('/',[HomePageController::class,'index'])->name('Homepage');
     Route::get('/products/{id}',[HomePageController::class,'show'])->name('CategoryProducts');
     Route::get('/product/{id}',[FrontendProductController::class,'show'])->name('Product');
