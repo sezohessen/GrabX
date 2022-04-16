@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" @if (App::isLocale('ar')) direction="rtl" dir="rtl"
+    style="direction: rtl" @endif>
 
 <head>
     <meta charset="utf-8">
@@ -21,6 +22,9 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    {{-- Arabic Fonts --}}
+
+
     {{-- theme css --}}
     <link href="{{ global_asset('css/Frontend/style.css') }}" rel="stylesheet">
     {{-- Bootstrap --}}
@@ -31,9 +35,19 @@
     <link href="{{ global_asset('css/Frontend/app.css') }}" rel="stylesheet">
     {{-- Lang css --}}
     @if (App::isLocale('ar'))
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@200;300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ global_asset('css/Frontend/style_ar.css') }}">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@200&display=swap');
+    </style>
+    @endif
+
+    @yield('css')
+    @if (App::isLocale('ar'))
     <link rel="stylesheet" href="{{ global_asset('css/Frontend/style_ar.css') }}">
     @endif
-    @yield('css')
 </head>
 
 <body>
@@ -126,7 +140,6 @@
                                     <span class="navi-text">@lang('English')</span>
                                 </a>
                             </li>
-                            <hr>
                             {{-- Item --}}
                             <li class="navi-item">
                                 <a href="{{url('/lang/ar')}}"

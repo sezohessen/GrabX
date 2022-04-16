@@ -189,7 +189,6 @@
                         </div>
                     </div>
                 </div>
-<<<<<<< HEAD
             </div>
             {{-- End Qty --}}
             {{-- Order button --}}
@@ -197,15 +196,6 @@
                 <div class="col-md-7">
                     <div class="order-button">
                         <button type="submit"> @lang('Add To Cart') <span> [Price] </span> </button>
-=======
-                {{-- End Qty --}}
-                {{-- Order button --}}
-                <div class="row">
-                    <div class="col-md-12" style="position: relative">
-                        <div class="order-button">
-                            <button type="submit">Order <span> [Price] </span> </button>
-                        </div>
->>>>>>> origin/main
                     </div>
                 </div>
                 {{-- End  ordering--}}

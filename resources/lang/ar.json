@@ -19,7 +19,7 @@
     "Pricing":"التسعير",
     "Price":"السعر",
     "Availability":"التوفر",
-    "KWD":"دينار كويتي",
+    "KWD":"د.ك",
     "The amount of product you wanna add":"كمية المنتج  التي تريد إضافتها",
     "The amount of product you have":"كمية المنتج التي لديك",
     "Media":"الميديا",
@@ -238,5 +238,7 @@
     "Order Items":"منتجات الطلب",
     "Apply":"نفذ",
     "Enter code":"ادخل كود الخصم",
-    "Go to checkout":"اذهب لاستكمال الطلب"
+    "Go to checkout":"اذهب لاستكمال الطلب",
+    "Cart":"السلة",
+    "Add":"اضافة"
 }

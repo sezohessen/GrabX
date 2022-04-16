@@ -50,7 +50,9 @@ body {
 .font-weight-bold {
     font-weight: 600 !important;
 }
-
+.frontend-lang li {
+    padding: 8px 0px;
+}
 .small,
 small {
     font-size: 11px !important;
@@ -686,6 +688,10 @@ p {
     white-space: nowrap;
     text-overflow: ellipsis;
     font-size: 12px;
+}
+.list-card .list-card-body p.price{
+    padding: 0px 10px;
+    font-size: 13px;
 }
 
 .list-card .p-3 {
