@@ -24,5 +24,5 @@ Route::post('/register',[RegisterdTenantController::class,'store']);
 
 // test
 Route::get('test123', function(){
-    echo 'testt';
+    echo 'testtt';
 });
