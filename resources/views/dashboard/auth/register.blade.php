@@ -89,7 +89,7 @@
             @csrf
             <div class="text-center">
               <div class="mb-5">
-                <h1 class="display-5">Create your account</h1>
+                <h1 class="display-5">@lang('Create your store')</h1>
               </div>
             </div>
             {{-- Start Form --}}
@@ -191,7 +191,7 @@
             <!-- End Form Check -->
 
             <div class="d-grid gap-2">
-              <button type="submit" class="btn btn-primary btn-lg">Create an account</button>
+              <button type="submit" class="btn btn-primary btn-lg">@lang('Create')</button>
             </div>
           </form>
           <!-- End Form -->

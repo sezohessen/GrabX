@@ -22,106 +22,96 @@
     </div>
 
 </div>
-<hr class="order-hr">
-<div class="container-fluid">
-    <div class="row">
-        <div class="order-info">
-            <h5>@lang('Order Items')</h5>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-8">
-            <h6 class="text-danger mt-1">Product Name</h6>
-            <div class="Multiple-group mt-3">
-                <input type="button" value="-" id="decrease" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 "onclick="decreaseValue(0)">
-                <input type="number" id="number_0" value="1" name="quantity" class="quantity-field border-0 text-center" style="width: 30px">
-                <input type="button" value="+" id="increase" class="button-plus border rounded-circle icon-shape icon-sm " onclick="increaseValue(0)">
+@if ($cart)
+    <hr class="order-hr">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="order-info">
+                <h5>@lang('Order Items')</h5>
             </div>
         </div>
-        <div class="col-md-4">
-            <p><strong>1.25 @lang('KWD')</strong></p>
-            <button class="btn btn-light"><span class="text-danger">@lang('Remove')</span></button>
-        </div>
-    </div>
-    <hr>
-    <div class="row">
-        <div class="col-md-8">
-            <h6 class="text-danger mt-1">Product Name</h6>
-            <div class="Multiple-group mt-3">
-                <input type="button" value="-" id="decrease" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 "onclick="decreaseValue(0)">
-                <input type="number" id="number_0" value="1" name="quantity" class="quantity-field border-0 text-center" style="width: 30px">
-                <input type="button" value="+" id="increase" class="button-plus border rounded-circle icon-shape icon-sm " onclick="increaseValue(0)">
+        <div class="row">
+            <div class="col-md-8">
+                <h6 class="text-danger mt-1">Product Name</h6>
+                <div class="Multiple-group mt-3">
+                    <input type="button" value="-" id="decrease" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 "onclick="decreaseValue(0)">
+                    <input type="number" id="number_0" value="1" name="quantity" class="quantity-field border-0 text-center" style="width: 30px">
+                    <input type="button" value="+" id="increase" class="button-plus border rounded-circle icon-shape icon-sm " onclick="increaseValue(0)">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <p><strong>1.25 @lang('KWD')</strong></p>
+                <button class="btn btn-light"><span class="text-danger">@lang('Remove')</span></button>
             </div>
         </div>
-        <div class="col-md-4">
-            <p><strong>1.25 @lang('KWD')</strong></p>
-            <button class="btn btn-light"><span class="text-danger">@lang('Remove')</span></button>
-        </div>
+        <hr>
     </div>
-    <hr>
-    <div class="row">
-        <div class="col-md-8">
-            <h6 class="text-danger mt-1">Product Name</h6>
-            <div class="Multiple-group mt-3">
-                <input type="button" value="-" id="decrease" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 "onclick="decreaseValue(0)">
-                <input type="number" id="number_0" value="1" name="quantity" class="quantity-field border-0 text-center" style="width: 30px">
-                <input type="button" value="+" id="increase" class="button-plus border rounded-circle icon-shape icon-sm " onclick="increaseValue(0)">
+    <hr class="order-hr">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="order-info">
+                <h5>@lang('Promo code')</h5>
             </div>
         </div>
-        <div class="col-md-4">
-            <p><strong>1.25 @lang('KWD')</strong></p>
-            <button class="btn btn-light"><span class="text-danger">@lang('Remove')</span></button>
+        <div class="row">
+            <div class="col-md-8">
+                <input class="w-100 form-control" type="text" name="promo" id="" placeholder="@lang('Enter code')">
+            </div>
+            <div class="col-md-1 xs-hidden"></div>
+            <div class="col-md-3">
+                <button class="btn btn-danger btn-md">@lang('Apply')</button>
+            </div>
         </div>
     </div>
-
-</div>
-<hr class="order-hr">
-<div class="container-fluid">
-    <div class="row">
-        <div class="order-info">
-            <h5>@lang('Promo code')</h5>
+    <hr class="order-hr">
+    <div class="container-fluid">
+        <div class="row  text-muted">
+            <div class="col-md-8">
+                <span>@lang('Subtotal')</span>
+            </div>
+            <div class="col-md-4">
+                <span>10.25 @lang('KWD')</span>
+            </div>
+            <div class="col-md-8">
+                <span>@lang('Delivery cost')</span>
+            </div>
+            <div class="col-md-4">
+                <span>1.25 @lang('KWD')</span>
+            </div>
+        </div>
+        <div class="row font-weight-bold mt-2">
+            <div class="col-md-8">
+                <span>@lang('Total')</span>
+            </div>
+            <div class="col-md-4">
+                <span>150.2 @lang('KWD')</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mt-4 mb-2">
+                    <button class="w-100 btn btn-danger btn-lg">@lang('Go to checkout')</button>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-8">
-            <input class="w-100 form-control" type="text" name="promo" id="" placeholder="@lang('Enter code')">
-        </div>
-        <div class="col-md-1 xs-hidden"></div>
-        <div class="col-md-3">
-            <button class="btn btn-danger btn-md">@lang('Apply')</button>
-        </div>
-    </div>
-</div>
-<hr class="order-hr">
-<div class="container-fluid">
-    <div class="row  text-muted">
-        <div class="col-md-8">
-            <span>@lang('Subtotal')</span>
-        </div>
-        <div class="col-md-4">
-            <span>10.25 @lang('KWD')</span>
-        </div>
-        <div class="col-md-8">
-            <span>@lang('Delivery cost')</span>
-        </div>
-        <div class="col-md-4">
-            <span>1.25 @lang('KWD')</span>
-        </div>
-    </div>
-    <div class="row font-weight-bold mt-2">
-        <div class="col-md-8">
-            <span>@lang('Total')</span>
-        </div>
-        <div class="col-md-4">
-            <span>150.2 @lang('KWD')</span>
+@else
+    <div class="card mt-4  mx-4">
+        <div class="text-center my-4">
+            <i class="fas-solid fas-bag-shopping"></i>
+            <h4>@lang('Your bag is empty')</h4>
+            <p>@lang('Browse menu and add items to your order to proceed')</p>
         </div>
     </div>
     <div class="row">
         <div class="col-md-12">
             <div class="mt-4 mb-2">
-                <button class="w-100 btn btn-danger btn-lg">@lang('Go to checkout')</button>
+                <a href="{{ route('tenant.Homepage') }}">
+                    <button class="w-100 btn btn-danger btn-lg">@lang('Browse Menu')</button>
+                </a>
             </div>
         </div>
     </div>
-</div>
+@endif
+
 @endsection

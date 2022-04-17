@@ -186,6 +186,9 @@
                             <input type="button" value="-" id="decrease" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 "onclick="decreaseValue(0)">
                             <input type="number" id="number_0" value="1" name="quantity" class="quantity-field border-0 text-center w-25">
                             <input type="button" value="+" id="increase" class="button-plus border rounded-circle icon-shape icon-sm " onclick="increaseValue(0)">
+                            @error('quantity')
+                            <div class="alert alert-danger mt-2">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
                 </div>

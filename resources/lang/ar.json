@@ -240,5 +240,9 @@
     "Enter code":"ادخل كود الخصم",
     "Go to checkout":"اذهب لاستكمال الطلب",
     "Cart":"السلة",
-    "Add":"اضافة"
+    "Add":"اضافة",
+    "Create your store":"أنشئ متجرك",
+    "Your bag is empty":"حقيبتك فارغة",
+    "Browse menu and add items to your order to proceed":"للمتابعة، تصفح القائمة وأضف طلبات إلى حقيبتك",
+    "Browse Menu":"تصفح القائمة"
 }
