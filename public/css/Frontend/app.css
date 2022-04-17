@@ -5,8 +5,9 @@
 }
 /* css var */
 :root{
-    --button-color: #27a6ad;
-    --button-color-hover: yellow;
+    --button-color: #bb2d3b;
+    --second-color: #d17a83;
+    --button-color-hover: #d96f79;
     --button-padding: 4px ;
 }
 /* End */
@@ -55,19 +56,19 @@ body {
 }
 
 .price {
-    color: #27a6ad;
+    color: var(--button-color);
     font-weight: bold;
     line-height: 30px;
 }
 
 .mini-price {
-    color: #27a6ad;
+    color: var(--button-color);
 }
 
 .add-button {
     background-color: transparent;
     color: black;
-    border: 2px solid #27a6ad;
+    border: 2px solid var(--second-color);
     padding: 4px 25px;
     border-radius: 4px;
     -webkit-transition: 0.5s;
@@ -77,7 +78,8 @@ body {
 
 .add-button:hover {
     animation: normal;
-    background-color: #27a6ad;
+    background-color: var(--button-color-hover);
+    border: 2px solid transparent;
     color: white;
 }
 
@@ -161,14 +163,8 @@ body {
     -moz-transition: 0.5s;
     transition: 0.5s;
 }
-.order-button button:hover,.checkout:hover{
-    background-color: #3b6466;
-}
+
 .checkout{
-    text-align: center;
-    background-color: #27a6ad;
-    border-radius: 4px;
-    padding: 4px;
     position: fixed;
     bottom: 10px;
     width: inherit;
@@ -176,7 +172,17 @@ body {
     -moz-transition: 0.5s;
     transition: 0.5s;
 }
-
+.button-card{
+    position: -webkit-sticky;
+    position: sticky;
+    z-index: 3000;
+    bottom: 0;
+    padding: 8px;
+    min-height: 64px;
+}
+.button-card button{
+    font-size: 17px;
+}
 .checkout a {
     color: white;
 }
@@ -276,4 +282,22 @@ input[type="radio"]:checked + label {
 .Additional-Select input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+.cart-items-count{
+    position: absolute;
+    padding: 2px 8px 2px 8px;
+    top: 16px;
+    border-radius: 3px;
+    left: 50px;
+    color: white;
+    font-weight: bold;
+    background-color: #7c1717;
+}
+.cart-items-price{
+    position: absolute;
+    padding: 2px 8px 2px 8px;
+    top: 20px;
+    right: 20px;
+    color: white;
+    font-size: small;
 }
