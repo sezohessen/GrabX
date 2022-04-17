@@ -18,6 +18,9 @@ use App\Http\Controllers\Frontend\ProductController as FrontendProductController
 use GuzzleHttp\Psr7\Response;
 use Symfony\Component\Console\Input\Input;
 use Symfony\Component\Console\Input\InputOption;
+use App\hesabe\Controllers\PaymentController;
+use App\hesabe\Helpers\ModelBindingHelper;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -69,13 +72,22 @@ Route::group([
     Route::get('/',[HomePageController::class,'index'])->name('Homepage');
     Route::get('/products/{id}',[HomePageController::class,'show'])->name('CategoryProducts');
     Route::get('/product/{id}',[FrontendProductController::class,'show'])->name('Product');
-    Route::get('/order-details',[FrontendProductController::class,'OrderDetails'])->name('OrderDetails');
+    Route::get('/   ',[FrontendProductController::class,'OrderDetails'])->name('OrderDetails');
     Route::get('/your-details',[FrontendProductController::class,'BuyerDetails'])->name('BuyerDetails');
     // Return city value
     Route::get('api/city/{id}',[getCityController::class,'getCity']);
 
     Route::post('/cart/{id}',[CartController::class,'addToCart'])->name('cart.addToCart');
     Route::get('/order',[FrontendOrderController::class,'show'])->name('cart.show');
+
+    // Payment
+    Route::get('/payment',[PaymentController::class,'index']);
+    Route::post('/payment-submit',[PaymentController::class,'formSubmit'])->name('payment-submit');
+    Route::post('/payment-checkout',[ModelBindingHelper::class,'getCheckoutResponseData'])->name('payment-checkout');
+
+    // Payment response
+    Route::get('/success-payment',function(){return view('Payment.success');});
+    Route::get('/failed-payment',function(){return 'failed payment';});
 });
 
 
