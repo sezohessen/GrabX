@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+Route::get('/test',function(){ return 1; });
 
 
 /* Register to create Tenant */
