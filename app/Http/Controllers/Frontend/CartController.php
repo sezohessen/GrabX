@@ -24,7 +24,6 @@ class CartController extends Controller
         $cart = Cart::where('ip',$ip)->first();
         $isExist   =  $cart? 1 : 0;
         if($isExist){
-
             $total = 0;
             CartItem::updateOrCreate([
                 'cart_id'       => $cart->id,
@@ -34,7 +33,7 @@ class CartController extends Controller
                 'copy_num'      => $request->copy_num
             ]);
             $total+=($product->price * $request->quantity);
-            /* Create each Option that user select and add it to total amount*/
+            /* Create each Option that user select and add it to total amount */
             if($request->OneSelect){
                 foreach($request->OneSelect as $select){
                     $selectOpition  = ProductSelectOptionItem::findOrFail($select);
@@ -96,7 +95,7 @@ class CartController extends Controller
                 'price'         => $product->price,
             ]);
             $total+=($product->price * $request->quantity);
-            /* Create each Option that user select and add it to total amount*/
+            /* Create each Option that user select and add it to total amount */
             if($request->OneSelect){
                 foreach($request->OneSelect as $select){
                     $selectOpition  = ProductSelectOptionItem::findOrFail($select);

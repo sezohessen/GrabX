@@ -23,6 +23,7 @@ class FrontendProducts extends Component
     public    $search      = '';
     public    $page        = 1;
     private   $pagination  = 10;
+    public    $cartCount;
     public    $total;
 
 
@@ -49,11 +50,12 @@ class FrontendProducts extends Component
 
         if(!$hasOption)
         {
-            if($cart){
-                $newCart    = Cart::updateOrCreate([
-                   'ip'         => $ip,
-                   'subtotal'   => 0,
-                   'total'      => $this->total,
+            if(!$cart){
+                $total = 0;
+                $newCart    = Cart::create([
+                'ip'         => $ip,
+                'subtotal'   => 0,
+                'total'      => 0,
                 ]);
                 CartItem::create([
                     'cart_id'       => $newCart->id,
@@ -61,7 +63,11 @@ class FrontendProducts extends Component
                     'qty'           => ($request->quantity) ? $request->quantity : 1,
                     'price'         => $product->price,
                 ]);
-                $this->total = $product->price * $request->quantity;
+                $this->total+=($product->price * $request->quantity);
+                $newCart->total     = $this->total;
+                $newCart->subtotal  = $this->total;
+                $newCart->save();
+
                 dd($this->total);
                 session()->flash('add', __('Product has successfully been added to cart'));
             }
