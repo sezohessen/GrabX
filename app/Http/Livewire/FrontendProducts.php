@@ -11,7 +11,6 @@ class FrontendProducts extends Component
 {
 
     public $category;
-    public $products;
 
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
@@ -22,12 +21,18 @@ class FrontendProducts extends Component
     public function mount($id)
     {
         $this->category = Category::find($id);
-        $this->products = Product::where('active',1)->where('category_id',$id)->paginate(10);
     }
 
     public function render()
     {
+        $products = Product::where('active',1)->where('category_id',$this->category->id)->paginate(10);
 
-        return view('livewire.frontend-products');
+        return view('livewire.frontend-products',compact('products'));
+    }
+
+    // Add to cart
+    public function addToCart()
+    {
+        
     }
 }
