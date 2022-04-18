@@ -16,6 +16,11 @@
                 <div class="col-md-10">
                     <h4> {{ LangDetail($category->name,$category->name_ar) }}</h4>
                 </div>
+                @if (session()->has('add'))
+                <div class="alert alert-success">
+                    {{ session('add') }}
+                </div>
+            @endif
             </div>
         </div>
     </div>
@@ -44,7 +49,7 @@
                                     </div>
                                     {{-- Add to cart --}}
                                     <div class="col-md-6">
-                                        <button type="button" class="add-button">@lang('Add') <svg
+                                        <button wire:click="addToCart({{ $product->id }})" class="add-button">@lang('Add') <svg
                                                 xmlns="http://www.w3.org/2000/svg" width="17" height="17"
                                                 fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
                                                 <path
