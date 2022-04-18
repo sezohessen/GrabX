@@ -49,30 +49,25 @@
         <div class="col-md-12">
             <h4 class="header">@lang('Choose order type')</h4>
         </div>
-        <div class="col-md-3 col-6">
-            <a class="btn toggle-button" data-bs-toggle="collapse" href=".multi-collapse" role="button"
-                aria-expanded="false" aria-controls="multiCollapseExample1">
-                @lang('Delivery')
+        <div class="btn-group"  role="group" aria-label="Basic radio toggle button group">
+            <input data-bs-toggle="collapse" href=".multi-collapse" role="button"
+            aria-expanded="false" aria-controls="multiCollapseExample1" type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" checked>
+            <label class="btn checkbox-button" for="btnradio4"> @lang('Delivery')
                 <img src="{{ global_asset('img/icons/delivery-man.png') }}" alt="">
-            </a>
-        </div>
-        <div class="col-md-3 col-6">
-            <a class="btn toggle-button" data-bs-toggle="collapse" href=".multi-collapse" role="button"
-                aria-expanded="false" aria-controls="multiCollapseExample1">
-                @lang('Pickup')
+            </label>
+
+            <input data-bs-toggle="collapse" href=".multi-collapse" role="button"
+            aria-expanded="false" aria-controls="multiCollapseExample2" type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off">
+            <label class="btn checkbox-button" for="btnradio5">@lang('Pickup')
                 <img src="{{ global_asset('img/icons/location.png') }}" alt="">
-            </a>
-        </div>
+            </label>
+          </div>
+
     </div>
     <div class="row my-4">
         {{-- Delivery --}}
         <div class="col-md-12">
             <div class="collapse multi-collapse show" id="multiCollapseExample1">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h5 class="header"> @lang('Delivery') </h5>
-                    </div>
-                </div>
                 <!-- Body -->
                 <div class="card-body">
                     <!-- Form -->
@@ -178,8 +173,12 @@
 
                         <!-- End Form -->
                         {{-- Button 1 --}}
-                        <div class="d-flex justify-content-center">
-                            <button type="submit" class="btn proceed-button">@lang('Proceed to payment')</button>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="mt-4 mb-2">
+                                    <button class="w-100 btn btn-danger btn-lg">@lang('Proceed to payment')</button>
+                                </div>
+                            </div>
                         </div>
                     </form>
                     <!-- End Form -->
@@ -190,11 +189,6 @@
         {{-- Pickup --}}
         <div class="col-md-12">
             <div class="collapse multi-collapse" id="multiCollapseExample2">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h5 class="header"> @lang('Pickup') </h5>
-                    </div>
-                </div>
                 <div class="card-body">
                     <form action="">
                         <div class="row">
@@ -234,8 +228,12 @@
                             </div>
                             <!-- End Form -->
                             {{-- Button 2 --}}
-                            <div class="d-flex justify-content-center">
-                                <button type="submit" class="btn proceed-button">@lang('Proceed to payment')</button>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="mt-4 mb-2">
+                                        <button class="w-100 btn btn-danger btn-lg">@lang('Proceed to payment')</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </form>

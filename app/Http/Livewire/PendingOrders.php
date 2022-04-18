@@ -10,7 +10,6 @@ class PendingOrders extends Component
 {
     use WithPagination;
 
-
     protected $paginationTheme = 'bootstrap';
     public    $search      = '';
     public    $page        = 1;

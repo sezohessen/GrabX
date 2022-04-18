@@ -304,3 +304,6 @@ input[type="radio"]:checked + label {
     color: white;
     font-size: small;
 }
+input[type="radio"]:checked + label{
+    background-color: var(--second-color);
+}
