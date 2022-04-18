@@ -76,7 +76,6 @@
         {{-- End --}}
             @csrf
             @method('POST')
-            <input type="hidden" value="1" name="copy_num">
             {{-- Start ordering --}}
             <div class="reviews-members-body">
                 {{-- One Select --}}

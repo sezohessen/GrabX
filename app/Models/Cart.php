@@ -15,4 +15,8 @@ class Cart extends Model
         'subtotal',
         'total'
     ];
+    public function products()
+    {
+        return $this->belongsToMany(Product::class, 'cart_items')->withPivot(["price",'qty','copy_num','subtotal']);
+    }
 }

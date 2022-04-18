@@ -16,4 +16,8 @@ class CartItemOption extends Model
         'product_select_option_item_id',
         'copy_num'
     ];
+    public function item()
+    {
+        return $this->belongsTo(ProductSelectOptionItem::class,'product_select_option_item_id','id');
+    }
 }

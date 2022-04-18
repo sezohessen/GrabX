@@ -21,7 +21,7 @@ return new class extends Migration
             ->references('id')->on('carts')
             ->onDelete('cascade')
             ->onUpdate('cascade');
-
+            $table->integer('subtotal')->nullable();
             $table->bigInteger('product_id')->unsigned();
             $table->foreign('product_id')
             ->references('id')->on('products')
@@ -31,7 +31,7 @@ return new class extends Migration
             $table->integer('qty');
 
             $table->decimal('price',10,2);
-            
+
             $table->integer('copy_num')->default(1);
             $table->timestamps();
         });

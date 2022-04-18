@@ -14,6 +14,7 @@ class CartItem extends Model
         'product_id',
         'qty',
         'price',
-        'copy_num'
+        'copy_num',
+        'subtotal'
     ];
 }

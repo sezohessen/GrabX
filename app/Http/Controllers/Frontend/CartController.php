@@ -16,24 +16,23 @@ class CartController extends Controller
     public function addToCart(Request $request,$id)
     {
         $ip     = FacadesRequest::ip();
-        /* dd($request->all()); */
         $validated = $request->validate([
             'quantity' => 'required|gt:0',
         ]);
-        $product   = Product::findOrFail($id);
-        $cart = Cart::where('ip',$ip)->first();
-        $isExist   =  $cart? 1 : 0;
-        if($isExist){
-
-            $total = 0;
-            CartItem::updateOrCreate([
+        $product    = Product::findOrFail($id);
+        $cart       = Cart::where('ip',$ip)->first();
+        if($cart){
+            $CopyNum    = CartItem::where('product_id',$id)
+            ->where('cart_id',$cart->id)
+            ->max('copy_num');
+            $CartItem   =   CartItem::create([
                 'cart_id'       => $cart->id,
                 'product_id'    => $product->id,
                 'qty'           => $request->quantity,
                 'price'         => $product->price,
-                'copy_num'      => $request->copy_num
+                'copy_num'      => $CopyNum+1
             ]);
-            $total+=($product->price * $request->quantity);
+            $optionTotal    = 0;
             /* Create each Option that user select and add it to total amount*/
             if($request->OneSelect){
                 foreach($request->OneSelect as $select){
@@ -43,10 +42,9 @@ class CartController extends Controller
                         'product_id'    => $product->id,
                         'product_select_option_item_id' => $selectOpition->id,
                     ]);
-                    $total+= $selectOpition->price;
+                    $optionTotal+= $selectOpition->price;
                 }
             }
-
             if($request->MultiSelect){
                 foreach($request->MultiSelect as $select){
                     $selectOpition  = ProductSelectOptionItem::findOrFail($select);
@@ -55,10 +53,9 @@ class CartController extends Controller
                         'product_id'    => $product->id,
                         'product_select_option_item_id' => $selectOpition->id,
                     ]);
-                    $total+= $selectOpition->price;
+                    $optionTotal+= $selectOpition->price;
                 }
             }
-
             if($request->AdditionalSelect){
                 foreach($request->AdditionalSelect as $key => $select){
                     if($select){
@@ -69,12 +66,15 @@ class CartController extends Controller
                             'product_select_option_item_id' => $selectOpition->id,
                             'qty'           => $select
                         ]);
-                        $total+= ($selectOpition->price * $select);
+                        $optionTotal+= ($selectOpition->price * $select);
                     }
                 }
             }
-
-            $cart->subtotal   += $total;
+            if($optionTotal){
+                $CartItem->subtotal = $optionTotal;
+                $CartItem->save();
+            }
+            $cart->subtotal   += ( ($product->price + $optionTotal) * $request->quantity);
             $discount   = 0;
             /* Calculate the precentage of discount if exist */
             if($cart->discount){
@@ -83,19 +83,18 @@ class CartController extends Controller
             $cart->total  = $cart->subtotal - $discount;
             $cart->save();
         }else{
-            $total = 0;
             $newCart    = Cart::create([
                'ip'         => $ip,
                'subtotal'   => 0,
                'total'      => 0,
             ]);
-            CartItem::create([
+            $CartItem   = CartItem::create([
                 'cart_id'       => $newCart->id,
                 'product_id'    => $product->id,
                 'qty'           => $request->quantity,
                 'price'         => $product->price,
             ]);
-            $total+=($product->price * $request->quantity);
+            $optionTotal = 0;
             /* Create each Option that user select and add it to total amount*/
             if($request->OneSelect){
                 foreach($request->OneSelect as $select){
@@ -105,7 +104,7 @@ class CartController extends Controller
                         'product_id'    => $product->id,
                         'product_select_option_item_id' => $selectOpition->id,
                     ]);
-                    $total+= $selectOpition->price;
+                    $optionTotal+= $selectOpition->price;
                 }
             }
             if($request->MultiSelect){
@@ -116,7 +115,7 @@ class CartController extends Controller
                         'product_id'    => $product->id,
                         'product_select_option_item_id' => $selectOpition->id,
                     ]);
-                    $total+= $selectOpition->price;
+                    $optionTotal+= $selectOpition->price;
                 }
             }
             if($request->AdditionalSelect){
@@ -129,13 +128,16 @@ class CartController extends Controller
                             'product_select_option_item_id' => $selectOpition->id,
                             'qty'           => $select
                         ]);
-                        $total+= ($selectOpition->price * $select);
+                        $optionTotal+= ($selectOpition->price * $select);
                     }
                 }
             }
-
-            $newCart->total     = $total;
-            $newCart->subtotal  = $total;
+            if($optionTotal){
+                $CartItem->subtotal = $optionTotal;
+                $CartItem->save();
+            }
+            $newCart->subtotal  =( ($product->price + $optionTotal) * $request->quantity);
+            $newCart->total     =( ($product->price + $optionTotal) * $request->quantity);
             $newCart->save();
         }
         return redirect()->route('tenant.CategoryProducts',['id'=>$product->category_id]);

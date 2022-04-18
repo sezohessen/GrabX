@@ -2,6 +2,25 @@
 @section('css')
 <link rel="stylesheet" href="{{ global_asset('css/Frontend/reviewOrder.css') }}">
 @endsection
+@section('js')
+    <script>
+    function increaseValue(id) {
+        var value = parseInt(document.getElementById('number_'+id).value, 10);
+        value = isNaN(value) ? 0 : value;
+        value++;
+        document.getElementById('number_'+id).value = value;
+    }
+
+    function decreaseValue(id) {
+        var value = parseInt(document.getElementById('number_'+id).value, 10);
+        value = isNaN(value) ? 0 : value;
+        value < 1 ? value = 1 : '';
+        value--;
+        document.getElementById('number_'+id).value = value;
+    }
+
+    </script>
+@endsection
 @section('content')
 <div class="header-title">
     <div class="container">
@@ -30,21 +49,50 @@
                 <h5>@lang('Order Items')</h5>
             </div>
         </div>
-        <div class="row">
+        <div class="row products">
+            @foreach ($cart->products as  $key =>$product)
+            <?php $options = App\Models\CartItemOption::where('cart_id',$cart->id)
+                ->where('product_id',$product->id)
+                ->where('copy_num',$product->pivot->copy_num)
+                ->get();
+            ?>
             <div class="col-md-8">
-                <h6 class="text-danger mt-1">Product Name</h6>
+                <h6 class="text-danger mt-1">
+                    @if($product->pivot->qty>1)
+                    <span class="text-danger">{{ $product->pivot->qty }}x</span>
+                    @endif
+                    {{ LangDetail($product->name, $product->name_ar) }}
+                </h6>
+                @foreach ($options as $selectOption)
+                    @if($selectOption->item)
+                        <p class="mb-0">
+                            @if($selectOption->item->option->type==3&&$selectOption->qty > 0 ) <span class="text-info">{{ $selectOption->qty }}x</span> @endif
+                            {{ $selectOption->item->name }}
+                        <span class="text-success">{{ $selectOption->item->price }} @lang('KWD')</span>
+                        </p>
+                    @else
+                        <p class="text-warning">@lang('Option Deleted')</p>
+                    @endif
+                @endforeach
                 <div class="Multiple-group mt-3">
-                    <input type="button" value="-" id="decrease" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 "onclick="decreaseValue(0)">
-                    <input type="number" id="number_0" value="1" name="quantity" class="quantity-field border-0 text-center" style="width: 30px">
-                    <input type="button" value="+" id="increase" class="button-plus border rounded-circle icon-shape icon-sm " onclick="increaseValue(0)">
+                    <input type="button" value="+" id="increase" class="button-plus border rounded-circle icon-shape icon-sm " onclick="increaseValue({{ $key }})">
+                    <input type="number" id="number_{{ $key }}" value="1" name="quantity" class="quantity-field border-0 text-center" style="width: 30px">
+                    <input type="button" value="-" id="decrease" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 "onclick="decreaseValue({{ $key }})">
+
                 </div>
             </div>
             <div class="col-md-4">
-                <p><strong>1.25 @lang('KWD')</strong></p>
+                <p>
+                    <strong>
+                        {{ ($product->pivot->price + $product->pivot->subtotal) * $product->pivot->qty }}
+                        @lang('KWD')
+                    </strong>
+                </p>
                 <button class="btn btn-light"><span class="text-danger">@lang('Remove')</span></button>
             </div>
+            <hr class="my-2">
+            @endforeach
         </div>
-        <hr>
     </div>
     <hr class="order-hr">
     <div class="container-fluid">
@@ -65,26 +113,12 @@
     </div>
     <hr class="order-hr">
     <div class="container-fluid">
-        <div class="row  text-muted">
+        <div class="row font-weight-bold mt-2">
             <div class="col-md-8">
                 <span>@lang('Subtotal')</span>
             </div>
             <div class="col-md-4">
-                <span>10.25 @lang('KWD')</span>
-            </div>
-            <div class="col-md-8">
-                <span>@lang('Delivery cost')</span>
-            </div>
-            <div class="col-md-4">
-                <span>1.25 @lang('KWD')</span>
-            </div>
-        </div>
-        <div class="row font-weight-bold mt-2">
-            <div class="col-md-8">
-                <span>@lang('Total')</span>
-            </div>
-            <div class="col-md-4">
-                <span>150.2 @lang('KWD')</span>
+                <span>{{ $cart->subtotal }} @lang('KWD')</span>
             </div>
         </div>
         <div class="row">
