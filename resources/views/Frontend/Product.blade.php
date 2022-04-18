@@ -24,6 +24,7 @@
 
 @section('content')
 <div class="container">
+    <form action="{{ route('tenant.cart.addToCart',['id'=>$product->id]) }}" method="POST" >
     <div class="row">
         <div class="col-md-1">
             <span class="back-icon">
@@ -73,7 +74,6 @@
             </div>
         </div>
         {{-- End --}}
-        <form action="{{ route('tenant.cart.addToCart',['id'=>$product->id]) }}" method="POST" >
             @csrf
             @method('POST')
             <input type="hidden" value="1" name="copy_num">
@@ -195,16 +195,16 @@
                 </div>
             </div>
             {{-- End Qty --}}
-            {{-- Order button --}}
-            <div class="row">
-                <div class="col-md-7">
-                    <div class="order-button">
-                        <button type="submit"> @lang('Add To Cart') <span> [Price] </span> </button>
-                    </div>
-                </div>
-                {{-- End  ordering--}}
-            </div>
-        </form>
-    </div>
+        </div>
+        @php
+        $message  = __('Add to cart');
+        @endphp
+        {{-- Order button --}}
+        <div class="button-card">
+            <x-checkout-button :message="$message"/>
+            {{-- button price --}}
+            <span class="cart-items-price">3214123 KDW</span>
+        </div>
+    </form>
 </div>
 @endsection

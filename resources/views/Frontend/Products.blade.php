@@ -52,11 +52,16 @@
                 </div>
             @endforeach
         </div>
+        @php
+            $message  = __('Review order');
+        @endphp
         {{-- Checkout --}}
-        <div class="col-md-4">
-            <div class="checkout">
-                <x-checkout-button/>
-            </div>
+        <div class="button-card">
+            <x-checkout-button :message="$message"/>
+            {{-- Cart items --}}
+            <span class="cart-items-count">2</span>
+            {{-- Cart price --}}
+            <span class="cart-items-price">3214123 KDW</span>
         </div>
     </div>
 @endsection
