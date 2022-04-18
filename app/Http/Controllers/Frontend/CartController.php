@@ -24,12 +24,14 @@ class CartController extends Controller
         $cart = Cart::where('ip',$ip)->first();
         $isExist   =  $cart? 1 : 0;
         if($isExist){
+
             $total = 0;
-            CartItem::create([
+            CartItem::updateOrCreate([
                 'cart_id'       => $cart->id,
                 'product_id'    => $product->id,
                 'qty'           => $request->quantity,
                 'price'         => $product->price,
+                'copy_num'      => $request->copy_num
             ]);
             $total+=($product->price * $request->quantity);
             /* Create each Option that user select and add it to total amount*/
