@@ -52,9 +52,8 @@ class HomePageController extends Controller
     public function show($id)
     {
         $category = Category::find($id);
-        $products = Product::where('active',1)->where('category_id',$id)->paginate(10);
 
-        return view('Frontend.Products',compact('products','category'));
+        return view('Frontend.Products',compact('category'));
     }
 
     /**

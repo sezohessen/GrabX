@@ -65,19 +65,19 @@
                             <div class="row align-items-center">
                                 <div class="col-1">
                                     @if($setting->logo)
-                                    <a href="home.html" class="brand-wrap mb-0">
-                                        <img alt="#" class="img-fluid" src="{{ tenant_asset($setting->logo->name) }}">
+                                    <a href="{{ Route('tenant.Homepage') }}" class="brand-wrap mb-0">
+                                        <img alt="logo" class="img-fluid" src="{{ tenant_asset($setting->logo->name) }}">
                                     </a>
                                     @else
                                     <a href="home.html" class="brand-wrap mb-0">
-                                        <img alt="#" class="img-fluid" src="{{ global_asset('img/products/164868101991327.jpg') }}">
+                                        <img alt="{{ Route('tenant.Homepage') }}" class="img-fluid" src="{{ global_asset('img/products/164868101991327.jpg') }}">
                                     </a>
                                     @endif
                                     <!-- brand-wrap.// -->
                                 </div>
                                 <div class="col-md-3">
                                     <div>
-                                        <h6>{{ $setting->company_name }}</h6>
+                                        <h6><a href="{{ Route('tenant.Homepage') }}">{{ $setting->company_name }}</a></h6>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
