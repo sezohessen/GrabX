@@ -245,5 +245,7 @@
     "Your bag is empty":"حقيبتك فارغة",
     "Browse menu and add items to your order to proceed":"للمتابعة، تصفح القائمة وأضف طلبات إلى حقيبتك",
     "Browse Menu":"تصفح القائمة",
-    "Review order":"مراجعة الطلب"
+    "Review order":"مراجعة الطلب",
+    "Product has successfully been added to cart":"تم إضافة المنتج بنجاح إلى سلة التسوق",
+    "There is no other quantity to order":"لا توجد كمية أخرى لطلبها"
 }

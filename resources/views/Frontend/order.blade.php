@@ -41,7 +41,7 @@
     </div>
 
 </div>
-@if ($cart)
+@if ($cart && $isExist)
     <hr class="order-hr">
     <div class="container-fluid">
         <div class="row">
