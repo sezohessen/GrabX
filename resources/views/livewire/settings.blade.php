@@ -179,7 +179,7 @@
                     </div>
                 @endif
             </div>
-            <div class="d-flex justify-content-end">
+            <div class="d-flex justify-content-end mx-4">
                 <button type="submit" class="btn btn-primary">@lang('Save changes')</button>
             </div>
             <!-- End Card -->
