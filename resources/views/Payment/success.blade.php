@@ -17,6 +17,8 @@
     {{-- @inject('paymentController', 'App\hesabe\Controllers\PaymentController'); --}}
     @php
         /* $paymentController->getCheckoutResponse(); */
+        $encrypted = HesabeCrypt::encrypt($requestDataJson, $encryptionKey, $ivKey);
+        $decrypted = HesabeCrypt::decrypt($checkoutResponseContent, $encryptionKey, $ivKey);
     @endphp
     <h1 class="text-3xl font-bold underline">
         Success

@@ -17,7 +17,11 @@ class Setting extends Model
         'desc',
         'desc_ar',
         'logo_id',
-        'bg_id'
+        'bg_id',
+        'ACCESS_CODE',
+        'MERCHANT_SECRET_KEY',
+        'MERCHANT_IV',
+        'MERCHANT_CODE'
     ];
     public function logo(): BelongsTo
     {
