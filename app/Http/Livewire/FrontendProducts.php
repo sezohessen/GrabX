@@ -112,7 +112,6 @@ class FrontendProducts extends Component
         $maxQty              = Product::find($id)->availabe_qty;
         $ip                  = FacadesRequest::ip();
         $cart                = Cart::where('ip', $ip)->first();
-        $CartItem            = CartItem::where('product_id',$id)->first();
         if($CartItem->qty < $maxQty)
         {
             // increment total qty
