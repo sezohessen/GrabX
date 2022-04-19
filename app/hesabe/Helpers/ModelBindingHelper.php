@@ -44,16 +44,27 @@ class ModelBindingHelper extends Model
     {
 
         $this->hesabeCheckoutRequestModel->amount               = $request['amount'];
-        $this->hesabeCheckoutRequestModel->currency             = $request['currency'];
-        $this->hesabeCheckoutRequestModel->paymentType          = $request['paymentType'];
-        $this->hesabeCheckoutRequestModel->orderReferenceNumber = $request['orderReferenceNumber'];
+        $this->hesabeCheckoutRequestModel->currency             = 'KWD';
+        $this->hesabeCheckoutRequestModel->paymentType          = 0;
         $this->hesabeCheckoutRequestModel->version              = $request['version'];
-        $this->hesabeCheckoutRequestModel->variable1            = $request['variable1'];
-        $this->hesabeCheckoutRequestModel->variable2            = $request['variable2'];
-        $this->hesabeCheckoutRequestModel->variable3            = $request['variable3'];
-        $this->hesabeCheckoutRequestModel->variable4            = $request['variable4'];
-        $this->hesabeCheckoutRequestModel->variable5            = $request['variable5'];
-        $this->hesabeCheckoutRequestModel->merchantCode         = $request['merchantCode'];
+        $this->hesabeCheckoutRequestModel->name                 = $request['name'];
+        $this->hesabeCheckoutRequestModel->phone                = $request['phone'];
+        if($request['email'])$this->hesabeCheckoutRequestModel->email                = $request['email'];
+        if($request['type']==1){
+            $this->hesabeCheckoutRequestModel->type                 = $request['type'];
+            $this->hesabeCheckoutRequestModel->governorate_id       = $request['governorate_id'];
+            $this->hesabeCheckoutRequestModel->city_id              = $request['city_id'];
+            $this->hesabeCheckoutRequestModel->unit_type            = $request['unit_type'];
+            $this->hesabeCheckoutRequestModel->street               = $request['street'];
+            $this->hesabeCheckoutRequestModel->house_num            = $request['house_num'];
+            if($request['special_direction'])$this->hesabeCheckoutRequestModel->special_direction              = $request['special_direction'];
+        }else{
+            $this->hesabeCheckoutRequestModel->type                 = $request['type'];
+            $this->hesabeCheckoutRequestModel->make                 = $request['make'];
+            $this->hesabeCheckoutRequestModel->color                = $request['color'];
+            if($request['license'])$this->hesabeCheckoutRequestModel->license              = $request['license'];
+        }
+        $this->hesabeCheckoutRequestModel->merchantCode         = Constants::MERCHANT_CODE;
         $this->hesabeCheckoutRequestModel->responseUrl          = url('success-payment');
         $this->hesabeCheckoutRequestModel->failureUrl           = url('failed-payment');
         return $this->hesabeCheckoutRequestModel;

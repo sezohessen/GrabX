@@ -14,13 +14,12 @@
     @endif
 </head>
 <body>
+    {{-- @inject('paymentController', 'App\hesabe\Controllers\PaymentController'); --}}
     @php
-        require_once(app_path().'/hesabe/Models/HesabeCheckoutResponseModel.php');
-        use Models\HesabeCheckoutResponseModel;
-        $test = new HesabeCheckoutResponseModel();
+        /* $paymentController->getCheckoutResponse(); */
     @endphp
     <h1 class="text-3xl font-bold underline">
-
+        Success
     </h1>
 
     {{-- tailwind css --}}

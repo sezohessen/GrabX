@@ -8,8 +8,10 @@ require_once(app_path().'/hesabe/Libraries/HesabeCrypt.php');
 
 use App\hesabe\Helpers\ModelBindingHelper as HelpersModelBindingHelper;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PaymentRequest;
 use Constants;
 use HesabeCrypt;
+use Illuminate\Http\Request;
 use Models\HesabeCheckoutResponseModel;
 use PaymentHandler;
 
@@ -32,6 +34,7 @@ class PaymentController extends Controller
 
     public function index()
     {
+        dd(1);
         return view('Payment.Payment');
     }
 
@@ -45,19 +48,43 @@ class PaymentController extends Controller
         $this->hesabeCheckoutResponseModel = new HesabeCheckoutResponseModel();
         $this->modelBindingHelper = new HelpersModelBindingHelper();
         $this->hesabeCrypt = new HesabeCrypt();   // instance of Hesabe Crypt library
+        /* New Line */
+        $this->merchantCode = Constants::MERCHANT_CODE;
     }
+
 
     /**
      * This function handles the form request and get the response
      *
      * @return void
      */
-    public function formSubmit()
+    public function formSubmit(Request $request)
     {
+        if($request->type==1){
+            $request->validate([
+                'name'              => 'required|string|max:255',
+                'phone'             => 'required',
+                'email'             => 'nullable|email|max:255',
+                'governorate_id'    => 'required|exists:governorates,id',
+                'city_id'           => 'required|exists:cities,id',
+                'unit_type'         => 'required|between:1,3',
+                'street'            => 'required|max:500',
+                'house_num'         => 'required|max:500',
+                'special_direction' => 'nullable|max:500',
+            ]);
+        }else{
+            $request->validate([
+                'name'              => 'required|string|max:255',
+                'phone'             => 'required',
+                'email'             => 'nullable|email|max:255',
+                'make'              => 'required',
+                'color'             => 'required'
+            ]);
+        }
         if (isset($_POST['submit'])) {
 
             // Initialize the Payment request encryption/decryption library using the Secret Key and IV Key from the configuration
-            $paymentHandler = new PaymentHandler($this->paymentApiUrl, $_POST['merchantCode'], $this->secretKey, $this->ivKey, $this->accessCode);
+            $paymentHandler = new PaymentHandler($this->paymentApiUrl, $this->merchantCode, $this->secretKey, $this->ivKey, $this->accessCode);
 
             // Getting the payment data into request object
             $requestData = $this->modelBindingHelper->getCheckoutRequestData($_POST);
