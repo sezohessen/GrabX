@@ -41,6 +41,7 @@ class CartController extends Controller
                         'cart_id'       => $cart->id,
                         'product_id'    => $product->id,
                         'product_select_option_item_id' => $selectOpition->id,
+                        'copy_num'      => $CopyNum+1
                     ]);
                     $optionTotal+= $selectOpition->price;
                 }
@@ -52,6 +53,7 @@ class CartController extends Controller
                         'cart_id'       => $cart->id,
                         'product_id'    => $product->id,
                         'product_select_option_item_id' => $selectOpition->id,
+                        'copy_num'      => $CopyNum+1
                     ]);
                     $optionTotal+= $selectOpition->price;
                 }
@@ -64,6 +66,7 @@ class CartController extends Controller
                             'cart_id'       => $cart->id,
                             'product_id'    => $product->id,
                             'product_select_option_item_id' => $selectOpition->id,
+                            'copy_num'      => $CopyNum+1,
                             'qty'           => $select
                         ]);
                         $optionTotal+= ($selectOpition->price * $select);

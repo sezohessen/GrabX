@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Governorate;
 use App\Models\Product;
 use App\Models\ProductSelectOption;
 use App\Models\ProductSelectOptionItem;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Request as FacadesRequest;
 
 class ProductController extends Controller
 {
@@ -24,16 +26,11 @@ class ProductController extends Controller
         // dd($selectOptionOneSelect);
         return view('Frontend.Product',compact('product','selectOptionOneSelect','selectOptionMultipleSelect','selectOptionAdditionalSelect',));
     }
-
-    public function OrderDetails()
-    {
-       return view('Frontend.OrderDetails');
-    }
-
     public function BuyerDetails()
     {
-        $governorates = Governorate::all();
-
-        return view('Frontend.BuyerDetails',compact('governorates'));
+        $ip             = FacadesRequest::ip();
+        $governorates   = Governorate::all();
+        $cart           = Cart::where('ip',$ip)->first();
+        return view('Frontend.BuyerDetails',compact('governorates','cart'));
     }
 }

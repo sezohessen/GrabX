@@ -113,18 +113,30 @@
     </div>
     <hr class="order-hr">
     <div class="container-fluid">
+        @if ($cart->discount)
+        <div class="row text-muted mt-2">
+            <div class="col-md-8">
+                <span>@lang('Discount')</span>
+            </div>
+            <div class="col-md-4">
+                <span>{{ (($cart->discount /100) * $cart->subtotal) }} @lang('KWD')</span>
+            </div>
+        </div>
+        @endif
         <div class="row font-weight-bold mt-2">
             <div class="col-md-8">
                 <span>@lang('Subtotal')</span>
             </div>
             <div class="col-md-4">
-                <span>{{ $cart->subtotal }} @lang('KWD')</span>
+                <span>{{ $cart->subtotal - (($cart->discount /100) * $cart->subtotal) }} @lang('KWD')</span>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="mt-4 mb-2">
-                    <button class="w-100 btn btn-danger btn-lg">@lang('Go to checkout')</button>
+                    <a href="{{ route('tenant.BuyerDetails') }}">
+                        <button class="w-100 btn btn-danger btn-lg">@lang('Go to checkout')</button>
+                    </a>
                 </div>
             </div>
         </div>

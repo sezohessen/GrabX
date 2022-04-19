@@ -14,9 +14,13 @@
     @endif
 </head>
 <body>
-
+    @php
+        require_once(app_path().'/hesabe/Models/HesabeCheckoutResponseModel.php');
+        use Models\HesabeCheckoutResponseModel;
+        $test = new HesabeCheckoutResponseModel();
+    @endphp
     <h1 class="text-3xl font-bold underline">
-        success-payment
+
     </h1>
 
     {{-- tailwind css --}}

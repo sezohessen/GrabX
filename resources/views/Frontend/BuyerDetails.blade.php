@@ -79,7 +79,7 @@
                             </div>
                             <div class="col-md-8">
                                 <!-- Select -->
-                                <select required name="governorate_id" class="gover" id="select-beast"
+                                <select required name="governorate_id" class="gover" id="select-beast" name="governorate_id"
                                     placeholder="{{ __('Select governorate') }}" autocomplete="off">
                                     <option class="option1" value=""> {{ __('Select governorate') }}</option>
                                     @foreach ($governorates as $governorate )
@@ -103,8 +103,8 @@
                             </div>
                             <div class="col-md-8">
                                 <!-- Select -->
-                                <select required class="form-select city" aria-label="Default select example" name="governorate_id" id="" autocomplete="off">
-                                    <option selected  value=""> {{ __('Select governoratef first') }}</option>
+                                <select required class="form-select city" aria-label="Default select example" name="city_id" id="" autocomplete="off">
+                                    <option selected  value=""> {{ __('Select governorate first') }}</option>
                                 </select>
                                 @error('category_id')
                                 <div class="alert alert-danger mt-2">{{ $message }}</div>
@@ -119,13 +119,13 @@
                             </div>
                             <div class="col-sm-8">
                                 <div class="btn-group"  role="group" aria-label="Basic radio toggle button group">
-                                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                                    <input type="radio" class="btn-check" name="unit_type" id="btnradio1" autocomplete="off" value="1" checked>
                                     <label class="btn checkbox-button" for="btnradio1"> @lang('House') </label>
 
-                                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                                    <input type="radio" class="btn-check" name="unit_type" id="btnradio2" autocomplete="off" value="2">
                                     <label class="btn checkbox-button" for="btnradio2">@lang('Apartment')  </label>
 
-                                    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                                    <input type="radio" class="btn-check" name="unit_type" id="btnradio3" autocomplete="off" value="3">
                                     <label class="btn checkbox-button" for="btnradio3">@lang('Office') </label>
                                   </div>
                             </div>
@@ -138,7 +138,7 @@
                                 <label for="departmentLabel" class="col-form-label form-label">@lang('Street')</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" name="department" id="departmentLabel"
+                                <input type="text" class="form-control" name="street" id="departmentLabel"
                                     placeholder="@lang('Street name')" aria-label="Your department">
                             </div>
                         </div>
@@ -150,7 +150,7 @@
                                 <label class="col-form-label form-label">@lang('Unit number')</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" name="department" id="departmentLabel"
+                                <input type="text" class="form-control" name="house_num" id="departmentLabel"
                                     placeholder="@lang("Unit number")" aria-label="Your department">
                             </div>
                         </div>
@@ -166,6 +166,42 @@
                                     <textarea class="form-control" name="" id="floatingTextarea2"
                                         style="height: 100px"></textarea>
                                     <label for="floatingTextarea2">@lang('write your own direction with landmarks')</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container-fluid">
+                            <div class="row text-muted mt-2">
+                                <div class="col-md-8">
+                                    <span>@lang('Deliverly Cost')</span>
+                                </div>
+                                <div class="col-md-4">
+                                    <span id="deliverly">0 </span>@lang('KWD')
+                                </div>
+                            </div>
+                            <div class="row text-muted mt-2">
+                                <div class="col-md-8">
+                                    <span>@lang('Subtotal')</span>
+                                </div>
+                                <div class="col-md-4">
+                                    <span>{{ $cart->subtotal }} @lang('KWD')</span>
+                                </div>
+                            </div>
+                            @if ($cart->discount)
+                            <div class="row text-muted mt-2">
+                                <div class="col-md-8">
+                                    <span>@lang('Discount')</span>
+                                </div>
+                                <div class="col-md-4">
+                                    <span>{{ (($cart->discount /100) * $cart->subtotal) }} @lang('KWD')</span>
+                                </div>
+                            </div>
+                            @endif
+                            <div class="row font-weight-bold mt-2">
+                                <div class="col-md-8">
+                                    <span>@lang('Total')</span>
+                                </div>
+                                <div class="col-md-4">
+                                    <span id="new_value">{{ $cart->total - (($cart->discount /100) * $cart->subtotal)}} </span>@lang('KWD')
                                 </div>
                             </div>
                         </div>
@@ -224,6 +260,34 @@
                                 <div class="col-sm-8">
                                     <input type="text" class="form-control" name="organization" id="organizationLabel"
                                         placeholder="@lang('59881')" aria-label="Your organization" value="">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="row text-muted mt-2">
+                                    <div class="col-md-8">
+                                        <span>@lang('Subtotal')</span>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <span>{{ $cart->subtotal }} @lang('KWD')</span>
+                                    </div>
+                                </div>
+                                @if ($cart->discount)
+                                <div class="row text-muted mt-2">
+                                    <div class="col-md-8">
+                                        <span>@lang('Discount')</span>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <span>{{ (($cart->discount /100) * $cart->subtotal) }} @lang('KWD')</span>
+                                    </div>
+                                </div>
+                                @endif
+                                <div class="row font-weight-bold mt-2">
+                                    <div class="col-md-8">
+                                        <span>@lang('Total')</span>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <span id="new_value">{{ $cart->total - (($cart->discount /100) * $cart->subtotal)}} </span>@lang('KWD')
+                                    </div>
                                 </div>
                             </div>
                             <!-- End Form -->

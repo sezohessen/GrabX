@@ -8,7 +8,7 @@ namespace Models;
  *
  * @author Hesabe
  */
-class HesabeCheckoutResponseModel
+class   HesabeCheckoutResponseModel
 {
     public $status;
     public $code;

@@ -72,7 +72,6 @@ Route::group([
     Route::get('/',[HomePageController::class,'index'])->name('Homepage');
     Route::get('/products/{id}',[HomePageController::class,'show'])->name('CategoryProducts');
     Route::get('/product/{id}',[FrontendProductController::class,'show'])->name('Product');
-    Route::get('/   ',[FrontendProductController::class,'OrderDetails'])->name('OrderDetails');
     Route::get('/your-details',[FrontendProductController::class,'BuyerDetails'])->name('BuyerDetails');
     // Return city value
     Route::get('api/city/{id}',[getCityController::class,'getCity']);
