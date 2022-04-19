@@ -33,6 +33,9 @@
     <link href="https://cdn.jsdelivr.net/npm/tom-select@2.0.1/dist/css/tom-select.css" rel="stylesheet">
     <!-- Styles -->
     <link href="{{ global_asset('css/Frontend/app.css') }}" rel="stylesheet">
+    {{-- Livewire --}}
+    @livewireStyles
+
     {{-- Lang css --}}
     @if (App::isLocale('ar'))
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -163,6 +166,8 @@
     </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="{{ global_asset('js/Frontend/osahan.js') }}"></script>
+    {{-- Livewire --}}
+    @livewireScripts
     {{-- Bootstrap --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     {{-- TomSelect --}}
