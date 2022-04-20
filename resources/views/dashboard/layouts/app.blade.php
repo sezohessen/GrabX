@@ -352,6 +352,12 @@
 
     {{-- Content --}}
     @auth
+    <div class="reponsive-toggle-sidebar">
+        <button type="button" class="js-navbar-vertical-aside-toggle-invoker navbar-aside-toggler" style="opacity: 1;">
+            <i class="bi-arrow-bar-left navbar-toggler-short-align" data-bs-template="<div class=&quot;tooltip d-none d-md-block&quot; role=&quot;tooltip&quot;><div class=&quot;arrow&quot;></div><div class=&quot;tooltip-inner&quot;></div></div>" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Collapse" aria-label="Collapse"></i>
+            <i class="bi-arrow-bar-right navbar-toggler-full-align" data-bs-template="<div class=&quot;tooltip d-none d-md-block&quot; role=&quot;tooltip&quot;><div class=&quot;arrow&quot;></div><div class=&quot;tooltip-inner&quot;></div></div>" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Expand" aria-label="Expand"></i>
+        </button>
+    </div>
     <main id="content" role="main" class="main">
         @endauth
         @yield('content')

@@ -1,22 +1,3 @@
-@section('js')
-    <script>
-    function increaseValue(id) {
-        var value = parseInt(document.getElementById('number_'+id).value, 10);
-        value = isNaN(value) ? 0 : value;
-        value++;
-        document.getElementById('number_'+id).value = value;
-    }
-
-    function decreaseValue(id) {
-        var value = parseInt(document.getElementById('number_'+id).value, 10);
-        value = isNaN(value) ? 0 : value;
-        value < 1 ? value = 1 : '';
-        value--;
-        document.getElementById('number_'+id).value = value;
-    }
-
-    </script>
-@endsection
 <div class="col-md-5">
     <div class="Multiple-group">
         <a  type="button" value="-"  id="decrease" wire:click="decrement({{ $id }})"

@@ -256,5 +256,6 @@
     "Not ordered Yet":"لم يتم الطلب بعد",
     "Order status":"حالة الطلب",
     "Product has been removed":"تم مسح المنتج",
-    "There is no promo code available like this":"لا يوجد خصم لهذا الكود"
+    "There is no promo code available like this":"لا يوجد خصم لهذا الكود",
+    "Payment completed successfully":"تم عملية الدفع بنجاح"
 }

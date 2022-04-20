@@ -28,7 +28,7 @@
     {{-- theme css --}}
     <link href="{{ global_asset('css/Frontend/style.css') }}" rel="stylesheet">
     {{-- Bootstrap --}}
-    
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     {{-- TomSelect --}}
     <link href="https://cdn.jsdelivr.net/npm/tom-select@2.0.1/dist/css/tom-select.css" rel="stylesheet">
@@ -73,7 +73,7 @@
                                         <img alt="logo" class="img-fluid" src="{{ tenant_asset($setting->logo->name) }}">
                                     </a>
                                     @else
-                                    <a href="home.html" class="brand-wrap mb-0">
+                                    <a href="{{ Route('tenant.Homepage') }}" class="brand-wrap mb-0">
                                         <img alt="{{ Route('tenant.Homepage') }}" class="img-fluid" src="{{ global_asset('img/products/164868101991327.jpg') }}">
                                     </a>
                                     @endif

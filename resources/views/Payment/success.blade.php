@@ -29,7 +29,8 @@
     @endphp
     <div class="font-weight-bold text-center mt-4">
         <div class="alert alert-info">
-            <h3>@lang('Order has been sent successfully')</h3>
+            <h2><strong>@lang('Payment completed successfully')</strong></h2>
+            <h4>@lang('Order has been sent')</h4>
             <p>@lang('Track Your Order') <a href="{{ route('tenant.track') }}">@lang('Show')</a></p>
         </div>
     </div>

@@ -202,7 +202,6 @@
         <div class="button-card">
             <x-checkout-button :message="$message"/>
             {{-- button price --}}
-            <span class="cart-items-price">3214123 KDW</span>
         </div>
     </form>
 </div>

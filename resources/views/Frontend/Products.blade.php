@@ -1,5 +1,5 @@
 @extends('Frontend.layouts.app')
 
 @section('content')
-    @livewire('frontend-products')
+    @livewire('frontend-products', ['id' => $category->id])
 @endsection
