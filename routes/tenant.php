@@ -78,6 +78,8 @@ Route::group([
 
     Route::post('/cart/{id}',[CartController::class,'addToCart'])->name('cart.addToCart');
     Route::get('/order',[FrontendOrderController::class,'show'])->name('cart.show');
+    Route::post('/order/delete/{id}/{copy_num}',[FrontendOrderController::class,'delete'])->name('cart.delete');
+    Route::post('/order/promocode',[FrontendOrderController::class,'promo'])->name('Checkpromocode');
     Route::get('/track-order',[TrackOrder::class,'index'])->name('track');
     // Payment
     Route::get('/payment',[PaymentController::class,'index']);

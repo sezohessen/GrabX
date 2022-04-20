@@ -252,5 +252,7 @@
     "Order has been sent successfully":"تم إرسال الطلب بنجاح",
     "Track Your Order":"أتبع طلبك",
     "Not ordered Yet":"لم يتم الطلب بعد",
-    "Order status":"حالة الطلب"
+    "Order status":"حالة الطلب",
+    "Product has been removed":"تم مسح المنتج",
+    "There is no promo code available like this":"لا يوجد خصم لهذا الكود"
 }

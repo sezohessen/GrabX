@@ -48,6 +48,11 @@
             <div class="order-info">
                 <h5>@lang('Order Items')</h5>
             </div>
+            @if (session()->has('delete'))
+                <div class="alert alert-success">
+                    {{ session('delete') }}
+                </div>
+            @endif
         </div>
         <div class="row products">
             @foreach ($cart->products as  $key =>$product)
@@ -74,12 +79,12 @@
                         <p class="text-warning">@lang('Option Deleted')</p>
                     @endif
                 @endforeach
-                <div class="Multiple-group mt-3">
+                {{-- <div class="Multiple-group mt-3">
                     <input type="button" value="+" id="increase" class="button-plus border rounded-circle icon-shape icon-sm " onclick="increaseValue({{ $key }})">
                     <input type="number" id="number_{{ $key }}" value="1" name="quantity" class="quantity-field border-0 text-center" style="width: 30px">
                     <input type="button" value="-" id="decrease" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 "onclick="decreaseValue({{ $key }})">
 
-                </div>
+                </div> --}}
             </div>
             <div class="col-md-4">
                 <p>
@@ -88,7 +93,11 @@
                         @lang('KWD')
                     </strong>
                 </p>
-                <button class="btn btn-light"><span class="text-danger">@lang('Remove')</span></button>
+                <form action="{{ route('tenant.cart.delete',['id'=>$product->id,'copy_num'=>$product->pivot->copy_num]) }}" method="post">
+                    @csrf
+                    @method('POST')
+                    <button class="btn btn-light" type="submit"><span class="text-danger">@lang('Remove')</span></button>
+                </form>
             </div>
             <hr class="my-2">
             @endforeach
@@ -101,15 +110,28 @@
                 <h5>@lang('Promo code')</h5>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-8">
-                <input class="w-100 form-control" type="text" name="promo" id="" placeholder="@lang('Enter code')">
+        @if (session()->has('promo'))
+            <div class="alert alert-success">
+                {{ session('promo') }}
             </div>
-            <div class="col-md-1 xs-hidden"></div>
-            <div class="col-md-3">
-                <button class="btn btn-danger btn-md">@lang('Apply')</button>
+        @endif
+        @if (session()->has('failed'))
+            <div class="alert alert-danger">
+                {{ session('failed') }}
             </div>
-        </div>
+        @endif
+        <form action="{{ route('tenant.Checkpromocode') }}" method="POST">
+            @csrf
+            <div class="row">
+                <div class="col-md-8">
+                    <input class="w-100 form-control" type="text" name="promo" placeholder="@lang('Enter code')">
+                </div>
+                <div class="col-md-1 xs-hidden"></div>
+                <div class="col-md-3">
+                    <button class="btn btn-danger btn-md" type="submit">@lang('Apply')</button>
+                </div>
+            </div>
+        </form>
     </div>
     <hr class="order-hr">
     <div class="container-fluid">
@@ -119,7 +141,7 @@
                 <span>@lang('Discount')</span>
             </div>
             <div class="col-md-4">
-                <span>{{ (($cart->discount /100) * $cart->subtotal) }} @lang('KWD')</span>
+                <span>({{ $cart->discount }}%){{ (($cart->discount /100) * $cart->subtotal) }} @lang('KWD')</span>
             </div>
         </div>
         @endif
