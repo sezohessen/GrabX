@@ -307,5 +307,6 @@ input[type="radio"]:checked + label {
     font-size: small;
 }
 input[type="radio"]:checked + label{
-    background-color: var(--second-color);
+    background-color: #dc3545;
+    border: 1px solid #dc3545;
 }

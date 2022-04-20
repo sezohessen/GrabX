@@ -18,7 +18,10 @@ return new class extends Migration
             $table->string('company_name')->nullable();
             $table->text('desc')->nullable();
             $table->text('desc_ar')->nullable();
-
+            $table->text('ACCESS_CODE')->nullable();
+            $table->text('MERCHANT_SECRET_KEY')->nullable();
+            $table->text('MERCHANT_IV')->nullable();
+            $table->text('MERCHANT_CODE')->nullable();
             $table->bigInteger('logo_id')->unsigned()->nullable();
             $table->foreign('logo_id')
             ->references('id')->on('images')

@@ -21,6 +21,7 @@ return new class extends Migration
             ->references('id')->on('orders')
             ->onDelete('cascade')
             ->onUpdate('cascade');
+
             $table->bigInteger('product_id')->unsigned();
             $table->foreign('product_id')
             ->references('id')->on('products')
@@ -28,6 +29,7 @@ return new class extends Migration
             ->onUpdate('cascade');
             $table->integer('qty');
             $table->decimal('price',10,2);
+            $table->integer('subtotal')->nullable();
             $table->integer('copy_num')->default(1);
 
             $table->timestamps();

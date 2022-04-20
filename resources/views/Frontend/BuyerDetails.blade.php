@@ -82,7 +82,7 @@
 
 </script>
 @endsection
-
+@inject('paymentController', 'App\hesabe\Controllers\PaymentController')
 @section('content')
     @livewire('order-type')
 @endsection

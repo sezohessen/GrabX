@@ -20,7 +20,7 @@ use Symfony\Component\Console\Input\Input;
 use Symfony\Component\Console\Input\InputOption;
 use App\hesabe\Controllers\PaymentController;
 use App\hesabe\Helpers\ModelBindingHelper;
-
+use App\Http\Controllers\Frontend\TrackOrder;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,7 +79,7 @@ Route::group([
 
     Route::post('/cart/{id}',[CartController::class,'addToCart'])->name('cart.addToCart');
     Route::get('/order',[FrontendOrderController::class,'show'])->name('cart.show');
-
+    Route::get('/track-order',[TrackOrder::class,'index'])->name('track');
     // Payment
     Route::get('/payment',[PaymentController::class,'index']);
     Route::post('/payment-submit',[PaymentController::class,'formSubmit'])->name('payment-submit');
