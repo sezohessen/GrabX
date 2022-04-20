@@ -311,3 +311,33 @@ input[type="radio"]:checked + label{
     background-color: #dc3545;
     border: 1px solid #dc3545;
 }
+.search-result{
+    position: absolute;
+    width: 100%;
+    margin-top: 4px;
+    background-color: #f3f3f3;
+    z-index: 99;
+}
+.search-result ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.search-result ul li{
+    border-bottom: 1px solid #e1d8d8;
+    padding: 4px;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    transition: .5s;
+}
+.search-result ul li:hover{
+    background: #757F9A;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #D7DDE8, #757F9A);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #D7DDE8, #757F9A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.search-result ul li:hover a{
+    color: black;
+}
+.search-result ul li img{
+    max-width: 40px;
+}
