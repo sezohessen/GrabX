@@ -16,7 +16,7 @@ class ProductController extends Controller
 {
     public function show($id)
     {
-        $product                       = Product::find($id);
+        $product                       = Product::findOrFail($id);
         // Select option name & type
         $selectOptionOneSelect         = ProductSelectOption::where('product_id',$id)->where('type',1)->get();
         $selectOptionMultipleSelect    = ProductSelectOption::where('product_id',$id)->where('type',2)->get();

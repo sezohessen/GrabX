@@ -15,7 +15,7 @@ class OrderController extends Controller
     {
         $ip      = FacadesRequest::ip();
         $cart    = Cart::where('ip',$ip)->first();
-        $isExist = CartItem::where('cart_id',$cart->id)->get()->count();
+        $isExist = $cart ? CartItem::where('cart_id',$cart->id)->get()->count() : NULL;
         return view('Frontend.order',compact('cart','isExist'));
     }
     public function delete($id,$copy_num)

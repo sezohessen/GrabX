@@ -7,12 +7,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Request as FacadesRequest;
 class TrackOrder extends Controller
 {
-    public function index()
+    public function index($id)
     {
         $ip     = FacadesRequest::ip();
         $order  = Order::where('ip',$ip)
-        ->whereIn('status',  [Order::Pending,Order::OnWay])
+        ->where('id', $id)
         ->first();
-        return view('Frontend.track',compact('order'));
+
+        return ($order) ? view('Frontend.track',compact('order')) : redirect()->route('tenant.Homepage');
     }
 }

@@ -13,13 +13,13 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         /* $this->call(UserSeeder::class); */
-        $this->call(GovernorateSeeder::class);
+/*         $this->call(GovernorateSeeder::class);
         $this->call(ImageSeeder::class);
         $this->call(CategorySeeder::class);
         $this->call(CountryCodeSeeder::class);
         $this->call(PromoCodeSeeder::class);
         $this->call(OrderSeeder::class);
-        $this->call(GuestIpSeeder::class);
+        $this->call(GuestIpSeeder::class); */
         $this->call(SettingSeeder::class);
     }
 }

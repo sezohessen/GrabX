@@ -257,5 +257,8 @@
     "Order status":"حالة الطلب",
     "Product has been removed":"تم مسح المنتج",
     "There is no promo code available like this":"لا يوجد خصم لهذا الكود",
-    "Payment completed successfully":"تم عملية الدفع بنجاح"
+    "Payment completed successfully":"تم عملية الدفع بنجاح",
+    "There are no categories yet":"لا توجد تصنيفات بعد",
+    "Come back later":"عد بعد فترة",
+    "Search":"ابحث"
 }

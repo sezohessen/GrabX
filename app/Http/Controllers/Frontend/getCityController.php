@@ -25,7 +25,7 @@ class getCityController extends Controller
 
     public function deliverlyCost($id)
     {
-        $city                 = City::find($id);
+        $city                 = City::findOrFail($id);
         $ip                   = FacadesRequest::ip();
         $discount             = Cart::where('ip',$ip)->first()->pluck('discount');
         $subtotal             = Cart::where('ip',$ip)->first()->pluck('subtotal');

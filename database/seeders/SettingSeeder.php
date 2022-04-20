@@ -21,13 +21,11 @@ class SettingSeeder extends Seeder
         $logo       = Image::where('base', Setting::logo)->get();
         $bg         = Image::where('base', Setting::bg)->get();
         DB::table('settings')->insert([
-            'company_name'      => $faker->name,
-            'desc'              => $faker->text,
-            'desc_ar'           => $faker->text,
-            // 'logo_id'           => $logo->random()->id,
-            // 'bg_id'             => $bg->random()->id,
-            // 'created_at'        => now(),
+            'company_name'      => tenant('company'),
+            'desc'              => '',
+            'desc_ar'           => '',
             'updated_at'        => now(),
+            'created_at'        => now()
         ]);
     }
 }

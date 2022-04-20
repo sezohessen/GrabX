@@ -68,7 +68,7 @@
                         <div class="container">
                             <div class="row align-items-center">
                                 <div class="col-1">
-                                    @if($setting->logo)
+                                    @if(isset($setting->logo))
                                     <a href="{{ Route('tenant.Homepage') }}" class="brand-wrap mb-0">
                                         <img alt="logo" class="img-fluid" src="{{ tenant_asset($setting->logo->name) }}">
                                     </a>
@@ -81,11 +81,11 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div>
-                                        <h6><a href="{{ Route('tenant.Homepage') }}">{{ $setting->company_name }}</a></h6>
+                                        <h6><a href="{{ Route('tenant.Homepage') }}">{{ isset($setting->company_name) ? $setting->company_name : tenant('company') }}</a></h6>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <input type="search" class="form-control form-control" placeholder="Search..."
+                                    <input type="search" class="form-control form-control" placeholder="@lang('Search')"
                                         aria-label="Search">
                                 </div>
                                 <div class="col-md-1"></div>
@@ -113,7 +113,7 @@
             </div>
 
             <div class="col-md-7">
-                @if($setting->bg_id)
+                @if(isset($setting->bg_id))
                 <div class="background-img">
                     <img src="{{ tenant_asset($setting->background->name) }}" class="img-fluid" alt="background-image">
                 </div>
