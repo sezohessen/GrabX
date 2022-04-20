@@ -73,8 +73,9 @@ Route::group([
     Route::get('/products/{id}',[HomePageController::class,'show'])->name('CategoryProducts');
     Route::get('/product/{id}',[FrontendProductController::class,'show'])->name('Product');
     Route::get('/your-details',[FrontendProductController::class,'BuyerDetails'])->name('BuyerDetails');
-    // Return city value
+    // [API] Return city value
     Route::get('api/city/{id}',[getCityController::class,'getCity']);
+    Route::get('api/deliverlyCost/{id}',[getCityController::class,'deliverlyCost']);
 
     Route::post('/cart/{id}',[CartController::class,'addToCart'])->name('cart.addToCart');
     Route::get('/order',[FrontendOrderController::class,'show'])->name('cart.show');
