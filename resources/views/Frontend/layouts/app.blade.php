@@ -61,7 +61,7 @@
     {{-- big screen Aside --}}
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-5 frontend-content">
+            <div class="col-md-5 col-sm-6 frontend-content">
                 {{-- website navbar --}}
                 <header class="section-header">
                     <section class="header-main shadow-sm bg-white" style="padding: 4px 0">
@@ -171,7 +171,7 @@
                     </div>
                 </div>
                 {{-- tablet Aside --}}
-                <div class="tablet-aside"ap>
+                <div class="tablet-aside">
                     <div class="d-flex flex-row justify-content-around align-items-center">
                         <div class="logo">
                             @if(isset($setting->logo))
@@ -189,8 +189,6 @@
                                 <h6><a href="{{ Route('tenant.Homepage') }}">{{ isset($setting->company_name) ? $setting->company_name : tenant('company') }}</a></h6>
                             </div>
                         </div>
-                    </div>
-                    <div class="d-flex flex-row justify-content-around align-items-center">
                         <div class="search">
                             @livewire('search')
                         </div>
@@ -200,7 +198,7 @@
                 @yield('content')
             </div>
 
-            <div class="col-md-7" id="background-section">
+            <div class="col-md-7 col-sm-6" id="background-section">
                 @if(isset($setting->bg_id))
                 <div class="background-img">
                     <img src="{{ tenant_asset($setting->background->name) }}" class="img-fluid" alt="background-image">
