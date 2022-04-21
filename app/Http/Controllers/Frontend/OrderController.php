@@ -29,6 +29,7 @@ class OrderController extends Controller
         if($cartItem){
             $productPrice   = ($cartItem->subtotal + $cartItem->price) * $cartItem->qty;
             $cart->subtotal-= $productPrice;
+            $discount = 0;
             if($cart->discount){
                 $discount = ($cart->discount/100) * $cart->subtotal;
             }

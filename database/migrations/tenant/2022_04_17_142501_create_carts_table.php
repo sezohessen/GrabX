@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('ip');
             $table->integer('discount')->nullable();
-            $table->integer('subtotal');
-            $table->integer('total');
+            $table->decimal('subtotal',10,2);
+            $table->decimal('total',10,2);
             $table->timestamps();
         });
     }

@@ -9,11 +9,14 @@ require_once(app_path().'/hesabe/Libraries/HesabeCrypt.php');
 use App\hesabe\Helpers\ModelBindingHelper as HelpersModelBindingHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PaymentRequest;
+use App\Models\Cart;
+use App\Models\Payment;
 use Constants;
 use HesabeCrypt;
 use Illuminate\Http\Request;
 use Models\HesabeCheckoutResponseModel;
 use PaymentHandler;
+use Illuminate\Support\Facades\Request as FacadesRequest;
 
 /**
  * This Class handles the form request to the checkout controller
@@ -40,11 +43,11 @@ class PaymentController extends Controller
 
     public function __construct()
     {
-        $this->paymentApiUrl = Constants::PAYMENT_API_URL;
+        $this->paymentApiUrl        = Constants::PAYMENT_API_URL;
         // Get all three values from Merchant Panel, Profile section
-        $this->secretKey = Constants::MERCHANT_SECRET_KEY;  // Use Secret key
-        $this->ivKey = Constants::MERCHANT_IV;              // Use Iv Key
-        $this->accessCode = Constants::ACCESS_CODE;         // Use Access Code
+        $this->secretKey            = Constants::MERCHANT_SECRET_KEY;  // Use Secret key
+        $this->ivKey                = Constants::MERCHANT_IV;              // Use Iv Key
+        $this->accessCode           = Constants::ACCESS_CODE;         // Use Access Code
         $this->hesabeCheckoutResponseModel = new HesabeCheckoutResponseModel();
         $this->modelBindingHelper = new HelpersModelBindingHelper();
         $this->hesabeCrypt = new HesabeCrypt();   // instance of Hesabe Crypt library
@@ -82,11 +85,47 @@ class PaymentController extends Controller
             ]);
         }
         if (isset($_POST['submit'])) {
-
             // Initialize the Payment request encryption/decryption library using the Secret Key and IV Key from the configuration
             $paymentHandler = new PaymentHandler($this->paymentApiUrl, $this->merchantCode, $this->secretKey, $this->ivKey, $this->accessCode);
 
             // Getting the payment data into request object
+            $ip         = FacadesRequest::ip();
+            $cart       = Cart::where('ip',$ip)->first();
+            if($_POST['type']==1){
+                $payment    = Payment::create([
+                    'status'        => Payment::Pending,
+                    'amount'        => $_POST['amount'],
+                    'deliverly_cost'=> $_POST['deliverly_cost'],
+                    'total'         => $cart->total,
+                    'name'          => $_POST['name'],
+                    'ip'            => $ip,
+                    'phone'         => $_POST['phone'],
+                    'email'         => $_POST['email'] ? $_POST['email'] : NULL,
+                    'type'          => $_POST['type'],
+                    'governorate_id'=> $_POST['governorate_id'],
+                    'city_id'       => $_POST['city_id'],
+                    'unit_type'     => $_POST['unit_type'],
+                    'street'        => $_POST['street'],
+                    'house_num'     => $_POST['house_num'],
+                    'special_direction' => $_POST['special_direction'] ? $_POST['special_direction']: NULL,
+                ]);
+            }else{
+                $payment    = Payment::create([
+                    'status'        => Payment::Pending,
+                    'amount'        => $_POST['amount'],
+                    'total'         => $cart->total,
+                    'name'          => $_POST['name'],
+                    'ip'            => $ip,
+                    'phone'         => $_POST['phone'],
+                    'email'         => $_POST['email'] ? $_POST['email'] : NULL,
+                    'type'          => $_POST['type'],
+                    'make'          => $_POST['make'],
+                    'color'         => $_POST['color'],
+                    'license'       => $_POST['license'] ? $_POST['license']: NULL,
+                ]);
+            }
+
+            $_POST['payment_id'] = $payment->id;
             $requestData = $this->modelBindingHelper->getCheckoutRequestData($_POST);
 
             // POST the requested object to the checkout API and receive back the response
@@ -152,7 +191,6 @@ class PaymentController extends Controller
 
         //De-serialize the decrypted response
         $decryptResponseData = json_decode($decryptResponse, true);
-
         //Binding the decrypted response data to the entity model
         $decryptedResponse = $this->modelBindingHelper->getPaymentResponseData($decryptResponseData);
 
@@ -177,10 +215,9 @@ class PaymentController extends Controller
 
         // De-serialize the JSON string into an object
         $decryptResponseData = json_decode($decryptResponse, true);
-
         //Binding the decrypted response data to the entity model
-        $decryptedResponse = $this->modelBindingHelper->getCheckoutResponseData($decryptResponseData);
 
+        $decryptedResponse = $this->modelBindingHelper->getCheckoutResponseData($decryptResponseData);
         //return encrypted and decrypted data
         return [$response , $decryptedResponse];
     }

@@ -29,7 +29,7 @@
         <div class="alert alert-info">
             <h2><strong>@lang('Payment completed successfully')</strong></h2>
             <h4>@lang('Order has been sent')</h4>
-            <p>@lang('Track Your Order') <a href="{{ route('tenant.track',['id' => 1/* Order ID */]) }}">@lang('Show')</a></p>
+            <p>@lang('Track Your Order') <a href="{{ route('tenant.track',['id' => $ID]) }}">@lang('Show')</a></p>
         </div>
     </div>
 </div>

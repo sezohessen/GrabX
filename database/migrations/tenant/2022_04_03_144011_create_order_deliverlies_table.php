@@ -39,7 +39,7 @@ return new class extends Migration
             $table->integer('unit_type');
             $table->text('street');
             $table->text('house_num');
-            $table->text('special_direction');
+            $table->text('special_direction')->nullable();
 
 
             $table->timestamps();

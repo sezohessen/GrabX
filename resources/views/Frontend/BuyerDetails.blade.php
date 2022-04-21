@@ -72,7 +72,8 @@
                         total.innerHTML    = subtotal.innerHTML;
                         console.log('there is no discount');
                     }
-                    $('#paymentForm').append(`<input hidden name="amount" id="amount" value="`+ total.innerHTML +`">`);
+                    $('#paymentForm').html(`<input hidden name="amount" id="amount" value="`+ total.innerHTML +`">`);
+                    $('#deliverly').append(`<input hidden name="deliverly_cost" id="deliverly_cost" value="`+ data.city.deliverly_cost +`">`);
                 }
             )
 
@@ -111,7 +112,7 @@
                 <!-- Body -->
                 <div class="card-body">
                     <!-- Form -->
-                    <form action="{{ route('tenant.payment-submit') }}" class="form" method="post" id="paymentForm" >
+                    <form action="{{ route('tenant.payment-submit') }}" class="form" method="post" >
                         @csrf
                         @method('POST')
                         <input hidden name="type" value="1">
@@ -270,6 +271,7 @@
                                 <div class="col-md-4" id="deliverly">
                                     <span > 0 @lang('KWD')</span>
                                 </div>
+
                             </div>
                             <div class="row text-muted mt-2">
                             @if($cart->discount)
@@ -310,7 +312,9 @@
                             <div class="row font-weight-bold mt-2">
                                 <div class="col-md-8">
                                     <span>@lang('Total')</span>
+                                    <div id="paymentForm"></div>
                                 </div>
+
                                 <div class="col-md-4">
                                     <span id="new_value">{{ $cart->subtotal - (($cart->discount /100) * $cart->subtotal)}} </span>
                                     <span> @lang('KWD') </span>
@@ -338,7 +342,7 @@
         <div class="col-md-12">
             <div class="collapse multi-collapse" id="multiCollapseExample2">
                 <div class="card-body">
-                    <form action="{{ route('tenant.payment-submit') }}" class="form" method="post" id="paymentForm">
+                    <form action="{{ route('tenant.payment-submit') }}" class="form" method="post" >
                         @csrf
                         @method('POST')
                         <input hidden name="type" value="2">

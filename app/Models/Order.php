@@ -42,6 +42,7 @@ class Order extends Model
         'deliverly',
         'discount',
         'subtotal',
+        'deliverly_cost',
         'total',
         'status'
     ];
@@ -67,7 +68,7 @@ class Order extends Model
      */
     public function products()
     {
-        return $this->belongsToMany(Product::class, 'order_items')->withPivot(["price",'qty','copy_num']);
+        return $this->belongsToMany(Product::class, 'order_items')->withPivot(["price",'qty','copy_num','subtotal']);
     }
 
 }

@@ -6,6 +6,7 @@ require_once(app_path().'/hesabe/Models/HesabeCheckoutRequestModel.php');
 require_once(app_path().'/hesabe/Models/HesabeCheckoutResponseModel.php');
 require_once(app_path().'/hesabe/Models/HesabePaymentResponseModel.php');
 
+use App\hesabe\Controllers\PaymentController;
 use Constants;
 use Illuminate\Contracts\Routing\UrlGenerator;
 use Illuminate\Database\Eloquent\Model;
@@ -47,23 +48,7 @@ class ModelBindingHelper extends Model
         $this->hesabeCheckoutRequestModel->currency             = 'KWD';
         $this->hesabeCheckoutRequestModel->paymentType          = 0;
         $this->hesabeCheckoutRequestModel->version              = $request['version'];
-        $this->hesabeCheckoutRequestModel->name                 = $request['name'];
-        $this->hesabeCheckoutRequestModel->phone                = $request['phone'];
-        if($request['email'])$this->hesabeCheckoutRequestModel->email                = $request['email'];
-        if($request['type']==1){
-            $this->hesabeCheckoutRequestModel->type                 = $request['type'];
-            $this->hesabeCheckoutRequestModel->governorate_id       = $request['governorate_id'];
-            $this->hesabeCheckoutRequestModel->city_id              = $request['city_id'];
-            $this->hesabeCheckoutRequestModel->unit_type            = $request['unit_type'];
-            $this->hesabeCheckoutRequestModel->street               = $request['street'];
-            $this->hesabeCheckoutRequestModel->house_num            = $request['house_num'];
-            if($request['special_direction'])$this->hesabeCheckoutRequestModel->special_direction              = $request['special_direction'];
-        }else{
-            $this->hesabeCheckoutRequestModel->type                 = $request['type'];
-            $this->hesabeCheckoutRequestModel->make                 = $request['make'];
-            $this->hesabeCheckoutRequestModel->color                = $request['color'];
-            if($request['license'])$this->hesabeCheckoutRequestModel->license              = $request['license'];
-        }
+        $this->hesabeCheckoutRequestModel->variable1            = $request['payment_id'];
         $this->hesabeCheckoutRequestModel->merchantCode         = Constants::MERCHANT_CODE;
         $this->hesabeCheckoutRequestModel->responseUrl          = url('success-payment');
         $this->hesabeCheckoutRequestModel->failureUrl           = url('failed-payment');
@@ -97,24 +82,19 @@ class ModelBindingHelper extends Model
      */
     public function getPaymentResponseData($data)
     {
-        $this->hesabeCheckoutResponseModel->status = $data['status'];
-        $this->hesabeCheckoutResponseModel->code = $data['code'];
-        $this->hesabeCheckoutResponseModel->message = $data['message'];
 
-        $this->hesabePaymentResponseModel->resultCode = $data['response']['resultCode'];
-        $this->hesabePaymentResponseModel->amount = $data['response']['amount'];
+        $this->hesabeCheckoutResponseModel->status      = $data['status'];
+        $this->hesabeCheckoutResponseModel->code        = $data['code'];
+        $this->hesabeCheckoutResponseModel->message     = $data['message'];
+
+        $this->hesabePaymentResponseModel->resultCode   = $data['response']['resultCode'];
+        $this->hesabePaymentResponseModel->amount       = $data['response']['amount'];
         $this->hesabePaymentResponseModel->paymentToken = $data['response']['paymentToken'];
-        $this->hesabePaymentResponseModel->paymentId = $data['response']['paymentId'];
-        $this->hesabePaymentResponseModel->paidOn = $data['response']['paidOn'];
-        $this->hesabePaymentResponseModel->orderReferenceNumber = $data['response']['orderReferenceNumber'];
-        $this->hesabePaymentResponseModel->variable1 = $data['response']['variable1'];
-        $this->hesabePaymentResponseModel->variable2 = $data['response']['variable2'];
-        $this->hesabePaymentResponseModel->variable3 = $data['response']['variable3'];
-        $this->hesabePaymentResponseModel->variable4 = $data['response']['variable4'];
-        $this->hesabePaymentResponseModel->variable5 = $data['response']['variable5'];
-        $this->hesabePaymentResponseModel->method = $data['response']['method'];
+        $this->hesabePaymentResponseModel->paymentId    = $data['response']['paymentId'];
+        $this->hesabePaymentResponseModel->paidOn       = $data['response']['paidOn'];
+        $this->hesabePaymentResponseModel->method       = $data['response']['method'];
         $this->hesabePaymentResponseModel->administrativeCharge = $data['response']['administrativeCharge'];
-
+        $this->hesabePaymentResponseModel->variable1    = $data['response']['variable1'];
         //Get Payment response array.
         $this->hesabeCheckoutResponseModel->response = $this->hesabePaymentResponseModel->getVariables();
         return $this->hesabeCheckoutResponseModel;

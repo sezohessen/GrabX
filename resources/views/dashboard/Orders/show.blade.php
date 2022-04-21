@@ -71,7 +71,7 @@
 
                                 </div>
                                 <div class="col-md-3">
-                                    <h6>@lang('Price per unit')</h6><span class="text-success">{{ $product->pivot->price }} @lang('KWD')</span>
+                                    <h6>@lang('Price per unit')</h6><span>{{ $product->pivot->price + $product->pivot->subtotal}} @lang('KWD') ({{ $product->pivot->qty }})</span>
                                 </div>
                             </div>
                             <hr class="my-1">

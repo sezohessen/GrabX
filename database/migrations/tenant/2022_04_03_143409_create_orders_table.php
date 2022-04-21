@@ -22,10 +22,10 @@ return new class extends Migration
             $table->boolean('pickup')->nullable();
             $table->boolean('deliverly')->nullable();
             $table->integer('discount')->nullable();
-            $table->integer('subtotal');
-            $table->integer('deliverly_cost');
-            $table->integer('total');
+            $table->decimal('subtotal',10,2);
+            $table->decimal('deliverly_cost',10,2);
             $table->integer('status');
+            $table->decimal('total',10,2);
             $table->timestamps();
         });
     }

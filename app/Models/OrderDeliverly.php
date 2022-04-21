@@ -13,7 +13,6 @@ class OrderDeliverly extends Model
         'order_id',
         'governorate_id',
         'city_id',
-        'deliverly_cost',
         'unit_type',
         'street',
         'house_num',

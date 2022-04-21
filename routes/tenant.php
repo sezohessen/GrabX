@@ -21,6 +21,8 @@ use Symfony\Component\Console\Input\InputOption;
 use App\hesabe\Controllers\PaymentController;
 use App\hesabe\Helpers\ModelBindingHelper;
 use App\Http\Controllers\Frontend\TrackOrder;
+use App\hesabe\Controllers\SuccessPaymentController;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -88,7 +90,7 @@ Route::group([
     Route::post('/payment-checkout',[ModelBindingHelper::class,'getCheckoutResponseData'])->name('payment-checkout');
 
     // Payment response
-    Route::get('/success-payment',function(){return view('Payment.success');});
+    Route::get('/success-payment',[SuccessPaymentController::class,'success'])->name('payment.success');
     Route::get('/failed-payment',function(){return 'failed payment';});
 });
 
