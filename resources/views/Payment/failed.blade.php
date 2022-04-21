@@ -21,10 +21,10 @@
 </div>
 <div class="container-fluid">
     <div class="font-weight-bold text-center mt-4">
-        <div class="alert alert-info">
-            <h2><strong>@lang('Payment completed successfully')</strong></h2>
-            <h4>@lang('Order has been sent')</h4>
-            <p>@lang('Track Your Order') <a href="{{ route('tenant.track',['id' => $ID]) }}">@lang('Show')</a></p>
+        <div class="alert alert-danger">
+            <h2><strong>@lang('Payment failed')</strong></h2>
+            <h4>@lang('Please try again')</h4>
+            <p><a href="{{ route('tenant.cart.show') }}">@lang('View Cart')</a></p>
         </div>
     </div>
 </div>

@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\hesabe\Controllers\FailedPaymentController;
 use App\Http\Controllers\dashboard\CategoryController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -91,7 +92,7 @@ Route::group([
 
     // Payment response
     Route::get('/success-payment',[SuccessPaymentController::class,'success'])->name('payment.success');
-    Route::get('/failed-payment',function(){return 'failed payment';});
+    Route::get('/failed-payment',[FailedPaymentController::class,'failed'])->name('payment.failed');
 });
 
 
