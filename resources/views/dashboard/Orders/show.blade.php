@@ -50,7 +50,7 @@
 
                             <div class="row my-2 mx-2">
                                 <div class="col-md-2">
-                                    <img class="avatar avatar-lg" src="{{ find_image($product->image ,  App\Models\Product::base ) }}" alt="Image Description">
+                                    <img class="" src="{{ find_image($product->image ,  App\Models\Product::base ) }}" alt="Image Description">
                                 </div>
                                 <div class="col-md-7">
                                     <h5 class="text-inherit mb-0">

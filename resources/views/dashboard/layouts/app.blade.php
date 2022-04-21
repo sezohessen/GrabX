@@ -38,6 +38,7 @@
         as="style">
     <link rel="preload" href="{{ global_asset('css/dashboard/theme-dark.min.css') }}" data-hs-appearance="dark"
         as="style">
+    <link rel="stylesheet" href="{{ global_asset('css/dashboard/phone.css') }}">
     {{-- select box --}}
 
     {{-- MY CSS --}}
@@ -81,13 +82,13 @@
                     @if ($Setting)
                         @if ($Setting->logo)
                             <a id="dashboard-logo"
-                                class="avatar avatar-xxl avatar-circle avatar-uploader profile-cover-avatar"
+                                class="navbar-vertical-footer avatar avatar-xxl avatar-uploader profile-cover-avatar"
                                 href="./index.html" aria-label="Front">
                                 <img class="navbar-brand-logo" src="{{ tenant_asset($Setting->logo->name) }}" alt="Logo"
                                     data-hs-theme-appearance="default">
                                 <img class="navbar-brand-logo" src="{{ tenant_asset($Setting->logo->name) }}" alt="Logo"
                                     data-hs-theme-appearance="dark">
-                                <img class="navbar-brand-logo-mini" src="{{ tenant_asset($Setting->logo->name) }}"
+                                <img id="mini-logo" class="navbar-brand-logo-mini" src="{{ tenant_asset($Setting->logo->name) }}"
                                     alt="Logo" data-hs-theme-appearance="default">
                                 <img class="navbar-brand-logo-mini" src="{{ tenant_asset($Setting->logo->name) }}"
                                     alt="Logo" data-hs-theme-appearance="dark">
@@ -98,7 +99,7 @@
                     <!-- End Logo -->
 
                     <!-- Navbar Vertical Toggle -->
-                    <button type="button" class="js-navbar-vertical-aside-toggle-invoker navbar-aside-toggler">
+                    <button type="button" id="aside-toggle" class="js-navbar-vertical-aside-toggle-invoker navbar-aside-toggler">
                         <i class="bi-arrow-bar-left navbar-toggler-short-align"
                             data-bs-template='<div class="tooltip d-none d-md-block" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>'
                             data-bs-toggle="tooltip" data-bs-placement="right" title="Collapse"></i>
@@ -351,7 +352,7 @@
     {{-- Content --}}
     @auth
         <div class="reponsive-toggle-sidebar">
-            <button type="button" class="js-navbar-vertical-aside-toggle-invoker navbar-aside-toggler" style="opacity: 1;">
+            <button type="button" class="js-navbar-vertical-aside-toggle-invoker navbar-aside-toggler">
                 <i class="bi-arrow-bar-left navbar-toggler-short-align"
                     data-bs-template="<div class=&quot;tooltip d-none d-md-block&quot; role=&quot;tooltip&quot;><div class=&quot;arrow&quot;></div><div class=&quot;tooltip-inner&quot;></div></div>"
                     data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Collapse"

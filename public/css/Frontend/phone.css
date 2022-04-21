@@ -3,4 +3,40 @@
         margin-bottom: 40px;
         padding: 0 20px;
     }
+    #background-section{
+        display: none;
+    }
+    .phone-aside{
+        padding: 10px 0;
+        display: block !important;
+    }
+    .company-name{
+        margin-top: 10px;
+    }
+    .search{
+        position: relative;
+    }
+    .search-result{
+        position: absolute;
+        max-width: inherit !important;
+    }
+    .search-result .container .col-md-3{
+        width: 40% !important;
+        font-size: 14px;
+    }
+    .search-result .container .col-md-6{
+        width: 60% !important;
+        font-size: 14px;
+        overflow: hidden;
+    }
+    .back-icon{
+        margin: 10px 0 !important;
+    }
+    .apply-promo-button{
+        margin-top: 20px !important;
+    }
+    .category-name{
+        height: 400px !important;
+        line-height: 400px !important;
+    }
 }

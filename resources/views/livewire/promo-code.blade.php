@@ -41,55 +41,46 @@
                             </div>
                             <div class="col-md-1">
                                 <a style="color: red; font-size: 20px;cursor: pointer;" data-dismiss="modal" aria-label="Close">
-                                    <i class="bi bi-x-circle nav-icon"></i>
+                                    <i clas="bi bi-x-circle nav-icon"></i>
                                 </a>
                             </div>
                     </div>
                     <div class="container modal-body">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-3">
                             <label style="width: 100%"  for="Governorate" class="col-md-4 col-form-label text-md-end popup-label">{{ __('Code') }}</label>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-9">
                             <input placeholder="{{ __('Code') }}"
                             type="text" class="form-control mr-2 ml-2 @error('governorate') is-invalid @enderror" wire:model="addCode" required ="domain" autofocus>
                             @error('addCode') <div class="lvError">{{ $message }}</div> @enderror
                         </div>
                         <hr>
-                        <div class="col-md-6">
+                        <div class="col-md-3">
                             <label style="width: 100%"  for="Governorate" class="col-md-4 col-form-label text-md-end popup-label">{{ __('Discount') }}</label>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-9">
                             <input wire:model="addDiscount" placeholder="{{ __('Discount') }}"
                             type="text" class="form-control mr-2 ml-2 @error('governorate_ar') is-invalid @enderror"  required ="domain" autofocus>
                             @error('addDiscount') <div class="lvError">{{ $message }}</div> @enderror
                         </div>
                         <hr>
-                        <div class="col-md-6">
+                        <div class="col-md-3">
                             <label style="width: 100%"  for="DeliveryCost" class="col-md-4 col-form-label text-md-end popup-label">{{ __('Max price discount') }}</label>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-9">
                             <input wire:model="addMaxPrice" placeholder="{{ __('Max price discount') }}"
                             type="text" class="form-control mr-2 ml-2"  autofocus>
                             @error('addMaxPrice') <div class="lvError">{{ $message }}</div> @enderror
                         </div>
                         <hr>
-                        <div class="col-md-6">
+                        <div class="col-md-3">
                             <label style="width: 100%"  for="DeliveryCost" class="col-md-4 col-form-label text-md-end popup-label">{{ __('Max count') }}</label>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-9">
                             <input wire:model="addMaxCount" placeholder="{{ __('Max count') }}"
                             type="text" class="form-control mr-2 ml-2"  autofocus>
                             @error('addMaxCount') <div class="lvError">{{ $message }}</div> @enderror
-                        </div>
-                        <hr>
-                        <div class="col-md-6">
-                            <label style="width: 100%"  for="DeliveryCost" class="col-md-4 col-form-label text-md-end popup-label">{{ __('Usable') }}</label>
-                        </div>
-                        <div class="col-md-6">
-                            <input wire:model="addUsable" placeholder="{{ __('Usable') }}"
-                            type="text" class="form-control mr-2 ml-2"  autofocus>
-                            @error('addUsable') <div class="lvError">{{ $message }}</div> @enderror
                         </div>
                     </div>
                     </div>
@@ -152,15 +143,6 @@
                                 <input wire:model="editMaxCount" placeholder="{{ __('Max count') }}"
                                 type="text" class="form-control mr-2 ml-2"  autofocus>
                                 @error('editMaxCount') <div class="lvError">{{ $message }}</div> @enderror
-                            </div>
-                            <hr>
-                            <div class="col-md-6">
-                                <label style="width: 100%"  for="DeliveryCost" class="col-md-4 col-form-label text-md-end popup-label">{{ __('Usable') }}</label>
-                            </div>
-                            <div class="col-md-6">
-                                <input wire:model="editUsable" placeholder="{{ __('Usable') }}"
-                                type="text" class="form-control mr-2 ml-2"  autofocus>
-                                @error('editUsable') <div class="lvError">{{ $message }}</div> @enderror
                             </div>
                         </div>
                     </div>

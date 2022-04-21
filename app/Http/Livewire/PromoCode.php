@@ -52,10 +52,9 @@ class PromoCode extends Component
 
     protected $rules = [
         'addCode'         => 'required|min:1',
-        'addDiscount'     => 'required|min:1',
+        'addDiscount'     => 'required|min:1|max:100',
         'addMaxPrice'     => 'required|min:1',
         'addMaxCount'     => 'required|min:1',
-        'addUsable'       => 'required|min:1',
     ];
     // Add
     public function addPromo()
@@ -66,7 +65,7 @@ class PromoCode extends Component
         $newPromo->discount            = $this->addDiscount;
         $newPromo->max_price_discount  = $this->addMaxPrice;
         $newPromo->max_count           = $this->addMaxCount;
-        $newPromo->usable              = $this->addUsable;
+        $newPromo->usable              = 0;
         $newPromo->active              = 1;
         $newPromo->save();
         $this->reset();
@@ -76,20 +75,18 @@ class PromoCode extends Component
     public function edit($id)
     {
         $edit                = ModelsPromoCode::find($id);
-        $this->codeId       = $edit->id;
+        $this->codeId        = $edit->id;
         $this->editCode      = $edit->code;
         $this->editDiscount  = $edit->discount;
         $this->editMaxPrice  = $edit->max_price_discount;
         $this->editMaxCount  = $edit->max_count;
-        $this->editUsable    = $edit->usable;
     }
 
     protected $updateRules = [
         'editCode'         => 'required|min:1',
-        'editDiscount'     => 'required|min:1',
+        'editDiscount'     => 'required|min:1|max:100',
         'editMaxPrice'     => 'required|min:1',
         'editMaxCount'     => 'required|min:1',
-        'editUsable'       => 'required|min:1',
     ];
 
     public function update($id)
@@ -100,7 +97,6 @@ class PromoCode extends Component
         $updateRecord->discount            = $this->editDiscount;
         $updateRecord->max_price_discount  = $this->editMaxPrice;
         $updateRecord->max_count           = $this->editMaxCount;
-        $updateRecord->usable              = $this->editUsable;
         $updateRecord->save();
         $this->reset();
         session()->flash('update', __('Promo code has successfully been updated'));

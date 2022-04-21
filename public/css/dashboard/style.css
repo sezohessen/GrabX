@@ -1,3 +1,4 @@
+
 /* Dashboard */
 .navbar-vertical-footer-list-item .dropdown-menu .navi-hover .navi-item img{
     width: 25px;
@@ -20,6 +21,8 @@
 }
 #dashboard-logo{
     margin-top: 20px;
+    position: relative;
+    overflow: hidden;
 
 }
 #dashboard-logo img{
@@ -27,4 +30,32 @@
     max-width: 100%;
     height: 100%;
     overflow: hidden;
+}
+.background-img img {
+    min-width: 800px;
+    min-height: 800px;
+    max-width: 800px;
+    max-height: 800px;
+    object-fit: cover;
+    position: fixed;
+}
+
+.background-img #mini-logo {
+    width: 2.875rem;
+    max-width: 100%;
+    height: 100%;
+}
+.reponsive-toggle-sidebar{
+    position: fixed;
+    top: 20px;
+    z-index: 10;
+}
+.reponsive-toggle-sidebar button{
+    border-radius: 0 20% 20% 0;
+}
+#aside-toggle{
+    top: 30%;
+}
+.profile-cover-avatar{
+    margin: 0 !important;
 }
