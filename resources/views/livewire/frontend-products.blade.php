@@ -4,8 +4,8 @@
     <div class="header-title">
         <div class="container">
             <div class="row">
-                <div class="col-md-1">
-                    <span class="back-icon">
+                <div class="col-md-1 back-icon">
+                    <span class="">
                         <a href="{{ route('tenant.Homepage') }}" title="@lang('Category page')">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-caret-left-square-fill" viewBox="0 0 16 16">
@@ -29,7 +29,7 @@
     <div class="container-fluid">
         <div class="row" style="margin-bottom: 50px">
             @foreach ($products as $key => $product)
-            <div class="col-md-6">
+            <div class="col-12 col-md-12 col-lg-6">
                 <div class="osahan-slider-item">
                     <div class="list-card bg-gray h-100 rounded overflow-hidden position-relative margin-t-40">
                         <div class="list-card-image">

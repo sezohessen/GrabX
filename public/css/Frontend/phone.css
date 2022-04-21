@@ -60,4 +60,10 @@
     .p-3{
         padding: 0% !important;
     }
+    .back-icon{
+        margin: 10px 0 !important;
+    }
+    .product-img img{
+        min-height: auto !important;
+    }
  }
