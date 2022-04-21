@@ -29,3 +29,8 @@ body{
 .mini-price {
     text-align: center;
 }
+.cart-icon{
+    border-left: 1px solid gray;
+    border-right: 0;
+
+}

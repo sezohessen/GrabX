@@ -9,7 +9,7 @@
         <ul>
             @foreach ($searchResult as $result)
             <li>
-                <div class="container">
+                <div class="container-fluid" style="padding: 0 10px">
                     <div class="row">
                         <div class="col-md-3">
                             <a href="{{ route('tenant.Product',['id' => $result->id]) }}">

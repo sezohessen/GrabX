@@ -89,7 +89,7 @@ Route::group([
 
     // Payment response
     Route::get('/success-payment',function(){return view('Payment.success');});
-    Route::get('/failed-payment',function(){return 'failed payment';});
+    Route::get('/failed-payment',function(){return view('Payment.failed');});
 });
 
 

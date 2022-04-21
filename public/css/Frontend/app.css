@@ -374,6 +374,7 @@ input[type="radio"]:checked + label{
     position: relative;
     font-size: 22;
     border-right: 1px solid gray;
+    border-left: 0;
 }
 .cart-icon a div{
  display: inline-block;
@@ -382,5 +383,8 @@ input[type="radio"]:checked + label{
 }
 /* hide aside in big screen */
 .phone-aside{
+    display: none;
+}
+.tablet-aside{
     display: none;
 }

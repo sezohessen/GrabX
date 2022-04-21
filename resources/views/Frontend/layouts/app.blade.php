@@ -170,6 +170,32 @@
                         </div>
                     </div>
                 </div>
+                {{-- tablet Aside --}}
+                <div class="tablet-aside"ap>
+                    <div class="d-flex flex-row justify-content-around align-items-center">
+                        <div class="logo">
+                            @if(isset($setting->logo))
+                            <a href="{{ Route('tenant.Homepage') }}" class="brand-wrap mb-0">
+                                <img alt="logo" class="img-fluid" src="{{ tenant_asset($setting->logo->name) }}">
+                            </a>
+                            @else
+                            <a href="{{ Route('tenant.Homepage') }}" class="brand-wrap mb-0">
+                                <img alt="{{ Route('tenant.Homepage') }}" class="img-fluid" src="{{ global_asset('img/products/164868101991327.jpg') }}">
+                            </a>
+                            @endif
+                        </div>
+                        <div class="company-name">
+                            <div>
+                                <h6><a href="{{ Route('tenant.Homepage') }}">{{ isset($setting->company_name) ? $setting->company_name : tenant('company') }}</a></h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row justify-content-around align-items-center">
+                        <div class="search">
+                            @livewire('search')
+                        </div>
+                    </div>
+                </div>
                 <hr style="margin: 0">
                 @yield('content')
             </div>
