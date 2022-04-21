@@ -88,21 +88,21 @@ body {
 
 .frontend-lang {
     z-index: 99;
-    position: absolute;
     top: 4px;
     left: 4px;
 }
 
 .frontend-lang .dropdown button {
     background-color: transparent;
-    position: fixed;
     top: 4px;
 }
 
 .lang-dropdown {
     padding: 10px 20px;
 }
-
+.dropdown-menu .lang-items{
+    top: 0 !important;
+}
 .lang-items {
     padding: 10px 20px;
 }
@@ -340,4 +340,12 @@ input[type="radio"]:checked + label{
 }
 .search-result ul li img{
     max-width: 40px;
+}
+
+.dropdown-toggle::after{
+    color: black;
+}
+#dropdownMenuButton1{
+    border: 0;
+    position: relative;
 }

@@ -33,7 +33,9 @@
     {{-- TomSelect --}}
     <link href="https://cdn.jsdelivr.net/npm/tom-select@2.0.1/dist/css/tom-select.css" rel="stylesheet">
     <!-- Styles -->
+    <link href="{{ global_asset('css/Frontend/phone.css') }}" rel="stylesheet">
     <link href="{{ global_asset('css/Frontend/app.css') }}" rel="stylesheet">
+
     {{-- Livewire --}}
     @livewireStyles
 
@@ -60,13 +62,12 @@
 
     <div class="container-fluid">
         <div class="row">
-
             <div class="col-md-5 frontend-content">
                 {{-- website navbar --}}
                 <header class="section-header">
                     <section class="header-main shadow-sm bg-white" style="padding: 4px 0">
                         <div class="container">
-                            <div class="row align-items-center">
+                            <div class="row align-items-md-center">
                                 <div class="col-1">
                                     @if(isset($setting->logo))
                                     <a href="{{ Route('tenant.Homepage') }}" class="brand-wrap mb-0">
@@ -85,14 +86,13 @@
                                     </div>
                                 </div>
                                 {{-- search --}}
-                                <div class="col-md-1"></div>
-                                <div class="col-md-4">
+                                <div class="col-md-4" style="margin: 0 10px">
                                     @livewire('search')
                                 </div>
-                                <div class="col-md-1"></div>
-                                <div class="col-md-2">
+                                {{-- Cart --}}
+                                <div class="col-md-1">
                                     <a href="{{ route('tenant.cart.show') }}">
-                                        <span>
+                                        <span style="font-size: 14px">
                                             @lang('Cart')
                                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
                                                     fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
@@ -101,6 +101,44 @@
                                             </svg>
                                         </span>
                                     </a>
+                                </div>
+                                {{-- Change lang --}}
+                                <div class="col-md-2">
+                                    <div class="frontend-lang">
+                                        <div class="dropdown">
+                                            <button class="btn btn-secondary dropdown-toggle lang-dropdown navi-link" type="button"
+                                                id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                @if (App::isLocale('ar'))
+                                                <img style="width: 30px" src="{{ global_asset('img/flag/KW.svg') }}" alt="Arabic" />
+                                                @else
+                                                <img style="width: 30px" class="" src="{{ global_asset('img/flag/UK.svg') }}"
+                                                    alt="English" />
+                                                @endif
+                                            </button>
+                                            <ul class="dropdown-menu lang-items" aria-labelledby="dropdownMenuButton1">
+                                                {{-- Item --}}
+                                                <li class="navi-item">
+                                                    <a href="{{url('/lang/en')}}"
+                                                        class="navi-link @if (App::isLocale('en'))  active  @endif">
+                                                        <span class="mr-3 symbol symbol-20">
+                                                            <img src="{{ global_asset('img/flag/UK.svg') }}" alt="English" />
+                                                        </span>
+                                                        <span class="navi-text">@lang('English')</span>
+                                                    </a>
+                                                </li>
+                                                {{-- Item --}}
+                                                <li class="navi-item">
+                                                    <a href="{{url('/lang/ar')}}"
+                                                        class="navi-link @if (App::isLocale('ar'))  active  @endif" href="{{url('/ar')}}">
+                                                        <span class="mr-3 symbol symbol-20">
+                                                            <img src="{{ global_asset('img/flag/KW.svg') }}" alt="Arabic" />
+                                                        </span>
+                                                        <span class="navi-text">@lang('Arabic')</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <!-- row.// -->
@@ -123,41 +161,6 @@
                     <img src="{{ global_asset('img/static/background.jpg') }}" class="img-fluid" alt="background-image">
                 </div>
                 @endif
-                <div class="frontend-lang">
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle lang-dropdown navi-link" type="button"
-                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                            @if (App::isLocale('ar'))
-                            <img style="width: 30px" src="{{ global_asset('img/flag/KW.svg') }}" alt="Arabic" />
-                            @else
-                            <img style="width: 30px" class="" src="{{ global_asset('img/flag/UK.svg') }}"
-                                alt="English" />
-                            @endif
-                        </button>
-                        <ul class="dropdown-menu lang-items" aria-labelledby="dropdownMenuButton1">
-                            {{-- Item --}}
-                            <li class="navi-item">
-                                <a href="{{url('/lang/en')}}"
-                                    class="navi-link @if (App::isLocale('en'))  active  @endif">
-                                    <span class="mr-3 symbol symbol-20">
-                                        <img src="{{ global_asset('img/flag/UK.svg') }}" alt="English" />
-                                    </span>
-                                    <span class="navi-text">@lang('English')</span>
-                                </a>
-                            </li>
-                            {{-- Item --}}
-                            <li class="navi-item">
-                                <a href="{{url('/lang/ar')}}"
-                                    class="navi-link @if (App::isLocale('ar'))  active  @endif" href="{{url('/ar')}}">
-                                    <span class="mr-3 symbol symbol-20">
-                                        <img src="{{ global_asset('img/flag/KW.svg') }}" alt="Arabic" />
-                                    </span>
-                                    <span class="navi-text">@lang('Arabic')</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
             </div>
 
         </div>
