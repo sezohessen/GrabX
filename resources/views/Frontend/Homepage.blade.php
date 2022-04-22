@@ -19,7 +19,7 @@
                     @foreach ($categories as $category)
                     <div class="col-md-6 category-card">
                         <a href="{{ route('tenant.CategoryProducts',['id'=>$category->id]) }}">
-                            <div class="card bg-white text-white" style="padding: 4px">
+                            <div class="card bg-white text-white" style="padding: 4px;margin:5px">
                                 <img src="{{ global_asset('img/static/pexels-pixabay-326279.jpg') }}" class="card-img" alt="...">
                                 <div class="card-img-overlay">
                                     <h5 class="card-title category-name"> {{ LangDetail($category->name,$category->name_ar) }}</h5>

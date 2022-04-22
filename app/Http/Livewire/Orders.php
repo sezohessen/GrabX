@@ -33,7 +33,7 @@ class Orders extends Component
     {
         $this->order = Order::where('id',$id)->first();
         $this->order->update([
-            'status' => Order::status['delivered']
+            'status' => Order::Delivered
         ]);
         session()->flash('delivered', __('Order has been delivered Successfully'));
     }
@@ -41,7 +41,7 @@ class Orders extends Component
     {
         $this->order = Order::where('id',$id)->first();
         $this->order->update([
-            'status' => Order::status['on way']
+            'status' => Order::OnWay
         ]);
         session()->flash('OnTheWay', __('Order is on the way to reach'));
     }
@@ -49,7 +49,7 @@ class Orders extends Component
     {
         $this->order = Order::where('id',$id)->first();
         $this->order->update([
-            'status' => Order::status['canceled']
+            'status' => Order::Canceled
         ]);
         session()->flash('canceled', __('Order has been canceled Successfully'));
     }

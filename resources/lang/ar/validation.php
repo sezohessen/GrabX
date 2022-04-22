@@ -228,7 +228,9 @@ return [
         "editMaxCount"          => "اقصي عدد",
         "editUsable"            => "الاستخدام",
         "company_name"          => "أسم الشركة",
-        "bg"                    => "الخلفية"
+        "bg"                    => "الخلفية",
+        "Maximum quantity to order is" => "الكميه القصوي لطلبها هيا"
+
 
 
 

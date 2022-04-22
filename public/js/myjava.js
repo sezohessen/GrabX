@@ -12,3 +12,7 @@ $(function () {
         }
     });
 });
+// toggle icon dashboard
+// $('#aside-toggle').on('click' , function() {
+//     $('#dashboard-logo').toggleClass('hide');
+// });

@@ -21,7 +21,9 @@
 body {
     font-style: oblique;
 }
-
+.back-icon{
+    margin-top: 10px;
+}
 .back-icon svg {
     width: 50px;
     height: 30px;
@@ -29,8 +31,10 @@ body {
 }
 
 .background-img img {
-    width: 1024px;
-    height: 1000px;
+    min-width: 1024px;
+    min-height: 1000px;
+    max-width: 1024px;
+    max-height: 1000px;
     object-fit: cover;
     position: fixed;
 }
@@ -94,12 +98,8 @@ body {
 
 .frontend-lang .dropdown button {
     background-color: transparent;
-    top: 4px;
 }
 
-.lang-dropdown {
-    padding: 10px 20px;
-}
 .dropdown-menu .lang-items{
     top: 0 !important;
 }
@@ -331,21 +331,65 @@ input[type="radio"]:checked + label{
     transition: .5s;
 }
 .search-result ul li:hover{
-    background: #757F9A;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #D7DDE8, #757F9A);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #D7DDE8, #757F9A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-color: #F7F9F9;
+
+}
+.search-result ul li a{
+    color: black;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    transition: .5s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .search-result ul li:hover a{
-    color: black;
+    color: #0d6efd;
 }
 .search-result ul li img{
-    max-width: 40px;
+    max-width: 60px !important;
+    min-height: 60px !important;
+    max-height: 60px !important;
+    min-width: 60px !important;
 }
 
 .dropdown-toggle::after{
     color: black;
 }
+.item-search-name{
+    display: block;
+    top: 50%;
+    -ms-transform: translateY(50%);
+    transform: translateY(50%);
+}
 #dropdownMenuButton1{
     border: 0;
     position: relative;
+}
+.second-navbar{
+    position: fixed;
+    background-color: white;
+    padding: 4px;
+    border-radius: 0 0px 4px 4px;
+}
+.cart-icon{
+    background-color: transparent;
+    top: 0px;
+    border: 0;
+    position: relative;
+    font-size: 22;
+    border-right: 1px solid gray;
+    border-left: 0;
+}
+.cart-icon a div{
+ display: inline-block;
+ margin: auto;
+ padding: 3px;
+}
+/* hide aside in big screen */
+.phone-aside{
+    display: none;
+}
+.tablet-aside{
+    display: none;
 }

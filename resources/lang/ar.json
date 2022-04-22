@@ -264,5 +264,12 @@
     "There is no results for":"لا توجد نتائج ل",
     "Payment failed":"عملية الدفع فشلت",
     "Please try again":"حاول مرة اخرى",
-    "View Cart":"عرض عربة التسوق"
+    "View Cart":"عرض عربة التسوق",
+    "Payment has failed":"فشل الدفع",
+    "Make sure the payment information is correct.":"تأكد من صحه بيانات الدفع.",
+    "If the error persists, please contact us":"إذا استمر الخطأ ، يرجى الاتصال بنا",
+    "Add to cart":"أضف الي السلة",
+    "Maximum quantity to order is":"الكميه القصوي لطلبها هيا",
+    "Remember me":"تذكرني",
+    "Welcome":"مرحباً"
 }

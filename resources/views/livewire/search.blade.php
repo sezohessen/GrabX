@@ -9,8 +9,18 @@
         <ul>
             @foreach ($searchResult as $result)
             <li>
-                <img src="{{ find_image($result->image ,  App\Models\Product::base ) }}" alt="Product-image-search">
-                <a href="{{ route('tenant.Product',['id' => $result->id]) }}">  {{ LangDetail($result->name, $result->name_ar) }} </a>
+                <div class="container-fluid" style="padding: 0 10px">
+                    <div class="row">
+                        <div class="col-4">
+                            <a href="{{ route('tenant.Product',['id' => $result->id]) }}">
+                                <img class="img-thumbnail" src="{{ find_image($result->image ,  App\Models\Product::base ) }}" alt="Product-image-search">
+                            </a>
+                        </div>
+                        <div class="col-8">
+                            <a class="item-search-name" href="{{ route('tenant.Product',['id' => $result->id]) }}">  {{ LangDetail($result->name, $result->name_ar) }} </a>
+                        </div>
+                   </div>
+                </div>
             </li>
             @endforeach
         </ul>

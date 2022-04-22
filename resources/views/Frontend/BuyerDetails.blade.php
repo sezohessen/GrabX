@@ -265,33 +265,33 @@
                         </div>
                         <div class="container-fluid">
                             <div class="row text-muted mt-2">
-                                <div class="col-md-8">
+                                <div class="col-8">
                                     <span>@lang('Deliverly Cost')</span>
                                 </div>
-                                <div class="col-md-4" id="deliverly">
+                                <div class="col-4" id="deliverly">
                                     <span > 0 @lang('KWD')</span>
                                 </div>
 
                             </div>
                             <div class="row text-muted mt-2">
                             @if($cart->discount)
-                            <div class="col-md-8">
+                            <div class="col-8">
                                 <span>@lang('Before discount')</span>
                             </div>
                             @else
-                            <div class="col-md-8">
+                            <div class="col-8">
                                 <span>@lang('subtotal')</span>
                             </div>
                             @endif
                             @if ($cart->discount)
-                                <div class="col-md-4" style="text-decoration: line-through">
+                                <div class="col-4" style="text-decoration: line-through">
                                     <span id="outcome">
                                         <span id="subtotal">{{ $cart->subtotal }} </span>
                                     </span>
                                     @lang('KWD')
                                 </div>
                             @else
-                                <div class="col-md-4">
+                                <div class="col-4">
                                     <span id="outcome">
                                         <span id="subtotal">{{ $cart->subtotal }} </span>
                                     </span>
@@ -301,21 +301,21 @@
                             </div>
                             @if ($cart->discount)
                             <div class="row text-muted mt-2">
-                                <div class="col-md-8">
+                                <div class="col-8">
                                     <span>@lang('Discount')</span>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-4">
                                     <span > <span id="discount"> {{ $cart->discount }}%- </span> </span>
                                 </div>
                             </div>
                             @endif
                             <div class="row font-weight-bold mt-2">
-                                <div class="col-md-8">
+                                <div class="col-8">
                                     <span>@lang('Total')</span>
                                     <div id="paymentForm"></div>
                                 </div>
 
-                                <div class="col-md-4">
+                                <div class="col-4">
                                     <span id="new_value">{{ $cart->subtotal - (($cart->discount /100) * $cart->subtotal)}} </span>
                                     <span> @lang('KWD') </span>
                                 </div>
@@ -432,36 +432,36 @@
                             <div class="row">
                                 @if ($cart->discount)
                                 <div class="row text-muted mt-2">
-                                    <div class="col-md-8">
+                                    <div class="col-8">
                                         <span>@lang('Before discount')</span>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-4">
                                         <span>{{ $cart->subtotal }} @lang('KWD')</span>
                                     </div>
                                 </div>
                                 <div class="row text-muted mt-2">
-                                    <div class="col-md-8">
+                                    <div class="col-8">
                                         <span>@lang('Discount')</span>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-4">
                                         <span > <span id="discount"> {{ $cart->discount }}%- </span> </span>
                                     </div>
                                 </div>
                                 @else
                                 <div class="row text-muted mt-2">
-                                    <div class="col-md-8">
+                                    <div class="col-8">
                                         <span>@lang('subtotal')</span>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-4">
                                         <span>{{ $cart->subtotal }} @lang('KWD')</span>
                                     </div>
                                 </div>
                                 @endif
                                 <div class="row font-weight-bold mt-2">
-                                    <div class="col-md-8">
+                                    <div class="col-8">
                                         <span>@lang('Total')</span>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-4">
                                         <span id="new_value">{{ $cart->subtotal - (($cart->discount /100) * $cart->subtotal)}} </span>@lang('KWD')
                                     </div>
                                 </div>

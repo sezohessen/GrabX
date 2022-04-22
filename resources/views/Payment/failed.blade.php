@@ -23,8 +23,9 @@
     <div class="font-weight-bold text-center mt-4">
         <div class="alert alert-danger">
             <h2><strong>@lang('Payment failed')</strong></h2>
-            <h4>@lang('Please try again')</h4>
+            <h4>@lang('Make sure the payment information is correct.')</h4>
             <p><a href="{{ route('tenant.cart.show') }}">@lang('View Cart')</a></p>
+            <span>@lang('If the error persists, please contact us')</span>
         </div>
     </div>
 </div>
