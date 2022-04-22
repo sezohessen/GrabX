@@ -203,6 +203,12 @@
             <x-checkout-button :message="$message"/>
             {{-- button price --}}
         </div>
+        {{-- error message --}}
+        @if (session()->has('max'))
+        <div class="alert alert-danger">
+            {{ session('max') }}
+        </div>
+    @endif
     </form>
 </div>
 @endsection

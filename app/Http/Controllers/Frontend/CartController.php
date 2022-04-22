@@ -25,13 +25,20 @@ class CartController extends Controller
             $CopyNum    = CartItem::where('product_id',$id)
             ->where('cart_id',$cart->id)
             ->max('copy_num');
-            $CartItem   =   CartItem::create([
-                'cart_id'       => $cart->id,
-                'product_id'    => $product->id,
-                'qty'           => $request->quantity,
-                'price'         => $product->price,
-                'copy_num'      => $CopyNum+1
-            ]);
+            if($request->quantity <= $product->availabe_qty)
+            {
+                $CartItem   =   CartItem::create([
+                    'cart_id'       => $cart->id,
+                    'product_id'    => $product->id,
+                    'qty'           => $request->quantity,
+                    'price'         => $product->price,
+                    'copy_num'      => $CopyNum+1
+                ]);
+            } else {
+                session()->flash('max',__("Maximum quantity to order is") . ' ' . $product->availabe_qty);
+                return redirect()->back();
+            }
+
             $optionTotal    = 0;
             /* Create each Option that user select and add it to total amount*/
             if($request->OneSelect){
@@ -91,12 +98,19 @@ class CartController extends Controller
                'subtotal'   => 0,
                'total'      => 0,
             ]);
-            $CartItem   = CartItem::create([
-                'cart_id'       => $newCart->id,
-                'product_id'    => $product->id,
-                'qty'           => $request->quantity,
-                'price'         => $product->price,
-            ]);
+            if($request->quantity >= $product->availabe_qty)
+            {
+                $CartItem   = CartItem::create([
+                    'cart_id'       => $newCart->id,
+                    'product_id'    => $product->id,
+                    'qty'           => $request->quantity,
+                    'price'         => $product->price,
+                ]);
+            } else {
+                session()->flash('max',__("Maximum quantity to order is") . ' ' . $product->availabe_qty);
+                return redirect()->back();
+            }
+
             $optionTotal = 0;
             /* Create each Option that user select and add it to total amount*/
             if($request->OneSelect){
