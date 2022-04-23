@@ -142,8 +142,7 @@
                                         <a class="nav-link "
                                             href="{{ route('tenant.Product.index') }}">{{ __('Products') }}</a>
                                         <a class="nav-link "
-                                            href="{{ route('tenant.Product.create') }}">{{ __('Add
-                                        Product') }}</a>
+                                            href="{{ route('tenant.Product.create') }}">{{ __('Add Product') }}</a>
                                         <a class="nav-link "
                                             href="{{ route('tenant.PromoCode') }}">{{ __('Promo code') }}</a>
                                     </div>
@@ -159,11 +158,9 @@
                                         <div id="navbarVerticalMenuPagesEcommerceOrder" class="nav-collapse collapse "
                                             data-bs-parent="#navbarVerticalMenuPagesEcommerceOrder">
                                             <a class="nav-link "
-                                                href="{{ route('tenant.order.index') }}">{{ __('Show
-                                            Orders') }}</a>
+                                                href="{{ route('tenant.order.index') }}">{{ __('Show Orders') }}</a>
                                             <a class="nav-link "
-                                                href="{{ route('tenant.order.pending') }}">{{ __('Pending
-                                            Orders') }}</a>
+                                                href="{{ route('tenant.order.pending') }}">{{ __('Pending Orders') }}</a>
                                         </div>
                                     </div>
                                     <!-- End Collapse -->

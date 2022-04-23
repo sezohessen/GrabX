@@ -39,9 +39,9 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProductRequest $request)
     {
-        /* dd($request->all()); */
+        // dd($request->all());
         $imageID        = add_Image($request->image,NULL,Product::base);   // Store image
         $credentials    = Product::credentials($request,$imageID); // Store product
         $product        = Product::create($credentials);

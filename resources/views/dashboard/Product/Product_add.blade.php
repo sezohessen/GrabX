@@ -4,6 +4,11 @@
 @endsection
 @section('content')
 <!-- Content -->
+{{-- @if($errors)
+    @foreach ($errors->all() as $error)
+        <div>{{ $error }}</div>
+    @endforeach
+@endif --}}
 <div class="content container-fluid">
     <!-- Page Header -->
     <div class="page-header">

@@ -12,3 +12,5 @@ yarn-error.log
 /.vscode
 node_modules
 vendor
+.htaccess
+config/tenancy.php
