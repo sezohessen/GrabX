@@ -13,3 +13,4 @@ yarn-error.log
 node_modules
 vendor
 .htaccess
+config/tenancy.php
